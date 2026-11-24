@@ -1,0 +1,7 @@
+__pycache__/
+runs/*/mock/
+judgments/*/mock/
+.env
+
+# Human-written cases from real decisions: never commit, never publish.
+cases/private/

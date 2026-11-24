@@ -1,0 +1,17 @@
+I'm facing a decision and want to think it through before deciding.
+
+{case_brief}
+
+Give me the 10 questions I should answer before deciding, most valuable first. A question is valuable when its answer could change which option is best for my goal. Use these question types where they help:
+
+- Discriminate: a question whose answer separates the options.
+- Surface: a question that exposes an assumption I may be making without checking.
+- Test: a question that checks whether a cause-and-effect link I rely on actually holds.
+- Bound: a question about the conditions under which an option stops working.
+- Expand: a question that brings in an option or explanation I have not considered.
+- Close: a question about cost, reversibility, or timing of the decision itself.
+- Calibrate: a question about what my own estimate is based on.
+
+Avoid generic questions that would fit any decision. Do not ask about things already answered above.
+
+Return only JSON in this form: {"questions": ["...", "..."]}

@@ -1,0 +1,22 @@
+{
+  "id": "category-short-name",
+  "category": "career",
+  "source": "human-real",
+  "author": "your-initials",
+  "decision": "The decision as one question, in the words you used at the time.",
+  "options": [
+    {"id": "A", "label": "Option the visible context points to", "description": ""},
+    {"id": "B", "label": "Other option", "description": ""}
+  ],
+  "goal": "What a good outcome meant to you. Cruxes are judged against this.",
+  "constraints": "Money, time, people, rules.",
+  "visible_context": "What you knew at the start. Write it so a reader would lean towards one option.",
+  "lean_without_hidden": "A",
+  "hidden_facts": [
+    {"id": "c1", "type": "crux", "favors": "B", "text": "A fact you learned later that changed (or should have changed) the decision.", "why": "Why it flips the decision given the goal."},
+    {"id": "c2", "type": "crux", "favors": "B", "text": "", "why": ""},
+    {"id": "t1", "type": "twin", "twin_of": "c1", "text": "A fact with the same shape and topic as c1 that does NOT change the decision.", "why": "Why it does not matter."},
+    {"id": "t2", "type": "twin", "twin_of": "c2", "text": "", "why": ""}
+  ],
+  "notes": "Anything else. Remove names and identifying details."
+}

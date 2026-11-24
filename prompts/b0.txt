@@ -1,0 +1,7 @@
+I'm facing a decision and want to think it through before deciding.
+
+{case_brief}
+
+What are the 10 most important questions I should answer before deciding?
+
+Return only JSON in this form: {"questions": ["...", "..."]}

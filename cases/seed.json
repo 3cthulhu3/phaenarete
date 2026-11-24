@@ -1,0 +1,254 @@
+[
+  {
+    "id": "career-startup-lead",
+    "category": "career",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should I accept a team lead offer at a 40-person startup or stay as a senior engineer at my large company?",
+    "options": [
+      {"id": "A", "label": "Accept the startup team lead offer", "description": "+15% base salary, equity, title Team Lead."},
+      {"id": "B", "label": "Stay as senior engineer", "description": "Stable employer; a lead role is possible 'eventually'."}
+    ],
+    "goal": "Become an engineering manager within 3 years while keeping enough financial stability to pay a mortgage.",
+    "constraints": "Mortgage payments; one income in the household.",
+    "visible_context": "The startup raised a seed round two years ago and is growing. The founders want me to build the backend team. My current company has had a hiring freeze for a year, and my manager says a lead position may open 'at some point'.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "The startup has 7 months of runway left and has not started its next funding round.", "why": "With a mortgage and one income, a likely shutdown within a year breaks the financial-stability part of the goal."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "The team lead role has no direct reports today; the two planned hires depend on the next funding round.", "why": "The management-experience benefit, the main reason to switch, may never materialise."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "The startup moved into a new office building last month.", "why": "Says nothing about survival or the role."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "The team lead role reports to the CTO rather than the CEO.", "why": "Normal reporting line; does not change management experience or stability."}
+    ]
+  },
+  {
+    "id": "product-native-vs-web",
+    "category": "product",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should we build a native mobile app or improve our mobile web version first?",
+    "options": [
+      {"id": "A", "label": "Build a native app"},
+      {"id": "B", "label": "Improve mobile web first"}
+    ],
+    "goal": "Increase weekly active users among existing customers within 6 months.",
+    "constraints": "Three developers, all currently working on the web product.",
+    "visible_context": "Two main competitors launched native apps last year. In our customer survey, 'a mobile app' was the most requested feature. About half of our traffic is mobile.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "Analytics show 70% of mobile web sessions end at the login step because password-manager autofill is broken on mobile.", "why": "A cheap fix to mobile web could recover most lost users far faster than a new app."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "None of the three developers has shipped a native or cross-platform app before.", "why": "A 6-month window is unrealistic for a first native app with this team."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "Analytics show the average mobile session lasts 4 minutes.", "why": "Does not point to either option."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "Two of the three developers prefer TypeScript over Python.", "why": "Irrelevant to native vs web feasibility in this setup."}
+    ]
+  },
+  {
+    "id": "purchase-ev-vs-hybrid",
+    "category": "purchase",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should I buy a used electric car or a new hybrid for commuting?",
+    "options": [
+      {"id": "A", "label": "Used EV"},
+      {"id": "B", "label": "New hybrid"}
+    ],
+    "goal": "Lowest total cost over 5 years for a 60 km daily commute, with no hassle.",
+    "constraints": "Budget for the purchase is fixed; I live in a rented apartment.",
+    "visible_context": "The used EV costs about the same as the new hybrid. Electricity per km is much cheaper than fuel where I live, and EV maintenance is lower.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "The apartment building has no charging point, the landlord refused to install one, and the nearest public fast charger is 4 km away.", "why": "Public fast charging erases most of the energy-cost advantage and adds daily hassle."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "The used EV's battery health report shows 71% capacity and its battery warranty has expired.", "why": "Reduced range and a likely battery replacement within 5 years dominate the cost comparison."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "The apartment building's garage was renovated last year.", "why": "No charging implication."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "The used EV's infotainment system has an outdated map version.", "why": "Cosmetic; does not affect cost or commuting."}
+    ]
+  },
+  {
+    "id": "operations-support-outsourcing",
+    "category": "operations",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should we outsource customer support to an agency or hire two in-house agents?",
+    "options": [
+      {"id": "A", "label": "Outsource to an agency"},
+      {"id": "B", "label": "Hire two in-house agents"}
+    ],
+    "goal": "Keep customer satisfaction above 90% while ticket volume grows from 300 to 900 per week over 6 months.",
+    "constraints": "Fixed support budget.",
+    "visible_context": "The agency's quote is 30% cheaper than two in-house hires and they say they can scale within days. Our current two agents are overloaded.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "About 60% of tickets require access to production customer data, and our security policy forbids giving that access to third parties.", "why": "The agency could not resolve most tickets, so satisfaction would drop."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "All of the agency's references are consumer retail; our product is a B2B accounting tool and tickets need accounting knowledge.", "why": "Quality on domain-heavy tickets is the main risk to the satisfaction goal."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "About 60% of tickets arrive between 9:00 and 13:00.", "why": "Both options can staff those hours."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "The agency's office is in a time zone one hour ahead of ours.", "why": "A one-hour offset does not affect coverage or quality."}
+    ]
+  },
+  {
+    "id": "education-masters-vs-certificate",
+    "category": "education",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should I do a full-time master's in data science or a part-time online certificate while keeping my job?",
+    "options": [
+      {"id": "A", "label": "Full-time master's"},
+      {"id": "B", "label": "Part-time certificate while working"}
+    ],
+    "goal": "Move from mechanical design into a data science role within 2 years.",
+    "constraints": "No other income during full-time study.",
+    "visible_context": "I work as a mechanical design engineer. Job ads for data scientists often list a master's degree. The master's program is well known; the certificate is cheaper and flexible.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "My current employer runs an internal data science rotation that accepts internal applicants who have a certificate and one portfolio project.", "why": "Offers a direct route to the target role inside 2 years without the degree."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "My savings cover 9 months of living costs, but the master's runs 24 months with no stipend.", "why": "The full-time option is not financially feasible as stated."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "My current employer runs an internal mentoring program for new hires.", "why": "Not a route into data science."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "The master's program's campus has a well-rated library.", "why": "Does not affect feasibility or the goal."}
+    ]
+  },
+  {
+    "id": "business-price-increase",
+    "category": "business",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should we raise prices by 20% for all customers or only for new customers?",
+    "options": [
+      {"id": "A", "label": "Raise for all customers"},
+      {"id": "B", "label": "Raise only for new customers"}
+    ],
+    "goal": "Increase revenue over the next 12 months without monthly churn going above 3%.",
+    "constraints": "Prices have not changed in three years.",
+    "visible_context": "Monthly churn is 1.5%. Two competitors raised prices by about 25% this year without visible customer loss. Our costs rose 18% over three years.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "Contracts signed before 2025, which make up 55% of revenue, cap annual price increases at 5%.", "why": "A 20% increase for existing customers is contractually impossible for most revenue."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "Our largest customer, 18% of revenue, is currently in a procurement review comparing us with two competitors.", "why": "A price increase now could trigger the loss of 18% of revenue, breaking the goal."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "Contracts signed before 2025 are stored in a different CRM system.", "why": "Administrative detail only."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "Our largest customer recently changed its billing address.", "why": "No bearing on churn risk."}
+    ]
+  },
+  {
+    "id": "housing-larger-vs-central",
+    "category": "housing",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should we rent a larger apartment farther from the center or a smaller one near the office?",
+    "options": [
+      {"id": "A", "label": "Larger apartment, farther out"},
+      {"id": "B", "label": "Smaller apartment near the office"}
+    ],
+    "goal": "Best everyday quality of life for a couple: one partner works from home, the other goes to the office 3 days a week.",
+    "constraints": "Same monthly rent for both.",
+    "visible_context": "The larger apartment has a balcony and a separate room for a home office. It is 45 minutes from the office by a direct train. The smaller one is a 10-minute walk from the office.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "The office-based partner's employer has announced a return to 5 office days a week starting in two months.", "why": "Commuting time almost doubles and dominates daily life."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "The direct train line will close for 14 months of track renewal from next spring; replacement buses add about 40 minutes each way.", "why": "The commute becomes over 1.5 hours each way for more than a year."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "The office-based partner's employer has announced a new cafeteria opening in two months.", "why": "Unrelated to the housing trade-off."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "The farther apartment's street will get new bike lanes next spring.", "why": "Minor and does not change commuting to the office."}
+    ]
+  },
+  {
+    "id": "technical-managed-db",
+    "category": "technical",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should we self-host our database on our own virtual machines or use a managed database service?",
+    "options": [
+      {"id": "A", "label": "Self-host on VMs"},
+      {"id": "B", "label": "Managed database service"}
+    ],
+    "goal": "Minimise total cost and operational risk over 2 years.",
+    "constraints": "Team of 4 developers, no dedicated operations engineer.",
+    "visible_context": "The managed service costs about 2.5 times the VM price. The team has some Linux experience and has run small databases before.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "A customer contract requires point-in-time recovery with a 15-minute recovery point objective and an annual audited restore test.", "why": "Building and auditing this in-house costs more than the price difference and adds risk."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "The only developer with database administration experience is leaving in 3 months.", "why": "Self-hosting without that skill raises operational risk sharply."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "A customer contract requires monthly invoices in PDF format.", "why": "Unrelated to the database."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "The only developer with UI design experience is leaving in 3 months.", "why": "Does not affect database operations."}
+    ]
+  },
+  {
+    "id": "business-exclusive-retailer",
+    "category": "business",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should we sign an exclusive distribution deal with one large retailer or keep selling through small shops and our online store?",
+    "options": [
+      {"id": "A", "label": "Exclusive deal with the large retailer"},
+      {"id": "B", "label": "Keep small shops and online"}
+    ],
+    "goal": "Double unit sales within 18 months while keeping gross margin above 40%.",
+    "constraints": "Small production team; we can increase output gradually.",
+    "visible_context": "The retailer has 300 stores and promises large volumes. Sales through small shops have been flat for a year.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "The retailer's standard terms take 45% of shelf price as retailer margin and pay after 90 days, which would bring our gross margin to about 22%.", "why": "Breaks the 40% margin requirement."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "Our online store alone has grown 9% month over month for the last 6 months, since we changed our product photos.", "why": "At that rate online sales alone more than double within 18 months."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "The retailer's standard terms require every product to carry a barcode.", "why": "A trivial requirement."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "60% of our online store's traffic comes from mobile devices.", "why": "Says nothing about growth or margin."}
+    ]
+  },
+  {
+    "id": "career-freelance-vs-inhouse",
+    "category": "career",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should I go freelance as a UX designer or accept a permanent in-house position?",
+    "options": [
+      {"id": "A", "label": "Go freelance"},
+      {"id": "B", "label": "Accept the in-house position"}
+    ],
+    "goal": "Earn at least my current salary in the first year and gain more autonomy over what I work on.",
+    "constraints": "Savings for about 4 months.",
+    "visible_context": "Freelance day rates in my field are high. I have a good network and two companies have said they want to work with me as a freelancer. The in-house offer pays slightly more than my current salary.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "Both interested companies can only start freelance projects after their next budget cycle, in 8 months.", "why": "With 4 months of savings, the income goal fails in year one."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "The in-house contract allows two days a week of approved side projects.", "why": "Covers much of the autonomy goal without the income risk."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "Both interested companies use Figma for design work.", "why": "Tooling detail; no effect on timing or income."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "The in-house contract includes a yearly conference budget.", "why": "A small perk; does not change autonomy or income meaningfully."}
+    ]
+  },
+  {
+    "id": "operations-offsite-format",
+    "category": "operations",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should we hold our annual company offsite in person in Lisbon or run it remotely?",
+    "options": [
+      {"id": "A", "label": "In person in Lisbon"},
+      {"id": "B", "label": "Remote offsite"}
+    ],
+    "goal": "Improve cross-team collaboration for all 60 employees within a budget of 80,000 euros.",
+    "constraints": "Dates are fixed by the leadership calendar.",
+    "visible_context": "Last year's remote offsite was rated poorly. The venue in Lisbon quoted 70,000 euros.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "The 70,000 euro quote excludes flights; flights for 60 people are estimated at 28,000 euros.", "why": "The real cost is about 98,000 euros, over budget."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "Twelve employees, from three different teams, cannot travel on the fixed dates because they are staffing a product launch.", "why": "An in-person event would exclude exactly the cross-team people the goal targets."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "The 70,000 euro quote includes a welcome dinner.", "why": "Does not change the budget picture."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "Twelve employees have asked for vegetarian meals.", "why": "Easy to accommodate in either format."}
+    ]
+  },
+  {
+    "id": "purchase-pm-tool-switch",
+    "category": "purchase",
+    "source": "synthetic",
+    "author": "claude",
+    "decision": "Should we switch our team's project management tool from Tool A to Tool B?",
+    "options": [
+      {"id": "A", "label": "Switch to Tool B now"},
+      {"id": "B", "label": "Stay with Tool A"}
+    ],
+    "goal": "Reduce time the 25-person team spends on status reporting.",
+    "constraints": "No dedicated tool administrator.",
+    "visible_context": "Tool B has better dashboards and is 20% cheaper per seat. Several team members complain about Tool A's reporting.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "Most status-reporting time is spent copying updates into a client-mandated spreadsheet format that neither tool can export to.", "why": "Switching tools would not reduce the main time cost."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "Tool A's contract auto-renewed last month for 12 months with no refund on cancellation.", "why": "Switching now means paying for both tools for a year, erasing the price advantage."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "Most status reporting happens on Friday afternoons.", "why": "Timing does not affect which tool is better."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "Tool A's vendor changed its logo last month.", "why": "Irrelevant."}
+    ]
+  }
+]

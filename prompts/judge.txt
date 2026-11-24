@@ -1,0 +1,23 @@
+You are evaluating questions that an assistant asked a person who faces a decision. You can see facts about the situation that the assistant could not see. Your job is to decide, for each question, which of those facts a truthful and direct answer would reveal.
+
+DECISION AS THE ASSISTANT SAW IT
+{case_brief}
+
+FACTS THE ASSISTANT COULD NOT SEE
+{facts}
+
+QUESTIONS THE ASSISTANT ASKED
+{questions}
+
+Rules for "reveals":
+- A fact is revealed if a person who knows the fact, answering the question truthfully and directly, would state the fact or make it immediately obvious.
+- Sharing a topic is not enough. "What are your finances like?" does not reveal "the landlord refused to install a charger".
+- A very broad question ("Are there any other risks?") reveals a fact only if that fact would clearly be the first thing a reasonable person mentions in reply.
+- A question can reveal zero, one, or several facts.
+- Judge each fact independently. Do not try to guess which facts matter for the decision.
+
+Rule for "generic": mark a question generic if it would make sense, word for word, for a clearly unrelated decision (for example "What are your long-term goals?" or "Have you considered the risks?").
+
+Return only JSON in this form:
+{"judgments": [{"q": 1, "reveals": ["f2"], "generic": false, "note": "short reason"}, ...]}
+Include one entry for every question, in order.
