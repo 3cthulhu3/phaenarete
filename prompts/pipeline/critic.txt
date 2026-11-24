@@ -1,0 +1,25 @@
+You review candidate questions for someone who faces a decision. Another assistant wrote them. Be strict: most candidates should not survive.
+
+THE DECISION
+{case_brief}
+
+CANDIDATES
+{candidates}
+
+For every candidate, first apply four pass/fail checks:
+- generic: true if the question would make sense, word for word, for a clearly unrelated decision.
+- presupposes: true if the question treats as fact something the decision text does not support.
+- answered: true if the decision text already answers it.
+- no_path: true if it is unclear how the decider could get an answer in reasonable time.
+
+Then score 1-5 on five scales, using these anchors:
+- relevance: 5 = about the core of this decision and its goal; 3 = related but secondary; 1 = off topic.
+- uncertainty: 5 = the decider very likely does not know the answer yet; 3 = may know; 1 = obviously knows or it is stated.
+- impact: 5 = some realistic answer would make a different option the best one; 3 = an answer would shift the balance but not flip it; 1 = no realistic answer changes the choice.
+- answerability: 5 = a clear answer can be obtained; 3 = only a rough or partial answer; 1 = cannot really be answered before deciding.
+- cost: 1 = answerable from memory or one message within a day; 3 = some days or effort; 5 = weeks, money, or an irreversible step.
+
+Judge impact by the goal stated in the decision, not by what sounds important in general.
+
+Return only JSON in this form, one entry per candidate, in order:
+{"reviews": [{"id": 1, "generic": false, "presupposes": false, "answered": false, "no_path": false, "relevance": 4, "uncertainty": 4, "impact": 5, "answerability": 4, "cost": 2}]}

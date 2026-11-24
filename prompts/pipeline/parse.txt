@@ -1,0 +1,19 @@
+You help someone prepare for a decision. Do not recommend an option. Your job is to map what is known and what is not.
+
+THE DECISION
+{case_brief}
+
+Build a map of the decision:
+
+1. criteria: what "best" means given the goal, as concrete tests (2-4 items).
+2. stated_facts: facts already given above, briefly (so later steps do not ask about them).
+3. assumptions: things the decider seems to take for granted without having said they checked them (2-5 items).
+4. uncertainties: unknowns whose resolution could change which option is best (4-7 items). For each, say how different answers would favor different options. Prefer unknowns that are specific to this situation over ones that apply to any decision. Consider, without forcing any of them: whether each option is actually feasible, its full cost, timing, what is hard to undo, who or what else it depends on, rules or commitments already in place, and what the goal really requires.
+
+Return only JSON in this form:
+{
+  "criteria": ["..."],
+  "stated_facts": ["..."],
+  "assumptions": [{"id": "a1", "text": "..."}],
+  "uncertainties": [{"id": "u1", "text": "...", "if_resolved": "answer X favors option A; answer Y favors option B"}]
+}

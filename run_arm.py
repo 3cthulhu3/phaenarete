@@ -1,11 +1,15 @@
-"""Generate questions for every case with one arm (b0, b1, ...).
+"""Generate questions for every case with one arm.
+
+Arms: b0, b1 (single prompt from prompts/<arm>.txt) and phaenarete (the multi-stage
+pipeline in pipeline.py).
 
 Usage:
   python3 run_arm.py --arm b0 --cases cases/seed.json
+  python3 run_arm.py --arm phaenarete --cases cases/seed.json
   python3 run_arm.py --arm b1 --cases cases/ --samples 3
-  python3 run_arm.py --arm b0 --cases cases/seed.json --dry-run   # no API calls
+  python3 run_arm.py --arm phaenarete --dry-run      # no API calls
 
-Output: runs/<arm>/<model>/<case_id>__s<k>.json
+Output: runs/<arm>/<model>/<case_id>__s<k>.json  (phaenarete runs also store a full trace)
 """
 
 from __future__ import annotations
@@ -14,8 +18,11 @@ import argparse
 import datetime as dt
 import hashlib
 
+import pipeline
 from common import (DEFAULT_GENERATOR, ROOT, call_claude, case_brief, extract_json, fill,
-                           load_cases, load_prompt, slug, write_json)
+                    load_cases, load_prompt, slug, write_json)
+
+PIPELINE_ARM = "phaenarete"
 
 N_QUESTIONS = 10
 
@@ -28,7 +35,7 @@ def mock_questions(case: dict, k: int) -> list[str]:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--arm", required=True, help="prompt name in prompts/ (b0, b1, ...)")
+    ap.add_argument("--arm", required=True, help="b0, b1, ... (a prompt in prompts/) or phaenarete")
     ap.add_argument("--cases", default="cases/seed.json")
     ap.add_argument("--model", default=DEFAULT_GENERATOR)
     ap.add_argument("--samples", type=int, default=1, help="runs per case (to measure variance)")
@@ -37,8 +44,12 @@ def main() -> None:
     ap.add_argument("--dry-run", action="store_true", help="use mock questions, no API")
     args = ap.parse_args()
 
-    template = load_prompt(args.arm)
-    prompt_hash = hashlib.sha256(template.encode()).hexdigest()[:12]
+    is_pipeline = args.arm == PIPELINE_ARM
+    if is_pipeline:
+        template, prompt_hash = "", pipeline.prompt_fingerprint()
+    else:
+        template = load_prompt(args.arm)
+        prompt_hash = hashlib.sha256(template.encode()).hexdigest()[:12]
     cases = load_cases(ROOT / args.cases if not args.cases.startswith("/") else args.cases)
     if args.only:
         cases = [c for c in cases if c["id"] in set(args.only)]
@@ -53,8 +64,14 @@ def main() -> None:
             if out.exists() and not args.overwrite:
                 skipped += 1
                 continue
+            trace = None
             try:
-                if args.dry_run:
+                if is_pipeline:
+                    call = (pipeline.mock_call(case) if args.dry_run
+                            else lambda p, mt: call_claude(p, args.model, max_tokens=mt))
+                    questions, trace = pipeline.run(case, call)
+                    raw = "(pipeline: see trace)"
+                elif args.dry_run:
                     raw, questions = "(dry run)", mock_questions(case, k)
                 else:
                     raw = call_claude(prompt, args.model)
@@ -65,11 +82,14 @@ def main() -> None:
                 continue
             if len(questions) != N_QUESTIONS:
                 print(f"note {case['id']} s{k}: got {len(questions)} questions, keeping first {N_QUESTIONS}")
-            write_json(out, {
+            record = {
                 "case_id": case["id"], "arm": args.arm, "model": model_dir, "sample": k,
                 "prompt_sha": prompt_hash, "created": dt.datetime.now(dt.timezone.utc).isoformat(),
                 "questions": questions[:N_QUESTIONS], "raw": raw,
-            })
+            }
+            if trace is not None:
+                record["trace"] = trace
+            write_json(out, record)
             done += 1
             print(f"ok   {case['id']} s{k}")
     print(f"\n{done} written, {skipped} skipped (exist), {failed} failed -> {out_dir.relative_to(ROOT)}")

@@ -1,4 +1,4 @@
-# Phaenarete · Crux benchmark (Phase 0)
+# Phaenarete · Crux benchmark (Phase 1)
 
 Phaenarete finds the questions worth answering before a decision. The name is Socrates' mother, a midwife: in Plato's *Theaetetus* he calls his method midwifery, helping others give birth to ideas rather than handing them answers.
 
@@ -16,8 +16,12 @@ cases/private/       your human-written cases (git-ignored)
 prompts/b0.txt       plain baseline: "10 most important questions"
 prompts/b1.txt       same model, operator taxonomy in one prompt
 prompts/judge.txt    judge prompt (sees hidden facts under neutral ids)
+prompts/pipeline/    parse, generate and critic prompts of the Phaenarete pipeline
+pipeline.py          the Phaenarete pipeline (three model stages + deterministic selection)
 validate_cases.py    checks cases (no external packages)
-run_arm.py           generates questions for one arm
+run_arm.py           generates questions for one arm (b0, b1, phaenarete)
+inspect_run.py       readable view of one run with its judge results (for error analysis)
+tests/               unit tests for scoring and selection
 judge.py             judges which hidden facts each question would reveal
 score.py             metrics, per-category view, paired comparison with bootstrap CI
 ```
@@ -31,12 +35,32 @@ export ANTHROPIC_API_KEY=...
 python3 validate_cases.py cases/
 python3 run_arm.py --arm b0 --cases cases/            # generator: claude-sonnet-5-5 by default
 python3 run_arm.py --arm b1 --cases cases/
+python3 run_arm.py --arm phaenarete --cases cases/
 python3 judge.py --arm b0 --gen-model claude-sonnet-5-5 --cases cases/   # judge: claude-opus-5-5
 python3 judge.py --arm b1 --gen-model claude-sonnet-5-5 --cases cases/
-python3 score.py --cases cases/ --compare b0 b1 --by-category
+python3 judge.py --arm phaenarete --gen-model claude-sonnet-5-5 --cases cases/
+python3 score.py --cases cases/ --compare b0 phaenarete --by-category
+python3 inspect_run.py runs/phaenarete/claude-sonnet-5-5/<case_id>__s0.json --rejects
 ```
 
-Add `--dry-run` to any of the first three commands to test the plumbing without API calls. Use `--samples 3` on `run_arm.py` to measure run-to-run variance.
+Add `--dry-run` to `run_arm.py` and `judge.py` to test the plumbing without API calls (mock numbers mean nothing). Use `--samples 3` on `run_arm.py` to measure run-to-run variance. Unit tests: `python3 -m unittest discover tests`.
+
+On Windows PowerShell: set the key with `$env:ANTHROPIC_API_KEY="..."` and use `python` instead of `python3`.
+
+## The Phaenarete pipeline (v0)
+
+1. **Parse** (model): map the decision into criteria, stated facts, assumptions and 4-7 uncertainties that could change which option is best.
+2. **Generate** (model): 4-6 candidate questions for each of seven operators: discriminate, surface, test, bound, expand, close, calibrate. Each names the uncertainty it targets and how to get the answer.
+3. **Critic** (model, separate call that only sees the decision and the questions): four pass/fail checks (generic, presupposes, already answered, no answer path) and five 1-5 scores.
+4. **Select** (plain Python): S = relevance x uncertainty x impact x answerability / cost. Failed candidates are dropped; one strong question per uncertainty is kept for coverage; at least one `close` question; the rest by maximal marginal relevance; near-duplicates are never picked twice. Ten questions, best first.
+
+Every run stores the full trace (map, all candidates, reviews, why each question was picked), so failures can be traced to a stage.
+
+Three to four model calls per case instead of one: the pipeline costs several times what B0 costs per case.
+
+## Development discipline
+
+Tune the pipeline on `cases/seed.json` only. The human cases in `cases/private/` are the test set: run them when a version is frozen, and do not change prompts because of what you saw there. The seed cases and the first pipeline prompts were written by the same model, so seed-set results are optimistic.
 
 ## Metrics
 
@@ -62,6 +86,6 @@ At least 18 of the 30 cases should be human-written (`source: human-real` or `hu
 
 ## Known limits
 
-- One-shot questions only; no dialogue yet.
+- One-shot questions only; the pipeline does not yet update its map from the decider's answers.
 - The judge is a model. Check its calls by hand on at least 3 cases per arm before trusting the numbers.
 - 12 to 30 cases give wide confidence intervals; read the CI, not just the mean.

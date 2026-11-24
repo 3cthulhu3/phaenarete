@@ -1,0 +1,28 @@
+You write candidate questions for someone who faces a decision. Write many; a later step will discard most of them.
+
+THE DECISION
+{case_brief}
+
+MAP OF THE DECISION (from an earlier step)
+{graph}
+
+Write questions with each of these operators. Aim for 4-6 questions per operator.
+
+- discriminate: a question whose answer would make one option clearly better than another.
+- surface: a question that checks one of the assumptions.
+- test: a question that checks whether a cause-and-effect link the decider relies on actually holds.
+- bound: a question about the conditions under which an option stops working (scale, time, money, people).
+- expand: a question that brings in a consideration or option the map does not cover yet.
+- close: a question about the decision itself: what is hard to undo, what waiting costs, what deadline is real.
+- calibrate: a question about what one of the decider's own estimates or impressions is based on.
+
+Rules:
+- Ask the decider, in plain words, one thing per question.
+- Be specific to this decision. A question that would fit an unrelated decision word for word is useless.
+- Do not build a claim into the question that the decision text does not support.
+- Do not ask about stated facts.
+- For each question give the id of the uncertainty or assumption it targets ("u1", "a2"), or "new" if none.
+- For each question say how the decider could get the answer (whom to ask, what to look up, what to check).
+
+Return only JSON in this form:
+{"candidates": [{"operator": "discriminate", "target": "u1", "question": "...", "why": "...", "answer_path": "..."}]}
