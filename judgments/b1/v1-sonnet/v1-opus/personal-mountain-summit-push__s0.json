@@ -1,0 +1,92 @@
+{
+  "case_id": "personal-mountain-summit-push",
+  "arm": "b1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "c1",
+    "f3": "t2",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How reliable is the hut's weather screen: what is the source and issue time of the forecast, and does an independent mountain forecast (and the warden's or guide's own read of the sky and wind) agree on the timing and strength of the front?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Source and issue time of the screen's forecast reveal it is a stale cached forecast and the latest moves the front earlier."
+    },
+    {
+      "q": 2,
+      "question": "How much margin is there between the planned summit-and-back time and the end of the calm window? What is the realistic round-trip time for this group of six on this route, and when is your turnaround time if you are not at the summit by then?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Margin to end of calm window would reveal the latest forecast brings the front to late morning."
+    },
+    {
+      "q": 3,
+      "question": "Could the front arrive earlier than forecast, and what would you see (cloud, wind change, temperature drop) that would tell you to turn back? How quickly could the group descend to safety, and where is the exposed section where retreat would be hardest?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Whether the front could arrive earlier: the latest forecast already moves it forward."
+    },
+    {
+      "q": 4,
+      "question": "What are the current snow and ice conditions, freezing level, avalanche and rockfall hazard, and wind on the upper route? Does the calm window hold at altitude, not only at the hut?",
+      "reveals": [],
+      "generic": false,
+      "note": "Upper-route conditions; does not directly surface the iced hut wind gauge."
+    },
+    {
+      "q": 5,
+      "question": "How would the slowest or least comfortable member of the group affect timing, and is the group's pace on the previous days consistent with the plan? Is everyone actually in good shape this morning, with no altitude symptoms, poor sleep or minor injuries?",
+      "reveals": [],
+      "generic": false,
+      "note": "Group pace and condition; no hidden fact."
+    },
+    {
+      "q": 6,
+      "question": "Is the 'unusually stable season' a reason to trust the forecast, or could it make the group less alert to a change? What would tomorrow's and the day after's forecast show for the spare day: would it be better, equal or worse than tomorrow?",
+      "reveals": [],
+      "generic": false,
+      "note": "Asks about the stable season and spare-day forecast; not directly about the screen's staleness."
+    },
+    {
+      "q": 7,
+      "question": "If the group waits one day, is there still a viable window for a summit attempt, and what would that spare day cost in terms of buffer (a bad-weather day, a delay, or the end of the hut booking)?",
+      "reveals": [],
+      "generic": false,
+      "note": "Spare-day viability; no hidden fact."
+    },
+    {
+      "q": 8,
+      "question": "Does the guide have agreed turnaround rules and the authority to apply them, and does the group agree in advance that the guide's call is final, even when the summit is close?",
+      "reveals": [],
+      "generic": false,
+      "note": "Turnaround authority; no hidden fact."
+    },
+    {
+      "q": 9,
+      "question": "What is the rescue and communication situation: is there phone or radio coverage on the route, and how long would help take if someone were injured high on the route in worsening weather?",
+      "reveals": [],
+      "generic": false,
+      "note": "Rescue and communication on route; not about the hut satellite link."
+    },
+    {
+      "q": 10,
+      "question": "Is there a different plan you have not weighed, such as starting earlier than 5 a.m., attempting an easier or shorter objective, or splitting the group depending on fitness, which would change how much risk you take for the same chance of reaching the summit?",
+      "reveals": [],
+      "generic": false,
+      "note": "Alternative plans; no hidden fact."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Source and issue time of the screen's forecast reveal it is a stale cached forecast and the latest moves the front earlier.\"}, {\"q\": 2, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Margin to end of calm window would reveal the latest forecast brings the front to late morning.\"}, {\"q\": 3, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Whether the front could arrive earlier: the latest forecast already moves it forward.\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Upper-route conditions; does not directly surface the iced hut wind gauge.\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Group pace and condition; no hidden fact.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Asks about the stable season and spare-day forecast; not directly about the screen's staleness.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Spare-day viability; no hidden fact.\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Turnaround authority; no hidden fact.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Rescue and communication on route; not about the hut satellite link.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Alternative plans; no hidden fact.\"}]}"
+}

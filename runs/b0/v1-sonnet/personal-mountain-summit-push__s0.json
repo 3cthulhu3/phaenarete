@@ -1,0 +1,21 @@
+{
+  "case_id": "personal-mountain-summit-push",
+  "arm": "b0",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-26T16:08:11.314624+00:00",
+  "questions": [
+    "How reliable is the forecast on the hut's screen, what is its source and update time, and does it agree with other sources, particularly on the timing of the front's arrival?",
+    "How early could the front arrive, and how much margin is there between the planned return and the weather change given that the forecast window runs only until mid-afternoon?",
+    "How long will the full round trip take for this group, realistically including the slowest member, and what is the latest turnaround time that still gets everyone down before the weather turns?",
+    "What are the conditions on the route itself (snow and ice state, avalanche or rockfall risk, wind at altitude, temperature, visibility), not just at the hut, and have recent parties reported on them?",
+    "What are the pre-agreed turnaround rules, and how will they be enforced if the group is close to the summit when the time limit passes?",
+    "How is each of the six people doing today (sleep, appetite, any signs of altitude problems, fatigue, injuries, gear), and is the group's pace fit enough to hold to the schedule?",
+    "What escape options and shelters exist along the route if the weather turns early, and how quickly could the group descend or get rescue help?",
+    "What would waiting a day bring: is tomorrow's forecast better or worse, and do we still have a second day for a safe attempt, or does the front make the next day worse than today?",
+    "Are the group and guide being influenced by the sunk cost of the trip, the one spare day, or the stable-season reassurance, and would the guide recommend the same plan if the booking had no deadline?",
+    "Has the guide spoken with the hut warden and other guides about local conditions, and does the guide, as the person with the most route experience, feel the plan is sound, with the freedom to call it off at any point without pressure from the clients?"
+  ],
+  "raw": "{\"questions\": [\"How reliable is the forecast on the hut's screen, what is its source and update time, and does it agree with other sources, particularly on the timing of the front's arrival?\", \"How early could the front arrive, and how much margin is there between the planned return and the weather change given that the forecast window runs only until mid-afternoon?\", \"How long will the full round trip take for this group, realistically including the slowest member, and what is the latest turnaround time that still gets everyone down before the weather turns?\", \"What are the conditions on the route itself (snow and ice state, avalanche or rockfall risk, wind at altitude, temperature, visibility), not just at the hut, and have recent parties reported on them?\", \"What are the pre-agreed turnaround rules, and how will they be enforced if the group is close to the summit when the time limit passes?\", \"How is each of the six people doing today (sleep, appetite, any signs of altitude problems, fatigue, injuries, gear), and is the group's pace fit enough to hold to the schedule?\", \"What escape options and shelters exist along the route if the weather turns early, and how quickly could the group descend or get rescue help?\", \"What would waiting a day bring: is tomorrow's forecast better or worse, and do we still have a second day for a safe attempt, or does the front make the next day worse than today?\", \"Are the group and guide being influenced by the sunk cost of the trip, the one spare day, or the stable-season reassurance, and would the guide recommend the same plan if the booking had no deadline?\", \"Has the guide spoken with the hut warden and other guides about local conditions, and does the guide, as the person with the most route experience, feel the plan is sound, with the freedom to call it off at any point without pressure from the clients?\"]}"
+}

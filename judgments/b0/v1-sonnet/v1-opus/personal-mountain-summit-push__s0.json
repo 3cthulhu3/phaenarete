@@ -1,0 +1,90 @@
+{
+  "case_id": "personal-mountain-summit-push",
+  "arm": "b0",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "c1",
+    "f3": "t2",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How reliable is the forecast on the hut's screen, what is its source and update time, and does it agree with other sources, particularly on the timing of the front's arrival?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Source and update time of the screen forecast reveal it is stale and the front is earlier"
+    },
+    {
+      "q": 2,
+      "question": "How early could the front arrive, and how much margin is there between the planned return and the weather change given that the forecast window runs only until mid-afternoon?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "How early the front could arrive is answered by the latest forecast moving it to late morning"
+    },
+    {
+      "q": 3,
+      "question": "How long will the full round trip take for this group, realistically including the slowest member, and what is the latest turnaround time that still gets everyone down before the weather turns?",
+      "reveals": [],
+      "generic": false,
+      "note": "Round-trip timing; no hidden fact concerns this"
+    },
+    {
+      "q": 4,
+      "question": "What are the conditions on the route itself (snow and ice state, avalanche or rockfall risk, wind at altitude, temperature, visibility), not just at the hut, and have recent parties reported on them?",
+      "reveals": [],
+      "generic": false,
+      "note": "Asks about route conditions, not the hut's instruments"
+    },
+    {
+      "q": 5,
+      "question": "What are the pre-agreed turnaround rules, and how will they be enforced if the group is close to the summit when the time limit passes?",
+      "reveals": [],
+      "generic": false,
+      "note": "Turnaround rules; no hidden fact concerns this"
+    },
+    {
+      "q": 6,
+      "question": "How is each of the six people doing today (sleep, appetite, any signs of altitude problems, fatigue, injuries, gear), and is the group's pace fit enough to hold to the schedule?",
+      "reveals": [],
+      "generic": false,
+      "note": "Group condition; no hidden fact concerns this"
+    },
+    {
+      "q": 7,
+      "question": "What escape options and shelters exist along the route if the weather turns early, and how quickly could the group descend or get rescue help?",
+      "reveals": [],
+      "generic": false,
+      "note": "Escape options; no hidden fact concerns this"
+    },
+    {
+      "q": 8,
+      "question": "What would waiting a day bring: is tomorrow's forecast better or worse, and do we still have a second day for a safe attempt, or does the front make the next day worse than today?",
+      "reveals": [],
+      "generic": false,
+      "note": "Tomorrow's forecast; does not directly target the stale cached forecast"
+    },
+    {
+      "q": 9,
+      "question": "Are the group and guide being influenced by the sunk cost of the trip, the one spare day, or the stable-season reassurance, and would the guide recommend the same plan if the booking had no deadline?",
+      "reveals": [],
+      "generic": false,
+      "note": "Bias question; no hidden fact concerns this"
+    },
+    {
+      "q": 10,
+      "question": "Has the guide spoken with the hut warden and other guides about local conditions, and does the guide, as the person with the most route experience, feel the plan is sound, with the freedom to call it off at any point without pressure from the clients?",
+      "reveals": [],
+      "generic": false,
+      "note": "Consultation with warden and guide's comfort; no hidden fact directly answers"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Source and update time of the screen forecast reveal it is stale and the front is earlier\"}, {\"q\": 2, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"How early the front could arrive is answered by the latest forecast moving it to late morning\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Round-trip timing; no hidden fact concerns this\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Asks about route conditions, not the hut's instruments\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Turnaround rules; no hidden fact concerns this\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Group condition; no hidden fact concerns this\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Escape options; no hidden fact concerns this\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Tomorrow's forecast; does not directly target the stale cached forecast\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Bias question; no hidden fact concerns this\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Consultation with warden and guide's comfort; no hidden fact directly answers\"}]}"
+}

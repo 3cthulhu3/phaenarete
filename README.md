@@ -36,7 +36,20 @@ v1 moves the headline to `disc@3` and `disc@5` and adds writing rules in [CASES.
 - **Cruxes are still findable.** Every one of the 13 cruxes was found by at least one arm within 10 questions; 2 of 6 cases are too easy at 5 questions. Even a crux outside the usual checklist (users rewarded for speed while the product slows them down) was found by both arms. Cruxes a model writes are cruxes a model can think of.
 - **Consequence.** The hard part of the test set has to come from people's own decisions, where the crux was idiosyncratic enough that they missed it themselves. Model-written cases are useful for development and for twins.
 
-Next: human-written cases, then a pipeline v1 measured against B1 at 3 and 5 questions.
+### v1 difficulty check, second batch (10 cases)
+
+Four more cases, sourced from public investigation and audit reports (NTSB, CSB, GAO): three adapted and kept private, one public synthetic case (`personal-mountain-summit-push`) that keeps the structure of a well-known maritime investigation in a different domain. All 10 cases, same setup:
+
+| Arm | Crux @3 | @5 | @10 | Twin rate @5 | disc@3 | disc@5 |
+| --- | --- | --- | --- | --- | --- | --- |
+| B0 | 48 | 77 | 95 | 10 | 48 | 67 |
+| B1 | 47 | 77 | 82 | 10 | 37 | 67 |
+
+- **The new batch is harder early, not late.** Over the 4 new cases, crux@3 is 38 for both arms (the first 6 cases: 56 and 53), but crux@10 is still 88. Cruxes that depend on a physical check (how the vessel is loaded, who stands next to a tank) come at questions 4 to 9.
+- **First crux that no arm found.** In the mountain case, both arms found the stale forecast with their first question but neither found that the wind gauge was broken. B1 came close: it questioned the "stable season" impression but not the instrument behind it. A crux hidden behind someone's reassurance is the pattern worth writing more of.
+- **B1 is not ahead of B0** on these 10 cases (paired difference in disc@3 −12, 95% CI [−40, 17]). The pilot's B1 lead does not carry over to v1.
+
+Next: more cases with the "reassurance resting on a broken source" pattern, then a pipeline v1 measured against B0 and B1 at 3 and 5 questions.
 
 ## Layout
 
