@@ -1,0 +1,92 @@
+{
+  "case_id": "product-native-vs-web",
+  "arm": "b0",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t2",
+    "f3": "t1",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What do customers asking for a mobile app actually need, and which problems would a native app solve that mobile web cannot?",
+      "reveals": [],
+      "generic": false,
+      "note": "Customer needs"
+    },
+    {
+      "q": 2,
+      "question": "How does mobile web perform today in speed, usability and conversion, and are there obvious fixes that could lift engagement quickly?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Mobile web conversion and obvious fixes reveal login autofill drop-off"
+    },
+    {
+      "q": 3,
+      "question": "What would a native app cost in total, including development for iOS and Android, maintenance, updates and store requirements, relative to our three developers?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Cost relative to three developers surfaces lack of app experience"
+    },
+    {
+      "q": 4,
+      "question": "What would happen to the web product if all three developers move to the app, and who covers bug fixes and new features?",
+      "reveals": [],
+      "generic": false,
+      "note": "Web product coverage"
+    },
+    {
+      "q": 5,
+      "question": "Could a progressive web app, which is installable and supports notifications, provide most of a native app's benefits at a fraction of the effort?",
+      "reveals": [],
+      "generic": false,
+      "note": "PWA option"
+    },
+    {
+      "q": 6,
+      "question": "Is a first release of a native app achievable in time to influence weekly active users within six months, or would most of the effect arrive afterwards?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Feasibility in six months reveals no one has shipped an app"
+    },
+    {
+      "q": 7,
+      "question": "Which engagement features, such as push notifications, offline mode or device capabilities, are likely to increase weekly use among existing customers?",
+      "reveals": [],
+      "generic": false,
+      "note": "Engagement features"
+    },
+    {
+      "q": 8,
+      "question": "How did the competitors' apps affect their engagement, and what can we learn from their reviews and ratings?",
+      "reveals": [],
+      "generic": false,
+      "note": "Competitor apps"
+    },
+    {
+      "q": 9,
+      "question": "How would we measure success, and what would existing customers' actual adoption and retention rates need to be to justify the app?",
+      "reveals": [],
+      "generic": false,
+      "note": "Success measurement"
+    },
+    {
+      "q": 10,
+      "question": "How could we test demand cheaply first, for example with a prototype, a waitlist, or a limited launch, before committing the team?",
+      "reveals": [],
+      "generic": false,
+      "note": "Cheap demand tests"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Customer needs\"}, {\"q\": 2, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Mobile web conversion and obvious fixes reveal login autofill drop-off\"}, {\"q\": 3, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Cost relative to three developers surfaces lack of app experience\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Web product coverage\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"PWA option\"}, {\"q\": 6, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Feasibility in six months reveals no one has shipped an app\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Engagement features\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Competitor apps\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Success measurement\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Cheap demand tests\"}]}"
+}

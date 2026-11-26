@@ -1,0 +1,943 @@
+{
+  "case_id": "career-startup-lead",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.782050+00:00",
+  "questions": [
+    "How many direct reports would you have in the first six months, and do you decide who is hired and how they are paid?",
+    "Can your manager give you a written timeline or promotion criteria for a lead role?",
+    "Will the startup's team lead role include one-on-ones, performance reviews and growth plans for others, or mostly coding?",
+    "How many months can the household pay the mortgage and living costs from savings if the startup paid you nothing?",
+    "If you leave and it goes badly, can you return to your current company, and is there any rehire policy?",
+    "Could you ask your current company for a different route, such as a tech lead role, mentoring or a temporary lead assignment?",
+    "Does your company usually fill lead roles by promoting from inside, and how long did it take those people?",
+    "How many months of salary payments does the startup's current cash cover at its present spending, and is a new funding round in progress?",
+    "Has anyone at your company recently been promoted to lead despite the hiring freeze, and how?",
+    "Is there a deadline on the offer, and can it be extended while you collect answers?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Realistic route to an engineering manager role within 3 years, including whether the role involves actual people management and growth",
+        "Household can pay the mortgage on one income through a downside scenario (startup shutting down or delayed salary) with a defined runway",
+        "Total compensation including realistic equity value, benefits and severance compared with the current role",
+        "The role gives credible management experience that transfers if the startup fails"
+      ],
+      "stated_facts": [
+        "Offer: team lead at a 40-person startup with +15% base salary, equity, and title Team Lead",
+        "Current role: senior engineer at a large company, stable employer",
+        "Goal: engineering manager within 3 years, with enough financial stability to pay a mortgage",
+        "Mortgage payments and a one-income household",
+        "Startup raised a seed round two years ago and is growing",
+        "Founders want the user to build the backend team",
+        "Current company has had a hiring freeze for a year; manager says a lead position may open 'at some point'"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "The startup's team lead role will count as and lead toward engineering management, rather than being a senior individual contributor role with a lead title."
+        },
+        {
+          "id": "a2",
+          "text": "The startup will survive and keep paying salaries for at least as long as the mortgage risk requires."
+        },
+        {
+          "id": "a3",
+          "text": "A lead role at the current company is unlikely, given the hiring freeze and vague wording."
+        },
+        {
+          "id": "a4",
+          "text": "The equity will have meaningful value."
+        },
+        {
+          "id": "a5",
+          "text": "Management experience at a 40-person startup will be recognised by later employers as a step toward engineering manager."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "What is the startup's runway and funding status: when does the seed money run out, what are revenue and burn, and is a next round in sight?",
+          "if_resolved": "If there are 18+ months of runway or revenue covering costs, the offer is less risky and favors accepting; if runway is under about a year with no round in view, a one-income mortgage household is exposed and staying is favored."
+        },
+        {
+          "id": "u2",
+          "text": "What would the team lead role really involve: hiring authority, direct reports, budget, headcount plan, and time split between management and coding?",
+          "if_resolved": "If the role has real hiring and people responsibility, it directly serves the manager goal and favors the offer; if it is mostly hands-on coding, it adds less toward management and weakens the case."
+        },
+        {
+          "id": "u3",
+          "text": "What is the true concrete chance and timing of a lead role at the current company, and can the manager commit to criteria or a date?",
+          "if_resolved": "If a written path or date exists within about a year, staying is favored; if it stays vague amid the freeze, the offer's path advantage grows."
+        },
+        {
+          "id": "u4",
+          "text": "What do the equity terms say: type, strike price, vesting schedule, cliff, valuation, dilution, and what happens on exit or leaving?",
+          "if_resolved": "If terms are fair and valuation plausible, equity adds upside favoring the offer; if heavily diluted or illiquid, it should be valued near zero and the 15% base alone decides."
+        },
+        {
+          "id": "u5",
+          "text": "What are the full compensation and benefits differences: bonus, pension, health, parental or sick leave, notice and severance terms, and how does the net compare for mortgage purposes?",
+          "if_resolved": "If the startup's total package is equal or better, it favors the offer; if the large company's benefits and bonus outweigh the 15%, staying is favored."
+        },
+        {
+          "id": "u6",
+          "text": "How much cash buffer does the household hold, and how does the mortgage (fixed or variable, lender's view of a new employer or probation period) interact with changing jobs?",
+          "if_resolved": "If there is a buffer covering 6+ months and the lender and mortgage terms are unaffected, the startup's risk is manageable and favors the offer; if the buffer is thin or a probation period creates problems, staying is favored."
+        },
+        {
+          "id": "u7",
+          "text": "How easy would it be to return to a similar senior role at a large company if the startup fails, and would the lead title help?",
+          "if_resolved": "If the market for the user's skills is strong, downside is limited, favoring the offer; if re-entry is slow, staying is favored."
+        }
+      ]
+    },
+    "n_candidates": 33,
+    "n_passing": 30,
+    "fail_counts": {
+      "generic": 0,
+      "presupposes": 3,
+      "answered": 0,
+      "no_path": 0,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 3,
+      "surface": 2,
+      "test": 1,
+      "bound": 1,
+      "expand": 1,
+      "close": 2,
+      "calibrate": 0
+    },
+    "chosen": [
+      {
+        "question": "How many direct reports would you have in the first six months, and do you decide who is hired and how they are paid?",
+        "operator": "discriminate",
+        "target": "u2",
+        "S": 400.0,
+        "picked_by": "coverage",
+        "why": "Real hiring and people responsibility favors the offer for your management goal.",
+        "answer_path": "Ask the founders for the hiring plan, headcount budget and decision rights, and ask to see them in writing."
+      },
+      {
+        "question": "Can your manager give you a written timeline or promotion criteria for a lead role?",
+        "operator": "discriminate",
+        "target": "u3",
+        "S": 400.0,
+        "picked_by": "coverage",
+        "why": "A written path within a year would make staying stronger.",
+        "answer_path": "Ask your manager, and your manager's manager or HR, for specific criteria and dates."
+      },
+      {
+        "question": "Will the startup's team lead role include one-on-ones, performance reviews and growth plans for others, or mostly coding?",
+        "operator": "surface",
+        "target": "a1",
+        "S": 400.0,
+        "picked_by": "mmr",
+        "why": "Checks whether the lead title means real management.",
+        "answer_path": "Ask the founders for a sample week and the expected time split, and talk to someone who has held the role."
+      },
+      {
+        "question": "How many months can the household pay the mortgage and living costs from savings if the startup paid you nothing?",
+        "operator": "bound",
+        "target": "u6",
+        "S": 300.0,
+        "picked_by": "coverage",
+        "why": "Sets the point at which the startup risk becomes unaffordable.",
+        "answer_path": "Add monthly costs and divide your cash savings by that, excluding retirement accounts."
+      },
+      {
+        "question": "If you leave and it goes badly, can you return to your current company, and is there any rehire policy?",
+        "operator": "close",
+        "target": "u7",
+        "S": 256.0,
+        "picked_by": "coverage",
+        "why": "Shows how reversible leaving is.",
+        "answer_path": "Ask HR about rehire policies and ask colleagues who left and returned."
+      },
+      {
+        "question": "Could you ask your current company for a different route, such as a tech lead role, mentoring or a temporary lead assignment?",
+        "operator": "expand",
+        "target": "new",
+        "S": 256.0,
+        "picked_by": "mmr",
+        "why": "Adds ways to gain management experience at your current employer.",
+        "answer_path": "Ask your manager about acting lead or project lead responsibilities."
+      },
+      {
+        "question": "Does your company usually fill lead roles by promoting from inside, and how long did it take those people?",
+        "operator": "test",
+        "target": "u3",
+        "S": 256.0,
+        "picked_by": "mmr",
+        "why": "Tests whether waiting at your company leads to a lead role.",
+        "answer_path": "Look at how recent leads were chosen and how long each waited."
+      },
+      {
+        "question": "How many months of salary payments does the startup's current cash cover at its present spending, and is a new funding round in progress?",
+        "operator": "discriminate",
+        "target": "u1",
+        "S": 250.0,
+        "picked_by": "coverage",
+        "why": "Short runway with no round makes staying clearly safer for a one-income mortgage household.",
+        "answer_path": "Ask the founders for cash balance, monthly burn, revenue and investor conversations; ask to speak with an investor or advisor."
+      },
+      {
+        "question": "Has anyone at your company recently been promoted to lead despite the hiring freeze, and how?",
+        "operator": "surface",
+        "target": "a3",
+        "S": 192.0,
+        "picked_by": "mmr",
+        "why": "Checks whether a lead role at your employer is as unlikely as assumed.",
+        "answer_path": "Review internal promotions of the last year and ask colleagues."
+      },
+      {
+        "question": "Is there a deadline on the offer, and can it be extended while you collect answers?",
+        "operator": "close",
+        "target": "new",
+        "S": 180.0,
+        "picked_by": "mmr",
+        "why": "Shows how long you have to learn more.",
+        "answer_path": "Ask the founders for the date and whether more time is possible."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "How many months of salary payments does the startup's current cash cover at its present spending, and is a new funding round in progress?",
+        "why": "Short runway with no round makes staying clearly safer for a one-income mortgage household.",
+        "answer_path": "Ask the founders for cash balance, monthly burn, revenue and investor conversations; ask to speak with an investor or advisor.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 250.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "How many direct reports would you have in the first six months, and do you decide who is hired and how they are paid?",
+        "why": "Real hiring and people responsibility favors the offer for your management goal.",
+        "answer_path": "Ask the founders for the hiring plan, headcount budget and decision rights, and ask to see them in writing.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 400.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u3",
+        "question": "Can your manager give you a written timeline or promotion criteria for a lead role?",
+        "why": "A written path within a year would make staying stronger.",
+        "answer_path": "Ask your manager, and your manager's manager or HR, for specific criteria and dates.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 400.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u5",
+        "question": "After bonus, pension, health, leave and notice terms are counted, is the startup's package higher or lower than your current one?",
+        "why": "The 15% base may not tell the full difference.",
+        "answer_path": "Put both offers in a spreadsheet using the offer letter and your current benefits documents.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 2
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "discriminate",
+        "target": "u7",
+        "question": "If the startup failed after a year, how quickly could you get a senior engineer job at a large company?",
+        "why": "Easy re-entry reduces the downside of leaving.",
+        "answer_path": "Check current openings and ask recruiters or peers who left for startups.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 64.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "Will the startup's team lead role include one-on-ones, performance reviews and growth plans for others, or mostly coding?",
+        "why": "Checks whether the lead title means real management.",
+        "answer_path": "Ask the founders for a sample week and the expected time split, and talk to someone who has held the role.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 400.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "What do current employees and recent leavers say about whether salaries have been paid on time?",
+        "why": "Checks whether the startup will keep paying.",
+        "answer_path": "Speak to two or three current or former engineers, away from the founders.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "Has anyone at your company recently been promoted to lead despite the hiring freeze, and how?",
+        "why": "Checks whether a lead role at your employer is as unlikely as assumed.",
+        "answer_path": "Review internal promotions of the last year and ask colleagues.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a4",
+        "question": "What do you expect the equity to be worth, and what is that based on?",
+        "why": "Checks whether equity should count for anything.",
+        "answer_path": "Ask for the cap table share, latest valuation and preference terms, and model several outcomes.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 5,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 67.5,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a5",
+        "question": "Would the managers hiring engineering managers at your target employers count a lead role at a 40-person startup toward the requirement?",
+        "why": "Checks whether the experience transfers.",
+        "answer_path": "Ask engineering managers or recruiters, and compare job requirements.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 5,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 125.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "a1",
+        "question": "Have previous people with this title at the startup moved into manager roles, there or elsewhere?",
+        "why": "Tests whether the role leads to management in practice.",
+        "answer_path": "Ask the founders and check LinkedIn for past leads.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u3",
+        "question": "Does your company usually fill lead roles by promoting from inside, and how long did it take those people?",
+        "why": "Tests whether waiting at your company leads to a lead role.",
+        "answer_path": "Look at how recent leads were chosen and how long each waited.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 256.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "u1",
+        "question": "Does the startup's growth show up in revenue or customers, or only in headcount and funding?",
+        "why": "Tests whether growth means a sustainable business.",
+        "answer_path": "Ask for revenue and customer trends over the last four quarters.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u4",
+        "question": "If the startup were sold or shut down within three years, what would your vested shares yield, given the preference terms?",
+        "why": "Tests whether equity pays out in realistic outcomes.",
+        "answer_path": "Request the equity documents and have an advisor or lawyer model outcomes.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 5,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 45.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u6",
+        "question": "Does your mortgage lender need your employer or probation status for any changes, such as refinancing?",
+        "why": "Tests whether changing jobs affects your mortgage.",
+        "answer_path": "Call the lender and check mortgage terms and any upcoming refinance date.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u6",
+        "question": "How many months can the household pay the mortgage and living costs from savings if the startup paid you nothing?",
+        "why": "Sets the point at which the startup risk becomes unaffordable.",
+        "answer_path": "Add monthly costs and divide your cash savings by that, excluding retirement accounts.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 300.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "bound",
+        "target": "u1",
+        "question": "At what level of runway would you decline the offer?",
+        "why": "Sets a limit that turns the facts into a decision.",
+        "answer_path": "Decide a minimum number of months, then ask the founders for figures to compare.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u2",
+        "question": "How large could the backend team grow before the startup needs a manager above you, and would you be that person?",
+        "why": "Finds the point where the role's management path stops or grows.",
+        "answer_path": "Ask the founders for the hiring plan for the next two years and the org structure.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 144.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u5",
+        "question": "If your salary were delayed by two months, what bills would first become a problem?",
+        "why": "Finds the limit of tolerance for delayed pay.",
+        "answer_path": "Review your monthly budget and fixed commitments.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 60.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u3",
+        "question": "How much longer than a year would you wait at your company before the lack of a lead role makes staying a poor choice?",
+        "why": "Sets your time limit for staying.",
+        "answer_path": "Decide your own deadline against the three-year goal and tell your manager.",
+        "review": {
+          "id": 20,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 2,
+          "cost": 1
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could you get a lead or management role at a different mid-sized company that is hiring, instead of these two options?",
+        "why": "The map only covers two options.",
+        "answer_path": "Search openings and talk with recruiters for lead roles at mid-size firms.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 3
+        },
+        "S": 85.33333333333333,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could you ask your current company for a different route, such as a tech lead role, mentoring or a temporary lead assignment?",
+        "why": "Adds ways to gain management experience at your current employer.",
+        "answer_path": "Ask your manager about acting lead or project lead responsibilities.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 256.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "How would you negotiate the startup offer, for example a higher salary, a title with direct reports or a severance clause?",
+        "why": "The terms might be improved.",
+        "answer_path": "List what you would ask for and raise it with the founders.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 144.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "What do you think of working with these founders: their management style, how they treat engineers and how they make decisions?",
+        "why": "The map lacks working relationship with the founders.",
+        "answer_path": "Spend time with the founders, ask for references and talk to the engineers.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Does your household have other ways to cover risk, such as a partner's skills or the ability to cut costs?",
+        "why": "Household resilience affects how much startup risk is workable.",
+        "answer_path": "Discuss with your household and list the options and what each would cost.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "Is there a deadline on the offer, and can it be extended while you collect answers?",
+        "why": "Shows how long you have to learn more.",
+        "answer_path": "Ask the founders for the date and whether more time is possible.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "close",
+        "target": "u3",
+        "question": "If you decline now, would the startup or a similar role still be available in six months?",
+        "why": "Shows what waiting costs.",
+        "answer_path": "Ask the founders directly how long the role stays open.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u7",
+        "question": "If you leave and it goes badly, can you return to your current company, and is there any rehire policy?",
+        "why": "Shows how reversible leaving is.",
+        "answer_path": "Ask HR about rehire policies and ask colleagues who left and returned.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 256.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "close",
+        "target": "u4",
+        "question": "What do you forfeit by leaving, such as unvested stock, bonus or other benefits at your current company?",
+        "why": "Identifies what you cannot get back.",
+        "answer_path": "Check your current compensation documents for vesting and bonus timing.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u1",
+        "question": "What is your impression that the startup is growing based on: what the founders said, or numbers you have seen?",
+        "why": "Separates claims from figures.",
+        "answer_path": "List what you have been told versus what has been shown in documents.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a3",
+        "question": "What is your belief that a lead role will not open at your company based on?",
+        "why": "Checks whether the estimate rests on evidence or on the vague wording.",
+        "answer_path": "Ask yourself what examples you have seen, and check with your manager.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a4",
+        "question": "How did you come to your view of what the equity might be worth, and who told you?",
+        "why": "Checks the source of the equity estimate.",
+        "answer_path": "Trace the figure to a document or ask an independent advisor.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 54.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a5",
+        "question": "Is your view that startup management experience will count based on people you know who made the move, or on hope?",
+        "why": "Checks the basis of the transfer assumption.",
+        "answer_path": "Find three real examples and look at their paths.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 144.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      }
+    ]
+  }
+}

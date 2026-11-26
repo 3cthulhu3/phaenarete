@@ -1,0 +1,90 @@
+{
+  "case_id": "education-masters-vs-certificate",
+  "arm": "b0",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "c1",
+    "f3": "c2",
+    "f4": "t2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What specific data science roles am I targeting, and what do the actual hiring managers and recent hires in those roles say about the necessity of a master's degree?",
+      "reveals": [],
+      "generic": false,
+      "note": "Target roles and hiring managers"
+    },
+    {
+      "q": 2,
+      "question": "What would the full financial cost of the master's be, including tuition, living costs and lost salary, and how would I fund it with no other income?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Funding with no income reveals 9 months savings vs 24-month program"
+    },
+    {
+      "q": 3,
+      "question": "Can the part-time certificate, plus projects and my engineering background, build skills and a portfolio strong enough to get interviews?",
+      "reveals": [],
+      "generic": false,
+      "note": "Certificate portfolio strength"
+    },
+    {
+      "q": 4,
+      "question": "How does my mechanical design experience connect to data science, for instance in simulation, sensors or manufacturing data, and could that open a bridge role at my current employer?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Bridge role at current employer reveals internal DS rotation"
+    },
+    {
+      "q": 5,
+      "question": "How much time per week could I realistically commit to part-time study alongside my job, and can I sustain it for the length of the programme?",
+      "reveals": [],
+      "generic": false,
+      "note": "Time commitment"
+    },
+    {
+      "q": 6,
+      "question": "How does the master's program's reputation translate into job outcomes, such as placement rates, internships and alumni networks in my target market?",
+      "reveals": [],
+      "generic": false,
+      "note": "Program outcomes"
+    },
+    {
+      "q": 7,
+      "question": "What do I lose by leaving my job, in seniority, income, benefits and the option to return, and how risky is that if the job market for data scientists tightens?",
+      "reveals": [],
+      "generic": false,
+      "note": "Cost of leaving job"
+    },
+    {
+      "q": 8,
+      "question": "Is there a middle path, such as a part-time or employer-sponsored master's, or starting with the certificate and deciding on the degree later?",
+      "reveals": [],
+      "generic": false,
+      "note": "Middle paths"
+    },
+    {
+      "q": 9,
+      "question": "How certain am I that I want a data science career, and could I test that cheaply with a short course or a small project before committing?",
+      "reveals": [],
+      "generic": false,
+      "note": "Career certainty"
+    },
+    {
+      "q": 10,
+      "question": "Does either route fit within the 2-year timeline, and what would success and a warning sign look like at the 6- and 12-month marks?",
+      "reveals": [],
+      "generic": false,
+      "note": "Timeline fit"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Target roles and hiring managers\"}, {\"q\": 2, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Funding with no income reveals 9 months savings vs 24-month program\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Certificate portfolio strength\"}, {\"q\": 4, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Bridge role at current employer reveals internal DS rotation\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Time commitment\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Program outcomes\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Cost of leaving job\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Middle paths\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Career certainty\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Timeline fit\"}]}"
+}

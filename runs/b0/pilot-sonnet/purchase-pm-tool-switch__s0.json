@@ -1,0 +1,21 @@
+{
+  "case_id": "purchase-pm-tool-switch",
+  "arm": "b0",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-24T22:36:30.627628+00:00",
+  "questions": [
+    "Where does the 25-person team's status-reporting time actually go today, and how much of it is caused by Tool A's limitations rather than process or habits?",
+    "Does Tool B's dashboard truly solve the specific reporting pain points people complain about, as shown in a hands-on trial with our real data?",
+    "How many hours would be needed to migrate projects, history, integrations and automations, and what could be lost or broken?",
+    "Who will set up, configure and maintain Tool B given that nobody is a dedicated administrator, and how much ongoing effort will that require?",
+    "What would the learning curve and temporary productivity dip look like for the team, and when would we be back to normal speed?",
+    "What are the total costs of each option, including migration, training, add-ons, contract length and exit terms, not just the 20% lower seat price?",
+    "Could better configuration, templates or reporting habits in Tool A fix the problem at far lower cost and disruption?",
+    "Which other tools and systems do we rely on that need to integrate with the project tool, and does Tool B support them?",
+    "How do the complaints break down across the team, and do those who report to managers or stakeholders agree that reporting is the main problem?",
+    "What would success look like after switching, how will we measure the reduction in reporting time, and what is our plan if it does not materialise?"
+  ],
+  "raw": "{\"questions\": [\"Where does the 25-person team's status-reporting time actually go today, and how much of it is caused by Tool A's limitations rather than process or habits?\", \"Does Tool B's dashboard truly solve the specific reporting pain points people complain about, as shown in a hands-on trial with our real data?\", \"How many hours would be needed to migrate projects, history, integrations and automations, and what could be lost or broken?\", \"Who will set up, configure and maintain Tool B given that nobody is a dedicated administrator, and how much ongoing effort will that require?\", \"What would the learning curve and temporary productivity dip look like for the team, and when would we be back to normal speed?\", \"What are the total costs of each option, including migration, training, add-ons, contract length and exit terms, not just the 20% lower seat price?\", \"Could better configuration, templates or reporting habits in Tool A fix the problem at far lower cost and disruption?\", \"Which other tools and systems do we rely on that need to integrate with the project tool, and does Tool B support them?\", \"How do the complaints break down across the team, and do those who report to managers or stakeholders agree that reporting is the main problem?\", \"What would success look like after switching, how will we measure the reduction in reporting time, and what is our plan if it does not materialise?\"]}"
+}

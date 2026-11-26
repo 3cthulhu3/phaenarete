@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import random
@@ -152,3 +153,31 @@ def write_json(path: Path, obj: dict) -> None:
 
 def slug(model: str) -> str:
     return re.sub(r"[^a-zA-Z0-9.-]+", "_", model)
+
+
+# ---------- prompt cache (manual / offline backend) ----------
+#
+# With --backend cache, every model call is looked up by the hash of its prompt.
+# A missing reply is written to cache/pending/<key>.txt and the call raises Pending.
+# Replies are added with `python3 pilot.py ingest <file>`; re-running then gets further.
+
+CACHE_DIR = ROOT / "cache"
+PENDING_DIR = CACHE_DIR / "pending"
+
+
+class Pending(Exception):
+    """Raised when a prompt has no cached reply yet."""
+
+
+def prompt_key(prompt: str) -> str:
+    return hashlib.sha256(prompt.encode("utf-8")).hexdigest()[:16]
+
+
+def cached_call(prompt: str, model: str = "", max_tokens: int = 0, **_: object) -> str:
+    key = prompt_key(prompt)
+    hit = CACHE_DIR / f"{key}.json"
+    if hit.exists():
+        return json.loads(hit.read_text(encoding="utf-8"))["reply"]
+    PENDING_DIR.mkdir(parents=True, exist_ok=True)
+    (PENDING_DIR / f"{key}.txt").write_text(prompt, encoding="utf-8")
+    raise Pending(key)

@@ -1,0 +1,21 @@
+{
+  "case_id": "purchase-pm-tool-switch",
+  "arm": "b1",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-24T22:36:30.682701+00:00",
+  "questions": [
+    "How many hours per week does the team currently spend on status reporting, and where exactly in that process (data entry, chasing updates, assembling reports) does the time go?",
+    "Is Tool A's reporting pain caused by missing dashboard features, or by how the team configures and uses it (inconsistent task updates, unclear fields)? Would the same habits carry over to Tool B?",
+    "Can you reproduce your actual current status report in a Tool B trial using real project data, and how long does it take compared with Tool A?",
+    "With no dedicated administrator, who will own migration, permissions, templates, and integrations in Tool B, and how many hours per month is that realistically?",
+    "What does migration cost in team time: moving historical projects, retraining 25 people, and the dip in productivity during the transition?",
+    "Which Tool A features or integrations does the team rely on that Tool B lacks or handles differently, and who would notice first if they disappeared?",
+    "How widespread is the reporting complaint: is it a vocal few or most of the 25, and do the complainers produce or consume the reports?",
+    "Would a cheaper fix inside Tool A (better templates, automated reports, a reporting add-on, or an hour of training) cut reporting time enough to make switching unnecessary?",
+    "What are the contract terms: can you pilot Tool B with one sub-team, export data cleanly, and return to Tool A if it does not work, and when does Tool A's renewal fall?",
+    "What is your estimate of the time savings from better dashboards based on, such as vendor demos, a reference customer of similar size, or your own measurement?"
+  ],
+  "raw": "{\"questions\": [\"How many hours per week does the team currently spend on status reporting, and where exactly in that process (data entry, chasing updates, assembling reports) does the time go?\", \"Is Tool A's reporting pain caused by missing dashboard features, or by how the team configures and uses it (inconsistent task updates, unclear fields)? Would the same habits carry over to Tool B?\", \"Can you reproduce your actual current status report in a Tool B trial using real project data, and how long does it take compared with Tool A?\", \"With no dedicated administrator, who will own migration, permissions, templates, and integrations in Tool B, and how many hours per month is that realistically?\", \"What does migration cost in team time: moving historical projects, retraining 25 people, and the dip in productivity during the transition?\", \"Which Tool A features or integrations does the team rely on that Tool B lacks or handles differently, and who would notice first if they disappeared?\", \"How widespread is the reporting complaint: is it a vocal few or most of the 25, and do the complainers produce or consume the reports?\", \"Would a cheaper fix inside Tool A (better templates, automated reports, a reporting add-on, or an hour of training) cut reporting time enough to make switching unnecessary?\", \"What are the contract terms: can you pilot Tool B with one sub-team, export data cleanly, and return to Tool A if it does not work, and when does Tool A's renewal fall?\", \"What is your estimate of the time savings from better dashboards based on, such as vendor demos, a reference customer of similar size, or your own measurement?\"]}"
+}

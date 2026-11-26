@@ -1,0 +1,21 @@
+{
+  "case_id": "operations-support-outsourcing",
+  "arm": "b1",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-24T22:36:30.681211+00:00",
+  "questions": [
+    "What customer satisfaction scores does the agency currently achieve for clients with similar products and ticket types, and can you verify that with references or a trial?",
+    "What share of your tickets need deep product knowledge or account access, and how well can an agency handle those compared with in-house staff?",
+    "Can two in-house agents realistically handle 900 tickets a week, or will you need more hires, and does the fixed budget cover that scenario?",
+    "Does the agency's quote scale linearly with volume, and what does it cost at 900 tickets per week including onboarding, minimums, and overage fees?",
+    "How quickly can new in-house hires become productive, and what do recruiting and training take compared with the volume ramp over six months?",
+    "Is the ticket growth steady, or spiky and uncertain, and which option copes better if volume reaches only 500 or goes above 900?",
+    "What do your overloaded current agents need now, and would automation, a help center, or ticket deflection cut the volume growth that drives this decision?",
+    "How would the agency's workflow affect feedback to your product team, escalation speed, and tone of voice that customers care about?",
+    "What are the contract terms and exit costs with the agency, and how hard would it be to bring support in-house later if satisfaction drops?",
+    "What is the 30% saving based on, and does it include management time, tooling, quality assurance, and the cost of handling the agency?"
+  ],
+  "raw": "{\"questions\": [\"What customer satisfaction scores does the agency currently achieve for clients with similar products and ticket types, and can you verify that with references or a trial?\", \"What share of your tickets need deep product knowledge or account access, and how well can an agency handle those compared with in-house staff?\", \"Can two in-house agents realistically handle 900 tickets a week, or will you need more hires, and does the fixed budget cover that scenario?\", \"Does the agency's quote scale linearly with volume, and what does it cost at 900 tickets per week including onboarding, minimums, and overage fees?\", \"How quickly can new in-house hires become productive, and what do recruiting and training take compared with the volume ramp over six months?\", \"Is the ticket growth steady, or spiky and uncertain, and which option copes better if volume reaches only 500 or goes above 900?\", \"What do your overloaded current agents need now, and would automation, a help center, or ticket deflection cut the volume growth that drives this decision?\", \"How would the agency's workflow affect feedback to your product team, escalation speed, and tone of voice that customers care about?\", \"What are the contract terms and exit costs with the agency, and how hard would it be to bring support in-house later if satisfaction drops?\", \"What is the 30% saving based on, and does it include management time, tooling, quality assurance, and the cost of handling the agency?\"]}"
+}

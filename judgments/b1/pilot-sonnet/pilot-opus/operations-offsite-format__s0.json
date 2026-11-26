@@ -1,0 +1,92 @@
+{
+  "case_id": "operations-offsite-format",
+  "arm": "b1",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c2",
+    "f2": "t1",
+    "f3": "t2",
+    "f4": "c1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Why was last year's remote offsite rated poorly: was it the remote format itself, or poor design, such as long video sessions, no social time, and weak facilitation?",
+      "reveals": [],
+      "generic": false,
+      "note": "About last year's format; no hidden fact"
+    },
+    {
+      "q": 2,
+      "question": "Which cross-team collaboration outcomes do you want, and do they depend on in-person contact or can structured remote activities deliver them?",
+      "reveals": [],
+      "generic": false,
+      "note": "Collaboration outcomes; no hidden fact"
+    },
+    {
+      "q": 3,
+      "question": "What is the full cost of Lisbon once you add flights, accommodation, meals, activities, and a contingency, and does it stay under 80,000 euros for 60 people?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Full cost with flights exposes excluded 28k flights"
+    },
+    {
+      "q": 4,
+      "question": "Can all 60 employees attend in person given visas, family commitments, health, or travel limits, and what happens to those who cannot?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Who cannot attend exposes 12 staffing the launch"
+    },
+    {
+      "q": 5,
+      "question": "Is there a hybrid or alternative format, such as a smaller in-person gathering of team leads or regional meetups, that costs less and still builds links across teams?",
+      "reveals": [],
+      "generic": false,
+      "note": "Alternative formats; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "How will you measure whether collaboration improved, and does anything show that last year's offsite changed cross-team behavior either way?",
+      "reveals": [],
+      "generic": false,
+      "note": "Measurement; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "What agenda would make Lisbon different from simply working together somewhere else: how much planned cross-team structure versus unstructured time?",
+      "reveals": [],
+      "generic": false,
+      "note": "Agenda design; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "What happens to the Lisbon booking if the dates must change or attendance drops, and what are the cancellation terms?",
+      "reveals": [],
+      "generic": false,
+      "note": "Cancellation terms; not about launch conflict"
+    },
+    {
+      "q": 9,
+      "question": "How would you spend the roughly 10,000 euros left, or the full 80,000 on a remote design, such as better tools, facilitators, or home-delivered kits?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Truthful answer corrects the 10k leftover premise due to flights"
+    },
+    {
+      "q": 10,
+      "question": "What do employees themselves prefer and why, and how reliable is that feedback compared with what leadership assumes?",
+      "reveals": [],
+      "generic": false,
+      "note": "Employee preference; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"About last year's format; no hidden fact\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Collaboration outcomes; no hidden fact\"}, {\"q\": 3, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Full cost with flights exposes excluded 28k flights\"}, {\"q\": 4, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Who cannot attend exposes 12 staffing the launch\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Alternative formats; no hidden fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Measurement; no hidden fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Agenda design; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Cancellation terms; not about launch conflict\"}, {\"q\": 9, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Truthful answer corrects the 10k leftover premise due to flights\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Employee preference; no hidden fact\"}]}"
+}

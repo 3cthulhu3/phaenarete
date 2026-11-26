@@ -1,0 +1,21 @@
+{
+  "case_id": "housing-larger-vs-central",
+  "arm": "b1",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-24T22:36:30.681769+00:00",
+  "questions": [
+    "On the days the office partner commutes, how do 90 minutes round trip on the train feel in practice: can that time be used for reading or work, and how reliable is the train?",
+    "How much does the work-from-home partner suffer in the smaller apartment: noise, lack of a separate room, video calls, and shared space during the three office days?",
+    "How often will the couple actually use the balcony and extra space, versus how much do you imagine they would?",
+    "What would each apartment's surroundings offer at the times you are home, such as shops, parks, restaurants, friends nearby, and evening and weekend life?",
+    "How does the commuting partner weigh 7.5 hours a week of travel time against the daily walk, including early meetings and late returns?",
+    "Are there hidden cost differences despite equal rent, such as a monthly train pass, utilities, heating, or internet?",
+    "How likely is it that work patterns change within a year, such as more office days, a new job, or both working from home, and which apartment holds up better?",
+    "Have you each visited at the actual commute time and rated the neighborhoods separately, or is the choice based on the listing?",
+    "Is there a third option, such as a mid-distance apartment, a coworking space for the home-working partner, or a shorter lease on one of these?",
+    "What are the lease length and exit terms: if one choice turns out wrong after six months, how costly is moving out?"
+  ],
+  "raw": "{\"questions\": [\"On the days the office partner commutes, how do 90 minutes round trip on the train feel in practice: can that time be used for reading or work, and how reliable is the train?\", \"How much does the work-from-home partner suffer in the smaller apartment: noise, lack of a separate room, video calls, and shared space during the three office days?\", \"How often will the couple actually use the balcony and extra space, versus how much do you imagine they would?\", \"What would each apartment's surroundings offer at the times you are home, such as shops, parks, restaurants, friends nearby, and evening and weekend life?\", \"How does the commuting partner weigh 7.5 hours a week of travel time against the daily walk, including early meetings and late returns?\", \"Are there hidden cost differences despite equal rent, such as a monthly train pass, utilities, heating, or internet?\", \"How likely is it that work patterns change within a year, such as more office days, a new job, or both working from home, and which apartment holds up better?\", \"Have you each visited at the actual commute time and rated the neighborhoods separately, or is the choice based on the listing?\", \"Is there a third option, such as a mid-distance apartment, a coworking space for the home-working partner, or a shorter lease on one of these?\", \"What are the lease length and exit terms: if one choice turns out wrong after six months, how costly is moving out?\"]}"
+}

@@ -1,0 +1,90 @@
+{
+  "case_id": "career-freelance-vs-inhouse",
+  "arm": "b1",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "t2",
+    "f3": "c2",
+    "f4": "c1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How many billable days per month can you realistically book after accounting for sales, admin, gaps between projects, and unpaid time, and what annual income does that produce?",
+      "reveals": [],
+      "generic": false,
+      "note": "Billable days; no hidden fact"
+    },
+    {
+      "q": 2,
+      "question": "Are the two interested companies firm commitments with scoped work and dates, or friendly conversations, and how long would the work last?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Dates of commitments expose 8-month delay"
+    },
+    {
+      "q": 3,
+      "question": "What is the minimum monthly income you need, and how would 4 months of savings cover a slow start, late client payments, and your own taxes and insurance?",
+      "reveals": [],
+      "generic": false,
+      "note": "Minimum income; no hidden fact"
+    },
+    {
+      "q": 4,
+      "question": "Where would you get health insurance, pension, paid leave, and equipment as a freelancer, and what do those cost against the in-house package?",
+      "reveals": [],
+      "generic": false,
+      "note": "Benefits listed; conference budget not first mention"
+    },
+    {
+      "q": 5,
+      "question": "Will freelance work actually give more control over what you work on, or will you accept whatever pays in the first year, and do the interested companies offer the kind of work you want?",
+      "reveals": [],
+      "generic": false,
+      "note": "Work control; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "What does the in-house role offer in autonomy and growth, and could you negotiate for more control over projects or part-time freelance work alongside?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Side freelance alongside exposes two side-project days"
+    },
+    {
+      "q": 7,
+      "question": "How concentrated would your income be, and what happens if one of the two clients leaves or reduces scope?",
+      "reveals": [],
+      "generic": false,
+      "note": "Income concentration; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "How easy is it to return to an in-house job after a year of freelancing, and would the in-house offer or a similar one still be available?",
+      "reveals": [],
+      "generic": false,
+      "note": "Returning in-house; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "Could you start freelance on the side before leaving, or ask the in-house employer for a later start date to test demand?",
+      "reveals": [],
+      "generic": false,
+      "note": "Side start before leaving; not immediate"
+    },
+    {
+      "q": 10,
+      "question": "What are the high day rates you are counting on based on: rates you have been quoted, what peers charge, or listings, and do they apply to a new freelancer?",
+      "reveals": [],
+      "generic": false,
+      "note": "Rate basis; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Billable days; no hidden fact\"}, {\"q\": 2, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Dates of commitments expose 8-month delay\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Minimum income; no hidden fact\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Benefits listed; conference budget not first mention\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Work control; no hidden fact\"}, {\"q\": 6, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Side freelance alongside exposes two side-project days\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Income concentration; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Returning in-house; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Side start before leaving; not immediate\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Rate basis; no hidden fact\"}]}"
+}

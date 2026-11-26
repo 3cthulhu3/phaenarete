@@ -1,0 +1,92 @@
+{
+  "case_id": "career-startup-lead",
+  "arm": "phaenarete",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t1",
+    "f3": "c2",
+    "f4": "t2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How many direct reports would you have in the first six months, and do you decide who is hired and how they are paid?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "direct reports question reveals none today, hires depend on funding"
+    },
+    {
+      "q": 2,
+      "question": "Can your manager give you a written timeline or promotion criteria for a lead role?",
+      "reveals": [],
+      "generic": false,
+      "note": "current company timeline; no hidden fact"
+    },
+    {
+      "q": 3,
+      "question": "Will the startup's team lead role include one-on-ones, performance reviews and growth plans for others, or mostly coding?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "people-management duties: there are no reports yet"
+    },
+    {
+      "q": 4,
+      "question": "How many months can the household pay the mortgage and living costs from savings if the startup paid you nothing?",
+      "reveals": [],
+      "generic": false,
+      "note": "household savings; no hidden fact"
+    },
+    {
+      "q": 5,
+      "question": "If you leave and it goes badly, can you return to your current company, and is there any rehire policy?",
+      "reveals": [],
+      "generic": false,
+      "note": "rehire policy; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "Could you ask your current company for a different route, such as a tech lead role, mentoring or a temporary lead assignment?",
+      "reveals": [],
+      "generic": false,
+      "note": "alternative routes at current company; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "Does your company usually fill lead roles by promoting from inside, and how long did it take those people?",
+      "reveals": [],
+      "generic": false,
+      "note": "internal promotion practice; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "How many months of salary payments does the startup's current cash cover at its present spending, and is a new funding round in progress?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "runway and funding round status asked directly"
+    },
+    {
+      "q": 9,
+      "question": "Has anyone at your company recently been promoted to lead despite the hiring freeze, and how?",
+      "reveals": [],
+      "generic": false,
+      "note": "recent promotions; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "Is there a deadline on the offer, and can it be extended while you collect answers?",
+      "reveals": [],
+      "generic": false,
+      "note": "offer deadline; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"direct reports question reveals none today, hires depend on funding\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"current company timeline; no hidden fact\"}, {\"q\": 3, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"people-management duties: there are no reports yet\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"household savings; no hidden fact\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"rehire policy; no hidden fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"alternative routes at current company; no hidden fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"internal promotion practice; no hidden fact\"}, {\"q\": 8, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"runway and funding round status asked directly\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"recent promotions; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"offer deadline; no hidden fact\"}]}"
+}

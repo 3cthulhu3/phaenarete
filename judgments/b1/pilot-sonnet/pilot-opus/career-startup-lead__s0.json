@@ -1,0 +1,92 @@
+{
+  "case_id": "career-startup-lead",
+  "arm": "b1",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t1",
+    "f3": "c2",
+    "f4": "t2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How many months of runway does the startup have, when does it need to raise again, and what happens to your salary and job if the next round does not close?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Directly asks runway and next raise"
+    },
+    {
+      "q": 2,
+      "question": "Can your household cover the mortgage for 6 to 12 months on one income if the startup fails, given your savings and the job market for senior engineers?",
+      "reveals": [],
+      "generic": false,
+      "note": "Household finances; no hidden fact"
+    },
+    {
+      "q": 3,
+      "question": "Will the team lead role at the startup truly include people management with direct reports and a path toward engineering manager, or is it mostly technical leadership with a title?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Direct reports question exposes none today"
+    },
+    {
+      "q": 4,
+      "question": "What is the equity worth: how many shares, what percentage, vesting terms, strike price, and what plausible outcomes exist, versus the realistic chance of it being worth nothing?",
+      "reveals": [],
+      "generic": false,
+      "note": "Equity details; no hidden fact"
+    },
+    {
+      "q": 5,
+      "question": "How does the startup plan to grow the backend team, with what budget and hiring pipeline, and have you seen the actual hiring plan?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Hiring plan exposes hires contingent on next round"
+    },
+    {
+      "q": 6,
+      "question": "What do the founders' track record, the quality of their leadership, and current employees' satisfaction suggest about the likelihood of the company surviving and you growing?",
+      "reveals": [],
+      "generic": false,
+      "note": "Founder track record; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "What does 'a lead position may open at some point' really mean at your current company: is there a named role, budget, and timeline, and would your manager put it in writing?",
+      "reveals": [],
+      "generic": false,
+      "note": "Current company; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "Is there another route to management at your current company, such as leading a project, mentoring, or a transfer to a team that has openings?",
+      "reveals": [],
+      "generic": false,
+      "note": "Internal routes; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "If the startup fails after 18 months, would the lead title and experience help you get a management or lead job elsewhere, and how reversible is leaving your current company, such as a return option?",
+      "reveals": [],
+      "generic": false,
+      "note": "Reversibility; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "Is the 15% base salary raise enough after accounting for lost benefits, bonus, pension, and the equity's tax treatment, and what is your assumption about the offer's total value based on?",
+      "reveals": [],
+      "generic": false,
+      "note": "Compensation; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Directly asks runway and next raise\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Household finances; no hidden fact\"}, {\"q\": 3, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Direct reports question exposes none today\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Equity details; no hidden fact\"}, {\"q\": 5, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Hiring plan exposes hires contingent on next round\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Founder track record; no hidden fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Current company; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Internal routes; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Reversibility; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Compensation; no hidden fact\"}]}"
+}

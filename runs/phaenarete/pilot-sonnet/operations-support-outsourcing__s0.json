@@ -1,0 +1,965 @@
+{
+  "case_id": "operations-support-outsourcing",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.816060+00:00",
+  "questions": [
+    "Does the quote assume a fixed agent count or ticket price, and which would change if volume tripled?",
+    "What would the agency's total monthly bill be at 300, 600 and 900 tickets per week once setup, tooling and minimums are included?",
+    "At what weekly ticket volume would the agency cost more than the in-house team?",
+    "How many tickets per agent per week does your team handle today, and would four agents cover 900?",
+    "What customer satisfaction scores does the agency report for clients like you, and will it put a target and penalty in the contract?",
+    "How many agents do you need at the highest weekly volume, and could the fixed budget pay for that under each option?",
+    "What evidence suggests two more agents would be enough for triple the volume?",
+    "What is your trust in the agency's claim of scaling within days based on: a reference, a contract, or the sales conversation?",
+    "If you chose the agency and it did not work, how long would it take and what would it cost to switch to in-house hiring?",
+    "What share of last month's tickets could someone with no product training have solved using a written guide?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Customer satisfaction stays above 90% as volume grows from 300 to 900 tickets per week, tracked weekly",
+        "Total cost across the 6 months, including hiring, onboarding, agency fees by volume, and management time, fits the fixed budget",
+        "Capacity is available when volume rises, including backlog, response time and resolution time",
+        "Support quality on the company's product (accurate answers, escalation to the company) is maintained"
+      ],
+      "stated_facts": [
+        "Goal: customer satisfaction above 90% while tickets grow from 300 to 900 per week over 6 months",
+        "Fixed support budget",
+        "Agency quote is 30% cheaper than two in-house hires",
+        "Agency says it can scale within days",
+        "The current two agents are overloaded"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "The agency's quote still holds at 900 tickets per week, and the 30% saving is based on the same volume and scope as the in-house hires."
+        },
+        {
+          "id": "a2",
+          "text": "Two additional in-house agents are enough for triple the volume."
+        },
+        {
+          "id": "a3",
+          "text": "The agency's quality and customer satisfaction on this product will match in-house standards."
+        },
+        {
+          "id": "a4",
+          "text": "The agency's ability to scale quickly is real, backed by contract terms."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "How is the agency's price structured (per ticket, per seat, minimums) and what does the cost look like at 300, 600 and 900 tickets per week, including setup, tooling and management?",
+          "if_resolved": "If costs rise linearly and stay below the budget, the agency is favored; if volume pricing or extras raise the cost, the cheaper-by-30% advantage may disappear."
+        },
+        {
+          "id": "u2",
+          "text": "How complex are the tickets: how much product knowledge, account access or sensitive handling do they need, and what share could an agency handle?",
+          "if_resolved": "If most tickets are routine, the agency is favored; if many need deep product knowledge, in-house agents are favored."
+        },
+        {
+          "id": "u3",
+          "text": "Can two hires handle 900 tickets per week with the current two agents, and how long would hiring and training take compared to the volume curve?",
+          "if_resolved": "If hires can be productive within weeks and four agents cover the load, in-house is feasible and favored; if hiring is slow or four agents are insufficient, the agency is favored."
+        },
+        {
+          "id": "u4",
+          "text": "What does the agency's track record show for customer satisfaction and what service levels and penalties will it commit to in the contract, including exit terms?",
+          "if_resolved": "If it commits to satisfaction targets with remedies and easy exit, the agency is favored; if it will not, the risk on the 90% goal favors in-house."
+        },
+        {
+          "id": "u5",
+          "text": "What is the timing of the volume growth and the current state: does the existing backlog require quick action now?",
+          "if_resolved": "If growth is gradual, in-house hiring can keep up; if the backlog or growth is immediate, the agency's speed is favored."
+        },
+        {
+          "id": "u6",
+          "text": "Are there constraints on data access, privacy rules, language or time-zone coverage that restrict an outside agency?",
+          "if_resolved": "If none, the agency is feasible; if customer data rules or language needs limit it, in-house is favored."
+        },
+        {
+          "id": "u7",
+          "text": "What happens after 6 months: will volume stay near 900 or fall, and how hard would it be to reverse either choice (layoffs versus ending an agency contract)?",
+          "if_resolved": "If the volume may fall or is uncertain, the agency's flexibility is favored; if it stays high, permanent staff may be cheaper over time."
+        }
+      ]
+    },
+    "n_candidates": 34,
+    "n_passing": 28,
+    "fail_counts": {
+      "generic": 2,
+      "presupposes": 3,
+      "answered": 0,
+      "no_path": 1,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 4,
+      "surface": 2,
+      "test": 0,
+      "bound": 2,
+      "expand": 0,
+      "close": 1,
+      "calibrate": 1
+    },
+    "chosen": [
+      {
+        "question": "Does the quote assume a fixed agent count or ticket price, and which would change if volume tripled?",
+        "operator": "surface",
+        "target": "a1",
+        "S": 500.0,
+        "picked_by": "mmr",
+        "why": "Checks whether the quote still holds at 900 tickets per week.",
+        "answer_path": "Ask the agency to confirm pricing in writing at 900 tickets per week."
+      },
+      {
+        "question": "What would the agency's total monthly bill be at 300, 600 and 900 tickets per week once setup, tooling and minimums are included?",
+        "operator": "discriminate",
+        "target": "u1",
+        "S": 250.0,
+        "picked_by": "coverage",
+        "why": "If the agency is cheaper only at low volume, the in-house option may win at 900.",
+        "answer_path": "Ask the agency for a written price schedule at each volume level, and compare with the in-house cost at the same points."
+      },
+      {
+        "question": "At what weekly ticket volume would the agency cost more than the in-house team?",
+        "operator": "bound",
+        "target": "u1",
+        "S": 250.0,
+        "picked_by": "mmr",
+        "why": "Finds the point where the savings disappear.",
+        "answer_path": "Build a simple cost-by-volume model for both options using the quote and salary data."
+      },
+      {
+        "question": "How many tickets per agent per week does your team handle today, and would four agents cover 900?",
+        "operator": "discriminate",
+        "target": "u3",
+        "S": 200.0,
+        "picked_by": "coverage",
+        "why": "Decides whether two hires are even enough for the in-house option.",
+        "answer_path": "Pull ticket counts and handling times from your help desk and calculate capacity per agent."
+      },
+      {
+        "question": "What customer satisfaction scores does the agency report for clients like you, and will it put a target and penalty in the contract?",
+        "operator": "discriminate",
+        "target": "u4",
+        "S": 200.0,
+        "picked_by": "coverage",
+        "why": "Commitment to the 90% target separates the options on the main goal.",
+        "answer_path": "Ask the agency for references and sample reports, and request draft service level terms."
+      },
+      {
+        "question": "How many agents do you need at the highest weekly volume, and could the fixed budget pay for that under each option?",
+        "operator": "bound",
+        "target": "u5",
+        "S": 200.0,
+        "picked_by": "coverage",
+        "why": "Tests whether the fixed budget breaks at the top of the growth curve.",
+        "answer_path": "Use finance data and the quote to compute cost at 900 tickets per week."
+      },
+      {
+        "question": "What evidence suggests two more agents would be enough for triple the volume?",
+        "operator": "surface",
+        "target": "a2",
+        "S": 200.0,
+        "picked_by": "mmr",
+        "why": "Checks the capacity assumption behind the in-house option.",
+        "answer_path": "Calculate handling time per ticket, add expected growth, and test with tooling or automation changes."
+      },
+      {
+        "question": "What is your trust in the agency's claim of scaling within days based on: a reference, a contract, or the sales conversation?",
+        "operator": "calibrate",
+        "target": "a4",
+        "S": 160.0,
+        "picked_by": "mmr",
+        "why": "Separates evidence from sales talk.",
+        "answer_path": "Ask for two client references who scaled quickly."
+      },
+      {
+        "question": "If you chose the agency and it did not work, how long would it take and what would it cost to switch to in-house hiring?",
+        "operator": "close",
+        "target": "u7",
+        "S": 120.0,
+        "picked_by": "close",
+        "why": "Shows how reversible the agency option is.",
+        "answer_path": "Read the exit and notice terms in the draft contract and estimate hiring time."
+      },
+      {
+        "question": "What share of last month's tickets could someone with no product training have solved using a written guide?",
+        "operator": "discriminate",
+        "target": "u2",
+        "S": 85.33333333333333,
+        "picked_by": "coverage",
+        "why": "A high share favors the agency; a low share favors in-house agents.",
+        "answer_path": "Sample 100 recent tickets and tag each by the knowledge needed to resolve it."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "What would the agency's total monthly bill be at 300, 600 and 900 tickets per week once setup, tooling and minimums are included?",
+        "why": "If the agency is cheaper only at low volume, the in-house option may win at 900.",
+        "answer_path": "Ask the agency for a written price schedule at each volume level, and compare with the in-house cost at the same points.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 250.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "What share of last month's tickets could someone with no product training have solved using a written guide?",
+        "why": "A high share favors the agency; a low share favors in-house agents.",
+        "answer_path": "Sample 100 recent tickets and tag each by the knowledge needed to resolve it.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 3
+        },
+        "S": 85.33333333333333,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u3",
+        "question": "How many tickets per agent per week does your team handle today, and would four agents cover 900?",
+        "why": "Decides whether two hires are even enough for the in-house option.",
+        "answer_path": "Pull ticket counts and handling times from your help desk and calculate capacity per agent.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 2,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u4",
+        "question": "What customer satisfaction scores does the agency report for clients like you, and will it put a target and penalty in the contract?",
+        "why": "Commitment to the 90% target separates the options on the main goal.",
+        "answer_path": "Ask the agency for references and sample reports, and request draft service level terms.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u5",
+        "question": "How large is the current backlog, and how many weeks can it wait before satisfaction drops?",
+        "why": "A serious backlog favors the faster-starting option.",
+        "answer_path": "Check backlog and response time in your help desk, and compare with satisfaction trends.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 72.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "Is the 30% saving calculated at the same scope and ticket volume as the in-house hires, including management time on your side?",
+        "why": "Checks whether the savings claim compares like with like.",
+        "answer_path": "Ask the agency how the quote was built and rebuild the in-house cost with salary, tools, and management time.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 160.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "What evidence suggests two more agents would be enough for triple the volume?",
+        "why": "Checks the capacity assumption behind the in-house option.",
+        "answer_path": "Calculate handling time per ticket, add expected growth, and test with tooling or automation changes.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "Has the agency handled a product as complex as yours, and can you read some of its past tickets?",
+        "why": "Checks whether agency quality will match yours.",
+        "answer_path": "Request anonymized sample responses and talk to a current client in a similar field.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 48.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a4",
+        "question": "Does the contract state how fast the agency must add staff when your volume rises, and what happens if it misses that?",
+        "why": "Checks whether the claim of scaling within days is binding.",
+        "answer_path": "Ask for the scaling clause and remedies in the draft contract.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 160.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "Does the quote assume a fixed agent count or ticket price, and which would change if volume tripled?",
+        "why": "Checks whether the quote still holds at 900 tickets per week.",
+        "answer_path": "Ask the agency to confirm pricing in writing at 900 tickets per week.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 500.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "a3",
+        "question": "Do agency agents' answers lead to more repeat contacts or escalations than your own agents' answers?",
+        "why": "Tests whether agency quality really holds on your product.",
+        "answer_path": "Run a two to four week pilot and compare repeat contact and escalation rates.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": true,
+          "relevance": 4,
+          "uncertainty": 5,
+          "impact": 4,
+          "answerability": 2,
+          "cost": 4
+        },
+        "S": 40.0,
+        "failed": [
+          "no_path"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u3",
+        "question": "Would adding two agents actually lower response times, or does the work depend on something else such as tools or product bugs?",
+        "why": "Tests whether headcount is the real driver of the overload.",
+        "answer_path": "Review why tickets take long: waiting for engineering, missing tools or volume.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 36.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u4",
+        "question": "Do satisfaction scores for your own agents fall when they are busy, and by how much?",
+        "why": "Tests how load links to satisfaction, which affects both options.",
+        "answer_path": "Plot satisfaction against weekly volume and per-agent load from past data.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u2",
+        "question": "Would clearer help articles or automation reduce the number of tickets as volume grows, and by how much?",
+        "why": "Tests whether volume grows in direct proportion to ticket load.",
+        "answer_path": "Tag recent tickets by type and estimate what self-service could remove.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 2,
+          "cost": 4
+        },
+        "S": 12.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u1",
+        "question": "Does the agency's per-ticket price drop or rise as volume increases, and have other clients seen that?",
+        "why": "Tests the link between volume and cost.",
+        "answer_path": "Ask the agency and reference clients about bills during growth.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 160.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u1",
+        "question": "At what weekly ticket volume would the agency cost more than the in-house team?",
+        "why": "Finds the point where the savings disappear.",
+        "answer_path": "Build a simple cost-by-volume model for both options using the quote and salary data.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 250.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "bound",
+        "target": "u3",
+        "question": "How many weeks would it take to hire and train an in-house agent until productive, and what happens to volume meanwhile?",
+        "why": "Shows when hiring is too slow for the volume curve.",
+        "answer_path": "Ask HR for time-to-hire and your agents for onboarding time, and map against the growth curve.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u6",
+        "question": "Which customer data rules, languages or hours of coverage would the agency be unable to meet?",
+        "why": "Finds conditions in which the agency option stops working.",
+        "answer_path": "Check your privacy and security policies, support languages and coverage hours with legal and the agency.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u5",
+        "question": "How many agents do you need at the highest weekly volume, and could the fixed budget pay for that under each option?",
+        "why": "Tests whether the fixed budget breaks at the top of the growth curve.",
+        "answer_path": "Use finance data and the quote to compute cost at 900 tickets per week.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "bound",
+        "target": "new",
+        "question": "How much of your own team's time would managing the agency take, and could the two overloaded agents absorb it?",
+        "why": "Management time may limit the agency option.",
+        "answer_path": "Ask other agency clients how many hours a week they spend on oversight and quality checks.",
+        "review": {
+          "id": 20,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Would a hybrid work, such as the agency handling routine tickets while your two agents take complex ones?",
+        "why": "The map treats the options as exclusive.",
+        "answer_path": "Ask the agency whether it can take a defined ticket tier and price it.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could better tooling, such as templates, a help center or automation, reduce the load enough to change the decision?",
+        "why": "Brings in a non-staffing lever.",
+        "answer_path": "Ask your help-desk vendor what features you are not using, and estimate deflection.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 36.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "What happens to your current two agents' workload and morale under each option?",
+        "why": "Retention of the current team affects both quality and cost.",
+        "answer_path": "Talk to your two agents about what they would want.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 27.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Would hiring contractors or freelancers, or part-time staff, be a workable third option?",
+        "why": "Adds options not in the map.",
+        "answer_path": "Look at contractor rates and availability in your market.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Is there a risk that customers who are used to your team's tone would notice and object to an outside team?",
+        "why": "Brand voice and customer perception are not on the map.",
+        "answer_path": "Review customer comments about your support and run a small blind test of agency replies.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 24.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u7",
+        "question": "If you chose the agency and it did not work, how long would it take and what would it cost to switch to in-house hiring?",
+        "why": "Shows how reversible the agency option is.",
+        "answer_path": "Read the exit and notice terms in the draft contract and estimate hiring time.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 5,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": "close"
+      },
+      {
+        "operator": "close",
+        "target": "u7",
+        "question": "If you hired two agents and volume stayed flat, how hard would it be to reduce staff?",
+        "why": "Shows how reversible the in-house option is.",
+        "answer_path": "Ask HR about contract types, notice periods and costs for ending roles.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 24.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u5",
+        "question": "What does waiting another month cost you in backlog and satisfaction?",
+        "why": "Gives the cost of delay.",
+        "answer_path": "Look at the trend in backlog and satisfaction over the past months.",
+        "review": {
+          "id": 8,
+          "generic": true,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 24.0,
+        "failed": [
+          "generic"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "What is the date by which support capacity must be in place, and who set it?",
+        "why": "Identifies the true deadline.",
+        "answer_path": "Check the growth forecast and ask the owner of the volume projection.",
+        "review": {
+          "id": 9,
+          "generic": true,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 2,
+          "impact": 1,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 20.0,
+        "failed": [
+          "generic"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u4",
+        "question": "Could you start with a short agency contract or trial period before committing fully?",
+        "why": "A trial reduces the cost of a wrong decision.",
+        "answer_path": "Ask the agency for a pilot term and exit conditions.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 3
+        },
+        "S": 64.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u7",
+        "question": "What is your expectation of 900 tickets per week based on, and how sure are you about its timing?",
+        "why": "The whole decision depends on the volume curve.",
+        "answer_path": "Ask the people who made the forecast how it was built and compare with past forecasts.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a4",
+        "question": "What is your trust in the agency's claim of scaling within days based on: a reference, a contract, or the sales conversation?",
+        "why": "Separates evidence from sales talk.",
+        "answer_path": "Ask for two client references who scaled quickly.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 160.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "calibrate",
+        "target": "a2",
+        "question": "Is your sense that two more agents are enough based on measured handling times or on a rough feeling?",
+        "why": "Shows how reliable the capacity estimate is.",
+        "answer_path": "Measure handling time per ticket from the help desk.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 2
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u4",
+        "question": "How did you form your view of the agency's quality: demos, reviews, or tests with your own tickets?",
+        "why": "Checks the basis of your impression.",
+        "answer_path": "List what you have seen directly and run a sample test with real tickets.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 3
+        },
+        "S": 85.33333333333333,
+        "failed": [],
+        "picked_by": null
+      }
+    ]
+  }
+}

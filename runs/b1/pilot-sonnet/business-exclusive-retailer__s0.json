@@ -1,0 +1,21 @@
+{
+  "case_id": "business-exclusive-retailer",
+  "arm": "b1",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-24T22:36:30.682147+00:00",
+  "questions": [
+    "What price, margin, and payment terms does the retailer require, including slotting fees, returns, promotional funding, and markdown support, and what gross margin remains per unit?",
+    "How firm is the volume promise: is it a contractual minimum purchase commitment or a projection, and what happens to you if volumes fall short?",
+    "Can your production scale fast enough to meet the retailer's volume without quality problems or cash strain from larger inventory and slow payment?",
+    "What does exclusivity actually block: your online store, your existing small shops, other retailers, and for how long?",
+    "If the retailer cuts orders, delists you, or demands price cuts after year one, how much of your revenue would depend on them and what would you fall back on?",
+    "Why have small-shop sales been flat: lack of demand, limited shop count, weak product visibility, or something you could change without the deal?",
+    "Could you reach doubled unit sales through a non-exclusive route, such as more shops, a better online store, or a limited pilot with the retailer in some stores?",
+    "How would small shops that currently buy from you react to the exclusive deal, and how much of today's revenue and brand reputation would you lose with them?",
+    "What is the exit path: contract length, termination rights, and the cost of rebuilding your small-shop network if you leave the deal?",
+    "How was the 'double in 18 months' target set, and does the margin floor of 40% hold under the retailer's pricing at the volumes needed?"
+  ],
+  "raw": "{\"questions\": [\"What price, margin, and payment terms does the retailer require, including slotting fees, returns, promotional funding, and markdown support, and what gross margin remains per unit?\", \"How firm is the volume promise: is it a contractual minimum purchase commitment or a projection, and what happens to you if volumes fall short?\", \"Can your production scale fast enough to meet the retailer's volume without quality problems or cash strain from larger inventory and slow payment?\", \"What does exclusivity actually block: your online store, your existing small shops, other retailers, and for how long?\", \"If the retailer cuts orders, delists you, or demands price cuts after year one, how much of your revenue would depend on them and what would you fall back on?\", \"Why have small-shop sales been flat: lack of demand, limited shop count, weak product visibility, or something you could change without the deal?\", \"Could you reach doubled unit sales through a non-exclusive route, such as more shops, a better online store, or a limited pilot with the retailer in some stores?\", \"How would small shops that currently buy from you react to the exclusive deal, and how much of today's revenue and brand reputation would you lose with them?\", \"What is the exit path: contract length, termination rights, and the cost of rebuilding your small-shop network if you leave the deal?\", \"How was the 'double in 18 months' target set, and does the margin floor of 40% hold under the retailer's pricing at the volumes needed?\"]}"
+}

@@ -15,7 +15,7 @@ import random
 import re
 from typing import Callable
 
-from common import case_brief, extract_json, fill, load_prompt
+from common import Pending, case_brief, extract_json, fill, load_prompt
 
 STAGES = ["pipeline/parse", "pipeline/generate", "pipeline/critic"]
 OPERATORS = ["discriminate", "surface", "test", "bound", "expand", "close", "calibrate"]
@@ -67,13 +67,20 @@ def generate(case: dict, graph: dict, call: Call) -> list[dict]:
 def critique(case: dict, candidates: list[dict], call: Call) -> list[dict]:
     template = load_prompt("pipeline/critic")
     reviews: list[dict] = []
+    pending: Pending | None = None
     for start in range(0, len(candidates), CRITIC_CHUNK):
         chunk = candidates[start:start + CRITIC_CHUNK]
         block = "\n".join(f"{i}. {c['question']}" for i, c in enumerate(chunk, 1))
-        reply = extract_json(call(fill(template, case_brief=case_brief(case), candidates=block), 4000))
+        try:
+            reply = extract_json(call(fill(template, case_brief=case_brief(case), candidates=block), 4000))
+        except Pending as e:  # cache backend: record every chunk before stopping
+            pending = e
+            continue
         by_id = {int(r["id"]): r for r in reply.get("reviews", []) if "id" in r}
         for i in range(1, len(chunk) + 1):
             reviews.append(by_id.get(i, {"missing": True}))
+    if pending:
+        raise pending
     return reviews
 
 

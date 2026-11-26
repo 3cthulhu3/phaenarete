@@ -1,0 +1,96 @@
+{
+  "case_id": "career-freelance-vs-inhouse",
+  "arm": "b0",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "t2",
+    "f3": "c2",
+    "f4": "c1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What income do I realistically need in the first year (taxes, health insurance, retirement, equipment, software, unpaid time), and what freelance revenue does that require?",
+      "reveals": [],
+      "generic": false,
+      "note": "Income needs; no hidden fact"
+    },
+    {
+      "q": 2,
+      "question": "How many billable days can I actually expect per month once sales, admin and gaps between projects are counted?",
+      "reveals": [],
+      "generic": false,
+      "note": "Billable days in general; does not surface start delay"
+    },
+    {
+      "q": 3,
+      "question": "How firm are the two companies' interest, and what scope, duration, day rate and payment terms would they commit to in writing?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Firmness/duration of interest reveals start only after budget cycle in 8 months"
+    },
+    {
+      "q": 4,
+      "question": "How long could my 4-month savings last under a slow start, and what is my fallback if income arrives late?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Late income question surfaces the 8-month delay"
+    },
+    {
+      "q": 5,
+      "question": "What is the full value of the in-house offer beyond salary, including benefits, paid leave, pension, job security, learning and career progression?",
+      "reveals": [
+        "t2"
+      ],
+      "generic": false,
+      "note": "Value beyond salary incl. learning reveals conference budget"
+    },
+    {
+      "q": 6,
+      "question": "How much autonomy over my work would the in-house role really provide, and could I negotiate for more of it?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Autonomy over work in-house reveals side-project days"
+    },
+    {
+      "q": 7,
+      "question": "How much do I value stability versus independence, and how would I feel about irregular income and self-managed work?",
+      "reveals": [],
+      "generic": false,
+      "note": "Personal preferences"
+    },
+    {
+      "q": 8,
+      "question": "Could I test freelancing first, for example by negotiating part-time or a delayed start, or taking the in-house role and freelancing on the side?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Freelancing on the side reveals two days of approved side projects"
+    },
+    {
+      "q": 9,
+      "question": "How does each path affect my skills, portfolio and future options, and how easy is it to switch back if I choose wrong?",
+      "reveals": [],
+      "generic": false,
+      "note": "Skills and portfolio; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "What are the legal, tax and contractual details to check, such as employment-status rules, client dependency on one or two companies, and any non-compete limits?",
+      "reveals": [],
+      "generic": false,
+      "note": "Legal/tax details; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Income needs; no hidden fact\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Billable days in general; does not surface start delay\"}, {\"q\": 3, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Firmness/duration of interest reveals start only after budget cycle in 8 months\"}, {\"q\": 4, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Late income question surfaces the 8-month delay\"}, {\"q\": 5, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Value beyond salary incl. learning reveals conference budget\"}, {\"q\": 6, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Autonomy over work in-house reveals side-project days\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Personal preferences\"}, {\"q\": 8, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Freelancing on the side reveals two days of approved side projects\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Skills and portfolio; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Legal/tax details; no hidden fact\"}]}"
+}

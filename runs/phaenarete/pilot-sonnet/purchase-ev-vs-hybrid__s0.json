@@ -1,0 +1,828 @@
+{
+  "case_id": "purchase-ev-vs-hybrid",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.804915+00:00",
+  "questions": [
+    "If you use public fast chargers part of the time, will the energy cost per km still be clearly below the hybrid's fuel cost?",
+    "What is your expectation of cheap charging based on: an advertised price, a friend's experience, or your own calculation?",
+    "If you cannot charge at home, would your workplace offer a charger and at what price per kWh?",
+    "Can you get written permission from your landlord or building manager to install a charger or use a socket at your parking spot?",
+    "What would insurance and yearly road tax cost for each car, based on quotes?",
+    "What does a battery health report show for the specific used EV you are considering?",
+    "Do your employer or the city offer a charging benefit, a commuting subsidy, or a purchase incentive?",
+    "What are similar five-year-old cars of each type selling for today, compared with their price new?",
+    "Can you have a garage inspect the EV and take a short return period before you commit?",
+    "On a cold winter morning with heating on and at highway speed, how many kilometres would this EV really drive on a full charge?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Total cost of ownership over 5 years at 60 km per day, including purchase, energy, maintenance, insurance, tax and resale value, is lowest",
+        "Charging is practical every working day with little effort, given the rented apartment",
+        "Little hassle: breakdowns, repairs, downtime and range anxiety are limited over the 5 years",
+        "Purchase price stays within the fixed budget"
+      ],
+      "stated_facts": [
+        "Goal is lowest total cost over 5 years for a 60 km daily commute, with no hassle",
+        "Purchase budget is fixed",
+        "Lives in a rented apartment",
+        "Used EV costs about the same as the new hybrid",
+        "Electricity per km is much cheaper than fuel locally",
+        "EV maintenance is lower"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "Home or workplace charging will be available at a low per-km electricity price."
+        },
+        {
+          "id": "a2",
+          "text": "The used EV's battery will last the full 5 years with acceptable range and no costly replacement."
+        },
+        {
+          "id": "a3",
+          "text": "Maintenance savings on the EV outweigh the lack of a new-car warranty."
+        },
+        {
+          "id": "a4",
+          "text": "Energy and maintenance are the main cost differences; depreciation and insurance are similar."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "Can the user charge cheaply and reliably, given the rented apartment: is there a landlord-approved wall charger or a parking spot with a socket, or a charger at work?",
+          "if_resolved": "If cheap overnight or workplace charging is available, the EV is favored; if the user must rely on public fast chargers at higher prices, the cost advantage shrinks and the hybrid is favored."
+        },
+        {
+          "id": "u2",
+          "text": "What is the battery's state of health and warranty status for this specific used EV, and what is the cost of failure?",
+          "if_resolved": "If the battery health is good with remaining warranty, the EV is favored; if it is degraded or unwarranted, the replacement risk could cancel the savings and favor the hybrid."
+        },
+        {
+          "id": "u3",
+          "text": "What is the real winter and highway range of the used EV compared with the 60 km daily need plus any longer trips?",
+          "if_resolved": "If range comfortably covers the commute with margin in cold weather, the EV is favored; if it is tight, hassle and charging frequency favor the hybrid."
+        },
+        {
+          "id": "u4",
+          "text": "What are expected resale values after 5 years for each car, given EV depreciation and battery concerns versus hybrid residual value?",
+          "if_resolved": "If used EV resale holds up, it is favored; if EV values drop sharply, the hybrid's total cost may be lower."
+        },
+        {
+          "id": "u5",
+          "text": "How do insurance, road tax, and any incentives or local rules (low-emission zones, parking) differ between the two cars?",
+          "if_resolved": "If the EV has tax or access benefits, it is favored; if insurance for a used EV is higher, the gap narrows toward the hybrid."
+        },
+        {
+          "id": "u6",
+          "text": "Does the user also need to take occasional long trips, and how well are the routes covered by fast charging?",
+          "if_resolved": "If long trips are rare or well covered by chargers, the EV is favored; if frequent, the hybrid's convenience is favored."
+        },
+        {
+          "id": "u7",
+          "text": "Could the user move before 5 years or lose their parking arrangement, changing charging access?",
+          "if_resolved": "If housing is stable, the EV plan holds; if a move is likely to a place without charging, the hybrid is favored."
+        }
+      ]
+    },
+    "n_candidates": 28,
+    "n_passing": 25,
+    "fail_counts": {
+      "generic": 1,
+      "presupposes": 2,
+      "answered": 0,
+      "no_path": 0,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 4,
+      "surface": 1,
+      "test": 2,
+      "bound": 0,
+      "expand": 1,
+      "close": 1,
+      "calibrate": 1
+    },
+    "chosen": [
+      {
+        "question": "If you use public fast chargers part of the time, will the energy cost per km still be clearly below the hybrid's fuel cost?",
+        "operator": "test",
+        "target": "a1",
+        "S": 625.0,
+        "picked_by": "mmr",
+        "why": "Checks the link between electricity being cheap and the savings you would actually see.",
+        "answer_path": "Calculate cost per km using local public charging prices and the car's consumption, and compare with the hybrid's fuel use at current pump prices."
+      },
+      {
+        "question": "What is your expectation of cheap charging based on: an advertised price, a friend's experience, or your own calculation?",
+        "operator": "calibrate",
+        "target": "a1",
+        "S": 320.0,
+        "picked_by": "mmr",
+        "why": "Charging prices vary a lot between home, work and public stations.",
+        "answer_path": "Collect your actual local tariff for home and public charging and recalculate."
+      },
+      {
+        "question": "If you cannot charge at home, would your workplace offer a charger and at what price per kWh?",
+        "operator": "surface",
+        "target": "a1",
+        "S": 320.0,
+        "picked_by": "mmr",
+        "why": "The savings assume cheap charging, which a rented apartment may not provide.",
+        "answer_path": "Ask your employer's facilities team and check the pricing of public chargers on your commute."
+      },
+      {
+        "question": "Can you get written permission from your landlord or building manager to install a charger or use a socket at your parking spot?",
+        "operator": "discriminate",
+        "target": "u1",
+        "S": 250.0,
+        "picked_by": "coverage",
+        "why": "Cheap overnight charging makes the used EV much stronger; without it the hybrid gains.",
+        "answer_path": "Ask the landlord or property manager in writing, and ask neighbours who charge whether they have a shared arrangement."
+      },
+      {
+        "question": "What would insurance and yearly road tax cost for each car, based on quotes?",
+        "operator": "discriminate",
+        "target": "u5",
+        "S": 240.0,
+        "picked_by": "mmr",
+        "why": "These costs are unknown and could close or widen the gap.",
+        "answer_path": "Request quotes from two or three insurers for both cars, and check the tax rules for each on the transport authority's site."
+      },
+      {
+        "question": "What does a battery health report show for the specific used EV you are considering?",
+        "operator": "discriminate",
+        "target": "u2",
+        "S": 200.0,
+        "picked_by": "coverage",
+        "why": "A healthy battery supports the EV; a worn one could erase the savings.",
+        "answer_path": "Ask the seller for a state-of-health test or a dealer printout, and have an independent garage verify it."
+      },
+      {
+        "question": "Do your employer or the city offer a charging benefit, a commuting subsidy, or a purchase incentive?",
+        "operator": "expand",
+        "target": "new",
+        "S": 192.0,
+        "picked_by": "mmr",
+        "why": "Such support could lower the EV's cost or the charging problem.",
+        "answer_path": "Ask your HR team and look at national and local incentive sites."
+      },
+      {
+        "question": "What are similar five-year-old cars of each type selling for today, compared with their price new?",
+        "operator": "discriminate",
+        "target": "u4",
+        "S": 128.0,
+        "picked_by": "coverage",
+        "why": "Resale value changes which car costs less over five years.",
+        "answer_path": "Search used-car listings for both models at the age and mileage yours would reach, and ask a dealer about expected values."
+      },
+      {
+        "question": "Can you have a garage inspect the EV and take a short return period before you commit?",
+        "operator": "close",
+        "target": "u2",
+        "S": 128.0,
+        "picked_by": "close",
+        "why": "Reduces the risk of a purchase that is hard to undo.",
+        "answer_path": "Ask the seller about inspection and return terms, and book an independent pre-purchase check."
+      },
+      {
+        "question": "On a cold winter morning with heating on and at highway speed, how many kilometres would this EV really drive on a full charge?",
+        "operator": "test",
+        "target": "u3",
+        "S": 96.0,
+        "picked_by": "coverage",
+        "why": "Tests whether the range covers the 60 km daily commute with a buffer.",
+        "answer_path": "Look up real-world winter range tests for the model, and ask current owners or the seller to demonstrate a cold-weather drive."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "Can you get written permission from your landlord or building manager to install a charger or use a socket at your parking spot?",
+        "why": "Cheap overnight charging makes the used EV much stronger; without it the hybrid gains.",
+        "answer_path": "Ask the landlord or property manager in writing, and ask neighbours who charge whether they have a shared arrangement.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 250.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "What does a battery health report show for the specific used EV you are considering?",
+        "why": "A healthy battery supports the EV; a worn one could erase the savings.",
+        "answer_path": "Ask the seller for a state-of-health test or a dealer printout, and have an independent garage verify it.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u4",
+        "question": "What are similar five-year-old cars of each type selling for today, compared with their price new?",
+        "why": "Resale value changes which car costs less over five years.",
+        "answer_path": "Search used-car listings for both models at the age and mileage yours would reach, and ask a dealer about expected values.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u5",
+        "question": "What would insurance and yearly road tax cost for each car, based on quotes?",
+        "why": "These costs are unknown and could close or widen the gap.",
+        "answer_path": "Request quotes from two or three insurers for both cars, and check the tax rules for each on the transport authority's site.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 240.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "If you cannot charge at home, would your workplace offer a charger and at what price per kWh?",
+        "why": "The savings assume cheap charging, which a rented apartment may not provide.",
+        "answer_path": "Ask your employer's facilities team and check the pricing of public chargers on your commute.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 320.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "How much does a replacement battery cost for this model, and is there any warranty left for it?",
+        "why": "The EV plan assumes no costly battery replacement over five years.",
+        "answer_path": "Check the manufacturer's battery warranty terms by age and mileage, and ask a dealer for a replacement quote.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "How much would you save on maintenance with the EV, and how does that compare with a hybrid under warranty?",
+        "why": "Checks whether the warranty gap is covered by lower maintenance.",
+        "answer_path": "Ask a garage for service-plan prices for both models and read the warranty terms of the new hybrid.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 24.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a4",
+        "question": "Are depreciation and insurance really similar for the two, or does one lose value much faster?",
+        "why": "The comparison treats them as equal, which may not be right.",
+        "answer_path": "Compare price history of similar cars in listings and compare insurance quotes.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u3",
+        "question": "On a cold winter morning with heating on and at highway speed, how many kilometres would this EV really drive on a full charge?",
+        "why": "Tests whether the range covers the 60 km daily commute with a buffer.",
+        "answer_path": "Look up real-world winter range tests for the model, and ask current owners or the seller to demonstrate a cold-weather drive.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "test",
+        "target": "a1",
+        "question": "If you use public fast chargers part of the time, will the energy cost per km still be clearly below the hybrid's fuel cost?",
+        "why": "Checks the link between electricity being cheap and the savings you would actually see.",
+        "answer_path": "Calculate cost per km using local public charging prices and the car's consumption, and compare with the hybrid's fuel use at current pump prices.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 625.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "a3",
+        "question": "Do owners of used EVs of this age report fewer or more repair bills than owners of new hybrids?",
+        "why": "Checks the cause-and-effect link between EV simplicity and low maintenance.",
+        "answer_path": "Read owner forums and reliability surveys for the model, and ask an independent mechanic.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u6",
+        "question": "Does charging time on a trip add enough delay and effort to matter compared with filling up a hybrid?",
+        "why": "Tests whether the no-hassle goal holds on longer journeys.",
+        "answer_path": "Plan your most typical long trip with a route planner that includes charging stops and compare the total time.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u3",
+        "question": "At what daily distance or temperature would the used EV no longer cover your commute without charging at work or on the way?",
+        "why": "Defines the conditions under which the EV stops working for you.",
+        "answer_path": "Use the car's winter range figures and compare them with your 60 km commute plus detours, then calculate the margin.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u2",
+        "question": "How much battery degradation per year would the car need to show before range becomes a problem within five years?",
+        "why": "Gives a limit on how much battery loss you can accept.",
+        "answer_path": "Ask the seller for the current capacity and compare it with typical degradation rates for that model.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u1",
+        "question": "How many days per week could you cope with having to charge at a public station?",
+        "why": "Shows how much charging inconvenience the EV choice can absorb.",
+        "answer_path": "Map public chargers near home and work, check how busy they get in the evening, and try a week on them.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 81.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u7",
+        "question": "If your fuel price or electricity price changed by a large amount, at what point would the cheaper option switch?",
+        "why": "Finds the energy price conditions that decide between the cars.",
+        "answer_path": "Build a simple five-year cost model and test different energy price scenarios.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Is there a car-sharing, leasing or subscription option that would reduce the risk of ownership?",
+        "why": "Adds other ways to get the car that the two options do not cover.",
+        "answer_path": "Search local leasing and subscription providers and compare their five-year cost with buying.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 32.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Would a used hybrid or a new EV fit within your fixed budget and change the comparison?",
+        "why": "The two options may not be the best ones within the budget.",
+        "answer_path": "Check listings for a used hybrid and for the cheapest new EV, and compare their five-year costs.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Do your employer or the city offer a charging benefit, a commuting subsidy, or a purchase incentive?",
+        "why": "Such support could lower the EV's cost or the charging problem.",
+        "answer_path": "Ask your HR team and look at national and local incentive sites.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could public transport or a mix of train and car handle part of the 60 km commute for less?",
+        "why": "The goal is the lowest cost with no hassle, which cars might not satisfy.",
+        "answer_path": "Compare the monthly pass price and journey time against the running costs of either car.",
+        "review": {
+          "id": 20,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 48.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u7",
+        "question": "How likely is it that you will move or change jobs within five years, and what would that do to the commute?",
+        "why": "A change would affect which car makes sense.",
+        "answer_path": "Check your lease end date and your job's stability, and write down how likely each change is.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u2",
+        "question": "Can you have a garage inspect the EV and take a short return period before you commit?",
+        "why": "Reduces the risk of a purchase that is hard to undo.",
+        "answer_path": "Ask the seller about inspection and return terms, and book an independent pre-purchase check.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": "close"
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "Is there a deadline, such as an expiring offer, incentive, or the end of your current car's life, that forces the decision?",
+        "why": "Shows what waiting actually costs.",
+        "answer_path": "Check the dates on any offers, your current car's condition and the timing of any incentive changes.",
+        "review": {
+          "id": 3,
+          "generic": true,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 2,
+          "impact": 1,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 20.0,
+        "failed": [
+          "generic"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u4",
+        "question": "Which of the two would be easier to sell if you needed to get out of it after two years?",
+        "why": "Shows which choice is easier to undo.",
+        "answer_path": "Check how long similar used EVs and hybrids sit on listing sites and how much they lose in the first two years.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a1",
+        "question": "What is your expectation of cheap charging based on: an advertised price, a friend's experience, or your own calculation?",
+        "why": "Charging prices vary a lot between home, work and public stations.",
+        "answer_path": "Collect your actual local tariff for home and public charging and recalculate.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 320.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "calibrate",
+        "target": "a2",
+        "question": "Where does your confidence in the used EV's battery come from: the seller, a report, or general reputation?",
+        "why": "A seller's statement is weaker evidence than a test.",
+        "answer_path": "Compare what the seller says with an independent battery test.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a4",
+        "question": "What is the basis for believing that energy and maintenance are the only differences that matter?",
+        "why": "Other costs may be left out because they are harder to see.",
+        "answer_path": "List every cost for five years for both cars and see which items you have only guessed.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 27.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u6",
+        "question": "How often do you take trips much longer than your commute, and are you recalling real trips or imagining them?",
+        "why": "Occasional trips may be more or less frequent than assumed.",
+        "answer_path": "Check your calendar, fuel receipts or navigation history for the last year.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": null
+      }
+    ]
+  }
+}

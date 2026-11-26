@@ -1,0 +1,90 @@
+{
+  "case_id": "business-price-increase",
+  "arm": "phaenarete",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "t1",
+    "f3": "c1",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "If new sign-ups are half the forecast, which option still meets the revenue goal?",
+      "reveals": [],
+      "generic": false,
+      "note": "about sign-up forecast; no hidden fact stated"
+    },
+    {
+      "q": 2,
+      "question": "Over the next 12 months, how many new customers do you expect compared with the number already on the books, and how much of the extra revenue comes from each group?",
+      "reveals": [],
+      "generic": false,
+      "note": "customer counts and revenue split; cap and procurement review not implied"
+    },
+    {
+      "q": 3,
+      "question": "What do your contracts allow for existing customers: how much notice, and can price change in the middle of a term?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "contract terms for existing customers would state the 5% cap"
+    },
+    {
+      "q": 4,
+      "question": "What is the earliest date a rise for existing customers could take effect given notice periods, and does that date still allow results within 12 months?",
+      "reveals": [],
+      "generic": false,
+      "note": "about notice-period timing, not caps or the largest customer"
+    },
+    {
+      "q": 5,
+      "question": "Do any customers have a price guarantee, a custom plan or a promise from a salesperson that limits a rise?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "price guarantees that limit a rise point directly to the 5% cap"
+    },
+    {
+      "q": 6,
+      "question": "Would customers find out that new customers pay less or more, and where would they see it?",
+      "reveals": [],
+      "generic": false,
+      "note": "price visibility; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "If a large account cancelled at once, how much would that alone add to monthly churn?",
+      "reveals": [],
+      "generic": false,
+      "note": "hypothetical churn math; procurement review not stated"
+    },
+    {
+      "q": 8,
+      "question": "How did you arrive at your idea of how much churn a 20% rise would cause?",
+      "reveals": [],
+      "generic": false,
+      "note": "churn estimate method; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "Could you roll out the higher price to a random fifth of existing customers first and compare churn with the rest?",
+      "reveals": [],
+      "generic": false,
+      "note": "test design; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "At a price 20% higher, would new prospects still choose you over the competitors who have already raised theirs?",
+      "reveals": [],
+      "generic": false,
+      "note": "about new prospects, not existing largest customer"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"about sign-up forecast; no hidden fact stated\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"customer counts and revenue split; cap and procurement review not implied\"}, {\"q\": 3, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"contract terms for existing customers would state the 5% cap\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"about notice-period timing, not caps or the largest customer\"}, {\"q\": 5, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"price guarantees that limit a rise point directly to the 5% cap\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"price visibility; no hidden fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"hypothetical churn math; procurement review not stated\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"churn estimate method; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"test design; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"about new prospects, not existing largest customer\"}]}"
+}

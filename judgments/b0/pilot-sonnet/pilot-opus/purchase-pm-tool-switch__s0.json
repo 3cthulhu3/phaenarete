@@ -1,0 +1,90 @@
+{
+  "case_id": "purchase-pm-tool-switch",
+  "arm": "b0",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t1",
+    "f3": "t2",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Where does the 25-person team's status-reporting time actually go today, and how much of it is caused by Tool A's limitations rather than process or habits?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Where reporting time goes reveals copying into client spreadsheet"
+    },
+    {
+      "q": 2,
+      "question": "Does Tool B's dashboard truly solve the specific reporting pain points people complain about, as shown in a hands-on trial with our real data?",
+      "reveals": [],
+      "generic": false,
+      "note": "Tool B trial"
+    },
+    {
+      "q": 3,
+      "question": "How many hours would be needed to migrate projects, history, integrations and automations, and what could be lost or broken?",
+      "reveals": [],
+      "generic": false,
+      "note": "Migration effort"
+    },
+    {
+      "q": 4,
+      "question": "Who will set up, configure and maintain Tool B given that nobody is a dedicated administrator, and how much ongoing effort will that require?",
+      "reveals": [],
+      "generic": false,
+      "note": "Administration"
+    },
+    {
+      "q": 5,
+      "question": "What would the learning curve and temporary productivity dip look like for the team, and when would we be back to normal speed?",
+      "reveals": [],
+      "generic": false,
+      "note": "Learning curve"
+    },
+    {
+      "q": 6,
+      "question": "What are the total costs of each option, including migration, training, add-ons, contract length and exit terms, not just the 20% lower seat price?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Contract length and exit terms reveal auto-renewal with no refund"
+    },
+    {
+      "q": 7,
+      "question": "Could better configuration, templates or reporting habits in Tool A fix the problem at far lower cost and disruption?",
+      "reveals": [],
+      "generic": false,
+      "note": "Better Tool A configuration"
+    },
+    {
+      "q": 8,
+      "question": "Which other tools and systems do we rely on that need to integrate with the project tool, and does Tool B support them?",
+      "reveals": [],
+      "generic": false,
+      "note": "Integrations"
+    },
+    {
+      "q": 9,
+      "question": "How do the complaints break down across the team, and do those who report to managers or stakeholders agree that reporting is the main problem?",
+      "reveals": [],
+      "generic": false,
+      "note": "Complaint breakdown"
+    },
+    {
+      "q": 10,
+      "question": "What would success look like after switching, how will we measure the reduction in reporting time, and what is our plan if it does not materialise?",
+      "reveals": [],
+      "generic": false,
+      "note": "Success measurement"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Where reporting time goes reveals copying into client spreadsheet\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Tool B trial\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Migration effort\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Administration\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Learning curve\"}, {\"q\": 6, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Contract length and exit terms reveal auto-renewal with no refund\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Better Tool A configuration\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Integrations\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Complaint breakdown\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Success measurement\"}]}"
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "product-native-vs-web",
+  "arm": "b1",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-24T22:36:30.680767+00:00",
+  "questions": [
+    "What do the customers who asked for an app say they would do in it that they cannot do on the mobile web, and how many of them would use it weekly?",
+    "Is the weakness in weekly use on mobile caused by performance, usability, or missing features of the web version, which an app would fix, or by things an app would not change?",
+    "What would a native app cost in developer time at your team size, and what would the web product lose while all three developers focus on it?",
+    "Which features need native capabilities, such as push notifications, offline mode, or device integrations, and do they drive weekly return visits?",
+    "Could a progressive web app, a wrapper around the web product, or push via web provide most of the app's engagement benefit in less time?",
+    "Can a native app be built, released through the stores, and adopted by customers within 6 months so it can influence weekly active users at all?",
+    "What do competitors' apps achieve in terms of engagement, and do their users really use them more, or did competitors merely launch them?",
+    "What does the mobile web funnel currently show: bounce rates, load times, and where existing customers drop off?",
+    "How would you maintain two platforms or iOS and Android after launch, and who would handle updates and store review requirements?",
+    "How much of the survey result reflects real intent rather than a wish list, and how many respondents were active customers whose usage you want to increase?"
+  ],
+  "raw": "{\"questions\": [\"What do the customers who asked for an app say they would do in it that they cannot do on the mobile web, and how many of them would use it weekly?\", \"Is the weakness in weekly use on mobile caused by performance, usability, or missing features of the web version, which an app would fix, or by things an app would not change?\", \"What would a native app cost in developer time at your team size, and what would the web product lose while all three developers focus on it?\", \"Which features need native capabilities, such as push notifications, offline mode, or device integrations, and do they drive weekly return visits?\", \"Could a progressive web app, a wrapper around the web product, or push via web provide most of the app's engagement benefit in less time?\", \"Can a native app be built, released through the stores, and adopted by customers within 6 months so it can influence weekly active users at all?\", \"What do competitors' apps achieve in terms of engagement, and do their users really use them more, or did competitors merely launch them?\", \"What does the mobile web funnel currently show: bounce rates, load times, and where existing customers drop off?\", \"How would you maintain two platforms or iOS and Android after launch, and who would handle updates and store review requirements?\", \"How much of the survey result reflects real intent rather than a wish list, and how many respondents were active customers whose usage you want to increase?\"]}"
+}

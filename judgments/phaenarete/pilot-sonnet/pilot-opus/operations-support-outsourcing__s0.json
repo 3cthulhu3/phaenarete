@@ -1,0 +1,88 @@
+{
+  "case_id": "operations-support-outsourcing",
+  "arm": "phaenarete",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Does the quote assume a fixed agent count or ticket price, and which would change if volume tripled?",
+      "reveals": [],
+      "generic": false,
+      "note": "quote structure; no hidden fact"
+    },
+    {
+      "q": 2,
+      "question": "What would the agency's total monthly bill be at 300, 600 and 900 tickets per week once setup, tooling and minimums are included?",
+      "reveals": [],
+      "generic": false,
+      "note": "agency cost at volumes; no hidden fact"
+    },
+    {
+      "q": 3,
+      "question": "At what weekly ticket volume would the agency cost more than the in-house team?",
+      "reveals": [],
+      "generic": false,
+      "note": "cost crossover; no hidden fact"
+    },
+    {
+      "q": 4,
+      "question": "How many tickets per agent per week does your team handle today, and would four agents cover 900?",
+      "reveals": [],
+      "generic": false,
+      "note": "agent throughput; no hidden fact"
+    },
+    {
+      "q": 5,
+      "question": "What customer satisfaction scores does the agency report for clients like you, and will it put a target and penalty in the contract?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "asking for clients like you reveals agency references are only consumer retail"
+    },
+    {
+      "q": 6,
+      "question": "How many agents do you need at the highest weekly volume, and could the fixed budget pay for that under each option?",
+      "reveals": [],
+      "generic": false,
+      "note": "staffing vs budget; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "What evidence suggests two more agents would be enough for triple the volume?",
+      "reveals": [],
+      "generic": false,
+      "note": "capacity evidence; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "What is your trust in the agency's claim of scaling within days based on: a reference, a contract, or the sales conversation?",
+      "reveals": [],
+      "generic": false,
+      "note": "basis of scaling claim; reference industry not directly implied"
+    },
+    {
+      "q": 9,
+      "question": "If you chose the agency and it did not work, how long would it take and what would it cost to switch to in-house hiring?",
+      "reveals": [],
+      "generic": false,
+      "note": "switching cost; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "What share of last month's tickets could someone with no product training have solved using a written guide?",
+      "reveals": [],
+      "generic": false,
+      "note": "would hint tickets need expertise, but not the agency's references or the data-access ban"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"quote structure; no hidden fact\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"agency cost at volumes; no hidden fact\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"cost crossover; no hidden fact\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"agent throughput; no hidden fact\"}, {\"q\": 5, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"asking for clients like you reveals agency references are only consumer retail\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"staffing vs budget; no hidden fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"capacity evidence; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"basis of scaling claim; reference industry not directly implied\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"switching cost; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"would hint tickets need expertise, but not the agency's references or the data-access ban\"}]}"
+}

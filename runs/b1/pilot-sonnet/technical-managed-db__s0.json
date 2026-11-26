@@ -1,0 +1,21 @@
+{
+  "case_id": "technical-managed-db",
+  "arm": "b1",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-24T22:36:30.681945+00:00",
+  "questions": [
+    "What are the data's recovery requirements: how much data loss and downtime can the business tolerate, and which option can meet them with your team's skills?",
+    "Who would be on call when the database fails at night or on a weekend, and how many hours per month of developer time will patching, backups, upgrades, and monitoring take?",
+    "What is the full two-year cost of self-hosting once you count developer time at its real hourly cost, backup storage, monitoring tools, and replicas, compared with the 2.5 times higher managed price?",
+    "Have you ever done a full restore from backup or a failover on the kind of database you would run, and how long did it take?",
+    "How big and how critical will the database become in two years, and at what scale does the managed premium become small or large relative to total cost?",
+    "Which features do you depend on, such as automatic failover, point-in-time recovery, or read replicas, that you would need to build yourself on VMs?",
+    "What does a serious incident cost the business, such as data loss or a day offline, compared with the managed price difference?",
+    "Is there a middle option, such as a cheaper managed tier, a managed service for production only, or self-hosting for development and testing?",
+    "How hard is it to move from one option to the other later, including data migration, downtime, and lock-in to the provider's proprietary features?",
+    "What is the 'some Linux experience' estimate based on: did those small databases carry real production traffic and a real incident, or were they low-stakes?"
+  ],
+  "raw": "{\"questions\": [\"What are the data's recovery requirements: how much data loss and downtime can the business tolerate, and which option can meet them with your team's skills?\", \"Who would be on call when the database fails at night or on a weekend, and how many hours per month of developer time will patching, backups, upgrades, and monitoring take?\", \"What is the full two-year cost of self-hosting once you count developer time at its real hourly cost, backup storage, monitoring tools, and replicas, compared with the 2.5 times higher managed price?\", \"Have you ever done a full restore from backup or a failover on the kind of database you would run, and how long did it take?\", \"How big and how critical will the database become in two years, and at what scale does the managed premium become small or large relative to total cost?\", \"Which features do you depend on, such as automatic failover, point-in-time recovery, or read replicas, that you would need to build yourself on VMs?\", \"What does a serious incident cost the business, such as data loss or a day offline, compared with the managed price difference?\", \"Is there a middle option, such as a cheaper managed tier, a managed service for production only, or self-hosting for development and testing?\", \"How hard is it to move from one option to the other later, including data migration, downtime, and lock-in to the provider's proprietary features?\", \"What is the 'some Linux experience' estimate based on: did those small databases carry real production traffic and a real incident, or were they low-stakes?\"]}"
+}

@@ -1,0 +1,92 @@
+{
+  "case_id": "business-price-increase",
+  "arm": "b1",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "t1",
+    "f3": "c1",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What do your customers pay for and how price-sensitive are the segments: is there a group, such as small accounts or long-standing customers, whose churn would jump well above the current rate?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "At-risk segment exposes largest customer in procurement review"
+    },
+    {
+      "q": 2,
+      "question": "How much of your base is on legacy pricing versus recent pricing, and what revenue would a 20% increase on existing customers generate compared with new customers only?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Revenue from raising existing customers exposes 5% cap on 55%"
+    },
+    {
+      "q": 3,
+      "question": "What did the competitors' price rises look like in detail: did their churn really stay flat, over what period, and were their products or customers similar to yours?",
+      "reveals": [],
+      "generic": false,
+      "note": "Competitor details; no hidden fact"
+    },
+    {
+      "q": 4,
+      "question": "How long does churn take to appear after a price rise in your business: could a 3% monthly limit be breached later than your 12-month window shows?",
+      "reveals": [],
+      "generic": false,
+      "note": "Churn lag; no hidden fact"
+    },
+    {
+      "q": 5,
+      "question": "Do your contracts allow a price change for existing customers, and what notice, renewal timing, or grandfathering do you owe them?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Contract terms expose 5% cap"
+    },
+    {
+      "q": 6,
+      "question": "Would raising only for new customers create unfairness or confusion that customers notice, and could that anger long-standing customers or damage trust?",
+      "reveals": [],
+      "generic": false,
+      "note": "Fairness perception; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "Does a 20% increase on new customers alone reduce signups or conversion, and what is your current acquisition funnel's sensitivity to price?",
+      "reveals": [],
+      "generic": false,
+      "note": "Acquisition sensitivity; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "Is there a middle path, such as a smaller staged increase, a new tier, annual lock-in discounts, or raising for existing customers at renewal with advance notice?",
+      "reveals": [],
+      "generic": false,
+      "note": "Middle path; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "Could you test the increase first on a sample of existing customers or one region and read churn and downgrades before committing?",
+      "reveals": [],
+      "generic": false,
+      "note": "Testing; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "How reliable is your 1.5% churn as a baseline, given that it comes from three years of stable prices, and does it hide differences between segments?",
+      "reveals": [],
+      "generic": false,
+      "note": "Baseline reliability; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"At-risk segment exposes largest customer in procurement review\"}, {\"q\": 2, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Revenue from raising existing customers exposes 5% cap on 55%\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Competitor details; no hidden fact\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Churn lag; no hidden fact\"}, {\"q\": 5, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Contract terms expose 5% cap\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Fairness perception; no hidden fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Acquisition sensitivity; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Middle path; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Testing; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Baseline reliability; no hidden fact\"}]}"
+}

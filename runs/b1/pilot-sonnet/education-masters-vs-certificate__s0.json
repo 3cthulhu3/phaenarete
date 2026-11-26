@@ -1,0 +1,21 @@
+{
+  "case_id": "education-masters-vs-certificate",
+  "arm": "b1",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-24T22:36:30.681403+00:00",
+  "questions": [
+    "Among the data scientist roles you would actually apply for, what share require a master's degree, and what do people who moved from engineering into these roles say they needed?",
+    "How long could you live without income, and what is the full cost of the master's including tuition, lost salary, and living costs, compared with the certificate?",
+    "Can you build a project portfolio using your mechanical design domain data, and would that persuade employers as much as a degree?",
+    "Is there a data-oriented role inside your current company or industry, such as simulation, test data analysis, or manufacturing analytics, that you could reach faster than an external data scientist role?",
+    "What does the well-known program give beyond the credential: internships, career services, a hiring pipeline, and the network, and how many graduates actually get data science jobs?",
+    "Will the certificate's workload fit alongside your job without stalling, and what is your realistic weekly study capacity over 18 months?",
+    "How is the job market for entry-level data scientists today in your region, and could the master's end up completed in a weaker market than the one you see now?",
+    "Do you know yet that you enjoy data science work day to day, and could a few months of part-time study answer that before you commit to a full-time degree?",
+    "What is your fallback if the move takes longer than 2 years, and which option leaves you better positioned if the goal changes?",
+    "What are the master's admission deadlines and the certificate's start dates: could you start the certificate now and still apply to the master's later?"
+  ],
+  "raw": "{\"questions\": [\"Among the data scientist roles you would actually apply for, what share require a master's degree, and what do people who moved from engineering into these roles say they needed?\", \"How long could you live without income, and what is the full cost of the master's including tuition, lost salary, and living costs, compared with the certificate?\", \"Can you build a project portfolio using your mechanical design domain data, and would that persuade employers as much as a degree?\", \"Is there a data-oriented role inside your current company or industry, such as simulation, test data analysis, or manufacturing analytics, that you could reach faster than an external data scientist role?\", \"What does the well-known program give beyond the credential: internships, career services, a hiring pipeline, and the network, and how many graduates actually get data science jobs?\", \"Will the certificate's workload fit alongside your job without stalling, and what is your realistic weekly study capacity over 18 months?\", \"How is the job market for entry-level data scientists today in your region, and could the master's end up completed in a weaker market than the one you see now?\", \"Do you know yet that you enjoy data science work day to day, and could a few months of part-time study answer that before you commit to a full-time degree?\", \"What is your fallback if the move takes longer than 2 years, and which option leaves you better positioned if the goal changes?\", \"What are the master's admission deadlines and the certificate's start dates: could you start the certificate now and still apply to the master's later?\"]}"
+}

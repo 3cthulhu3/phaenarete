@@ -1,0 +1,94 @@
+{
+  "case_id": "business-exclusive-retailer",
+  "arm": "b0",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What exactly would the exclusive deal commit us to in terms of volumes, pricing, duration, minimum purchases and exit conditions?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Pricing commitments reveal 45% retailer margin and 90-day terms"
+    },
+    {
+      "q": 2,
+      "question": "What gross margin would we earn on retailer sales after their discounts, margin requirements, promotions, returns and logistics, and does it stay above 40%?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Gross margin after retailer margin reveals ~22%"
+    },
+    {
+      "q": 3,
+      "question": "Can our small production team realistically meet the promised volumes on the retailer's timeline, and what investment would that need?",
+      "reveals": [],
+      "generic": false,
+      "note": "Production capacity"
+    },
+    {
+      "q": 4,
+      "question": "How reliable are the retailer's volume promises, and what happens to us if they reduce orders, delist the product or change terms?",
+      "reveals": [],
+      "generic": false,
+      "note": "Reliability of volumes"
+    },
+    {
+      "q": 5,
+      "question": "How much of our current revenue comes from small shops and the online store, and what would we lose if exclusivity ended those channels?",
+      "reveals": [],
+      "generic": false,
+      "note": "Revenue share; growth trend not immediately stated"
+    },
+    {
+      "q": 6,
+      "question": "How concentrated would our business become on a single customer, and could we survive if that retailer left?",
+      "reveals": [],
+      "generic": false,
+      "note": "Customer concentration"
+    },
+    {
+      "q": 7,
+      "question": "Why have small-shop sales been flat, and could fixing that (new shops, better marketing, stronger online) get us closer to doubling?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Stronger online path reveals 9% MoM online growth"
+    },
+    {
+      "q": 8,
+      "question": "How would a large retailer affect our brand positioning and our relationships with the small shops that have supported us?",
+      "reveals": [],
+      "generic": false,
+      "note": "Brand positioning"
+    },
+    {
+      "q": 9,
+      "question": "Is there a non-exclusive or limited arrangement, such as a regional pilot, a subset of stores or a time-limited exclusivity, that captures most of the upside?",
+      "reveals": [],
+      "generic": false,
+      "note": "Alternative arrangements"
+    },
+    {
+      "q": 10,
+      "question": "What would we need to see in the first months to know the deal is working, and what cash-flow and inventory risks do we carry while we wait for payment?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Waiting for payment reveals 90-day payment terms"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Pricing commitments reveal 45% retailer margin and 90-day terms\"}, {\"q\": 2, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Gross margin after retailer margin reveals ~22%\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Production capacity\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Reliability of volumes\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Revenue share; growth trend not immediately stated\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Customer concentration\"}, {\"q\": 7, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Stronger online path reveals 9% MoM online growth\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Brand positioning\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Alternative arrangements\"}, {\"q\": 10, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Waiting for payment reveals 90-day payment terms\"}]}"
+}

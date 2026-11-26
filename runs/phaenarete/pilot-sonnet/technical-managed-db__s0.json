@@ -1,0 +1,850 @@
+{
+  "case_id": "technical-managed-db",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.864802+00:00",
+  "questions": [
+    "How high would the managed service bill rise if storage and traffic doubled within the two years?",
+    "Does the managed service offer the database version, extensions and settings you use today, in the region you need?",
+    "Would any of the four developers agree to be on call for the database at night and on weekends?",
+    "Do any customers, audits or laws require specific certifications or a particular data location for the database?",
+    "What would the monthly bill be for each option at your current data size and load, in actual currency amounts?",
+    "How many hours a month did the last small database you ran take for patches, backups and fixes, and what is an hour of a developer worth?",
+    "How long could the product be down and how much data could be lost before customers or contracts are affected?",
+    "If the database fails at 3 am, who finds out, and how long would it take for someone to act?",
+    "If you start with one option and later want the other, how many days of work and how much downtime would the move take?",
+    "Which of the two options could you start with a small trial for a month before committing to two years?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Total cost over 2 years, including VM or service fees, engineering time for operations, backups, monitoring and incident costs, is lowest",
+        "Operational risk is acceptable: data loss, downtime and security incidents are unlikely and recoverable within agreed time",
+        "Developer time spent on database operations is not taken away from product work beyond a tolerable level",
+        "The setup can handle expected growth and can be changed later without large rework"
+      ],
+      "stated_facts": [
+        "Goal: minimise total cost and operational risk over 2 years",
+        "Team of 4 developers, no dedicated operations engineer",
+        "Managed service costs about 2.5 times the VM price",
+        "Team has some Linux experience and has run small databases before"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "The VM price comparison captures the real cost of self-hosting, leaving out engineering time and tooling."
+        },
+        {
+          "id": "a2",
+          "text": "Experience with small databases transfers to running the production database with its availability and data requirements."
+        },
+        {
+          "id": "a3",
+          "text": "Operational risk can be managed with the team's current time and attention, without anyone on call."
+        },
+        {
+          "id": "a4",
+          "text": "The managed service will meet the team's technical needs (versions, extensions, configuration, region)."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "How large is the data and workload, and what is the absolute monthly cost gap between VMs and the managed service?",
+          "if_resolved": "If the gap is small in absolute terms, the managed service's lower effort is favored; if it is large, self-hosting's saving may justify the work."
+        },
+        {
+          "id": "u2",
+          "text": "How many developer hours per month would self-hosting really take (patching, upgrades, backups, restore tests, monitoring, tuning), and what is that time worth?",
+          "if_resolved": "If it is a few hours a month, self-hosting is favored; if it is more than the cost gap or pulls developers from product work, the managed service is favored."
+        },
+        {
+          "id": "u3",
+          "text": "What are the availability and recovery requirements (acceptable downtime, data loss, uptime commitments to customers) and are they in contracts?",
+          "if_resolved": "If requirements are strict, the managed service's built-in replication, failover and backups are favored; if outages and restores of hours are acceptable, self-hosting is favored."
+        },
+        {
+          "id": "u4",
+          "text": "Who responds when the database fails at night or on weekends, and is the team ready to run an on-call rotation?",
+          "if_resolved": "If no one can be on call, the managed service is favored; if the team accepts rotation, self-hosting is viable."
+        },
+        {
+          "id": "u5",
+          "text": "Are there compliance, data residency or security obligations (certifications, audit, encryption, access control) that one option meets more easily?",
+          "if_resolved": "If the managed provider's certifications meet needs, it is favored; if data must stay in a specific environment, self-hosting is favored."
+        },
+        {
+          "id": "u6",
+          "text": "How hard is migration later if the choice proves wrong: lock-in features, export tools, downtime, and the growth in data size?",
+          "if_resolved": "If switching later is easy, starting with the cheaper or simpler option is low risk; if hard, the choice should be made on 2-year-plus needs and lock-in matters more."
+        },
+        {
+          "id": "u7",
+          "text": "Does the team expect significant growth or load changes in the 2 years that need scaling, replicas or tuning skills?",
+          "if_resolved": "If growth is large, the managed service is favored; if load is stable, self-hosting is favored."
+        }
+      ]
+    },
+    "n_candidates": 29,
+    "n_passing": 25,
+    "fail_counts": {
+      "generic": 1,
+      "presupposes": 3,
+      "answered": 0,
+      "no_path": 0,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 5,
+      "surface": 2,
+      "test": 0,
+      "bound": 1,
+      "expand": 0,
+      "close": 2,
+      "calibrate": 0
+    },
+    "chosen": [
+      {
+        "question": "How high would the managed service bill rise if storage and traffic doubled within the two years?",
+        "operator": "bound",
+        "target": "u1",
+        "S": 400.0,
+        "picked_by": "coverage",
+        "why": "Price growth with scale could change the cost comparison.",
+        "answer_path": "Use the provider's calculator with doubled figures and check how storage and I/O are billed."
+      },
+      {
+        "question": "Does the managed service offer the database version, extensions and settings you use today, in the region you need?",
+        "operator": "surface",
+        "target": "a4",
+        "S": 400.0,
+        "picked_by": "mmr",
+        "why": "A missing feature would rule out the managed option.",
+        "answer_path": "Compare the provider's supported versions and extensions list with what your application uses, and check the region list."
+      },
+      {
+        "question": "Would any of the four developers agree to be on call for the database at night and on weekends?",
+        "operator": "discriminate",
+        "target": "u4",
+        "S": 320.0,
+        "picked_by": "coverage",
+        "why": "Without anyone on call the self-hosted option carries unprotected risk.",
+        "answer_path": "Ask each developer directly and discuss whether on-call pay or time off is affordable."
+      },
+      {
+        "question": "Do any customers, audits or laws require specific certifications or a particular data location for the database?",
+        "operator": "discriminate",
+        "target": "u5",
+        "S": 300.0,
+        "picked_by": "coverage",
+        "why": "A requirement can rule out one option immediately.",
+        "answer_path": "Ask sales and legal for customer security questionnaires and compare them with the provider's published certifications and regions."
+      },
+      {
+        "question": "What would the monthly bill be for each option at your current data size and load, in actual currency amounts?",
+        "operator": "discriminate",
+        "target": "u1",
+        "S": 225.0,
+        "picked_by": "mmr",
+        "why": "A 2.5 times ratio can be a trivial or a large amount depending on scale.",
+        "answer_path": "Use the provider's price calculator with your database size, connections and storage, and request a quote."
+      },
+      {
+        "question": "How many hours a month did the last small database you ran take for patches, backups and fixes, and what is an hour of a developer worth?",
+        "operator": "discriminate",
+        "target": "u2",
+        "S": 200.0,
+        "picked_by": "coverage",
+        "why": "If the time cost exceeds the monthly price gap, the managed service wins.",
+        "answer_path": "Check commit and ticket history for the earlier databases and ask the developers who ran them; use salary data for the hourly rate."
+      },
+      {
+        "question": "How long could the product be down and how much data could be lost before customers or contracts are affected?",
+        "operator": "discriminate",
+        "target": "u3",
+        "S": 200.0,
+        "picked_by": "coverage",
+        "why": "Strict limits favor built-in failover and backups.",
+        "answer_path": "Read customer contracts and service-level promises, and ask the product owner for the business impact per hour of downtime."
+      },
+      {
+        "question": "If the database fails at 3 am, who finds out, and how long would it take for someone to act?",
+        "operator": "surface",
+        "target": "a3",
+        "S": 192.0,
+        "picked_by": "mmr",
+        "why": "Tests the assumption that risk can be handled without anyone on call.",
+        "answer_path": "Review the current alerting setup and run a drill in which an alert is sent and someone has to respond."
+      },
+      {
+        "question": "If you start with one option and later want the other, how many days of work and how much downtime would the move take?",
+        "operator": "close",
+        "target": "u6",
+        "S": 96.0,
+        "picked_by": "coverage",
+        "why": "Ease of reversal tells you how careful the first choice has to be.",
+        "answer_path": "Do a test export and import of your data with the standard tools and time it."
+      },
+      {
+        "question": "Which of the two options could you start with a small trial for a month before committing to two years?",
+        "operator": "close",
+        "target": "u7",
+        "S": 85.33333333333333,
+        "picked_by": "coverage",
+        "why": "A trial limits the cost of a wrong choice.",
+        "answer_path": "Check the provider's trial or monthly billing terms and set up a copy of the database on a VM."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "What would the monthly bill be for each option at your current data size and load, in actual currency amounts?",
+        "why": "A 2.5 times ratio can be a trivial or a large amount depending on scale.",
+        "answer_path": "Use the provider's price calculator with your database size, connections and storage, and request a quote.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 225.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "How many hours a month did the last small database you ran take for patches, backups and fixes, and what is an hour of a developer worth?",
+        "why": "If the time cost exceeds the monthly price gap, the managed service wins.",
+        "answer_path": "Check commit and ticket history for the earlier databases and ask the developers who ran them; use salary data for the hourly rate.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u3",
+        "question": "How long could the product be down and how much data could be lost before customers or contracts are affected?",
+        "why": "Strict limits favor built-in failover and backups.",
+        "answer_path": "Read customer contracts and service-level promises, and ask the product owner for the business impact per hour of downtime.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u4",
+        "question": "Would any of the four developers agree to be on call for the database at night and on weekends?",
+        "why": "Without anyone on call the self-hosted option carries unprotected risk.",
+        "answer_path": "Ask each developer directly and discuss whether on-call pay or time off is affordable.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 320.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u5",
+        "question": "Do any customers, audits or laws require specific certifications or a particular data location for the database?",
+        "why": "A requirement can rule out one option immediately.",
+        "answer_path": "Ask sales and legal for customer security questionnaires and compare them with the provider's published certifications and regions.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 300.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "What costs besides VM fees would self-hosting bring, such as backup storage, monitoring tools, a standby machine and the developer time?",
+        "why": "The VM price alone understates the real cost of self-hosting.",
+        "answer_path": "List each item and get its price from the tool vendors, then add the estimated hours.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 160.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "Did the small databases you ran ever face a failed disk, a restore from backup or a major version upgrade, and how did that go?",
+        "why": "Experience with easy operation may not carry over to the hard moments.",
+        "answer_path": "Ask the people who ran them for specific incidents, and test a full restore on a copy now.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 60.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "If the database fails at 3 am, who finds out, and how long would it take for someone to act?",
+        "why": "Tests the assumption that risk can be handled without anyone on call.",
+        "answer_path": "Review the current alerting setup and run a drill in which an alert is sent and someone has to respond.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a4",
+        "question": "Does the managed service offer the database version, extensions and settings you use today, in the region you need?",
+        "why": "A missing feature would rule out the managed option.",
+        "answer_path": "Compare the provider's supported versions and extensions list with what your application uses, and check the region list.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 400.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "u2",
+        "question": "Does having only four developers and no operations engineer mean that routine database upkeep gets postponed when product deadlines press?",
+        "why": "Checks whether the claimed saving of self-hosting holds under real working pressure.",
+        "answer_path": "Look at how long past maintenance tasks, such as updates on your other systems, were delayed.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 36.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u3",
+        "question": "Do backups from the self-hosted option restore successfully, and how long does a full restore take?",
+        "why": "An untested backup does not protect against data loss.",
+        "answer_path": "Do a trial restore from backup onto a fresh VM and time it; compare with the managed service's documented restore time.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 3
+        },
+        "S": 64.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "a2",
+        "question": "Does the managed service really remove the operational work the team fears, or would you still handle tuning, schema changes and connection limits?",
+        "why": "Checks the cause-and-effect link that paying more means doing less.",
+        "answer_path": "Read the provider's shared-responsibility documentation and ask a customer of a similar size.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 80.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u5",
+        "question": "Would a self-hosted setup pass a security review as easily as the provider, with your current patching and access control?",
+        "why": "Tests the belief about which option carries lower security risk.",
+        "answer_path": "Run a security checklist or vulnerability scan on a test VM and compare with the provider's controls.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 36.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u7",
+        "question": "At what data size or traffic level would a single self-hosted VM stop being enough?",
+        "why": "Marks when self-hosting needs replicas and skills the team lacks.",
+        "answer_path": "Load-test a copy of the database with projected 2-year volumes and check the headroom.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 36.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u1",
+        "question": "How high would the managed service bill rise if storage and traffic doubled within the two years?",
+        "why": "Price growth with scale could change the cost comparison.",
+        "answer_path": "Use the provider's calculator with doubled figures and check how storage and I/O are billed.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 400.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "bound",
+        "target": "a3",
+        "question": "How many developer hours a month on database operations would be the limit before product work visibly suffers?",
+        "why": "Defines the point at which self-hosting becomes too costly in time.",
+        "answer_path": "Ask the team and the product lead how many hours they can give up and compare to your estimates.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u4",
+        "question": "What happens if the one developer who knows the database best leaves or is away for two weeks?",
+        "why": "A small team makes self-hosting depend on individuals.",
+        "answer_path": "Check whether runbooks exist and whether another person has done a restore or upgrade.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 144.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Is there a middle option, such as a managed service on a smaller tier or a self-hosted setup with managed backups?",
+        "why": "The map treats the choice as two extremes.",
+        "answer_path": "Look at the provider's tiers and at managed backup add-ons for VMs; ask a provider's sales engineer.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Do other products or teams in your company already use a managed database that you could share or learn from?",
+        "why": "Existing contracts or experience could change cost and risk.",
+        "answer_path": "Ask colleagues and managers at your company and check existing cloud accounts and invoices.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 60.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Does the managed service include the support level and response time you would need during an incident?",
+        "why": "Support terms matter when the team cannot fix the problem alone.",
+        "answer_path": "Read the support plan and its price, and ask about response times for a serious outage.",
+        "review": {
+          "id": 20,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "What would a failure of each option look like for your customers, and which would you find harder to explain?",
+        "why": "Brings in a view of reputational harm that the cost numbers do not show.",
+        "answer_path": "Describe one outage scenario for each option and ask customer-facing colleagues how they would respond.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u6",
+        "question": "If you start with one option and later want the other, how many days of work and how much downtime would the move take?",
+        "why": "Ease of reversal tells you how careful the first choice has to be.",
+        "answer_path": "Do a test export and import of your data with the standard tools and time it.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "close",
+        "target": "u6",
+        "question": "Does the managed service use any features specific to that provider that your application would come to depend on?",
+        "why": "Lock-in makes the managed choice harder to undo.",
+        "answer_path": "List the provider-specific features you plan to use and check whether an open equivalent exists.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "When must the database be in production, and what is lost if the decision waits another month?",
+        "why": "Shows how much time there is to test both options.",
+        "answer_path": "Check the product roadmap and launch dates with the product lead.",
+        "review": {
+          "id": 4,
+          "generic": true,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 40.0,
+        "failed": [
+          "generic"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u7",
+        "question": "Which of the two options could you start with a small trial for a month before committing to two years?",
+        "why": "A trial limits the cost of a wrong choice.",
+        "answer_path": "Check the provider's trial or monthly billing terms and set up a copy of the database on a VM.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 3
+        },
+        "S": 85.33333333333333,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "calibrate",
+        "target": "a2",
+        "question": "What is your confidence that the team can run production safely based on: the small databases, a course, or other experience?",
+        "why": "Past small-scale success may give too much confidence.",
+        "answer_path": "List what the team has actually done, such as restores and upgrades, and what they have only read about.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 5,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 112.5,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u2",
+        "question": "Where does your estimate of the monthly hours for self-hosting come from: your own records, blog posts, or a guess?",
+        "why": "Operational effort is often underestimated.",
+        "answer_path": "Compare your estimate with time recorded on the earlier databases and with accounts from similar-sized teams.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 400.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u3",
+        "question": "How did you come to your view on how much downtime is tolerable, and have customers ever said so?",
+        "why": "Internal assumptions about downtime may not match what customers expect.",
+        "answer_path": "Check support tickets from past outages and ask a few customers about their expectations.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 256.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u7",
+        "question": "What is your growth expectation for the next two years based on: signed customers, a plan, or hope?",
+        "why": "Growth drives whether scaling skills are needed.",
+        "answer_path": "Compare the forecast with actual growth over the last year and with the sales pipeline.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      }
+    ]
+  }
+}

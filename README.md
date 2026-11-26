@@ -6,6 +6,25 @@ Phaenarete finds the questions worth answering before a decision. The name is So
 
 The design is adapted from Ask2Decide (arXiv 2611.13015), which uses zero-value "twins" to test whether an agent asks about what matters or about everything.
 
+## Status (pilot, November 2026)
+
+**The v0 pipeline lost to a plain prompt, and the seed benchmark turned out too easy to tell good systems apart.**
+
+| Arm | Crux recall @3 | @5 | @10 | Twin rate @10 | MRR x100 |
+| --- | --- | --- | --- | --- | --- |
+| B0: plain prompt | 58 | 79 | 100 | 4 | 63 |
+| B1: one prompt + operator taxonomy | **71** | 79 | 96 | 0 | 82 |
+| Phaenarete v0 pipeline | 17 | 46 | 79 | 4 | 42 |
+
+Pipeline minus B0 on discrimination: -21 points (95% bootstrap CI -33 to -8). 12 synthetic seed cases, one sample per arm; Sonnet-class generator, Opus-class judge. Outputs are in `runs/` and `judgments/`.
+
+What it shows:
+- **Ceiling.** With 10 questions and 2 cruxes per case, a plain prompt finds every crux; the seed cruxes sit in standard risk checklists (runway, contracts, key people). Twins are too obviously irrelevant, so no arm asks about them and discrimination collapses into recall.
+- **Why v0 lost.** Of 5 missed cruxes, 2 were never generated; 3 were generated and then dropped by selection. Coverage slots tied to the parse step's uncertainty map and a score that rewards cheap, easy questions push decisive questions out of the top 3. The critic passed 87% of candidates.
+- **Reading.** This falsifies the v0 design, not the idea. A single well-built prompt (B1) is the bar any multi-stage system has to clear.
+
+Next: a harder benchmark (headline metric at 3 and 5 questions, cruxes outside standard checklists, twins a careful advisor would plausibly ask about, human-written cases), then a pipeline v1 measured against it.
+
 ## Layout
 
 ```
@@ -20,6 +39,7 @@ prompts/pipeline/    parse, generate and critic prompts of the Phaenarete pipeli
 pipeline.py          the Phaenarete pipeline (three model stages + deterministic selection)
 validate_cases.py    checks cases (no external packages)
 run_arm.py           generates questions for one arm (b0, b1, phaenarete)
+pilot.py             export prompts / ingest replies for the prompt-cache backend
 inspect_run.py       readable view of one run with its judge results (for error analysis)
 tests/               unit tests for scoring and selection
 judge.py             judges which hidden facts each question would reveal
@@ -44,6 +64,10 @@ python3 inspect_run.py runs/phaenarete/claude-sonnet-5-5/<case_id>__s0.json --re
 ```
 
 Add `--dry-run` to `run_arm.py` and `judge.py` to test the plumbing without API calls (mock numbers mean nothing). Use `--samples 3` on `run_arm.py` to measure run-to-run variance. Unit tests: `python3 -m unittest discover tests`.
+
+### Without an API key (prompt cache)
+
+Add `--backend cache` to `run_arm.py` and `judge.py`. Each missing model reply is written to `cache/pending/`; `python3 pilot.py export --name <name>` collects them into `pilot/<name>_part1.json` ({key: prompt}). Answer the prompts by any means (another chat, a person), save `{key: reply}` as JSON, run `python3 pilot.py ingest <file>`, and re-run the same command. The pipeline arm needs three rounds (parse, generate, critic). The cache is keyed by prompt text only, so label runs with `--model`, e.g. `--model manual-sonnet`.
 
 On Windows PowerShell: set the key with `$env:ANTHROPIC_API_KEY="..."` and use `python` instead of `python3`.
 

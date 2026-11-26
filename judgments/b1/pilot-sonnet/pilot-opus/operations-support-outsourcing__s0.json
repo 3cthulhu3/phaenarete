@@ -1,0 +1,91 @@
+{
+  "case_id": "operations-support-outsourcing",
+  "arm": "b1",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What customer satisfaction scores does the agency currently achieve for clients with similar products and ticket types, and can you verify that with references or a trial?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Similar-client references expose retail-only references"
+    },
+    {
+      "q": 2,
+      "question": "What share of your tickets need deep product knowledge or account access, and how well can an agency handle those compared with in-house staff?",
+      "reveals": [
+        "c2",
+        "c1"
+      ],
+      "generic": false,
+      "note": "Product knowledge and account access expose accounting need and data policy"
+    },
+    {
+      "q": 3,
+      "question": "Can two in-house agents realistically handle 900 tickets a week, or will you need more hires, and does the fixed budget cover that scenario?",
+      "reveals": [],
+      "generic": false,
+      "note": "In-house capacity; no hidden fact"
+    },
+    {
+      "q": 4,
+      "question": "Does the agency's quote scale linearly with volume, and what does it cost at 900 tickets per week including onboarding, minimums, and overage fees?",
+      "reveals": [],
+      "generic": false,
+      "note": "Agency pricing; no hidden fact"
+    },
+    {
+      "q": 5,
+      "question": "How quickly can new in-house hires become productive, and what do recruiting and training take compared with the volume ramp over six months?",
+      "reveals": [],
+      "generic": false,
+      "note": "Hiring ramp; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "Is the ticket growth steady, or spiky and uncertain, and which option copes better if volume reaches only 500 or goes above 900?",
+      "reveals": [],
+      "generic": false,
+      "note": "Growth shape over months, not daily timing"
+    },
+    {
+      "q": 7,
+      "question": "What do your overloaded current agents need now, and would automation, a help center, or ticket deflection cut the volume growth that drives this decision?",
+      "reveals": [],
+      "generic": false,
+      "note": "Deflection; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "How would the agency's workflow affect feedback to your product team, escalation speed, and tone of voice that customers care about?",
+      "reveals": [],
+      "generic": false,
+      "note": "Workflow; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "What are the contract terms and exit costs with the agency, and how hard would it be to bring support in-house later if satisfaction drops?",
+      "reveals": [],
+      "generic": false,
+      "note": "Exit terms; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "What is the 30% saving based on, and does it include management time, tooling, quality assurance, and the cost of handling the agency?",
+      "reveals": [],
+      "generic": false,
+      "note": "Saving basis; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Similar-client references expose retail-only references\"}, {\"q\": 2, \"reveals\": [\"f2\", \"f3\"], \"generic\": false, \"note\": \"Product knowledge and account access expose accounting need and data policy\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"In-house capacity; no hidden fact\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Agency pricing; no hidden fact\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Hiring ramp; no hidden fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Growth shape over months, not daily timing\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Deflection; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Workflow; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Exit terms; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Saving basis; no hidden fact\"}]}"
+}

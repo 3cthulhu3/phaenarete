@@ -1,0 +1,21 @@
+{
+  "case_id": "education-masters-vs-certificate",
+  "arm": "b0",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-24T22:36:30.626290+00:00",
+  "questions": [
+    "What specific data science roles am I targeting, and what do the actual hiring managers and recent hires in those roles say about the necessity of a master's degree?",
+    "What would the full financial cost of the master's be, including tuition, living costs and lost salary, and how would I fund it with no other income?",
+    "Can the part-time certificate, plus projects and my engineering background, build skills and a portfolio strong enough to get interviews?",
+    "How does my mechanical design experience connect to data science, for instance in simulation, sensors or manufacturing data, and could that open a bridge role at my current employer?",
+    "How much time per week could I realistically commit to part-time study alongside my job, and can I sustain it for the length of the programme?",
+    "How does the master's program's reputation translate into job outcomes, such as placement rates, internships and alumni networks in my target market?",
+    "What do I lose by leaving my job, in seniority, income, benefits and the option to return, and how risky is that if the job market for data scientists tightens?",
+    "Is there a middle path, such as a part-time or employer-sponsored master's, or starting with the certificate and deciding on the degree later?",
+    "How certain am I that I want a data science career, and could I test that cheaply with a short course or a small project before committing?",
+    "Does either route fit within the 2-year timeline, and what would success and a warning sign look like at the 6- and 12-month marks?"
+  ],
+  "raw": "{\"questions\": [\"What specific data science roles am I targeting, and what do the actual hiring managers and recent hires in those roles say about the necessity of a master's degree?\", \"What would the full financial cost of the master's be, including tuition, living costs and lost salary, and how would I fund it with no other income?\", \"Can the part-time certificate, plus projects and my engineering background, build skills and a portfolio strong enough to get interviews?\", \"How does my mechanical design experience connect to data science, for instance in simulation, sensors or manufacturing data, and could that open a bridge role at my current employer?\", \"How much time per week could I realistically commit to part-time study alongside my job, and can I sustain it for the length of the programme?\", \"How does the master's program's reputation translate into job outcomes, such as placement rates, internships and alumni networks in my target market?\", \"What do I lose by leaving my job, in seniority, income, benefits and the option to return, and how risky is that if the job market for data scientists tightens?\", \"Is there a middle path, such as a part-time or employer-sponsored master's, or starting with the certificate and deciding on the degree later?\", \"How certain am I that I want a data science career, and could I test that cheaply with a short course or a small project before committing?\", \"Does either route fit within the 2-year timeline, and what would success and a warning sign look like at the 6- and 12-month marks?\"]}"
+}

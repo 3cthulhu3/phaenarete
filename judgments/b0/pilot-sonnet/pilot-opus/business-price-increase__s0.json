@@ -1,0 +1,90 @@
+{
+  "case_id": "business-price-increase",
+  "arm": "b0",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "t1",
+    "f3": "c1",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How price-sensitive are our customers, and what does any evidence (past discounts, surveys, usage data) say about how churn would respond to a 20% increase?",
+      "reveals": [],
+      "generic": false,
+      "note": "Price sensitivity evidence"
+    },
+    {
+      "q": 2,
+      "question": "Are the two competitors' 25% increases really without customer loss, and are their customers, products and contract terms comparable to ours?",
+      "reveals": [],
+      "generic": false,
+      "note": "Competitor comparability"
+    },
+    {
+      "q": 3,
+      "question": "How much headroom do we have between the current 1.5% monthly churn and the 3% ceiling, and what increase in churn would wipe out the revenue gain?",
+      "reveals": [],
+      "generic": false,
+      "note": "Churn headroom"
+    },
+    {
+      "q": 4,
+      "question": "Which customer segments (by size, tenure, plan, or profitability) are most likely to leave, and how much revenue do they represent?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Segments likely to leave reveals largest customer in procurement review"
+    },
+    {
+      "q": 5,
+      "question": "Would raising prices only for new customers hurt acquisition volume, and how much do new customers contribute to 12-month revenue growth?",
+      "reveals": [],
+      "generic": false,
+      "note": "New customer acquisition"
+    },
+    {
+      "q": 6,
+      "question": "What would the fairness and trust impact be of charging existing customers more, or of having two price levels for the same product, and could it damage reputation or referrals?",
+      "reveals": [],
+      "generic": false,
+      "note": "Fairness and trust"
+    },
+    {
+      "q": 7,
+      "question": "Are there contractual, legal or notice-period obligations that limit when and how we can raise prices for existing customers?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Contractual limits reveal 5% cap on pre-2025 contracts"
+    },
+    {
+      "q": 8,
+      "question": "Would a phased, grandfathered or smaller increase (for example 10% now and more later) reach the revenue goal with less churn risk?",
+      "reveals": [],
+      "generic": false,
+      "note": "Phased increase"
+    },
+    {
+      "q": 9,
+      "question": "How much of the 18% cost increase do we need to recover to restore our margin, and what does each option do to profit rather than just revenue?",
+      "reveals": [],
+      "generic": false,
+      "note": "Cost recovery"
+    },
+    {
+      "q": 10,
+      "question": "How will we measure results early, and what churn level or signal would trigger us to pause, roll back or soften the change?",
+      "reveals": [],
+      "generic": false,
+      "note": "Early measurement"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Price sensitivity evidence\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Competitor comparability\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Churn headroom\"}, {\"q\": 4, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Segments likely to leave reveals largest customer in procurement review\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"New customer acquisition\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Fairness and trust\"}, {\"q\": 7, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Contractual limits reveal 5% cap on pre-2025 contracts\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Phased increase\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Cost recovery\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Early measurement\"}]}"
+}

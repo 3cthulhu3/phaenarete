@@ -1,0 +1,92 @@
+{
+  "case_id": "technical-managed-db",
+  "arm": "b0",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "c2",
+    "f3": "t2",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What are the real total costs of each option over two years, including engineer time for setup, patching, backups, monitoring and on-call work, and not only the VM price?",
+      "reveals": [],
+      "generic": false,
+      "note": "Total cost"
+    },
+    {
+      "q": 2,
+      "question": "How much developer time per month would self-hosting take away from product work, and what is that time worth?",
+      "reveals": [],
+      "generic": false,
+      "note": "Developer time"
+    },
+    {
+      "q": 3,
+      "question": "What availability, durability and recovery targets do we need (uptime, RPO and RTO), and what would an outage or data loss cost the business?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Recovery targets reveal contractual 15-minute RPO"
+    },
+    {
+      "q": 4,
+      "question": "Can our team of four handle failure scenarios such as replication failover, disk corruption, restore tests and security patching, and who would be on call?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Team capability reveals only DBA leaving in 3 months"
+    },
+    {
+      "q": 5,
+      "question": "What does the managed service include in practice, such as automated backups, point-in-time recovery, upgrades, monitoring and high availability, and how would we replicate that ourselves?",
+      "reveals": [],
+      "generic": false,
+      "note": "Managed service features"
+    },
+    {
+      "q": 6,
+      "question": "What are the security and compliance requirements for our data, and which option makes it easier to meet them and to show evidence?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Compliance requirements reveal PITR and audited restore test"
+    },
+    {
+      "q": 7,
+      "question": "How large will the database grow and how will load change over two years, and which option scales more cheaply and with less effort?",
+      "reveals": [],
+      "generic": false,
+      "note": "Growth and scaling"
+    },
+    {
+      "q": 8,
+      "question": "How much would we be locked in to the managed provider, and how hard would it be to migrate away later (or to migrate later from self-hosted to managed)?",
+      "reveals": [],
+      "generic": false,
+      "note": "Lock-in"
+    },
+    {
+      "q": 9,
+      "question": "Is there a middle option, such as a cheaper managed tier, reserved pricing, or starting managed and revisiting once the team grows?",
+      "reveals": [],
+      "generic": false,
+      "note": "Middle options"
+    },
+    {
+      "q": 10,
+      "question": "What does our past experience running small databases tell us about the surprises we hit, and would we be comfortable with the same level of responsibility at our current scale?",
+      "reveals": [],
+      "generic": false,
+      "note": "Past experience"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Total cost\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Developer time\"}, {\"q\": 3, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Recovery targets reveal contractual 15-minute RPO\"}, {\"q\": 4, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Team capability reveals only DBA leaving in 3 months\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Managed service features\"}, {\"q\": 6, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Compliance requirements reveal PITR and audited restore test\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Growth and scaling\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Lock-in\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Middle options\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Past experience\"}]}"
+}

@@ -1,0 +1,90 @@
+{
+  "case_id": "product-native-vs-web",
+  "arm": "b1",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t2",
+    "f3": "t1",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What do the customers who asked for an app say they would do in it that they cannot do on the mobile web, and how many of them would use it weekly?",
+      "reveals": [],
+      "generic": false,
+      "note": "Customer intent; no hidden fact"
+    },
+    {
+      "q": 2,
+      "question": "Is the weakness in weekly use on mobile caused by performance, usability, or missing features of the web version, which an app would fix, or by things an app would not change?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Cause of weak mobile use exposes login autofill bug"
+    },
+    {
+      "q": 3,
+      "question": "What would a native app cost in developer time at your team size, and what would the web product lose while all three developers focus on it?",
+      "reveals": [],
+      "generic": false,
+      "note": "Cost estimate; experience gap not immediate"
+    },
+    {
+      "q": 4,
+      "question": "Which features need native capabilities, such as push notifications, offline mode, or device integrations, and do they drive weekly return visits?",
+      "reveals": [],
+      "generic": false,
+      "note": "Native features; no hidden fact"
+    },
+    {
+      "q": 5,
+      "question": "Could a progressive web app, a wrapper around the web product, or push via web provide most of the app's engagement benefit in less time?",
+      "reveals": [],
+      "generic": false,
+      "note": "PWA alternatives; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "Can a native app be built, released through the stores, and adopted by customers within 6 months so it can influence weekly active users at all?",
+      "reveals": [],
+      "generic": false,
+      "note": "Timeline feasibility; experience gap not immediate"
+    },
+    {
+      "q": 7,
+      "question": "What do competitors' apps achieve in terms of engagement, and do their users really use them more, or did competitors merely launch them?",
+      "reveals": [],
+      "generic": false,
+      "note": "Competitor results; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "What does the mobile web funnel currently show: bounce rates, load times, and where existing customers drop off?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Funnel drop-off exposes 70% ending at login"
+    },
+    {
+      "q": 9,
+      "question": "How would you maintain two platforms or iOS and Android after launch, and who would handle updates and store review requirements?",
+      "reveals": [],
+      "generic": false,
+      "note": "Maintenance; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "How much of the survey result reflects real intent rather than a wish list, and how many respondents were active customers whose usage you want to increase?",
+      "reveals": [],
+      "generic": false,
+      "note": "Survey reliability; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Customer intent; no hidden fact\"}, {\"q\": 2, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Cause of weak mobile use exposes login autofill bug\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Cost estimate; experience gap not immediate\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Native features; no hidden fact\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"PWA alternatives; no hidden fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Timeline feasibility; experience gap not immediate\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Competitor results; no hidden fact\"}, {\"q\": 8, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Funnel drop-off exposes 70% ending at login\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Maintenance; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Survey reliability; no hidden fact\"}]}"
+}

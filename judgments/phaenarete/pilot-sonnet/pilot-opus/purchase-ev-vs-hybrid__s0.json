@@ -1,0 +1,90 @@
+{
+  "case_id": "purchase-ev-vs-hybrid",
+  "arm": "phaenarete",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c1",
+    "f3": "t1",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "If you use public fast chargers part of the time, will the energy cost per km still be clearly below the hybrid's fuel cost?",
+      "reveals": [],
+      "generic": false,
+      "note": "fast-charger cost; charger situation at home not stated"
+    },
+    {
+      "q": 2,
+      "question": "What is your expectation of cheap charging based on: an advertised price, a friend's experience, or your own calculation?",
+      "reveals": [],
+      "generic": false,
+      "note": "basis of expectation; no hidden fact"
+    },
+    {
+      "q": 3,
+      "question": "If you cannot charge at home, would your workplace offer a charger and at what price per kWh?",
+      "reveals": [],
+      "generic": false,
+      "note": "workplace charging; home situation presupposed, not stated"
+    },
+    {
+      "q": 4,
+      "question": "Can you get written permission from your landlord or building manager to install a charger or use a socket at your parking spot?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "landlord permission reveals the refusal and lack of charger"
+    },
+    {
+      "q": 5,
+      "question": "What would insurance and yearly road tax cost for each car, based on quotes?",
+      "reveals": [],
+      "generic": false,
+      "note": "insurance and tax; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "What does a battery health report show for the specific used EV you are considering?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "battery health report shows 71% capacity"
+    },
+    {
+      "q": 7,
+      "question": "Do your employer or the city offer a charging benefit, a commuting subsidy, or a purchase incentive?",
+      "reveals": [],
+      "generic": false,
+      "note": "incentives; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "What are similar five-year-old cars of each type selling for today, compared with their price new?",
+      "reveals": [],
+      "generic": false,
+      "note": "resale values; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "Can you have a garage inspect the EV and take a short return period before you commit?",
+      "reveals": [],
+      "generic": false,
+      "note": "inspection and return; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "On a cold winter morning with heating on and at highway speed, how many kilometres would this EV really drive on a full charge?",
+      "reveals": [],
+      "generic": false,
+      "note": "winter range; battery report and warranty not directly stated"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"fast-charger cost; charger situation at home not stated\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"basis of expectation; no hidden fact\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"workplace charging; home situation presupposed, not stated\"}, {\"q\": 4, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"landlord permission reveals the refusal and lack of charger\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"insurance and tax; no hidden fact\"}, {\"q\": 6, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"battery health report shows 71% capacity\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"incentives; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"resale values; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"inspection and return; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"winter range; battery report and warranty not directly stated\"}]}"
+}

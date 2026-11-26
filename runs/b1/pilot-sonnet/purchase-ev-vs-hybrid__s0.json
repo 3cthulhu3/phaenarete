@@ -1,0 +1,21 @@
+{
+  "case_id": "purchase-ev-vs-hybrid",
+  "arm": "b1",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-24T22:36:30.680972+00:00",
+  "questions": [
+    "Can you charge reliably where you live as a renter: is there a private socket, a landlord-approved charger, or workplace or public charging, and at what real cost per kWh?",
+    "What is the used EV's actual battery health and remaining range, and does it cover 60 km a day plus winter conditions and a safety margin, with the charging pattern you can manage?",
+    "What does a battery replacement or degradation cost on this model, and what warranty remains for the battery and drivetrain over your 5 years?",
+    "How would each car's resale value look after 5 years, given EV depreciation uncertainty versus a new hybrid's brand-new first years?",
+    "What would the hybrid use in fuel per 100 km on your actual commute, compared with the efficiency of the EV at the same distance, using real local prices?",
+    "What do insurance, taxes, and any local incentives or fees cost for each option over 5 years?",
+    "How long could you be without a car if the EV has a fault, and how good are service and parts availability for that specific used model?",
+    "What are the likely changes in electricity and fuel prices or local rules over 5 years that could shift the cost gap?",
+    "Do you take longer trips, and how would a 400 km journey go in each car, including charging stops?",
+    "Where does your belief that EV maintenance is lower come from for this particular used model, and is it supported by owner data rather than general claims?"
+  ],
+  "raw": "{\"questions\": [\"Can you charge reliably where you live as a renter: is there a private socket, a landlord-approved charger, or workplace or public charging, and at what real cost per kWh?\", \"What is the used EV's actual battery health and remaining range, and does it cover 60 km a day plus winter conditions and a safety margin, with the charging pattern you can manage?\", \"What does a battery replacement or degradation cost on this model, and what warranty remains for the battery and drivetrain over your 5 years?\", \"How would each car's resale value look after 5 years, given EV depreciation uncertainty versus a new hybrid's brand-new first years?\", \"What would the hybrid use in fuel per 100 km on your actual commute, compared with the efficiency of the EV at the same distance, using real local prices?\", \"What do insurance, taxes, and any local incentives or fees cost for each option over 5 years?\", \"How long could you be without a car if the EV has a fault, and how good are service and parts availability for that specific used model?\", \"What are the likely changes in electricity and fuel prices or local rules over 5 years that could shift the cost gap?\", \"Do you take longer trips, and how would a 400 km journey go in each car, including charging stops?\", \"Where does your belief that EV maintenance is lower come from for this particular used model, and is it supported by owner data rather than general claims?\"]}"
+}

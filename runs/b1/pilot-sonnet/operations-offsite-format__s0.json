@@ -1,0 +1,21 @@
+{
+  "case_id": "operations-offsite-format",
+  "arm": "b1",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-24T22:36:30.682513+00:00",
+  "questions": [
+    "Why was last year's remote offsite rated poorly: was it the remote format itself, or poor design, such as long video sessions, no social time, and weak facilitation?",
+    "Which cross-team collaboration outcomes do you want, and do they depend on in-person contact or can structured remote activities deliver them?",
+    "What is the full cost of Lisbon once you add flights, accommodation, meals, activities, and a contingency, and does it stay under 80,000 euros for 60 people?",
+    "Can all 60 employees attend in person given visas, family commitments, health, or travel limits, and what happens to those who cannot?",
+    "Is there a hybrid or alternative format, such as a smaller in-person gathering of team leads or regional meetups, that costs less and still builds links across teams?",
+    "How will you measure whether collaboration improved, and does anything show that last year's offsite changed cross-team behavior either way?",
+    "What agenda would make Lisbon different from simply working together somewhere else: how much planned cross-team structure versus unstructured time?",
+    "What happens to the Lisbon booking if the dates must change or attendance drops, and what are the cancellation terms?",
+    "How would you spend the roughly 10,000 euros left, or the full 80,000 on a remote design, such as better tools, facilitators, or home-delivered kits?",
+    "What do employees themselves prefer and why, and how reliable is that feedback compared with what leadership assumes?"
+  ],
+  "raw": "{\"questions\": [\"Why was last year's remote offsite rated poorly: was it the remote format itself, or poor design, such as long video sessions, no social time, and weak facilitation?\", \"Which cross-team collaboration outcomes do you want, and do they depend on in-person contact or can structured remote activities deliver them?\", \"What is the full cost of Lisbon once you add flights, accommodation, meals, activities, and a contingency, and does it stay under 80,000 euros for 60 people?\", \"Can all 60 employees attend in person given visas, family commitments, health, or travel limits, and what happens to those who cannot?\", \"Is there a hybrid or alternative format, such as a smaller in-person gathering of team leads or regional meetups, that costs less and still builds links across teams?\", \"How will you measure whether collaboration improved, and does anything show that last year's offsite changed cross-team behavior either way?\", \"What agenda would make Lisbon different from simply working together somewhere else: how much planned cross-team structure versus unstructured time?\", \"What happens to the Lisbon booking if the dates must change or attendance drops, and what are the cancellation terms?\", \"How would you spend the roughly 10,000 euros left, or the full 80,000 on a remote design, such as better tools, facilitators, or home-delivered kits?\", \"What do employees themselves prefer and why, and how reliable is that feedback compared with what leadership assumes?\"]}"
+}

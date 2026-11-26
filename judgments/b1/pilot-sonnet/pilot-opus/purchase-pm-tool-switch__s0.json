@@ -1,0 +1,94 @@
+{
+  "case_id": "purchase-pm-tool-switch",
+  "arm": "b1",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t1",
+    "f3": "t2",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How many hours per week does the team currently spend on status reporting, and where exactly in that process (data entry, chasing updates, assembling reports) does the time go?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Where time goes exposes client spreadsheet copying"
+    },
+    {
+      "q": 2,
+      "question": "Is Tool A's reporting pain caused by missing dashboard features, or by how the team configures and uses it (inconsistent task updates, unclear fields)? Would the same habits carry over to Tool B?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Cause of pain is neither features nor config but client format"
+    },
+    {
+      "q": 3,
+      "question": "Can you reproduce your actual current status report in a Tool B trial using real project data, and how long does it take compared with Tool A?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Reproducing actual report exposes unexportable client format"
+    },
+    {
+      "q": 4,
+      "question": "With no dedicated administrator, who will own migration, permissions, templates, and integrations in Tool B, and how many hours per month is that realistically?",
+      "reveals": [],
+      "generic": false,
+      "note": "Admin ownership; no hidden fact"
+    },
+    {
+      "q": 5,
+      "question": "What does migration cost in team time: moving historical projects, retraining 25 people, and the dip in productivity during the transition?",
+      "reveals": [],
+      "generic": false,
+      "note": "Migration cost; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "Which Tool A features or integrations does the team rely on that Tool B lacks or handles differently, and who would notice first if they disappeared?",
+      "reveals": [],
+      "generic": false,
+      "note": "Feature gaps; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "How widespread is the reporting complaint: is it a vocal few or most of the 25, and do the complainers produce or consume the reports?",
+      "reveals": [],
+      "generic": false,
+      "note": "Complaint spread; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "Would a cheaper fix inside Tool A (better templates, automated reports, a reporting add-on, or an hour of training) cut reporting time enough to make switching unnecessary?",
+      "reveals": [],
+      "generic": false,
+      "note": "Fixes in Tool A; not immediately the client format"
+    },
+    {
+      "q": 9,
+      "question": "What are the contract terms: can you pilot Tool B with one sub-team, export data cleanly, and return to Tool A if it does not work, and when does Tool A's renewal fall?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Renewal timing exposes auto-renewal with no refund"
+    },
+    {
+      "q": 10,
+      "question": "What is your estimate of the time savings from better dashboards based on, such as vendor demos, a reference customer of similar size, or your own measurement?",
+      "reveals": [],
+      "generic": false,
+      "note": "Estimate basis; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Where time goes exposes client spreadsheet copying\"}, {\"q\": 2, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Cause of pain is neither features nor config but client format\"}, {\"q\": 3, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Reproducing actual report exposes unexportable client format\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Admin ownership; no hidden fact\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Migration cost; no hidden fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Feature gaps; no hidden fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Complaint spread; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Fixes in Tool A; not immediately the client format\"}, {\"q\": 9, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Renewal timing exposes auto-renewal with no refund\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Estimate basis; no hidden fact\"}]}"
+}

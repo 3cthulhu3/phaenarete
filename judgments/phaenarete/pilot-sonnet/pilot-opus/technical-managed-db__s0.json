@@ -1,0 +1,88 @@
+{
+  "case_id": "technical-managed-db",
+  "arm": "phaenarete",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "c2",
+    "f3": "t2",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How high would the managed service bill rise if storage and traffic doubled within the two years?",
+      "reveals": [],
+      "generic": false,
+      "note": "cost growth; no hidden fact"
+    },
+    {
+      "q": 2,
+      "question": "Does the managed service offer the database version, extensions and settings you use today, in the region you need?",
+      "reveals": [],
+      "generic": false,
+      "note": "feature compatibility; no hidden fact"
+    },
+    {
+      "q": 3,
+      "question": "Would any of the four developers agree to be on call for the database at night and on weekends?",
+      "reveals": [],
+      "generic": false,
+      "note": "on-call willingness; departure of DBA not directly implied"
+    },
+    {
+      "q": 4,
+      "question": "Do any customers, audits or laws require specific certifications or a particular data location for the database?",
+      "reveals": [],
+      "generic": false,
+      "note": "certifications and data location, not recovery requirements"
+    },
+    {
+      "q": 5,
+      "question": "What would the monthly bill be for each option at your current data size and load, in actual currency amounts?",
+      "reveals": [],
+      "generic": false,
+      "note": "current bills; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "How many hours a month did the last small database you ran take for patches, backups and fixes, and what is an hour of a developer worth?",
+      "reveals": [],
+      "generic": false,
+      "note": "past ops effort; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "How long could the product be down and how much data could be lost before customers or contracts are affected?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "acceptable data loss per contracts reveals the 15-minute RPO requirement"
+    },
+    {
+      "q": 8,
+      "question": "If the database fails at 3 am, who finds out, and how long would it take for someone to act?",
+      "reveals": [],
+      "generic": false,
+      "note": "incident response; DBA departure not clearly stated"
+    },
+    {
+      "q": 9,
+      "question": "If you start with one option and later want the other, how many days of work and how much downtime would the move take?",
+      "reveals": [],
+      "generic": false,
+      "note": "migration effort; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "Which of the two options could you start with a small trial for a month before committing to two years?",
+      "reveals": [],
+      "generic": false,
+      "note": "trial option; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"cost growth; no hidden fact\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"feature compatibility; no hidden fact\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"on-call willingness; departure of DBA not directly implied\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"certifications and data location, not recovery requirements\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"current bills; no hidden fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"past ops effort; no hidden fact\"}, {\"q\": 7, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"acceptable data loss per contracts reveals the 15-minute RPO requirement\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"incident response; DBA departure not clearly stated\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"migration effort; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"trial option; no hidden fact\"}]}"
+}

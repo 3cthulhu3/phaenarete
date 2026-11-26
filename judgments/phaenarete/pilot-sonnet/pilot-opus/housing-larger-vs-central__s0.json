@@ -1,0 +1,88 @@
+{
+  "case_id": "housing-larger-vs-central",
+  "arm": "phaenarete",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What will you pay each month beyond rent for each home, including a train pass, utilities and internet?",
+      "reveals": [],
+      "generic": false,
+      "note": "extra monthly costs; no hidden fact"
+    },
+    {
+      "q": 2,
+      "question": "Counting the walk to the station and the wait, how long is the real trip from the larger apartment's front door to the office desk?",
+      "reveals": [],
+      "generic": false,
+      "note": "current door-to-door time; future closure not directly asked"
+    },
+    {
+      "q": 3,
+      "question": "Is your sense that 45 minutes is tolerable based on having done a similar commute before, or on imagining it?",
+      "reveals": [],
+      "generic": false,
+      "note": "commute experience; no hidden fact"
+    },
+    {
+      "q": 4,
+      "question": "At how many weekly office days would the commute from the larger apartment become too much for the office partner?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "office-day threshold prompts the announced move to 5 days"
+    },
+    {
+      "q": 5,
+      "question": "On the days both of you are home, could the smaller apartment give the working partner a spot with a door or enough distance to take calls without disturbing the other?",
+      "reveals": [],
+      "generic": false,
+      "note": "workspace in smaller flat; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "In the area of the larger apartment, what can you reach on foot within 10 minutes for daily needs and for free time?",
+      "reveals": [],
+      "generic": false,
+      "note": "local amenities; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "How often do you currently go out or meet friends in the center in a typical week, and how would that change from the larger apartment?",
+      "reveals": [],
+      "generic": false,
+      "note": "social habits; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "How would each apartment handle noise from the street, neighbours or trains at the times the home-working partner has calls?",
+      "reveals": [],
+      "generic": false,
+      "note": "noise; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "What is the minimum lease term and how costly is it to leave early at each apartment?",
+      "reveals": [],
+      "generic": false,
+      "note": "lease terms; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "Do either of you have hobbies, sports or family visits that depend on being in a particular part of the city?",
+      "reveals": [],
+      "generic": false,
+      "note": "location-dependent activities; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"extra monthly costs; no hidden fact\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"current door-to-door time; future closure not directly asked\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"commute experience; no hidden fact\"}, {\"q\": 4, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"office-day threshold prompts the announced move to 5 days\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"workspace in smaller flat; no hidden fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"local amenities; no hidden fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"social habits; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"noise; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"lease terms; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"location-dependent activities; no hidden fact\"}]}"
+}

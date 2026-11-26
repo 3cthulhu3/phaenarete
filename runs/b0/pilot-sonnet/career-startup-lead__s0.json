@@ -1,0 +1,21 @@
+{
+  "case_id": "career-startup-lead",
+  "arm": "b0",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-24T22:36:30.625185+00:00",
+  "questions": [
+    "How long can the startup realistically survive, given its seed round was two years ago, and what are its current runway, burn rate and fundraising plans?",
+    "What would I need to receive in writing about the offer, including salary, equity terms (percentage, strike price, vesting, cliff, exit rights) and severance if the startup fails?",
+    "What would my household finances look like if the startup folded after six or twelve months, given one income and mortgage payments, and could I find another job in time?",
+    "Does the \"Team Lead\" title come with real management responsibility, such as hiring, coaching and ownership of the backend team, and would it count toward becoming an engineering manager?",
+    "How credible are the founders, their vision and their management style, and what do current employees and investors say about them?",
+    "How realistic is it that a lead role will open at my current company in three years, and could I get a concrete commitment or timeline from my manager?",
+    "What management experience could I gain in my current job without a formal title, such as mentoring, leading projects or running an internal team?",
+    "What support would I have in the startup to learn to lead, such as mentors or a senior engineering peer, given that I would be building the team largely from scratch?",
+    "How would I value a title and growth path against stability, and how much risk are my family and I willing to accept?",
+    "If I stayed, what would I do differently to reach management, and if I left, how easily could I return to a senior engineer role at a larger company if it fails?"
+  ],
+  "raw": "{\"questions\": [\"How long can the startup realistically survive, given its seed round was two years ago, and what are its current runway, burn rate and fundraising plans?\", \"What would I need to receive in writing about the offer, including salary, equity terms (percentage, strike price, vesting, cliff, exit rights) and severance if the startup fails?\", \"What would my household finances look like if the startup folded after six or twelve months, given one income and mortgage payments, and could I find another job in time?\", \"Does the \\\"Team Lead\\\" title come with real management responsibility, such as hiring, coaching and ownership of the backend team, and would it count toward becoming an engineering manager?\", \"How credible are the founders, their vision and their management style, and what do current employees and investors say about them?\", \"How realistic is it that a lead role will open at my current company in three years, and could I get a concrete commitment or timeline from my manager?\", \"What management experience could I gain in my current job without a formal title, such as mentoring, leading projects or running an internal team?\", \"What support would I have in the startup to learn to lead, such as mentors or a senior engineering peer, given that I would be building the team largely from scratch?\", \"How would I value a title and growth path against stability, and how much risk are my family and I willing to accept?\", \"If I stayed, what would I do differently to reach management, and if I left, how easily could I return to a senior engineer role at a larger company if it fails?\"]}"
+}

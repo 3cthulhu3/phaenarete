@@ -1,0 +1,833 @@
+{
+  "case_id": "product-native-vs-web",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.794344+00:00",
+  "questions": [
+    "When customers asked for 'a mobile app' in the survey, which specific things did they say they wanted to do or have (alerts, offline access, speed, an icon on the home screen)?",
+    "Which web commitments (promised features, contract deliverables, maintenance) fall due in the next six months, and how many developer-weeks do they take?",
+    "Do customers who say 'mobile app' mean a separate downloadable app, or would a much better mobile site satisfy them?",
+    "Could your three developers build the app with a cross-platform framework that reuses what they already know from the web product?",
+    "What evidence do you have that the current mobile web experience is what keeps existing customers from using the product weekly?",
+    "Where does the statement that about half of your visitors are on mobile come from, and does it count existing customers, new visitors, or both?",
+    "Of the customers who say they want an app, how many already use your mobile site every week?",
+    "Among existing customers who open the product on a phone, at which screens or steps do they stall or leave?",
+    "Would an installable web app (a PWA) with push notifications cover what the survey wants, at a fraction of the effort?",
+    "Is the six-month limit for the weekly active user goal fixed by someone outside the team, or could it move?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Weekly active users among existing customers measurably rise within 6 months, tracked against the current baseline",
+        "The option can be shipped and iterated on within 6 months with three developers",
+        "Work on the web product that existing customers rely on is not left to degrade",
+        "Mobile behaviour of existing customers (what they do, how often) is addressed by the chosen option"
+      ],
+      "stated_facts": [
+        "Goal is to increase weekly active users among existing customers within 6 months",
+        "Three developers, all currently working on the web product",
+        "Two main competitors launched native apps last year",
+        "In the customer survey, 'a mobile app' was the most requested feature",
+        "About half of traffic is mobile"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "Customers who ask for 'a mobile app' mean a native app, rather than a better mobile experience in general."
+        },
+        {
+          "id": "a2",
+          "text": "A native app would raise weekly active usage among existing customers, rather than mostly being downloaded and left unused."
+        },
+        {
+          "id": "a3",
+          "text": "Three developers can build and ship a native app within the time frame while keeping the web product running."
+        },
+        {
+          "id": "a4",
+          "text": "Competitors' native apps are working for them, and their launch is a reason to follow."
+        },
+        {
+          "id": "a5",
+          "text": "Mobile web's current problems are what limit weekly usage on mobile."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "What do survey respondents actually want from an app (push notifications, offline use, speed, home-screen presence), and could mobile web deliver it, for example as a PWA?",
+          "if_resolved": "If the wants are mostly speed and convenience that mobile web can deliver, improving mobile web first is favored; if they depend on native-only capabilities, a native app is favored."
+        },
+        {
+          "id": "u2",
+          "text": "How many of the half of traffic that is mobile come from existing customers, and where do they drop off or struggle today?",
+          "if_resolved": "If existing customers are frequent mobile users facing clear friction, fixing mobile web is a quick win favoring that option; if they are mostly on desktop and mobile is largely new visitors, neither mobile path may move the goal much and a native app's re-engagement tools may matter more."
+        },
+        {
+          "id": "u3",
+          "text": "What is the team's native development experience, and would the app use a cross-platform framework or two separate codebases?",
+          "if_resolved": "If the team can reuse web skills and code with a cross-platform approach, a native app within 6 months is feasible and favored; if it needs new skills and two platforms, it is unlikely to ship in time and mobile web is favored."
+        },
+        {
+          "id": "u4",
+          "text": "How much web product work is committed (customer promises, roadmap, maintenance) that would be displaced if developers move to an app?",
+          "if_resolved": "If web work is flexible, either path is feasible; if commitments are heavy, a native app would starve them and mobile web improvements fit better."
+        },
+        {
+          "id": "u5",
+          "text": "What did competitors' app launches actually do for their usage, and do the apps carry features customers use weekly?",
+          "if_resolved": "If evidence shows apps lifted engagement in this market, a native app is favored; if the apps are little used or customers still use competitors' web, mobile web is favored."
+        },
+        {
+          "id": "u6",
+          "text": "Is weekly usage constrained by how often customers have a reason to come back (product value, notifications) rather than by access?",
+          "if_resolved": "If re-engagement via push is the lever, a native app is favored; if the constraint is the product's content or workflows, neither mobile choice alone will help and the cheaper mobile web option is favored."
+        },
+        {
+          "id": "u7",
+          "text": "Do app store fees, review processes or platform rules affect the business model or release speed?",
+          "if_resolved": "If store rules cost margin or slow releases, mobile web is favored; if they are immaterial, a native app is not penalised."
+        }
+      ]
+    },
+    "n_candidates": 28,
+    "n_passing": 24,
+    "fail_counts": {
+      "generic": 0,
+      "presupposes": 2,
+      "answered": 0,
+      "no_path": 2,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 4,
+      "surface": 3,
+      "test": 0,
+      "bound": 0,
+      "expand": 1,
+      "close": 1,
+      "calibrate": 1
+    },
+    "chosen": [
+      {
+        "question": "When customers asked for 'a mobile app' in the survey, which specific things did they say they wanted to do or have (alerts, offline access, speed, an icon on the home screen)?",
+        "operator": "discriminate",
+        "target": "u1",
+        "S": 500.0,
+        "picked_by": "coverage",
+        "why": "If the wishes are things a faster mobile site or a PWA can deliver, improving mobile web becomes the stronger choice; native-only wishes favor the app.",
+        "answer_path": "Re-read the free-text survey answers, then email or call 10 to 15 of the respondents and ask what they would do with an app that they cannot do now."
+      },
+      {
+        "question": "Which web commitments (promised features, contract deliverables, maintenance) fall due in the next six months, and how many developer-weeks do they take?",
+        "operator": "discriminate",
+        "target": "u4",
+        "S": 240.0,
+        "picked_by": "coverage",
+        "why": "Heavy commitments mean an app would starve the web product, tilting toward mobile web; light commitments leave room for either option.",
+        "answer_path": "List the roadmap and customer promises with the product owner and sales, and add up the estimates against the developers' available weeks."
+      },
+      {
+        "question": "Do customers who say 'mobile app' mean a separate downloadable app, or would a much better mobile site satisfy them?",
+        "operator": "surface",
+        "target": "a1",
+        "S": 200.0,
+        "picked_by": "mmr",
+        "why": "The whole case for native rests on this reading of the survey; if they mean a better mobile experience, the case weakens.",
+        "answer_path": "Ask a sample of respondents directly, and show them a mockup of an installable web version to see whether it meets their need."
+      },
+      {
+        "question": "Could your three developers build the app with a cross-platform framework that reuses what they already know from the web product?",
+        "operator": "discriminate",
+        "target": "u3",
+        "S": 192.0,
+        "picked_by": "coverage",
+        "why": "A route that reuses web skills makes the native option realistic in six months; a route that needs new skills on two platforms favors mobile web.",
+        "answer_path": "Ask the three developers what mobile experience they have, and ask each to estimate a first release for one cross-platform framework versus two separate codebases."
+      },
+      {
+        "question": "What evidence do you have that the current mobile web experience is what keeps existing customers from using the product weekly?",
+        "operator": "surface",
+        "target": "a5",
+        "S": 187.5,
+        "picked_by": "mmr",
+        "why": "If mobile web is not the limiting factor, improving it first may not raise weekly usage either.",
+        "answer_path": "Look at support tickets and complaints about mobile, run a short usability test on phones, and compare mobile and desktop return rates."
+      },
+      {
+        "question": "Where does the statement that about half of your visitors are on mobile come from, and does it count existing customers, new visitors, or both?",
+        "operator": "calibrate",
+        "target": "u2",
+        "S": 180.0,
+        "picked_by": "mmr",
+        "why": "A traffic share that mixes in new visitors can mislead about how existing customers behave.",
+        "answer_path": "Pull the same traffic split for logged-in existing customers only and compare it with the overall figure."
+      },
+      {
+        "question": "Of the customers who say they want an app, how many already use your mobile site every week?",
+        "operator": "surface",
+        "target": "a2",
+        "S": 180.0,
+        "picked_by": "mmr",
+        "why": "If the people asking for an app barely use the mobile site now, an app may be downloaded and left unused.",
+        "answer_path": "Match survey respondents to your usage data and compare their weekly mobile sessions with other customers."
+      },
+      {
+        "question": "Among existing customers who open the product on a phone, at which screens or steps do they stall or leave?",
+        "operator": "discriminate",
+        "target": "u2",
+        "S": 128.0,
+        "picked_by": "coverage",
+        "why": "Clear friction points that can be fixed quickly favor mobile web; no obvious friction suggests mobile web fixes will not move weekly usage.",
+        "answer_path": "Segment your analytics by existing customers on mobile, check funnels and exit pages, and watch a few session recordings."
+      },
+      {
+        "question": "Would an installable web app (a PWA) with push notifications cover what the survey wants, at a fraction of the effort?",
+        "operator": "expand",
+        "target": "new",
+        "S": 128.0,
+        "picked_by": "mmr",
+        "why": "Brings in a third path between the two stated options that the map only mentions in passing.",
+        "answer_path": "Have a developer test PWA support for your main customer devices and browsers, and prototype one notification flow."
+      },
+      {
+        "question": "Is the six-month limit for the weekly active user goal fixed by someone outside the team, or could it move?",
+        "operator": "close",
+        "target": "new",
+        "S": 90.0,
+        "picked_by": "close",
+        "why": "A movable deadline would make a slower native build more acceptable.",
+        "answer_path": "Ask whoever set the goal what happens if it is reached in nine months instead, and where the six months came from."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "When customers asked for 'a mobile app' in the survey, which specific things did they say they wanted to do or have (alerts, offline access, speed, an icon on the home screen)?",
+        "why": "If the wishes are things a faster mobile site or a PWA can deliver, improving mobile web becomes the stronger choice; native-only wishes favor the app.",
+        "answer_path": "Re-read the free-text survey answers, then email or call 10 to 15 of the respondents and ask what they would do with an app that they cannot do now.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 500.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u3",
+        "question": "Could your three developers build the app with a cross-platform framework that reuses what they already know from the web product?",
+        "why": "A route that reuses web skills makes the native option realistic in six months; a route that needs new skills on two platforms favors mobile web.",
+        "answer_path": "Ask the three developers what mobile experience they have, and ask each to estimate a first release for one cross-platform framework versus two separate codebases.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "Among existing customers who open the product on a phone, at which screens or steps do they stall or leave?",
+        "why": "Clear friction points that can be fixed quickly favor mobile web; no obvious friction suggests mobile web fixes will not move weekly usage.",
+        "answer_path": "Segment your analytics by existing customers on mobile, check funnels and exit pages, and watch a few session recordings.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u4",
+        "question": "Which web commitments (promised features, contract deliverables, maintenance) fall due in the next six months, and how many developer-weeks do they take?",
+        "why": "Heavy commitments mean an app would starve the web product, tilting toward mobile web; light commitments leave room for either option.",
+        "answer_path": "List the roadmap and customer promises with the product owner and sales, and add up the estimates against the developers' available weeks.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 240.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "Do customers who say 'mobile app' mean a separate downloadable app, or would a much better mobile site satisfy them?",
+        "why": "The whole case for native rests on this reading of the survey; if they mean a better mobile experience, the case weakens.",
+        "answer_path": "Ask a sample of respondents directly, and show them a mockup of an installable web version to see whether it meets their need.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "Of the customers who say they want an app, how many already use your mobile site every week?",
+        "why": "If the people asking for an app barely use the mobile site now, an app may be downloaded and left unused.",
+        "answer_path": "Match survey respondents to your usage data and compare their weekly mobile sessions with other customers.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "What would the three developers be unable to do on the web product for the months an app takes, and would you accept that?",
+        "why": "Tests whether building an app while keeping the web product healthy is truly possible with this team.",
+        "answer_path": "Ask the developers for a week-by-week plan under each option and have the product owner mark which web work would slip.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a5",
+        "question": "What evidence do you have that the current mobile web experience is what keeps existing customers from using the product weekly?",
+        "why": "If mobile web is not the limiting factor, improving it first may not raise weekly usage either.",
+        "answer_path": "Look at support tickets and complaints about mobile, run a short usability test on phones, and compare mobile and desktop return rates.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 5,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 187.5,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "a2",
+        "question": "Does having an app installed actually make people in your customer base come back more often, or do they behave the same as before?",
+        "why": "The goal depends on an app lifting weekly use; this checks that cause and effect before committing months of work.",
+        "answer_path": "Ask the two competitors' users or your own customers how often they open those apps, or look for public engagement data on similar apps in your sector.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 64.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u6",
+        "question": "If you sent a weekly reminder to existing customers today by email, would it increase their weekly visits?",
+        "why": "Checks whether re-engagement prompts, the main thing an app adds, move usage in this customer base at all.",
+        "answer_path": "Run a small email or in-product nudge test on a slice of customers and compare weekly active rates with a control group.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "a5",
+        "question": "If you fixed the slowest or most awkward mobile web screen, would weekly mobile use by existing customers rise?",
+        "why": "Tests the link between mobile web quality and weekly use before investing in a larger improvement program.",
+        "answer_path": "Pick one high-traffic mobile screen, ship a fix to half of users, and compare their weekly return with the rest.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 36.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "a4",
+        "question": "Do customers of the competitors who have apps use those apps weekly, or do they still use the competitors' websites?",
+        "why": "Checks the link between the competitors' launch and real usage, which is the reason given to follow them.",
+        "answer_path": "Interview a few customers who use both products, look at the competitors' app store ratings and review counts, and ask your sales team what prospects say.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": true,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 24.0,
+        "failed": [
+          "no_path"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "a3",
+        "question": "At what point in a six-month schedule would a native app stop being finishable, for example if one developer is out or the review process by the app stores takes longer?",
+        "why": "Identifies how little slack the plan has with only three people.",
+        "answer_path": "Build a simple schedule with the developers, add a one-month slip and a one-developer absence, and see whether a first release still fits.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 40.5,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "new",
+        "question": "How many users on the app would you need before supporting it (updates, bug fixes, two platforms) is no longer more than the team can handle?",
+        "why": "An app creates ongoing work that grows with its audience; this shows when the option overruns the team.",
+        "answer_path": "Ask the developers how much time maintenance of a released app takes per month, and compare it with the web work they would have to drop.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 8.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u4",
+        "question": "How much of the developers' time can you take from the web product before existing customers notice a decline?",
+        "why": "Sets a limit on how much of the team an app can use before it harms the base you want to grow.",
+        "answer_path": "Review recent support volume and bug counts, and ask customer success which parts of the web product customers watch most closely.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 81.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u7",
+        "question": "Do any app store rules or fees apply to how you charge customers, and could they change what you earn per customer?",
+        "why": "If store rules cut revenue or slow updates, a native app stops being attractive past a certain scale.",
+        "answer_path": "Read the current store payment rules against your billing setup and ask someone who has shipped a similar app, or check with your finance lead.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 1,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 30.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Would an installable web app (a PWA) with push notifications cover what the survey wants, at a fraction of the effort?",
+        "why": "Brings in a third path between the two stated options that the map only mentions in passing.",
+        "answer_path": "Have a developer test PWA support for your main customer devices and browsers, and prototype one notification flow.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Is there a smaller native piece, such as a thin wrapper around your mobile site, that would give you a presence in the app stores?",
+        "why": "A wrapper might satisfy customers who want an icon and store listing without a full native build.",
+        "answer_path": "Ask a developer to scope a wrapper approach and list what it can and cannot do, such as notifications and offline use.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Which customers who are not responding to the survey would use mobile more if something changed, and what would that be?",
+        "why": "Survey requests come from those who answer; quiet customers might be held back by something else.",
+        "answer_path": "Pick a group of low-activity customers and call or email them with two or three open questions about how they use the product on their phones.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": true,
+          "relevance": 2,
+          "uncertainty": 5,
+          "impact": 2,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 13.333333333333334,
+        "failed": [
+          "no_path"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could you recruit a short-term contractor or agency for the mobile work so the developers stay on the web product?",
+        "why": "Changes the staffing constraint that drives much of the comparison.",
+        "answer_path": "Ask two or three mobile agencies or freelancers for rough quotes and timelines, and check them against the budget your manager will allow.",
+        "review": {
+          "id": 20,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "If you start with improved mobile web and then decide on a native app later, what from that work carries over and what is lost?",
+        "why": "Shows whether the mobile web path is a step toward the app or a detour.",
+        "answer_path": "Ask the developers which improvements (design, APIs, performance work) would be reused by a later app.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 48.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "What does waiting a few months to learn more about customer needs cost you, given the competitors already have apps?",
+        "why": "Tests how real the pressure to move fast is.",
+        "answer_path": "Check churn and win/loss notes for mentions of the competitors' apps, and ask sales how often the lack of an app comes up.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 24.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "Is the six-month limit for the weekly active user goal fixed by someone outside the team, or could it move?",
+        "why": "A movable deadline would make a slower native build more acceptable.",
+        "answer_path": "Ask whoever set the goal what happens if it is reached in nine months instead, and where the six months came from.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 90.0,
+        "failed": [],
+        "picked_by": "close"
+      },
+      {
+        "operator": "close",
+        "target": "u4",
+        "question": "Which of the two options could you stop partway through with the least wasted effort if early results are poor?",
+        "why": "Reveals which path is easier to undo, which matters when the evidence is incomplete.",
+        "answer_path": "Ask the developers to outline checkpoints for each path and what is thrown away if it stops at month two or three.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a1",
+        "question": "What is your belief that customers want a native app based on: the survey count, comments from individual customers, or what the competitors did?",
+        "why": "Separates a measured signal from an impression that might come from the loudest voices.",
+        "answer_path": "Write down where each piece of evidence came from, and count how many survey respondents chose it compared with other requests.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 2,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u3",
+        "question": "How did you arrive at the belief that three developers can handle an app, and has anyone on the team shipped one before?",
+        "why": "Checks whether the feasibility estimate comes from experience or from hope.",
+        "answer_path": "Ask each developer for their own estimate separately, and compare them with the time similar projects have taken elsewhere.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 150.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a4",
+        "question": "What are you basing the idea that the competitors' apps are succeeding on?",
+        "why": "Launching an app does not show it works; the impression may come from announcements alone.",
+        "answer_path": "Look at their app store download ranges and reviews, and ask customers who use their products.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 27.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u2",
+        "question": "Where does the statement that about half of your visitors are on mobile come from, and does it count existing customers, new visitors, or both?",
+        "why": "A traffic share that mixes in new visitors can mislead about how existing customers behave.",
+        "answer_path": "Pull the same traffic split for logged-in existing customers only and compare it with the overall figure.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": "mmr"
+      }
+    ]
+  }
+}

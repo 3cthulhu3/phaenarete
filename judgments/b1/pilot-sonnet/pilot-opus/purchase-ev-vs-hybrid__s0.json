@@ -1,0 +1,92 @@
+{
+  "case_id": "purchase-ev-vs-hybrid",
+  "arm": "b1",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c1",
+    "f3": "t1",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Can you charge reliably where you live as a renter: is there a private socket, a landlord-approved charger, or workplace or public charging, and at what real cost per kWh?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Charging access exposes no charger and refusal"
+    },
+    {
+      "q": 2,
+      "question": "What is the used EV's actual battery health and remaining range, and does it cover 60 km a day plus winter conditions and a safety margin, with the charging pattern you can manage?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Battery health exposes 71% capacity"
+    },
+    {
+      "q": 3,
+      "question": "What does a battery replacement or degradation cost on this model, and what warranty remains for the battery and drivetrain over your 5 years?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Remaining warranty exposes expired battery warranty"
+    },
+    {
+      "q": 4,
+      "question": "How would each car's resale value look after 5 years, given EV depreciation uncertainty versus a new hybrid's brand-new first years?",
+      "reveals": [],
+      "generic": false,
+      "note": "Resale; no hidden fact"
+    },
+    {
+      "q": 5,
+      "question": "What would the hybrid use in fuel per 100 km on your actual commute, compared with the efficiency of the EV at the same distance, using real local prices?",
+      "reveals": [],
+      "generic": false,
+      "note": "Fuel efficiency; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "What do insurance, taxes, and any local incentives or fees cost for each option over 5 years?",
+      "reveals": [],
+      "generic": false,
+      "note": "Insurance and taxes; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "How long could you be without a car if the EV has a fault, and how good are service and parts availability for that specific used model?",
+      "reveals": [],
+      "generic": false,
+      "note": "Service availability; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "What are the likely changes in electricity and fuel prices or local rules over 5 years that could shift the cost gap?",
+      "reveals": [],
+      "generic": false,
+      "note": "Price changes; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "Do you take longer trips, and how would a 400 km journey go in each car, including charging stops?",
+      "reveals": [],
+      "generic": false,
+      "note": "Long trips; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "Where does your belief that EV maintenance is lower come from for this particular used model, and is it supported by owner data rather than general claims?",
+      "reveals": [],
+      "generic": false,
+      "note": "Maintenance belief; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Charging access exposes no charger and refusal\"}, {\"q\": 2, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Battery health exposes 71% capacity\"}, {\"q\": 3, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Remaining warranty exposes expired battery warranty\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Resale; no hidden fact\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Fuel efficiency; no hidden fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Insurance and taxes; no hidden fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Service availability; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Price changes; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Long trips; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Maintenance belief; no hidden fact\"}]}"
+}

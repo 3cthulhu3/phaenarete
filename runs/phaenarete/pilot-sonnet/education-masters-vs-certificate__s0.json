@@ -1,0 +1,937 @@
+{
+  "case_id": "education-masters-vs-certificate",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.832117+00:00",
+  "questions": [
+    "Of ten real data scientist postings you would apply to, how many state a master's as required rather than preferred?",
+    "Does the certificate cover the depth you would need, such as statistics, machine learning and a capstone project, or only introductory material?",
+    "What is your impression that job ads require a master's based on: how many ads you have actually read, and which companies?",
+    "Which kinds of data roles fit mechanical engineers best, such as simulation, manufacturing analytics or test data, and do they ask for a master's?",
+    "What share of the master's graduates who changed careers had a data science job within six months, and how many of the certificate's graduates did?",
+    "Is there a data, analytics or simulation team at your current employer that you could move to or collaborate with?",
+    "What are the application deadlines for the master's, and what does waiting one more year cost you?",
+    "At what monthly spending level and savings balance would full-time study stop being workable for you?",
+    "How many hours a week could you realistically study next to your current job, and what in your week would give way?",
+    "What evidence do you have that graduates of this well-known program get offers within two years of starting, as opposed to just being well known?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Likelihood of landing a data science role within 2 years, tested against actual job requirements and what hiring managers accept",
+        "Ability to show skills through projects, portfolio or applied work that employers value",
+        "Financial position through the 2 years, including tuition, lost income and savings runway",
+        "Fit with existing mechanical engineering experience, such as a path through current employer or domain-specific data roles"
+      ],
+      "stated_facts": [
+        "Currently works as a mechanical design engineer",
+        "Goal: move into a data science role within 2 years",
+        "No other income during full-time study",
+        "Job ads for data scientists often list a master's degree",
+        "The master's program is well known",
+        "The certificate is cheaper and flexible"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "A master's degree is required for the kind of data science roles the user wants, even though ads only often list it."
+        },
+        {
+          "id": "a2",
+          "text": "The well-known program will translate into job offers within the 2 years."
+        },
+        {
+          "id": "a3",
+          "text": "A part-time certificate while working will not be taken seriously enough, or will not give enough depth."
+        },
+        {
+          "id": "a4",
+          "text": "The user can fund and manage living costs through full-time study, or the workload of part-time study alongside the job."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "Do the actual target employers and roles (including data roles within mechanical or engineering industries) require a master's, or do they hire on demonstrated skills and projects?",
+          "if_resolved": "If most target roles filter on a master's, the full-time master's is favored; if portfolio and domain skills are accepted, the certificate is favored."
+        },
+        {
+          "id": "u2",
+          "text": "Is there an internal route: can the user move into data-related work at the current employer, using engineering domain knowledge, while studying part-time?",
+          "if_resolved": "If an internal transition is available, keeping the job with the certificate is favored; if not, the master's with its recruiting networks may be favored."
+        },
+        {
+          "id": "u3",
+          "text": "What does the master's cost in total (tuition, living costs, lost salary), how long are savings sufficient, and can the user afford a lost 1 to 2 years of income?",
+          "if_resolved": "If savings or funding cover it comfortably, the master's is feasible; if it leads to debt or strain, the certificate is favored."
+        },
+        {
+          "id": "u4",
+          "text": "What are the programs' outcomes: placement rates, internships, career services, alumni networks, and the certificate's depth, projects and employer recognition?",
+          "if_resolved": "If the master's has strong placement for career changers, it is favored; if certificate graduates also get hired, its lower cost favors it."
+        },
+        {
+          "id": "u5",
+          "text": "Can the user realistically carry a part-time program on top of a full-time job (hours, employer flexibility, energy), and does the user already have the math, statistics and programming background?",
+          "if_resolved": "If capacity and background are good, the certificate is favored; if the workload is unmanageable or the background is weak, the structured full-time master's is favored."
+        },
+        {
+          "id": "u6",
+          "text": "Does the admission timeline and the current job market for entry-level data scientists, which is competitive, fit within the 2-year goal?",
+          "if_resolved": "If the market is hiring entry-level career changers, either path can work and cost decides; if it is tight, the master's credential and networks may matter more."
+        }
+      ]
+    },
+    "n_candidates": 33,
+    "n_passing": 28,
+    "fail_counts": {
+      "generic": 1,
+      "presupposes": 3,
+      "answered": 0,
+      "no_path": 1,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 3,
+      "surface": 3,
+      "test": 0,
+      "bound": 1,
+      "expand": 1,
+      "close": 1,
+      "calibrate": 1
+    },
+    "chosen": [
+      {
+        "question": "Of ten real data scientist postings you would apply to, how many state a master's as required rather than preferred?",
+        "operator": "discriminate",
+        "target": "u1",
+        "S": 500.0,
+        "picked_by": "coverage",
+        "why": "If most make it a hard filter, the master's gains a clear edge; if few do, the certificate does.",
+        "answer_path": "Collect 10 to 15 current postings from your target employers and tally required versus preferred degree wording."
+      },
+      {
+        "question": "Does the certificate cover the depth you would need, such as statistics, machine learning and a capstone project, or only introductory material?",
+        "operator": "surface",
+        "target": "a3",
+        "S": 240.0,
+        "picked_by": "mmr",
+        "why": "Checks whether the depth concern is true for this certificate.",
+        "answer_path": "Read the syllabus, sample assignments and capstone descriptions, and ask for alumni projects."
+      },
+      {
+        "question": "What is your impression that job ads require a master's based on: how many ads you have actually read, and which companies?",
+        "operator": "calibrate",
+        "target": "a1",
+        "S": 240.0,
+        "picked_by": "mmr",
+        "why": "Checks the sample behind your belief.",
+        "answer_path": "Count the ads you have looked at and compare with a systematic sample."
+      },
+      {
+        "question": "Which kinds of data roles fit mechanical engineers best, such as simulation, manufacturing analytics or test data, and do they ask for a master's?",
+        "operator": "expand",
+        "target": "new",
+        "S": 200.0,
+        "picked_by": "mmr",
+        "why": "Adjacent roles may be easier to reach than general data science.",
+        "answer_path": "Search job boards for analytics roles in engineering industries and note requirements."
+      },
+      {
+        "question": "What share of the master's graduates who changed careers had a data science job within six months, and how many of the certificate's graduates did?",
+        "operator": "discriminate",
+        "target": "u4",
+        "S": 150.0,
+        "picked_by": "coverage",
+        "why": "Placement for people like you separates the two options more directly than reputation does.",
+        "answer_path": "Ask both programs for outcome reports, and check graduate profiles on LinkedIn."
+      },
+      {
+        "question": "Is there a data, analytics or simulation team at your current employer that you could move to or collaborate with?",
+        "operator": "discriminate",
+        "target": "u2",
+        "S": 144.0,
+        "picked_by": "mmr",
+        "why": "An internal route would make the part-time path clearly stronger.",
+        "answer_path": "Check internal job boards and org charts, and ask your manager or a contact in the analytics team."
+      },
+      {
+        "question": "What are the application deadlines for the master's, and what does waiting one more year cost you?",
+        "operator": "close",
+        "target": "u6",
+        "S": 135.0,
+        "picked_by": "close",
+        "why": "Identifies the real deadline and the cost of delay.",
+        "answer_path": "Check admission calendars and ask the program whether later intakes exist."
+      },
+      {
+        "question": "At what monthly spending level and savings balance would full-time study stop being workable for you?",
+        "operator": "bound",
+        "target": "u3",
+        "S": 135.0,
+        "picked_by": "mmr",
+        "why": "Sets the money threshold for the master's.",
+        "answer_path": "List fixed monthly costs, compute months of runway at your savings, and decide your minimum reserve."
+      },
+      {
+        "question": "How many hours a week could you realistically study next to your current job, and what in your week would give way?",
+        "operator": "surface",
+        "target": "a4",
+        "S": 135.0,
+        "picked_by": "mmr",
+        "why": "Checks whether the part-time load is manageable.",
+        "answer_path": "Track a typical week of hours, add the program's stated weekly workload, and ask current part-time students."
+      },
+      {
+        "question": "What evidence do you have that graduates of this well-known program get offers within two years of starting, as opposed to just being well known?",
+        "operator": "surface",
+        "target": "a2",
+        "S": 128.0,
+        "picked_by": "mmr",
+        "why": "Reputation does not guarantee offers in your timeframe.",
+        "answer_path": "Look for placement statistics, employer lists and alumni outcomes for the specific cohort years."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "Of ten real data scientist postings you would apply to, how many state a master's as required rather than preferred?",
+        "why": "If most make it a hard filter, the master's gains a clear edge; if few do, the certificate does.",
+        "answer_path": "Collect 10 to 15 current postings from your target employers and tally required versus preferred degree wording.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 500.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "Do data scientists who moved over from mechanical or other engineering fields at your target companies hold a master's, or did they come in through projects and domain knowledge?",
+        "why": "Shows which path career changers like you actually took into those roles.",
+        "answer_path": "Search LinkedIn for people with a mechanical engineering background now in data roles and check their education; message two or three of them.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 3
+        },
+        "S": 133.33333333333334,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "Is there a data, analytics or simulation team at your current employer that you could move to or collaborate with?",
+        "why": "An internal route would make the part-time path clearly stronger.",
+        "answer_path": "Check internal job boards and org charts, and ask your manager or a contact in the analytics team.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 144.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u3",
+        "question": "What would the master's cost you in total, counting tuition, living costs and the salary you give up, and how many months can your savings cover that?",
+        "why": "If the total cannot be covered without debt, the full-time route loses clearly.",
+        "answer_path": "Get the tuition schedule from the program, add your monthly expenses, and compare with your savings and notice-period terms.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 2
+        },
+        "S": 90.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "discriminate",
+        "target": "u4",
+        "question": "What share of the master's graduates who changed careers had a data science job within six months, and how many of the certificate's graduates did?",
+        "why": "Placement for people like you separates the two options more directly than reputation does.",
+        "answer_path": "Ask both programs for outcome reports, and check graduate profiles on LinkedIn.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 150.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "Have you seen any data science role you want where the company has actually turned down someone without a master's?",
+        "why": "Checks whether the master's is really required or only often listed.",
+        "answer_path": "Ask recruiters, hiring managers or recent hires at target companies whether the degree is a hard filter.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": true,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 2,
+          "cost": 4
+        },
+        "S": 18.0,
+        "failed": [
+          "no_path"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "What evidence do you have that graduates of this well-known program get offers within two years of starting, as opposed to just being well known?",
+        "why": "Reputation does not guarantee offers in your timeframe.",
+        "answer_path": "Look for placement statistics, employer lists and alumni outcomes for the specific cohort years.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "Which employers or hiring managers have told you, or shown through hires, that they would discount a part-time online certificate?",
+        "why": "Tests the belief that the certificate would not be taken seriously.",
+        "answer_path": "Ask people who hire data scientists, and look at whether your target firms have hired certificate-holders.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 64.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "Does the certificate cover the depth you would need, such as statistics, machine learning and a capstone project, or only introductory material?",
+        "why": "Checks whether the depth concern is true for this certificate.",
+        "answer_path": "Read the syllabus, sample assignments and capstone descriptions, and ask for alumni projects.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 240.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a4",
+        "question": "How many hours a week could you realistically study next to your current job, and what in your week would give way?",
+        "why": "Checks whether the part-time load is manageable.",
+        "answer_path": "Track a typical week of hours, add the program's stated weekly workload, and ask current part-time students.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "u4",
+        "question": "Does the master's actually put career changers in front of employers, for example through internships, recruiting events or alumni referrals, in a way you could not replicate yourself?",
+        "why": "Tests the link between the degree and access to jobs.",
+        "answer_path": "Ask the program for the list of recruiting partners and internship placements, and speak to two alumni.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "a1",
+        "question": "If you finished the certificate and built three solid projects, would the people who screen applications for your target roles pass you through?",
+        "why": "Tests whether skills evidence can replace the degree in the screening step.",
+        "answer_path": "Ask recruiters or data team leads to review a sample portfolio and say how it would be screened.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 100.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u5",
+        "question": "Does working while studying help your job search, for example by letting you use data work at your employer as portfolio material?",
+        "why": "Tests whether keeping the job adds to the transition, beyond income.",
+        "answer_path": "Look at your current work for data-heavy tasks and ask your manager if you can take some on.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "new",
+        "question": "Do the projects you would complete in each program produce work an employer could see and judge, such as public repositories or case studies?",
+        "why": "Tests the link from program to visible evidence of skill.",
+        "answer_path": "Review the project requirements of both programs and sample student portfolios.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u6",
+        "question": "Does the master's timeline, from application to graduation, leave you enough months to job-search before the two-year mark?",
+        "why": "Tests whether the degree can deliver the goal in the time you set.",
+        "answer_path": "Check application deadlines, program length and when graduates typically start job searching.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 80.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u3",
+        "question": "At what monthly spending level and savings balance would full-time study stop being workable for you?",
+        "why": "Sets the money threshold for the master's.",
+        "answer_path": "List fixed monthly costs, compute months of runway at your savings, and decide your minimum reserve.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "bound",
+        "target": "u5",
+        "question": "How many weeks of overtime, travel or project deadlines at your job would make part-time study stop working?",
+        "why": "Finds when the certificate path breaks down under job load.",
+        "answer_path": "Review your last year's peak periods and ask your manager about expected workload.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u6",
+        "question": "If the entry-level market is still weak when you finish, how many extra months of searching could you afford under each option?",
+        "why": "Sets the time limit past which each option fails.",
+        "answer_path": "Estimate your extra runway after study ends, and check current time-to-hire for junior data roles.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u5",
+        "question": "What math, statistics and programming do you need before the master's or certificate starts, and how long would catching up take if you lack it?",
+        "why": "A weak background can make either option take longer than planned.",
+        "answer_path": "Compare the program prerequisites with your skills, and try a placement or sample course.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 90.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u2",
+        "question": "If your employer would not allow reduced hours or time for study, would the certificate still be workable?",
+        "why": "Employer flexibility may limit the part-time path.",
+        "answer_path": "Ask your manager and HR about schedule flexibility and any study support.",
+        "review": {
+          "id": 20,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 48.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Is there a third route, such as a short bootcamp, a self-study plan with projects, or a part-time master's, that you have not weighed?",
+        "why": "The map only covers the two options.",
+        "answer_path": "Look up part-time or online master's programs and compare them with your two choices.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Which kinds of data roles fit mechanical engineers best, such as simulation, manufacturing analytics or test data, and do they ask for a master's?",
+        "why": "Adjacent roles may be easier to reach than general data science.",
+        "answer_path": "Search job boards for analytics roles in engineering industries and note requirements.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Do any scholarships, employer sponsorship or student work options exist that would change the cost of the master's?",
+        "why": "Funding could change the financial picture.",
+        "answer_path": "Ask the program's admissions and financial aid offices, and ask HR about tuition support.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "What visa or location limits, if any, apply to the roles you want, and do they favor a local degree?",
+        "why": "Location and work-permit rules may affect which credential matters.",
+        "answer_path": "Check job posting location and work authorization requirements, and ask the program about graduate work rights.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Would you enjoy the day-to-day work of a data scientist enough to commit, and have you tried a small real data project to find out?",
+        "why": "A sample of the work could change whether either option is worth it.",
+        "answer_path": "Spend a few weekends on a real dataset from your own work and note what you liked.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 3
+        },
+        "S": 85.33333333333333,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "Which choice is harder to reverse: quitting your job for a full-time master's, or spending a year on a certificate and finding it was not enough?",
+        "why": "Shows which mistake is more expensive to fix.",
+        "answer_path": "Write out what you would do after each failure, including re-entry into mechanical design.",
+        "review": {
+          "id": 6,
+          "generic": true,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 36.0,
+        "failed": [
+          "generic"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u6",
+        "question": "What are the application deadlines for the master's, and what does waiting one more year cost you?",
+        "why": "Identifies the real deadline and the cost of delay.",
+        "answer_path": "Check admission calendars and ask the program whether later intakes exist.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [],
+        "picked_by": "close"
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "Could you start the certificate now and still apply to the master's later, keeping both options open?",
+        "why": "A staged route would reduce the need to decide at once.",
+        "answer_path": "Ask the master's program whether certificate credits or coursework count, and check re-application rules.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u2",
+        "question": "Is there a date by which your current employer needs an answer from you, for example a project or promotion cycle that affects timing?",
+        "why": "Finds whether an external deadline exists for leaving or staying.",
+        "answer_path": "Check your employer's review cycle and talk to your manager about upcoming changes.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 60.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a1",
+        "question": "What is your impression that job ads require a master's based on: how many ads you have actually read, and which companies?",
+        "why": "Checks the sample behind your belief.",
+        "answer_path": "Count the ads you have looked at and compare with a systematic sample.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 240.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "calibrate",
+        "target": "a3",
+        "question": "Where did you get the idea that a certificate may not be taken seriously: a person, a forum, or your own sense?",
+        "why": "Separates evidence from impression.",
+        "answer_path": "Note the source of the view and test it with two hiring managers.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 72.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u3",
+        "question": "How did you estimate what the master's would cost you, and which items did you leave out?",
+        "why": "Shows whether the cost estimate is complete.",
+        "answer_path": "Redo the estimate line by line with tuition, rent, insurance, and lost salary, and compare.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u5",
+        "question": "What is your estimate of how much time you could study alongside work based on, and has it held in earlier periods of studying while working?",
+        "why": "Past evidence is a better guide than hope.",
+        "answer_path": "Look at a past period when you combined work with study or a side project and count real hours.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      }
+    ]
+  }
+}

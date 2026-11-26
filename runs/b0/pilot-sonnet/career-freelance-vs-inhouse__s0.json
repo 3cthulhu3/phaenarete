@@ -1,0 +1,21 @@
+{
+  "case_id": "career-freelance-vs-inhouse",
+  "arm": "b0",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-24T22:36:30.627265+00:00",
+  "questions": [
+    "What income do I realistically need in the first year (taxes, health insurance, retirement, equipment, software, unpaid time), and what freelance revenue does that require?",
+    "How many billable days can I actually expect per month once sales, admin and gaps between projects are counted?",
+    "How firm are the two companies' interest, and what scope, duration, day rate and payment terms would they commit to in writing?",
+    "How long could my 4-month savings last under a slow start, and what is my fallback if income arrives late?",
+    "What is the full value of the in-house offer beyond salary, including benefits, paid leave, pension, job security, learning and career progression?",
+    "How much autonomy over my work would the in-house role really provide, and could I negotiate for more of it?",
+    "How much do I value stability versus independence, and how would I feel about irregular income and self-managed work?",
+    "Could I test freelancing first, for example by negotiating part-time or a delayed start, or taking the in-house role and freelancing on the side?",
+    "How does each path affect my skills, portfolio and future options, and how easy is it to switch back if I choose wrong?",
+    "What are the legal, tax and contractual details to check, such as employment-status rules, client dependency on one or two companies, and any non-compete limits?"
+  ],
+  "raw": "{\"questions\": [\"What income do I realistically need in the first year (taxes, health insurance, retirement, equipment, software, unpaid time), and what freelance revenue does that require?\", \"How many billable days can I actually expect per month once sales, admin and gaps between projects are counted?\", \"How firm are the two companies' interest, and what scope, duration, day rate and payment terms would they commit to in writing?\", \"How long could my 4-month savings last under a slow start, and what is my fallback if income arrives late?\", \"What is the full value of the in-house offer beyond salary, including benefits, paid leave, pension, job security, learning and career progression?\", \"How much autonomy over my work would the in-house role really provide, and could I negotiate for more of it?\", \"How much do I value stability versus independence, and how would I feel about irregular income and self-managed work?\", \"Could I test freelancing first, for example by negotiating part-time or a delayed start, or taking the in-house role and freelancing on the side?\", \"How does each path affect my skills, portfolio and future options, and how easy is it to switch back if I choose wrong?\", \"What are the legal, tax and contractual details to check, such as employment-status rules, client dependency on one or two companies, and any non-compete limits?\"]}"
+}

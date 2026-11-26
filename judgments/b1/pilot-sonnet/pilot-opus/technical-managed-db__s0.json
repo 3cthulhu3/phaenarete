@@ -1,0 +1,94 @@
+{
+  "case_id": "technical-managed-db",
+  "arm": "b1",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "c2",
+    "f3": "t2",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What are the data's recovery requirements: how much data loss and downtime can the business tolerate, and which option can meet them with your team's skills?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Recovery requirements expose contractual PITR/RPO"
+    },
+    {
+      "q": 2,
+      "question": "Who would be on call when the database fails at night or on a weekend, and how many hours per month of developer time will patching, backups, upgrades, and monitoring take?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Who is on call exposes DBA leaving"
+    },
+    {
+      "q": 3,
+      "question": "What is the full two-year cost of self-hosting once you count developer time at its real hourly cost, backup storage, monitoring tools, and replicas, compared with the 2.5 times higher managed price?",
+      "reveals": [],
+      "generic": false,
+      "note": "Cost breakdown; no hidden fact"
+    },
+    {
+      "q": 4,
+      "question": "Have you ever done a full restore from backup or a failover on the kind of database you would run, and how long did it take?",
+      "reveals": [],
+      "generic": false,
+      "note": "Restore experience; not immediate"
+    },
+    {
+      "q": 5,
+      "question": "How big and how critical will the database become in two years, and at what scale does the managed premium become small or large relative to total cost?",
+      "reveals": [],
+      "generic": false,
+      "note": "Scale; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "Which features do you depend on, such as automatic failover, point-in-time recovery, or read replicas, that you would need to build yourself on VMs?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "PITR dependence exposes contract requirement"
+    },
+    {
+      "q": 7,
+      "question": "What does a serious incident cost the business, such as data loss or a day offline, compared with the managed price difference?",
+      "reveals": [],
+      "generic": false,
+      "note": "Incident cost; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "Is there a middle option, such as a cheaper managed tier, a managed service for production only, or self-hosting for development and testing?",
+      "reveals": [],
+      "generic": false,
+      "note": "Middle options; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "How hard is it to move from one option to the other later, including data migration, downtime, and lock-in to the provider's proprietary features?",
+      "reveals": [],
+      "generic": false,
+      "note": "Migration later; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "What is the 'some Linux experience' estimate based on: did those small databases carry real production traffic and a real incident, or were they low-stakes?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Experience basis exposes only DBA leaving"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Recovery requirements expose contractual PITR/RPO\"}, {\"q\": 2, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Who is on call exposes DBA leaving\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Cost breakdown; no hidden fact\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Restore experience; not immediate\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Scale; no hidden fact\"}, {\"q\": 6, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"PITR dependence exposes contract requirement\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Incident cost; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Middle options; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Migration later; no hidden fact\"}, {\"q\": 10, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Experience basis exposes only DBA leaving\"}]}"
+}

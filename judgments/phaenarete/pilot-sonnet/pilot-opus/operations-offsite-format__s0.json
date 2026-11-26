@@ -1,0 +1,94 @@
+{
+  "case_id": "operations-offsite-format",
+  "arm": "phaenarete",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c2",
+    "f2": "t1",
+    "f3": "t2",
+    "f4": "c1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What is the all-in cost of the Lisbon offsite for 60 people once flights, local transport, insurance and a contingency are added to the 70,000 euro quote?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "all-in cost with flights reveals the excluded 28,000 euro flights"
+    },
+    {
+      "q": 2,
+      "question": "What items beyond the venue quote must the 10,000 euro remainder cover, and can it?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "remainder must cover flights at 28,000 euros"
+    },
+    {
+      "q": 3,
+      "question": "At what total cost, or number of attendees, would the Lisbon plan go over 80,000 euros?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "over-budget threshold is already crossed because of flights"
+    },
+    {
+      "q": 4,
+      "question": "Could the offsite be a hybrid, with a Lisbon group and others joining remotely?",
+      "reveals": [],
+      "generic": false,
+      "note": "hybrid format; no hidden fact"
+    },
+    {
+      "q": 5,
+      "question": "Does the venue quote cover all 60 people at the expected room and meeting-space needs?",
+      "reveals": [],
+      "generic": false,
+      "note": "venue capacity; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "How many of the 60 people have a known reason they cannot travel on the fixed dates?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "directly asks how many cannot travel on the dates"
+    },
+    {
+      "q": 7,
+      "question": "Are there other locations or formats, such as a cheaper city or a smaller in-person group, that would meet the goal?",
+      "reveals": [],
+      "generic": false,
+      "note": "alternatives; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "Is the venue holding your dates now, and until when can you decide without losing them?",
+      "reveals": [],
+      "generic": false,
+      "note": "venue hold; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "What do the employees themselves want from the offsite, and what would make them use the time well?",
+      "reveals": [],
+      "generic": false,
+      "note": "employee wishes; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "What are the deposit and cancellation terms, and at what date would you lose money by backing out?",
+      "reveals": [],
+      "generic": false,
+      "note": "cancellation terms; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"all-in cost with flights reveals the excluded 28,000 euro flights\"}, {\"q\": 2, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"remainder must cover flights at 28,000 euros\"}, {\"q\": 3, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"over-budget threshold is already crossed because of flights\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"hybrid format; no hidden fact\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"venue capacity; no hidden fact\"}, {\"q\": 6, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"directly asks how many cannot travel on the dates\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"alternatives; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"venue hold; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"employee wishes; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"cancellation terms; no hidden fact\"}]}"
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "business-price-increase",
+  "arm": "b0",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-24T22:36:30.626497+00:00",
+  "questions": [
+    "How price-sensitive are our customers, and what does any evidence (past discounts, surveys, usage data) say about how churn would respond to a 20% increase?",
+    "Are the two competitors' 25% increases really without customer loss, and are their customers, products and contract terms comparable to ours?",
+    "How much headroom do we have between the current 1.5% monthly churn and the 3% ceiling, and what increase in churn would wipe out the revenue gain?",
+    "Which customer segments (by size, tenure, plan, or profitability) are most likely to leave, and how much revenue do they represent?",
+    "Would raising prices only for new customers hurt acquisition volume, and how much do new customers contribute to 12-month revenue growth?",
+    "What would the fairness and trust impact be of charging existing customers more, or of having two price levels for the same product, and could it damage reputation or referrals?",
+    "Are there contractual, legal or notice-period obligations that limit when and how we can raise prices for existing customers?",
+    "Would a phased, grandfathered or smaller increase (for example 10% now and more later) reach the revenue goal with less churn risk?",
+    "How much of the 18% cost increase do we need to recover to restore our margin, and what does each option do to profit rather than just revenue?",
+    "How will we measure results early, and what churn level or signal would trigger us to pause, roll back or soften the change?"
+  ],
+  "raw": "{\"questions\": [\"How price-sensitive are our customers, and what does any evidence (past discounts, surveys, usage data) say about how churn would respond to a 20% increase?\", \"Are the two competitors' 25% increases really without customer loss, and are their customers, products and contract terms comparable to ours?\", \"How much headroom do we have between the current 1.5% monthly churn and the 3% ceiling, and what increase in churn would wipe out the revenue gain?\", \"Which customer segments (by size, tenure, plan, or profitability) are most likely to leave, and how much revenue do they represent?\", \"Would raising prices only for new customers hurt acquisition volume, and how much do new customers contribute to 12-month revenue growth?\", \"What would the fairness and trust impact be of charging existing customers more, or of having two price levels for the same product, and could it damage reputation or referrals?\", \"Are there contractual, legal or notice-period obligations that limit when and how we can raise prices for existing customers?\", \"Would a phased, grandfathered or smaller increase (for example 10% now and more later) reach the revenue goal with less churn risk?\", \"How much of the 18% cost increase do we need to recover to restore our margin, and what does each option do to profit rather than just revenue?\", \"How will we measure results early, and what churn level or signal would trigger us to pause, roll back or soften the change?\"]}"
+}

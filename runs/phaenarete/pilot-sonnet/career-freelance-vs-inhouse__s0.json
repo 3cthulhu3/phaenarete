@@ -1,0 +1,830 @@
+{
+  "case_id": "career-freelance-vs-inhouse",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.888527+00:00",
+  "questions": [
+    "In the in-house role, who decides which projects and problems you work on, and could you shape that in the contract or in conversations before signing?",
+    "What is the lowest number of billable days per year at which freelancing still matches your current salary?",
+    "Once bonus, pension, paid leave, sick pay and training are counted, how much more is the in-house offer worth per year than its salary figure?",
+    "Can the two interested companies give you a written commitment (days per month, day rate, start date, length) before you have to answer the in-house offer?",
+    "What exactly did each company say when they told you they wanted to work with you, and how long ago?",
+    "Would the companies that expressed interest still sign when asked for a contract with a start date and a day rate?",
+    "If you work only the number of billable days you could realistically sell, what would your yearly net income be after tax, social contributions and insurance?",
+    "Would the in-house employer let you take on some outside freelance work next to the job?",
+    "Have either of the two companies had a freelancer budget approved, and who signs off on it?",
+    "What is the minimum paid work you would want signed before you hand in your resignation?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Income in the first 12 months (after tax, social contributions, insurance, unpaid time) is at least equal to current salary",
+        "Share of time spent on work the user chooses, tested by project selection and client mix",
+        "Financial resilience: savings of about 4 months cover gaps in work without forcing bad decisions",
+        "Reversibility: can the user return to an in-house role if freelancing does not work out"
+      ],
+      "stated_facts": [
+        "UX designer",
+        "Goal: earn at least current salary in the first year and gain more autonomy over the work",
+        "Savings for about 4 months",
+        "Freelance day rates in the field are high",
+        "Good network; two companies have said they want to work with the user as a freelancer",
+        "The in-house offer pays slightly more than the current salary"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "High day rates translate into annual income at or above current salary, without accounting for unbilled days, admin and overheads."
+        },
+        {
+          "id": "a2",
+          "text": "The two companies' interest will turn into paid contracts with enough days, at the expected rates, soon enough."
+        },
+        {
+          "id": "a3",
+          "text": "Freelancing gives more autonomy than the in-house role, though clients may direct the work as closely."
+        },
+        {
+          "id": "a4",
+          "text": "The in-house position offers little autonomy over what the user works on."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "What would the two interested companies actually commit to: day counts, rates, start dates, contract length, and payment terms?",
+          "if_resolved": "If they offer firm contracts covering a large share of the year at good rates, freelancing is favored; if their interest is vague, the in-house offer is favored."
+        },
+        {
+          "id": "u2",
+          "text": "What utilisation can be expected, i.e. billable days per year after gaps, sales time, admin, holidays and sick days, and what is the resulting net income after tax, social security and health insurance?",
+          "if_resolved": "If net income at realistic utilisation matches or beats current salary, freelancing is favored; if it falls short, the in-house offer is favored."
+        },
+        {
+          "id": "u3",
+          "text": "How would the in-house role compare on autonomy: scope, product area, influence, and is it a role where the user selects projects?",
+          "if_resolved": "If the in-house role offers real say in the work, it satisfies both goals and is favored; if it is task-driven, freelancing is favored on autonomy."
+        },
+        {
+          "id": "u4",
+          "text": "How does the in-house package compare beyond salary: bonus, pension, paid leave, sick pay, notice protection, training budget?",
+          "if_resolved": "If benefits are strong, the in-house offer's value is higher than the slight pay difference suggests and it is favored; if modest, freelancing is relatively stronger."
+        },
+        {
+          "id": "u5",
+          "text": "How long does the in-house offer stay open, and could the user start freelancing part-time or negotiate a delayed start or a trial period?",
+          "if_resolved": "If the offer can wait or a hybrid is possible, the freelance test is cheaper and favored; if the offer must be accepted now, the decision is more binary and risk leans toward the in-house."
+        },
+        {
+          "id": "u6",
+          "text": "What are the user's fixed monthly costs and any dependants, and how long can savings truly last if the first clients pay late?",
+          "if_resolved": "If costs are low and savings stretch past 4 months, freelancing is favored; if costs are high and payment delays are likely, the in-house offer is favored."
+        },
+        {
+          "id": "u7",
+          "text": "If freelancing fails, how easy would it be to get back into an in-house role, and does the market for UX designers hold up?",
+          "if_resolved": "If the user could return easily, freelancing's downside is limited and it is favored; if the market is tight, the in-house offer is favored."
+        }
+      ]
+    },
+    "n_candidates": 28,
+    "n_passing": 24,
+    "fail_counts": {
+      "generic": 1,
+      "presupposes": 2,
+      "answered": 0,
+      "no_path": 1,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 4,
+      "surface": 1,
+      "test": 1,
+      "bound": 1,
+      "expand": 1,
+      "close": 1,
+      "calibrate": 1
+    },
+    "chosen": [
+      {
+        "question": "In the in-house role, who decides which projects and problems you work on, and could you shape that in the contract or in conversations before signing?",
+        "operator": "discriminate",
+        "target": "u3",
+        "S": 500.0,
+        "picked_by": "coverage",
+        "why": "If the role offers real say, it meets the autonomy goal as well as the income goal and freelancing loses its edge.",
+        "answer_path": "Ask the hiring manager and a current designer on that team how work is assigned, and what the last person in the role chose to work on."
+      },
+      {
+        "question": "What is the lowest number of billable days per year at which freelancing still matches your current salary?",
+        "operator": "bound",
+        "target": "u2",
+        "S": 400.0,
+        "picked_by": "coverage",
+        "why": "Finds the break-even point instead of relying on an average.",
+        "answer_path": "Use your spreadsheet to solve for days at your expected net rate, and compare it with the days the two companies suggested."
+      },
+      {
+        "question": "Once bonus, pension, paid leave, sick pay and training are counted, how much more is the in-house offer worth per year than its salary figure?",
+        "operator": "discriminate",
+        "target": "u4",
+        "S": 240.0,
+        "picked_by": "mmr",
+        "why": "A strong package raises the real value of the job above its slight pay advantage.",
+        "answer_path": "Ask HR for the full compensation breakdown in writing and convert each benefit into a yearly amount."
+      },
+      {
+        "question": "Can the two interested companies give you a written commitment (days per month, day rate, start date, length) before you have to answer the in-house offer?",
+        "operator": "discriminate",
+        "target": "u1",
+        "S": 200.0,
+        "picked_by": "coverage",
+        "why": "Firm contracts covering much of the year make freelancing viable; vague interest favors taking the job.",
+        "answer_path": "Contact both companies, describe your timeline, and ask for a draft statement of work or a letter of intent with days, rates and payment terms."
+      },
+      {
+        "question": "What exactly did each company say when they told you they wanted to work with you, and how long ago?",
+        "operator": "calibrate",
+        "target": "a2",
+        "S": 200.0,
+        "picked_by": "mmr",
+        "why": "Remembered enthusiasm often sounds firmer than it was.",
+        "answer_path": "Reread the messages or notes from those conversations and mark any mention of budget, dates or days."
+      },
+      {
+        "question": "Would the companies that expressed interest still sign when asked for a contract with a start date and a day rate?",
+        "operator": "test",
+        "target": "a2",
+        "S": 200.0,
+        "picked_by": "mmr",
+        "why": "Checks whether stated interest turns into actual paid work.",
+        "answer_path": "Send each of them a short proposal with rate, scope and start date, and see how quickly and firmly they respond."
+      },
+      {
+        "question": "If you work only the number of billable days you could realistically sell, what would your yearly net income be after tax, social contributions and insurance?",
+        "operator": "discriminate",
+        "target": "u2",
+        "S": 200.0,
+        "picked_by": "mmr",
+        "why": "Shows directly whether the first-year income goal is reachable under freelancing compared with the in-house salary.",
+        "answer_path": "Build a spreadsheet with day rate, realistic billable days, taxes, health and pension costs, and ask an accountant or a freelancer's tax guide to check the figures."
+      },
+      {
+        "question": "Would the in-house employer let you take on some outside freelance work next to the job?",
+        "operator": "expand",
+        "target": "new",
+        "S": 180.0,
+        "picked_by": "mmr",
+        "why": "A hybrid might deliver part of the autonomy and income goals with less risk.",
+        "answer_path": "Ask the hiring manager and read the side-work clause in the draft contract."
+      },
+      {
+        "question": "Have either of the two companies had a freelancer budget approved, and who signs off on it?",
+        "operator": "surface",
+        "target": "a2",
+        "S": 180.0,
+        "picked_by": "mmr",
+        "why": "Interest from a contact is not the same as money allocated.",
+        "answer_path": "Ask each contact directly about budget, approval steps and typical timing, and ask how they have paid previous freelancers."
+      },
+      {
+        "question": "What is the minimum paid work you would want signed before you hand in your resignation?",
+        "operator": "close",
+        "target": "u1",
+        "S": 160.0,
+        "picked_by": "close",
+        "why": "Setting a trigger in advance prevents a decision driven by optimism.",
+        "answer_path": "Write a number of signed days and months of income, and share it with someone you trust to hold you to it."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "Can the two interested companies give you a written commitment (days per month, day rate, start date, length) before you have to answer the in-house offer?",
+        "why": "Firm contracts covering much of the year make freelancing viable; vague interest favors taking the job.",
+        "answer_path": "Contact both companies, describe your timeline, and ask for a draft statement of work or a letter of intent with days, rates and payment terms.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "If you work only the number of billable days you could realistically sell, what would your yearly net income be after tax, social contributions and insurance?",
+        "why": "Shows directly whether the first-year income goal is reachable under freelancing compared with the in-house salary.",
+        "answer_path": "Build a spreadsheet with day rate, realistic billable days, taxes, health and pension costs, and ask an accountant or a freelancer's tax guide to check the figures.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u3",
+        "question": "In the in-house role, who decides which projects and problems you work on, and could you shape that in the contract or in conversations before signing?",
+        "why": "If the role offers real say, it meets the autonomy goal as well as the income goal and freelancing loses its edge.",
+        "answer_path": "Ask the hiring manager and a current designer on that team how work is assigned, and what the last person in the role chose to work on.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 500.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u4",
+        "question": "Once bonus, pension, paid leave, sick pay and training are counted, how much more is the in-house offer worth per year than its salary figure?",
+        "why": "A strong package raises the real value of the job above its slight pay advantage.",
+        "answer_path": "Ask HR for the full compensation breakdown in writing and convert each benefit into a yearly amount.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 240.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "What share of your working days would be unpaid for finding clients, invoicing, administration, holidays and sickness?",
+        "why": "The assumption that a high day rate means high income hides these days.",
+        "answer_path": "Ask three working freelance UX designers for their typical billable share, and track your own admin time on a freelance trial week.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "Have either of the two companies had a freelancer budget approved, and who signs off on it?",
+        "why": "Interest from a contact is not the same as money allocated.",
+        "answer_path": "Ask each contact directly about budget, approval steps and typical timing, and ask how they have paid previous freelancers.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "How closely do the clients you would be working for direct your day-to-day work, compared with how you are directed now?",
+        "why": "Freelancing may swap one boss for several, so the autonomy gain is uncertain.",
+        "answer_path": "Talk to the two companies about how they brief freelancers, and ask freelancers in your network how much choice they had over scope and methods.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a4",
+        "question": "What makes you expect the in-house role to give you little say over your work, and has anyone in the role confirmed that?",
+        "why": "Checks the assumption behind rejecting the job on autonomy grounds.",
+        "answer_path": "Ask the hiring manager for examples of how the team chooses projects, and talk with someone who works there.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "a2",
+        "question": "Would the companies that expressed interest still sign when asked for a contract with a start date and a day rate?",
+        "why": "Checks whether stated interest turns into actual paid work.",
+        "answer_path": "Send each of them a short proposal with rate, scope and start date, and see how quickly and firmly they respond.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "a1",
+        "question": "If your day rate is as high as you expect, would clients actually pay it for the full length of an engagement?",
+        "why": "Checks the link between the market rates you see and what you would bill after negotiation.",
+        "answer_path": "Ask recent freelancers or recruiters what rates they were paid and whether clients pushed back, and compare with your planned rate.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "a3",
+        "question": "Would choosing your own clients actually lead to more control over the work you do, or would you accept whatever pays?",
+        "why": "Autonomy depends on whether you can turn work down, which the first months of thin savings may prevent.",
+        "answer_path": "Look at what share of your planned income depends on the two companies, and decide in advance which kinds of project you would refuse.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 48.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u6",
+        "question": "If a client pays 60 days after invoicing, how many months can your savings really cover, given your fixed costs?",
+        "why": "Tests whether the 4-month cushion holds up once payment delays are included.",
+        "answer_path": "List monthly fixed costs, add your own tax and insurance costs, and model a first invoice paid late.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u6",
+        "question": "How many months without billable work could you survive before you would have to take any job at all?",
+        "why": "Sets the point where freelancing stops being a choice and becomes pressure.",
+        "answer_path": "Divide your savings by your real monthly spending including insurance and taxes, and set a personal cutoff date.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u2",
+        "question": "What is the lowest number of billable days per year at which freelancing still matches your current salary?",
+        "why": "Finds the break-even point instead of relying on an average.",
+        "answer_path": "Use your spreadsheet to solve for days at your expected net rate, and compare it with the days the two companies suggested.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 400.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "bound",
+        "target": "u1",
+        "question": "If one of the two companies is your main client, how much of your income could depend on them before you would be uncomfortable?",
+        "why": "Dependence on a single client limits both income security and autonomy.",
+        "answer_path": "Decide a maximum share, then check whether the two interested companies together could give you more than one source.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u7",
+        "question": "After how many months of freelancing would a gap on your CV start to harm your chances of an in-house job?",
+        "why": "Sets a time limit on how long the freelance experiment can run before it hurts the fallback.",
+        "answer_path": "Ask a recruiter or two hiring managers in UX how they view freelance stretches of 6, 12 and 24 months.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": true,
+          "relevance": 2,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 10.666666666666666,
+        "failed": [
+          "no_path"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Would the in-house employer let you take on some outside freelance work next to the job?",
+        "why": "A hybrid might deliver part of the autonomy and income goals with less risk.",
+        "answer_path": "Ask the hiring manager and read the side-work clause in the draft contract.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could you ask the in-house employer for a fixed-term or part-time arrangement instead of a permanent contract?",
+        "why": "A contract form that is not in the map may suit both goals better than either of the two options.",
+        "answer_path": "Raise it with the hiring manager as a negotiation point and see what is possible.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 144.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Are there other ways of finding steady freelance work, such as a retainer or a design agency partnership, beyond the two interested companies?",
+        "why": "Steady work would reduce the risk of the freelance path.",
+        "answer_path": "Talk to freelancers in your network about how they get retainers, and ask agencies whether they use outside designers.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Which kinds of work would make you happiest, and does either option actually offer them?",
+        "why": "The autonomy goal is about the type of work, which the map describes only as choice.",
+        "answer_path": "List the three projects you would most like to do, then check which of them the in-house team or the interested companies could offer.",
+        "review": {
+          "id": 20,
+          "generic": true,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 48.0,
+        "failed": [
+          "generic"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u5",
+        "question": "When does the in-house offer expire, and would they accept a short delay?",
+        "why": "The deadline decides how much time you have to test the freelance side.",
+        "answer_path": "Ask the hiring manager or recruiter directly for the date and whether a short extension is possible.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 90.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "Which choice is harder to undo: leaving a permanent contract for freelancing, or declining this offer and not finding a similar one?",
+        "why": "Weighs the cost of reversing each choice.",
+        "answer_path": "Check how often similar roles open in your market and how long your notice period and any non-compete would apply.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "What would it cost you to wait three months before deciding, including income and the offer?",
+        "why": "Shows whether waiting is an option at all.",
+        "answer_path": "Estimate three months of current pay versus any lost offer and see whether your current employer allows you to stay.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 40.5,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u1",
+        "question": "What is the minimum paid work you would want signed before you hand in your resignation?",
+        "why": "Setting a trigger in advance prevents a decision driven by optimism.",
+        "answer_path": "Write a number of signed days and months of income, and share it with someone you trust to hold you to it.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 160.0,
+        "failed": [],
+        "picked_by": "close"
+      },
+      {
+        "operator": "calibrate",
+        "target": "a1",
+        "question": "Where did you get the day rates you think of as high: job boards, friends, recruiters, or your own past quotes?",
+        "why": "Advertised rates and rates actually paid can differ widely.",
+        "answer_path": "Collect at least five actual invoices or contract rates from people you know in the field.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 2,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a2",
+        "question": "What exactly did each company say when they told you they wanted to work with you, and how long ago?",
+        "why": "Remembered enthusiasm often sounds firmer than it was.",
+        "answer_path": "Reread the messages or notes from those conversations and mark any mention of budget, dates or days.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 2,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "calibrate",
+        "target": "u2",
+        "question": "What is your guess at billable days per year based on?",
+        "why": "A guess based on busy periods may overstate typical utilization.",
+        "answer_path": "Ask freelancers with two or more years of experience how many days they actually billed in a typical year.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 120.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u7",
+        "question": "What makes you think you could or could not get back into an in-house role later?",
+        "why": "The ease of return is a feeling unless it is checked against current hiring.",
+        "answer_path": "Look at current openings for UX designers in your area, and ask recruiters how they have seen former freelancers do.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 40.5,
+        "failed": [],
+        "picked_by": null
+      }
+    ]
+  }
+}

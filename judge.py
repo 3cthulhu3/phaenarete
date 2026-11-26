@@ -16,7 +16,7 @@ import argparse
 import json
 import random
 
-from common import (DEFAULT_JUDGE, ROOT, call_claude, case_brief, extract_json, fill, load_cases,
+from common import (DEFAULT_JUDGE, ROOT, Pending, cached_call, call_claude, case_brief, extract_json, fill, load_cases,
                            load_prompt, neutral_facts, slug, write_json)
 
 
@@ -37,7 +37,9 @@ def main() -> None:
     ap.add_argument("--judge-model", default=DEFAULT_JUDGE)
     ap.add_argument("--overwrite", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--backend", choices=["api", "cache"], default="api")
     args = ap.parse_args()
+    llm = cached_call if args.backend == "cache" else call_claude
 
     cases = {c["id"]: c for c in load_cases(ROOT / args.cases)}
     template = load_prompt("judge")
@@ -48,7 +50,7 @@ def main() -> None:
     if not runs:
         raise SystemExit(f"no runs in {run_dir.relative_to(ROOT)}; run run_arm.py first")
 
-    done = skipped = failed = 0
+    done = skipped = failed = pending = 0
     for run_file in runs:
         run = json.loads(run_file.read_text(encoding="utf-8"))
         case = cases.get(run["case_id"])
@@ -68,8 +70,11 @@ def main() -> None:
                 raw = "(dry run)"
                 judgments = mock_judgments(len(questions), list(mapping), f"{args.arm}:{run_file.name}")
             else:
-                raw = call_claude(prompt, args.judge_model, max_tokens=3000)
+                raw = llm(prompt, args.judge_model, max_tokens=3000)
                 judgments = extract_json(raw)["judgments"]
+        except Pending:
+            pending += 1
+            continue
         except Exception as e:
             failed += 1
             print(f"FAIL {run_file.name}: {e}")
@@ -92,7 +97,8 @@ def main() -> None:
                          "rows": rows, "raw": raw})
         done += 1
         print(f"ok   {run_file.name}")
-    print(f"\n{done} judged, {skipped} skipped (exist), {failed} failed -> {out_dir.relative_to(ROOT)}")
+    print(f"\n{done} judged, {skipped} skipped (exist), {failed} failed, {pending} waiting for replies"
+          f" -> {out_dir.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

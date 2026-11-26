@@ -1,0 +1,870 @@
+{
+  "case_id": "business-exclusive-retailer",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.876353+00:00",
+  "questions": [
+    "How long would the exclusive period last, and what could you do if the retailer stopped ordering in the middle of it?",
+    "Does the retailer's offer include a written minimum purchase quantity, or only an expected volume?",
+    "What is your confidence in the retailer's promised volumes based on: written numbers, a conversation, or enthusiasm in a meeting?",
+    "Have you been given the retailer's required price per unit, and does it still leave a 40% margin once their fees are included?",
+    "Have you asked the retailer whether they would take the product without exclusivity, or on a shorter exclusive period?",
+    "How did the retailer arrive at its volume estimates, and what do their sales of similar products show?",
+    "After the retailer's discounts, fees, returns allowance and shipping, what is the gross margin per unit compared with what you earn from small shops and online today?",
+    "Why have sales through small shops stopped growing: are there no more shops to add, or has little been done to reach more?",
+    "Could you try the product in a limited number of the retailer's stores for a season before signing the full agreement?",
+    "What is your belief that you can scale up in time based on: a production plan, or past experience with smaller increases?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Unit sales are on track to double within 18 months, checked against realistic order volumes",
+        "Gross margin stays above 40% after retailer discounts, fees, returns and logistics",
+        "Production can be scaled to meet the volumes in time without quality or cash problems",
+        "Revenue is not dangerously dependent on one customer, and the exit terms are acceptable"
+      ],
+      "stated_facts": [
+        "Goal: double unit sales within 18 months, keeping gross margin above 40%",
+        "Small production team; output can be increased gradually",
+        "The retailer has 300 stores and promises large volumes",
+        "Sales through small shops have been flat for a year"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "The retailer's promised volumes will materialise and be sustained rather than being optimistic projections."
+        },
+        {
+          "id": "a2",
+          "text": "The company can reach the margin target at the retailer's price terms."
+        },
+        {
+          "id": "a3",
+          "text": "Output can be increased gradually in step with orders that may arrive in large batches."
+        },
+        {
+          "id": "a4",
+          "text": "Flat sales through small shops and online mean that channel cannot grow, rather than that it has been under-invested in."
+        },
+        {
+          "id": "a5",
+          "text": "Exclusivity is needed to get the volumes, rather than a non-exclusive arrangement being available."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "What is committed in the contract: minimum purchase quantities, price, payment terms, returns and markdown allowances, listing and marketing fees?",
+          "if_resolved": "If volumes are guaranteed at a price keeping margin above 40%, the exclusive deal is favored; if volumes are only a promise and fees and returns cut margin, keeping the current channels is favored."
+        },
+        {
+          "id": "u2",
+          "text": "What does exclusivity actually cover (all channels, our own online store, small shops, regions, duration) and what are the termination and renewal terms?",
+          "if_resolved": "If exclusivity is narrow or short with a clean exit, the deal's risk is limited and it is favored; if it forces us to drop the online store and shops for years, keeping the current channels is favored."
+        },
+        {
+          "id": "u3",
+          "text": "How fast could production scale to supply 300 stores, including raw materials, staffing, working capital for inventory and payment delays, and quality control?",
+          "if_resolved": "If the team can ramp in time with manageable cash needs, the deal is feasible and favored; if the ramp takes longer than the retailer's timeline, penalties or stock-outs make the deal risky and the current channels favored."
+        },
+        {
+          "id": "u4",
+          "text": "What gross margin does the retailer deal give per unit versus the current channels, and what is the blended margin if small shops are lost?",
+          "if_resolved": "If the margin stays above 40% at volume, the deal is favored; if it falls to 40% or below, the deal fails the goal even if units double."
+        },
+        {
+          "id": "u5",
+          "text": "Why are small-shop sales flat: saturation, weak product-market fit, or limited reach, and could other actions (more shops, better online marketing) double units?",
+          "if_resolved": "If other levers could plausibly reach double, the current channels are favored; if the channel is saturated, the retailer deal is favored."
+        },
+        {
+          "id": "u6",
+          "text": "How would losing the small shops and online brand presence affect the business if the retailer cuts orders or delists, given the small team?",
+          "if_resolved": "If the business could rebuild channels easily after a bad outcome, the deal's downside is limited and it is favored; if the exit is hard to reverse, the current channels are favored."
+        },
+        {
+          "id": "u7",
+          "text": "How firm is the retailer's interest: is there a pilot in a subset of stores, and do other retailers offer non-exclusive terms?",
+          "if_resolved": "If a pilot or non-exclusive option exists, the choice becomes less binary and lowers the deal's risk; if it is exclusive all-or-nothing, the commitment weighs more against it."
+        }
+      ]
+    },
+    "n_candidates": 30,
+    "n_passing": 29,
+    "fail_counts": {
+      "generic": 0,
+      "presupposes": 1,
+      "answered": 0,
+      "no_path": 0,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 3,
+      "surface": 3,
+      "test": 0,
+      "bound": 0,
+      "expand": 0,
+      "close": 2,
+      "calibrate": 2
+    },
+    "chosen": [
+      {
+        "question": "How long would the exclusive period last, and what could you do if the retailer stopped ordering in the middle of it?",
+        "operator": "close",
+        "target": "u2",
+        "S": 400.0,
+        "picked_by": "coverage",
+        "why": "A long exclusive term with no exit is hard to undo.",
+        "answer_path": "Read the term and termination clauses and have a lawyer explain the rights of both sides."
+      },
+      {
+        "question": "Does the retailer's offer include a written minimum purchase quantity, or only an expected volume?",
+        "operator": "discriminate",
+        "target": "u1",
+        "S": 375.0,
+        "picked_by": "coverage",
+        "why": "Guaranteed volumes make the deal attractive, while a promise alone does not.",
+        "answer_path": "Ask the retailer's buyer for the draft contract and read the purchase commitment clauses."
+      },
+      {
+        "question": "What is your confidence in the retailer's promised volumes based on: written numbers, a conversation, or enthusiasm in a meeting?",
+        "operator": "calibrate",
+        "target": "a1",
+        "S": 375.0,
+        "picked_by": "mmr",
+        "why": "A verbal promise carries less weight than written commitments.",
+        "answer_path": "Note the form in which each promise was made and ask for it in writing."
+      },
+      {
+        "question": "Have you been given the retailer's required price per unit, and does it still leave a 40% margin once their fees are included?",
+        "operator": "surface",
+        "target": "a2",
+        "S": 375.0,
+        "picked_by": "mmr",
+        "why": "The margin target may fail at the price terms on offer.",
+        "answer_path": "Obtain the price list and fee schedule, then calculate the margin using your actual cost of goods."
+      },
+      {
+        "question": "Have you asked the retailer whether they would take the product without exclusivity, or on a shorter exclusive period?",
+        "operator": "surface",
+        "target": "a5",
+        "S": 320.0,
+        "picked_by": "mmr",
+        "why": "Exclusivity may be a starting position and not a requirement.",
+        "answer_path": "Raise it with the buyer in the next meeting and ask what they would give for exclusivity."
+      },
+      {
+        "question": "How did the retailer arrive at its volume estimates, and what do their sales of similar products show?",
+        "operator": "surface",
+        "target": "a1",
+        "S": 256.0,
+        "picked_by": "mmr",
+        "why": "A promise may be an optimistic projection rather than a forecast.",
+        "answer_path": "Ask the buyer for sales data on comparable products and talk to other suppliers of this retailer."
+      },
+      {
+        "question": "After the retailer's discounts, fees, returns allowance and shipping, what is the gross margin per unit compared with what you earn from small shops and online today?",
+        "operator": "discriminate",
+        "target": "u4",
+        "S": 200.0,
+        "picked_by": "coverage",
+        "why": "If margin falls to 40% or below, the goal fails even when units double.",
+        "answer_path": "Build a per-unit margin sheet with the draft terms and compare it with current channel figures from finance."
+      },
+      {
+        "question": "Why have sales through small shops stopped growing: are there no more shops to add, or has little been done to reach more?",
+        "operator": "discriminate",
+        "target": "u5",
+        "S": 192.0,
+        "picked_by": "coverage",
+        "why": "If the channel can grow, the current approach might reach the goal.",
+        "answer_path": "Review the number of shops contacted, reorder rates, and online marketing spend over the last year."
+      },
+      {
+        "question": "Could you try the product in a limited number of the retailer's stores for a season before signing the full agreement?",
+        "operator": "close",
+        "target": "u7",
+        "S": 160.0,
+        "picked_by": "coverage",
+        "why": "A pilot reduces the commitment before the hard-to-undo step.",
+        "answer_path": "Propose a pilot in 20 to 30 stores to the buyer and ask what results would lead to the full rollout."
+      },
+      {
+        "question": "What is your belief that you can scale up in time based on: a production plan, or past experience with smaller increases?",
+        "operator": "calibrate",
+        "target": "u3",
+        "S": 150.0,
+        "picked_by": "coverage",
+        "why": "Growth from small to 300 stores is a bigger step than past increases.",
+        "answer_path": "Compare the plan with your largest past order and ask production what went wrong then."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "Does the retailer's offer include a written minimum purchase quantity, or only an expected volume?",
+        "why": "Guaranteed volumes make the deal attractive, while a promise alone does not.",
+        "answer_path": "Ask the retailer's buyer for the draft contract and read the purchase commitment clauses.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 375.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u4",
+        "question": "After the retailer's discounts, fees, returns allowance and shipping, what is the gross margin per unit compared with what you earn from small shops and online today?",
+        "why": "If margin falls to 40% or below, the goal fails even when units double.",
+        "answer_path": "Build a per-unit margin sheet with the draft terms and compare it with current channel figures from finance.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u5",
+        "question": "Why have sales through small shops stopped growing: are there no more shops to add, or has little been done to reach more?",
+        "why": "If the channel can grow, the current approach might reach the goal.",
+        "answer_path": "Review the number of shops contacted, reorder rates, and online marketing spend over the last year.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u3",
+        "question": "Could your team supply 300 stores on the retailer's start date, including materials and cash for stock?",
+        "why": "If the ramp is too slow, the deal would cause shortages or penalties.",
+        "answer_path": "Ask production for a capacity plan, ask suppliers about lead times, and work out working capital with your accountant.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "Would exclusivity stop you from selling in your own online store and to the small shops you have now?",
+        "why": "The scope of exclusivity decides how much of the current business is put at risk.",
+        "answer_path": "Read the exclusivity clause and ask the retailer to define channels, regions and duration in writing.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 240.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "How did the retailer arrive at its volume estimates, and what do their sales of similar products show?",
+        "why": "A promise may be an optimistic projection rather than a forecast.",
+        "answer_path": "Ask the buyer for sales data on comparable products and talk to other suppliers of this retailer.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 256.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "Have you been given the retailer's required price per unit, and does it still leave a 40% margin once their fees are included?",
+        "why": "The margin target may fail at the price terms on offer.",
+        "answer_path": "Obtain the price list and fee schedule, then calculate the margin using your actual cost of goods.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 375.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "If the retailer orders a very large batch at once, can you produce it without ruining quality or running out of cash?",
+        "why": "Gradual scaling may not match lumpy orders.",
+        "answer_path": "Ask production how large a batch they could produce in a month and check the cash flow for a big first order.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a4",
+        "question": "What has been done in the last year to grow sales through small shops and the online store, and with how much effort or money?",
+        "why": "Flat sales may reflect little effort and not a ceiling.",
+        "answer_path": "List marketing actions, new shop outreach and online ad spend with dates, then review results.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 60.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a5",
+        "question": "Have you asked the retailer whether they would take the product without exclusivity, or on a shorter exclusive period?",
+        "why": "Exclusivity may be a starting position and not a requirement.",
+        "answer_path": "Raise it with the buyer in the next meeting and ask what they would give for exclusivity.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 320.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "a1",
+        "question": "Does a first listing in 300 stores usually lead to steady reorders, or do many products get delisted after a few months?",
+        "why": "Checks whether large initial orders become lasting volume.",
+        "answer_path": "Ask other suppliers to this retailer and look for industry reports on delisting rates in your product category.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u1",
+        "question": "How much of each order do returns and markdown allowances take back, according to what other suppliers have experienced with this retailer?",
+        "why": "Checks whether the sales promise turns into real income.",
+        "answer_path": "Call two or three suppliers to this retailer and ask about returns and chargebacks.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u5",
+        "question": "If you doubled your effort on small shops and online marketing, is there evidence it would move sales, for example from a past test?",
+        "why": "Tests the link between more investment and growth in the current channels.",
+        "answer_path": "Run a small experiment, such as a new shop campaign or an ad test over six weeks, and look at the effect.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 64.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u6",
+        "question": "Does being in 300 stores of a large retailer change how customers and small shops see your brand, and would that affect online sales?",
+        "why": "Checks whether the effect on other channels follows from the deal.",
+        "answer_path": "Ask a few small shop owners how they would react and look at cases of brands that went to a big retailer.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 10.666666666666666,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u3",
+        "question": "At what monthly order size would your current team and equipment break down?",
+        "why": "Shows the volume beyond which the deal becomes a problem.",
+        "answer_path": "Ask the production team for maximum monthly output with the current setup and the time needed to add capacity.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u1",
+        "question": "How long can you wait for the retailer's payment before cash becomes a problem?",
+        "why": "Long payment terms on large orders can drain a small company.",
+        "answer_path": "Ask the retailer for payment terms and compare with your cash and supplier payment schedule.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u6",
+        "question": "What share of total sales could the retailer reach before losing it would threaten the business?",
+        "why": "Sets a ceiling on acceptable dependence on one customer.",
+        "answer_path": "Model a scenario in which the retailer's orders stop and see what the business could survive.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "a2",
+        "question": "What is the lowest price per unit at which you can still stay above 40% margin, if input costs rise?",
+        "why": "Finds how much cushion there is in the margin target.",
+        "answer_path": "Use your cost sheet with materials and wage increases and check the break-even price.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could you approach other retailers or distributors with non-exclusive terms at the same time?",
+        "why": "The map only considers one big retailer or the current channels.",
+        "answer_path": "Contact two or three regional chains or distributors and ask about terms.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Would a retailer-specific product line, a different pack size or a different brand name let you work with them without full exclusivity?",
+        "why": "A separate line could protect your other channels.",
+        "answer_path": "Propose the idea to the retailer's buyer and ask whether it fits their range.",
+        "review": {
+          "id": 20,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Does the retailer have a record of copying successful products under its own brand?",
+        "why": "Private-label copying is a risk once your product proves itself on their shelves.",
+        "answer_path": "Search for cases involving this retailer and ask other suppliers whether it has happened to them.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 36.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "What happens to the small shops who sell your product today if you go exclusive, and would they keep buying leftover stock or lose trust?",
+        "why": "Existing relationships have value beyond sales numbers.",
+        "answer_path": "Talk with your five largest shop customers about what they would do.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 40.5,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u2",
+        "question": "How long would the exclusive period last, and what could you do if the retailer stopped ordering in the middle of it?",
+        "why": "A long exclusive term with no exit is hard to undo.",
+        "answer_path": "Read the term and termination clauses and have a lawyer explain the rights of both sides.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 400.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "close",
+        "target": "u7",
+        "question": "Does the retailer have a deadline for your answer, and is that deadline real?",
+        "why": "A pressured timeline can lead to a rushed commitment.",
+        "answer_path": "Ask the buyer when they need a decision and what happens if you ask for more time.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 36.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u6",
+        "question": "If you abandoned the small shops and online store for 18 months and the deal failed, what would it cost to rebuild them?",
+        "why": "Shows how reversible the choice is.",
+        "answer_path": "Estimate the time to win back shops and customer lists with your sales staff.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 32.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u7",
+        "question": "Could you try the product in a limited number of the retailer's stores for a season before signing the full agreement?",
+        "why": "A pilot reduces the commitment before the hard-to-undo step.",
+        "answer_path": "Propose a pilot in 20 to 30 stores to the buyer and ask what results would lead to the full rollout.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 160.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "calibrate",
+        "target": "a1",
+        "question": "What is your confidence in the retailer's promised volumes based on: written numbers, a conversation, or enthusiasm in a meeting?",
+        "why": "A verbal promise carries less weight than written commitments.",
+        "answer_path": "Note the form in which each promise was made and ask for it in writing.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 375.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "calibrate",
+        "target": "u3",
+        "question": "What is your belief that you can scale up in time based on: a production plan, or past experience with smaller increases?",
+        "why": "Growth from small to 300 stores is a bigger step than past increases.",
+        "answer_path": "Compare the plan with your largest past order and ask production what went wrong then.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 150.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "calibrate",
+        "target": "u5",
+        "question": "What are you using to judge that the small-shop channel is exhausted, and how long has it looked that way?",
+        "why": "One flat year may reflect a temporary condition.",
+        "answer_path": "Look at sales by shop over three years and talk to shop owners about demand.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u4",
+        "question": "Where did your current gross margin by channel come from, and is it up to date and complete with all costs?",
+        "why": "An inaccurate baseline makes the comparison misleading.",
+        "answer_path": "Have your accountant review how costs are assigned to each channel.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 2,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 2
+        },
+        "S": 100.0,
+        "failed": [],
+        "picked_by": null
+      }
+    ]
+  }
+}

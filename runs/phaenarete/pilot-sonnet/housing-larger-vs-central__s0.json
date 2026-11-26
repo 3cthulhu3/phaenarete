@@ -1,0 +1,820 @@
+{
+  "case_id": "housing-larger-vs-central",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.856499+00:00",
+  "questions": [
+    "What will you pay each month beyond rent for each home, including a train pass, utilities and internet?",
+    "Counting the walk to the station and the wait, how long is the real trip from the larger apartment's front door to the office desk?",
+    "Is your sense that 45 minutes is tolerable based on having done a similar commute before, or on imagining it?",
+    "At how many weekly office days would the commute from the larger apartment become too much for the office partner?",
+    "On the days both of you are home, could the smaller apartment give the working partner a spot with a door or enough distance to take calls without disturbing the other?",
+    "In the area of the larger apartment, what can you reach on foot within 10 minutes for daily needs and for free time?",
+    "How often do you currently go out or meet friends in the center in a typical week, and how would that change from the larger apartment?",
+    "How would each apartment handle noise from the street, neighbours or trains at the times the home-working partner has calls?",
+    "What is the minimum lease term and how costly is it to leave early at each apartment?",
+    "Do either of you have hobbies, sports or family visits that depend on being in a particular part of the city?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Daily comfort of the partner working from home: space, quiet, light and separation of work and living",
+        "Time, cost and strain of the office partner's commute across 3 days a week",
+        "Quality of free time at home and nearby: outdoor space, neighbourhood amenities, social life",
+        "Both partners judge the daily routine sustainable over the lease term"
+      ],
+      "stated_facts": [
+        "Couple; one partner works from home, the other goes to the office 3 days a week",
+        "Monthly rent is the same for both apartments",
+        "Larger apartment has a balcony and a separate home-office room",
+        "Larger apartment is 45 minutes from the office by direct train",
+        "Smaller apartment is a 10-minute walk from the office"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "The 45-minute train commute is reliable and tolerable for the office partner three days a week."
+        },
+        {
+          "id": "a2",
+          "text": "The smaller apartment can work as a home office for the partner who works from home, without a separate room."
+        },
+        {
+          "id": "a3",
+          "text": "Living farther from the center will not significantly hurt social life, errands and leisure."
+        },
+        {
+          "id": "a4",
+          "text": "The office days and the remote working arrangement will stay as they are during the lease."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "How will the home-working partner cope in the smaller apartment: calls, noise, and sharing space with a partner at home on the other two days?",
+          "if_resolved": "If the smaller place can give workable separation, it stays competitive; if working there would be cramped or disruptive, the larger apartment with its office room is favored."
+        },
+        {
+          "id": "u2",
+          "text": "What is the true door-to-door commute of the larger apartment (station distance, frequency, delays, evening and weekend service) and how does the office partner feel about about 3 hours a week on the train?",
+          "if_resolved": "If the commute is easy and usable time, the larger apartment is favored; if it is draining or unreliable, the smaller apartment near the office is favored."
+        },
+        {
+          "id": "u3",
+          "text": "Is the office attendance rule stable: could it rise to 4 or 5 days or fall, or could either partner change jobs?",
+          "if_resolved": "If attendance may increase or the job may change, the closer apartment is favored; if it stays at 3 days or less, the commute counts less and the larger apartment is favored."
+        },
+        {
+          "id": "u4",
+          "text": "What do the neighbourhoods offer: shops, restaurants, nightlife, friends nearby, green space, safety, and what are the costs of travelling to the center for social life?",
+          "if_resolved": "If the farther area is pleasant with enough nearby, the larger apartment is favored; if the couple's social life depends on the center and would need long evening trips, the smaller apartment may fit better."
+        },
+        {
+          "id": "u5",
+          "text": "Are there other cost and lease differences beyond rent, such as train pass, utilities, deposits, lease length and flexibility, furnishing needs?",
+          "if_resolved": "If the larger apartment adds a pass and other costs, the true cost gap may favor the smaller; if extra costs are small, the same rent makes the larger apartment attractive."
+        },
+        {
+          "id": "u6",
+          "text": "Do the couple plan changes in the next year or two (a child, a pet, guests, one partner changing jobs) that make space or location matter more?",
+          "if_resolved": "If space needs are likely to grow, the larger apartment is favored; if both want a compact, walkable life, the smaller is favored."
+        }
+      ]
+    },
+    "n_candidates": 28,
+    "n_passing": 26,
+    "fail_counts": {
+      "generic": 1,
+      "presupposes": 1,
+      "answered": 0,
+      "no_path": 0,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 4,
+      "surface": 1,
+      "test": 0,
+      "bound": 1,
+      "expand": 2,
+      "close": 1,
+      "calibrate": 1
+    },
+    "chosen": [
+      {
+        "question": "What will you pay each month beyond rent for each home, including a train pass, utilities and internet?",
+        "operator": "discriminate",
+        "target": "u5",
+        "S": 200.0,
+        "picked_by": "coverage",
+        "why": "Equal rent can hide different total costs.",
+        "answer_path": "Ask the landlords for utility estimates, check the price of a monthly transit pass, and add up both lists."
+      },
+      {
+        "question": "Counting the walk to the station and the wait, how long is the real trip from the larger apartment's front door to the office desk?",
+        "operator": "discriminate",
+        "target": "u2",
+        "S": 180.0,
+        "picked_by": "mmr",
+        "why": "The 45 minutes is the train leg; the true time may be longer and tip the choice.",
+        "answer_path": "Do the trip yourselves at rush hour on a weekday, and check the timetable for the first and last trains."
+      },
+      {
+        "question": "Is your sense that 45 minutes is tolerable based on having done a similar commute before, or on imagining it?",
+        "operator": "calibrate",
+        "target": "a1",
+        "S": 150.0,
+        "picked_by": "mmr",
+        "why": "Imagined commutes tend to feel easier than lived ones.",
+        "answer_path": "Recall the longest commute you have done regularly and how it felt after a month, or try the route for several days."
+      },
+      {
+        "question": "At how many weekly office days would the commute from the larger apartment become too much for the office partner?",
+        "operator": "bound",
+        "target": "a1",
+        "S": 144.0,
+        "picked_by": "mmr",
+        "why": "Finds the point where the farther apartment stops working.",
+        "answer_path": "Each partner states a number of days and gives reasons, then compare with what the employer might require."
+      },
+      {
+        "question": "On the days both of you are home, could the smaller apartment give the working partner a spot with a door or enough distance to take calls without disturbing the other?",
+        "operator": "discriminate",
+        "target": "u1",
+        "S": 120.0,
+        "picked_by": "coverage",
+        "why": "If the smaller place can offer workable separation it stays in the running; if not, the office room decides it.",
+        "answer_path": "Measure the smaller apartment and mark where the desk would go, then test it by having one partner take a mock call while the other is at home."
+      },
+      {
+        "question": "In the area of the larger apartment, what can you reach on foot within 10 minutes for daily needs and for free time?",
+        "operator": "discriminate",
+        "target": "u4",
+        "S": 120.0,
+        "picked_by": "mmr",
+        "why": "A rich neighbourhood can offset the distance; a thin one makes the center matter more.",
+        "answer_path": "Visit both areas on a weekday evening and a weekend, and map shops, cafes, parks and gyms from a map app."
+      },
+      {
+        "question": "How often do you currently go out or meet friends in the center in a typical week, and how would that change from the larger apartment?",
+        "operator": "surface",
+        "target": "a3",
+        "S": 120.0,
+        "picked_by": "mmr",
+        "why": "Checks the claim that living farther out will not hurt social life.",
+        "answer_path": "Review the last month of your calendars or card spending, and check the last train home from the center."
+      },
+      {
+        "question": "How would each apartment handle noise from the street, neighbours or trains at the times the home-working partner has calls?",
+        "operator": "expand",
+        "target": "new",
+        "S": 96.0,
+        "picked_by": "mmr",
+        "why": "Noise is not mentioned in the context but can shape daily comfort.",
+        "answer_path": "Visit each apartment on a weekday morning and listen from the planned desk spot, and ask current tenants."
+      },
+      {
+        "question": "What is the minimum lease term and how costly is it to leave early at each apartment?",
+        "operator": "close",
+        "target": "u5",
+        "S": 90.0,
+        "picked_by": "close",
+        "why": "A hard-to-exit lease raises the price of choosing wrongly.",
+        "answer_path": "Read the draft contracts for term, notice period and subletting rules, and ask the landlords or agents."
+      },
+      {
+        "question": "Do either of you have hobbies, sports or family visits that depend on being in a particular part of the city?",
+        "operator": "expand",
+        "target": "new",
+        "S": 90.0,
+        "picked_by": "mmr",
+        "why": "Brings in regular activities the map has not considered.",
+        "answer_path": "List your regular weekly activities and check how long each would take from each apartment."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "On the days both of you are home, could the smaller apartment give the working partner a spot with a door or enough distance to take calls without disturbing the other?",
+        "why": "If the smaller place can offer workable separation it stays in the running; if not, the office room decides it.",
+        "answer_path": "Measure the smaller apartment and mark where the desk would go, then test it by having one partner take a mock call while the other is at home.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "Counting the walk to the station and the wait, how long is the real trip from the larger apartment's front door to the office desk?",
+        "why": "The 45 minutes is the train leg; the true time may be longer and tip the choice.",
+        "answer_path": "Do the trip yourselves at rush hour on a weekday, and check the timetable for the first and last trains.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u4",
+        "question": "In the area of the larger apartment, what can you reach on foot within 10 minutes for daily needs and for free time?",
+        "why": "A rich neighbourhood can offset the distance; a thin one makes the center matter more.",
+        "answer_path": "Visit both areas on a weekday evening and a weekend, and map shops, cafes, parks and gyms from a map app.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 2
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u5",
+        "question": "What will you pay each month beyond rent for each home, including a train pass, utilities and internet?",
+        "why": "Equal rent can hide different total costs.",
+        "answer_path": "Ask the landlords for utility estimates, check the price of a monthly transit pass, and add up both lists.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "Does the direct train run on time in the morning and the evening, and what happens when it is cancelled?",
+        "why": "The case for the larger apartment rests on a dependable commute.",
+        "answer_path": "Look up the operator's punctuality statistics, read recent disruption notices, and ask current commuters on that line.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "Has the working-from-home partner ever worked in a space like the smaller apartment for a full week?",
+        "why": "Tests the belief that the small flat can serve as an office without a separate room.",
+        "answer_path": "Try a trial week at a friend's similar flat or at home with a temporary corner, and note noise, light and focus.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 60.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "How often do you currently go out or meet friends in the center in a typical week, and how would that change from the larger apartment?",
+        "why": "Checks the claim that living farther out will not hurt social life.",
+        "answer_path": "Review the last month of your calendars or card spending, and check the last train home from the center.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 2,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a4",
+        "question": "Has either employer said anything about changing office days or remote policy in the coming year?",
+        "why": "The plan assumes the current arrangement holds for the entire lease.",
+        "answer_path": "Ask each of your managers or HR, and read recent company announcements about hybrid work.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u2",
+        "question": "Would the office partner really use the 45 minutes on the train for something useful, or would it just be lost time?",
+        "why": "Whether the trip is usable or draining drives how much the commute costs in practice.",
+        "answer_path": "Ride the train at commuting time on a test day, see whether you can get a seat and whether you can read or work, and note how you feel on arrival.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 40.5,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "a2",
+        "question": "Does having a separate office room actually make the home-working partner more productive and less stressed, or is it the light and quiet that matter?",
+        "why": "Checks the cause-and-effect link behind valuing the extra room.",
+        "answer_path": "Ask the working partner to describe what goes wrong now in their current setup, and see if a room or something cheaper would fix it.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 12.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u1",
+        "question": "Does being close to the office improve the office partner's evenings in a measurable way, such as getting home earlier?",
+        "why": "The benefit of the smaller place depends on the time it gives back.",
+        "answer_path": "Compare when the office partner would arrive home from each apartment on a normal day and what they would do with that time.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 48.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u4",
+        "question": "Would a balcony be used most days, or only in good weather for a few months?",
+        "why": "Checks whether an outdoor space adds the daily quality of life that is expected.",
+        "answer_path": "Think about how you used outdoor space at your last homes, and check the balcony's orientation and local weather by season.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "a1",
+        "question": "At how many weekly office days would the commute from the larger apartment become too much for the office partner?",
+        "why": "Finds the point where the farther apartment stops working.",
+        "answer_path": "Each partner states a number of days and gives reasons, then compare with what the employer might require.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 144.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "bound",
+        "target": "a2",
+        "question": "If both of you worked from home on the same days, how many days a week could you share the smaller apartment before it became a strain?",
+        "why": "Gives a limit on the smaller option's workability.",
+        "answer_path": "Run a test week in your current home with both of you present all day, and note when tension rises.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u5",
+        "question": "How much would the monthly cost need to rise at the larger apartment before the difference outweighs its benefits for you?",
+        "why": "Sets a money limit for the larger option even though rents are equal.",
+        "answer_path": "List extra costs of the farther place, and each decide the monthly amount where you would call it too much.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 2,
+          "impact": 1,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 12.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u6",
+        "question": "How long could you both stay in the smaller apartment if your living or working situation changed?",
+        "why": "Identifies when space becomes a problem over the lease term.",
+        "answer_path": "Read the lease length and notice rules, and discuss together the changes you can imagine within that period.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 2,
+          "cost": 2
+        },
+        "S": 18.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Is there a middle option, such as an apartment with an extra room closer to a station on the same line but nearer to the office?",
+        "why": "The map covers only two flats; other options might give a bit of both benefits.",
+        "answer_path": "Search listings at the same rent along the train line and compare commute times.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 3
+        },
+        "S": 64.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could the home-working partner use a co-working desk or library near the smaller apartment on busy days?",
+        "why": "That would change how much the missing office room matters.",
+        "answer_path": "Look up co-working prices and day passes within walking distance, and ask whether the employer would contribute.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "How would each apartment handle noise from the street, neighbours or trains at the times the home-working partner has calls?",
+        "why": "Noise is not mentioned in the context but can shape daily comfort.",
+        "answer_path": "Visit each apartment on a weekday morning and listen from the planned desk spot, and ask current tenants.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Do either of you have hobbies, sports or family visits that depend on being in a particular part of the city?",
+        "why": "Brings in regular activities the map has not considered.",
+        "answer_path": "List your regular weekly activities and check how long each would take from each apartment.",
+        "review": {
+          "id": 20,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 90.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "close",
+        "target": "u5",
+        "question": "What is the minimum lease term and how costly is it to leave early at each apartment?",
+        "why": "A hard-to-exit lease raises the price of choosing wrongly.",
+        "answer_path": "Read the draft contracts for term, notice period and subletting rules, and ask the landlords or agents.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 90.0,
+        "failed": [],
+        "picked_by": "close"
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "By what date do you have to give an answer on each apartment, and how likely is it that someone else takes it?",
+        "why": "A real deadline limits how much more checking you can do.",
+        "answer_path": "Ask the agents for deadlines and the number of other viewings, and decide in advance when to stop looking.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 48.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "What would you do if, after six months, one of you disliked the choice, and how would you handle that?",
+        "why": "Helps decide how much a wrong choice would cost and who bears it.",
+        "answer_path": "Talk it through together and check the lease's exit options and moving costs.",
+        "review": {
+          "id": 3,
+          "generic": true,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 1,
+          "answerability": 2,
+          "cost": 1
+        },
+        "S": 18.0,
+        "failed": [
+          "generic"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u3",
+        "question": "Could you wait for a better match to come on the market, and what would the wait cost you in rent and stress?",
+        "why": "Makes waiting an explicit option with a price attached.",
+        "answer_path": "Check your current notice period and how quickly similar listings appear in your price range.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 12.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a1",
+        "question": "Is your sense that 45 minutes is tolerable based on having done a similar commute before, or on imagining it?",
+        "why": "Imagined commutes tend to feel easier than lived ones.",
+        "answer_path": "Recall the longest commute you have done regularly and how it felt after a month, or try the route for several days.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 150.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "calibrate",
+        "target": "a2",
+        "question": "What is your impression that the smaller place will be cramped based on: the viewing, the floor plan, or your past experience?",
+        "why": "A first impression of a space can mislead without measurements.",
+        "answer_path": "Get the floor plan with dimensions, lay out furniture on paper, and revisit the flat for a second viewing.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a3",
+        "question": "How do you know how much you would go into the center from the farther apartment: from your habits now or from how you think you would live?",
+        "why": "Predictions about future habits are often optimistic.",
+        "answer_path": "Look at how often you have actually travelled to the center in the last two months.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u6",
+        "question": "How firm are your expectations of staying in the same jobs and household for the term of the lease, and what are they based on?",
+        "why": "Stability is assumed, and plans can change faster than expected.",
+        "answer_path": "Ask each other and your employers about any known changes, and think about how often plans changed in the last few years.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      }
+    ]
+  }
+}

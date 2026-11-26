@@ -1,0 +1,878 @@
+{
+  "case_id": "business-price-increase",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.842162+00:00",
+  "questions": [
+    "If new sign-ups are half the forecast, which option still meets the revenue goal?",
+    "Over the next 12 months, how many new customers do you expect compared with the number already on the books, and how much of the extra revenue comes from each group?",
+    "What do your contracts allow for existing customers: how much notice, and can price change in the middle of a term?",
+    "What is the earliest date a rise for existing customers could take effect given notice periods, and does that date still allow results within 12 months?",
+    "Do any customers have a price guarantee, a custom plan or a promise from a salesperson that limits a rise?",
+    "Would customers find out that new customers pay less or more, and where would they see it?",
+    "If a large account cancelled at once, how much would that alone add to monthly churn?",
+    "How did you arrive at your idea of how much churn a 20% rise would cause?",
+    "Could you roll out the higher price to a random fifth of existing customers first and compare churn with the rest?",
+    "At a price 20% higher, would new prospects still choose you over the competitors who have already raised theirs?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Revenue over the next 12 months is higher than the current run rate, accounting for expected lost customers",
+        "Monthly churn stays at or below 3% in every month, measured by customer cohort",
+        "Margin recovers relative to the 18% cost rise",
+        "The approach can be carried out under the contract, notice and communication obligations to existing customers"
+      ],
+      "stated_facts": [
+        "Goal: increase revenue over 12 months with monthly churn not above 3%",
+        "Prices have not changed in three years",
+        "Current monthly churn is 1.5%",
+        "Two competitors raised prices by about 25% this year without visible customer loss",
+        "Costs rose 18% over three years",
+        "Options are a 20% increase for all customers or for new customers only"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "Competitors' price rises caused no real customer loss, though 'visible' loss may hide slower effects."
+        },
+        {
+          "id": "a2",
+          "text": "Our customers react to price rises like competitors' customers and are equally unwilling to switch."
+        },
+        {
+          "id": "a3",
+          "text": "Churn will rise gradually, not suddenly, so the 3% limit can be watched and corrected."
+        },
+        {
+          "id": "a4",
+          "text": "Raising prices for existing customers is allowed under current contracts and plans."
+        },
+        {
+          "id": "a5",
+          "text": "New customer growth will not slow because of a price rise."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "How price-sensitive are existing customers, differing by segment (long-tenured, small accounts, those on discounts) and how much churn would a 20% rise cause?",
+          "if_resolved": "If churn would rise only slightly, raising for all is favored for revenue; if it would approach 3% or more in some segments, new-customers-only is favored."
+        },
+        {
+          "id": "u2",
+          "text": "What do current contracts say: annual or monthly terms, price-lock clauses, notice periods, and local rules on price changes?",
+          "if_resolved": "If customers can be repriced with short notice, raising for all is feasible; if many are locked or need long notice, much of the revenue arrives later and new-only is favored for the 12 months."
+        },
+        {
+          "id": "u3",
+          "text": "How large is the existing base versus the number of new customers expected over 12 months?",
+          "if_resolved": "If the base is large relative to new sign-ups, raising for all produces far more revenue; if new sign-ups dominate, new-only captures most of the gain with lower risk."
+        },
+        {
+          "id": "u4",
+          "text": "Would new customers' conversion fall at a 20% higher price, and are competitors' list prices still above ours after the rise?",
+          "if_resolved": "If conversion holds, both options work for new customers; if conversion drops sharply, both options lose revenue and the existing base becomes more important, favoring raising for all."
+        },
+        {
+          "id": "u5",
+          "text": "How would existing customers react to seeing new customers pay different prices, and would the gap cause complaints or damage to trust?",
+          "if_resolved": "If customers do not see or mind it, new-only is safe; if a gap is visible and creates anger, it may raise churn, though the alternative also raises prices for them."
+        },
+        {
+          "id": "u6",
+          "text": "Are the competitors' customers comparable to ours, and could their churn rise later, with effects visible only after several months?",
+          "if_resolved": "If their data holds up, the 25% rises support raising for all; if effects lag or the customer bases differ, the evidence weakens and a careful new-only approach is favored."
+        },
+        {
+          "id": "u7",
+          "text": "Could the all-customers rise be phased or tested on a subset first, and how quickly could it be reversed if churn climbs?",
+          "if_resolved": "If a staged rollout with a stop rule is possible, raising for all becomes safer; if it cannot be reversed, new-only is favored."
+        }
+      ]
+    },
+    "n_candidates": 30,
+    "n_passing": 26,
+    "fail_counts": {
+      "generic": 1,
+      "presupposes": 2,
+      "answered": 0,
+      "no_path": 1,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 4,
+      "surface": 1,
+      "test": 1,
+      "bound": 2,
+      "expand": 0,
+      "close": 1,
+      "calibrate": 1
+    },
+    "chosen": [
+      {
+        "question": "If new sign-ups are half the forecast, which option still meets the revenue goal?",
+        "operator": "bound",
+        "target": "u3",
+        "S": 500.0,
+        "picked_by": "coverage",
+        "why": "Finds the scenario where new-only stops working.",
+        "answer_path": "Run the revenue model with sign-ups reduced to half and compare both options."
+      },
+      {
+        "question": "Over the next 12 months, how many new customers do you expect compared with the number already on the books, and how much of the extra revenue comes from each group?",
+        "operator": "discriminate",
+        "target": "u3",
+        "S": 400.0,
+        "picked_by": "mmr",
+        "why": "The size of the base against expected sign-ups decides how much revenue a rise for existing customers adds.",
+        "answer_path": "Build a simple 12-month revenue model from current customer count, sign-up forecast and average revenue per account."
+      },
+      {
+        "question": "What do your contracts allow for existing customers: how much notice, and can price change in the middle of a term?",
+        "operator": "discriminate",
+        "target": "u2",
+        "S": 375.0,
+        "picked_by": "coverage",
+        "why": "If many customers are locked in, a rise for all delivers little of its revenue within 12 months.",
+        "answer_path": "Review the standard terms and ask a lawyer or contracts owner to count customers by term end date."
+      },
+      {
+        "question": "What is the earliest date a rise for existing customers could take effect given notice periods, and does that date still allow results within 12 months?",
+        "operator": "close",
+        "target": "u2",
+        "S": 320.0,
+        "picked_by": "close",
+        "why": "Notice rules set the real timing for the revenue gain.",
+        "answer_path": "Check contract notice clauses and add the length of the time to prepare communication."
+      },
+      {
+        "question": "Do any customers have a price guarantee, a custom plan or a promise from a salesperson that limits a rise?",
+        "operator": "surface",
+        "target": "a4",
+        "S": 240.0,
+        "picked_by": "mmr",
+        "why": "Hidden commitments can make a rise for all impossible or costly.",
+        "answer_path": "Ask account managers to list special arrangements and search the contract system for price clauses."
+      },
+      {
+        "question": "Would customers find out that new customers pay less or more, and where would they see it?",
+        "operator": "test",
+        "target": "u5",
+        "S": 192.0,
+        "picked_by": "mmr",
+        "why": "Price gaps cause trouble only when customers notice them.",
+        "answer_path": "Check whether prices are public on your site, in sales calls or in reviews; ask support what customers usually see."
+      },
+      {
+        "question": "If a large account cancelled at once, how much would that alone add to monthly churn?",
+        "operator": "bound",
+        "target": "a3",
+        "S": 135.0,
+        "picked_by": "mmr",
+        "why": "Concentration can push churn past the limit in a single month.",
+        "answer_path": "List your largest accounts by revenue and compute each one's share of the customer count and revenue."
+      },
+      {
+        "question": "How did you arrive at your idea of how much churn a 20% rise would cause?",
+        "operator": "calibrate",
+        "target": "u1",
+        "S": 100.0,
+        "picked_by": "coverage",
+        "why": "A hunch can be far from what your own data would show.",
+        "answer_path": "Compare your estimate with churn after previous changes and ask customer success what they hear."
+      },
+      {
+        "question": "Could you roll out the higher price to a random fifth of existing customers first and compare churn with the rest?",
+        "operator": "discriminate",
+        "target": "u7",
+        "S": 85.33333333333333,
+        "picked_by": "coverage",
+        "why": "A trial group shows real behavior before the whole base is committed.",
+        "answer_path": "Ask whoever manages billing whether prices can be set by customer group, then plan a trial of a few months."
+      },
+      {
+        "question": "At a price 20% higher, would new prospects still choose you over the competitors who have already raised theirs?",
+        "operator": "discriminate",
+        "target": "u4",
+        "S": 80.0,
+        "picked_by": "coverage",
+        "why": "If conversion drops, new-only loses its appeal and the existing base matters more.",
+        "answer_path": "Compare your new price with competitor price pages and ask sales for lost-deal reasons; test the price on a landing page."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "Which customer segments, such as long-tenured accounts, small accounts or discounted ones, have shown the weakest response to earlier discounts or add-on price changes?",
+        "why": "Segments that react sharply argue for new-only; calm ones allow a rise for all.",
+        "answer_path": "Pull cohort data by segment from billing and look at past churn after any discount expiry or fee change.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "discriminate",
+        "target": "u3",
+        "question": "Over the next 12 months, how many new customers do you expect compared with the number already on the books, and how much of the extra revenue comes from each group?",
+        "why": "The size of the base against expected sign-ups decides how much revenue a rise for existing customers adds.",
+        "answer_path": "Build a simple 12-month revenue model from current customer count, sign-up forecast and average revenue per account.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 400.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "What do your contracts allow for existing customers: how much notice, and can price change in the middle of a term?",
+        "why": "If many customers are locked in, a rise for all delivers little of its revenue within 12 months.",
+        "answer_path": "Review the standard terms and ask a lawyer or contracts owner to count customers by term end date.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 375.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u4",
+        "question": "At a price 20% higher, would new prospects still choose you over the competitors who have already raised theirs?",
+        "why": "If conversion drops, new-only loses its appeal and the existing base matters more.",
+        "answer_path": "Compare your new price with competitor price pages and ask sales for lost-deal reasons; test the price on a landing page.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 5,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 80.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u7",
+        "question": "Could you roll out the higher price to a random fifth of existing customers first and compare churn with the rest?",
+        "why": "A trial group shows real behavior before the whole base is committed.",
+        "answer_path": "Ask whoever manages billing whether prices can be set by customer group, then plan a trial of a few months.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 3
+        },
+        "S": 85.33333333333333,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "Do you know whether the two competitors lost any customers in the months after raising prices, as opposed to just not seeing it announced?",
+        "why": "Visible loss is not the same as no loss.",
+        "answer_path": "Check public reviews, forum threads, job postings and ask your own customers who left for them or came from them.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "How do your customers compare with the competitors' customers in size, industry and how easily they can switch?",
+        "why": "The same price rise can cause different reactions in different customer bases.",
+        "answer_path": "Ask sales and support to describe where customers come from and what alternatives they consider; read win-loss notes.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a4",
+        "question": "Do any customers have a price guarantee, a custom plan or a promise from a salesperson that limits a rise?",
+        "why": "Hidden commitments can make a rise for all impossible or costly.",
+        "answer_path": "Ask account managers to list special arrangements and search the contract system for price clauses.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 240.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "How quickly would you see churn in a given month, and how much lag is there between a price notice and customers cancelling?",
+        "why": "If cancellations come late, the 3% limit could be passed before you notice.",
+        "answer_path": "Look at the delay between past notices or invoices and cancellation dates in billing data.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a5",
+        "question": "Have your sign-up numbers ever dropped after a change in price, plan or packaging, and by how much?",
+        "why": "Checks whether the growth in new customers is price-sensitive in your own history.",
+        "answer_path": "Look at sign-up and trial-conversion history around past promotions or price changes.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u1",
+        "question": "When you last gave customers a reason to leave, such as an outage or a fee change, how many did cancel and how soon?",
+        "why": "Gives a real measure of how easily your customers leave when annoyed.",
+        "answer_path": "Use past incidents in support and billing records to compare cancellation rates before and after.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u5",
+        "question": "Would customers find out that new customers pay less or more, and where would they see it?",
+        "why": "Price gaps cause trouble only when customers notice them.",
+        "answer_path": "Check whether prices are public on your site, in sales calls or in reviews; ask support what customers usually see.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "u4",
+        "question": "Does a price at the top of the market make prospects believe the product is better, or does it send them elsewhere?",
+        "why": "Tests the link between price and conversion in your own sales data.",
+        "answer_path": "Ask the sales team for deal notes where price came up and compare close rates by quoted price.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 10.666666666666666,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u6",
+        "question": "Is there a way to see whether the competitors' own churn went up in the later months of the year?",
+        "why": "Checks the cause-and-effect claim that higher prices left them untouched.",
+        "answer_path": "Ask customers who also use those competitors, look for their published figures, and check review sites over time.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": true,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 24.0,
+        "failed": [
+          "no_path"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u1",
+        "question": "At what churn level would you decide to stop or reverse the rise, and who decides?",
+        "why": "A stop rule must be fixed before launch, not under pressure.",
+        "answer_path": "Set a monthly churn trigger below 3% together with finance and write down who acts when it is hit.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "a3",
+        "question": "If a large account cancelled at once, how much would that alone add to monthly churn?",
+        "why": "Concentration can push churn past the limit in a single month.",
+        "answer_path": "List your largest accounts by revenue and compute each one's share of the customer count and revenue.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "bound",
+        "target": "u7",
+        "question": "How long would it take to undo a price rise for all customers, and could you honor the lower price for those who threaten to leave?",
+        "why": "Shows how far the rise can be undone if it goes wrong.",
+        "answer_path": "Ask billing and support about the process for changing prices back and giving credits.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u3",
+        "question": "If new sign-ups are half the forecast, which option still meets the revenue goal?",
+        "why": "Finds the scenario where new-only stops working.",
+        "answer_path": "Run the revenue model with sign-ups reduced to half and compare both options.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 500.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could a smaller or phased increase, such as 10% now and more later, reach the same revenue goal with lower churn risk?",
+        "why": "The map only covers a 20% rise now.",
+        "answer_path": "Model churn and revenue for a smaller step and discuss with finance.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could you offer existing customers a choice, such as a lower price for an annual commitment, along with the rise?",
+        "why": "Commitments could cut churn risk while still raising revenue.",
+        "answer_path": "Ask a few customers in interviews whether they would take a longer term for a smaller rise.",
+        "review": {
+          "id": 20,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Do you see any cost levers, such as reducing the cost to serve, that would recover margin without a price rise?",
+        "why": "The margin goal might be reached in other ways.",
+        "answer_path": "Review the cost breakdown with finance and operations and find the items that grew most.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 1,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 6.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Are there customers who are unprofitable at the current price, so that losing them would be fine?",
+        "why": "Some churn can be harmless or even useful.",
+        "answer_path": "Compute margin per account from billing and support-cost data.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 48.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u2",
+        "question": "What is the earliest date a rise for existing customers could take effect given notice periods, and does that date still allow results within 12 months?",
+        "why": "Notice rules set the real timing for the revenue gain.",
+        "answer_path": "Check contract notice clauses and add the length of the time to prepare communication.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 320.0,
+        "failed": [],
+        "picked_by": "close"
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "If you raise only for new customers now, could you still raise for existing customers later, and would it be harder then?",
+        "why": "Shows whether new-only keeps the other option open or closes it.",
+        "answer_path": "Discuss with sales and legal how a later rise would be received once there are two price levels.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "What does each month of waiting cost in margin, given costs rose 18% while prices stood still?",
+        "why": "Puts a number on the cost of delay.",
+        "answer_path": "Take current monthly revenue and cost figures from finance and compute the monthly gap.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 1,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 24.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u5",
+        "question": "Which part of this decision would be hardest to explain to customers afterwards if it went badly?",
+        "why": "Trust damage is difficult to undo.",
+        "answer_path": "Draft the customer announcement for each option and ask support staff to point out the likely complaints.",
+        "review": {
+          "id": 6,
+          "generic": true,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 1,
+          "answerability": 2,
+          "cost": 1
+        },
+        "S": 12.0,
+        "failed": [
+          "generic"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a1",
+        "question": "What is your sense that competitors lost no one based on: their statements, your sales calls, or your own guess?",
+        "why": "Competitors' claims or absence of news are weak evidence.",
+        "answer_path": "Write down the source of the impression and look for one independent confirmation.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u1",
+        "question": "How did you arrive at your idea of how much churn a 20% rise would cause?",
+        "why": "A hunch can be far from what your own data would show.",
+        "answer_path": "Compare your estimate with churn after previous changes and ask customer success what they hear.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 100.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "calibrate",
+        "target": "a2",
+        "question": "What have you heard from customers directly about price, and from how many?",
+        "why": "A few friendly voices may not represent the whole base.",
+        "answer_path": "Count the number of customer conversations about price in support tickets and calls in the last six months.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u3",
+        "question": "Is your forecast of new customers based on recent sign-ups or on a hoped-for growth plan?",
+        "why": "Optimistic sign-up forecasts would unfairly favor new-only.",
+        "answer_path": "Compare the forecast with actual sign-ups in each of the last four quarters.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 80.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      }
+    ]
+  }
+}

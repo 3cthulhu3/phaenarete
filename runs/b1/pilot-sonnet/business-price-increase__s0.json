@@ -1,0 +1,21 @@
+{
+  "case_id": "business-price-increase",
+  "arm": "b1",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-24T22:36:30.681586+00:00",
+  "questions": [
+    "What do your customers pay for and how price-sensitive are the segments: is there a group, such as small accounts or long-standing customers, whose churn would jump well above the current rate?",
+    "How much of your base is on legacy pricing versus recent pricing, and what revenue would a 20% increase on existing customers generate compared with new customers only?",
+    "What did the competitors' price rises look like in detail: did their churn really stay flat, over what period, and were their products or customers similar to yours?",
+    "How long does churn take to appear after a price rise in your business: could a 3% monthly limit be breached later than your 12-month window shows?",
+    "Do your contracts allow a price change for existing customers, and what notice, renewal timing, or grandfathering do you owe them?",
+    "Would raising only for new customers create unfairness or confusion that customers notice, and could that anger long-standing customers or damage trust?",
+    "Does a 20% increase on new customers alone reduce signups or conversion, and what is your current acquisition funnel's sensitivity to price?",
+    "Is there a middle path, such as a smaller staged increase, a new tier, annual lock-in discounts, or raising for existing customers at renewal with advance notice?",
+    "Could you test the increase first on a sample of existing customers or one region and read churn and downgrades before committing?",
+    "How reliable is your 1.5% churn as a baseline, given that it comes from three years of stable prices, and does it hide differences between segments?"
+  ],
+  "raw": "{\"questions\": [\"What do your customers pay for and how price-sensitive are the segments: is there a group, such as small accounts or long-standing customers, whose churn would jump well above the current rate?\", \"How much of your base is on legacy pricing versus recent pricing, and what revenue would a 20% increase on existing customers generate compared with new customers only?\", \"What did the competitors' price rises look like in detail: did their churn really stay flat, over what period, and were their products or customers similar to yours?\", \"How long does churn take to appear after a price rise in your business: could a 3% monthly limit be breached later than your 12-month window shows?\", \"Do your contracts allow a price change for existing customers, and what notice, renewal timing, or grandfathering do you owe them?\", \"Would raising only for new customers create unfairness or confusion that customers notice, and could that anger long-standing customers or damage trust?\", \"Does a 20% increase on new customers alone reduce signups or conversion, and what is your current acquisition funnel's sensitivity to price?\", \"Is there a middle path, such as a smaller staged increase, a new tier, annual lock-in discounts, or raising for existing customers at renewal with advance notice?\", \"Could you test the increase first on a sample of existing customers or one region and read churn and downgrades before committing?\", \"How reliable is your 1.5% churn as a baseline, given that it comes from three years of stable prices, and does it hide differences between segments?\"]}"
+}

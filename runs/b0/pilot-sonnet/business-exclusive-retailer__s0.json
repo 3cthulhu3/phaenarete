@@ -1,0 +1,21 @@
+{
+  "case_id": "business-exclusive-retailer",
+  "arm": "b0",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-24T22:36:30.627075+00:00",
+  "questions": [
+    "What exactly would the exclusive deal commit us to in terms of volumes, pricing, duration, minimum purchases and exit conditions?",
+    "What gross margin would we earn on retailer sales after their discounts, margin requirements, promotions, returns and logistics, and does it stay above 40%?",
+    "Can our small production team realistically meet the promised volumes on the retailer's timeline, and what investment would that need?",
+    "How reliable are the retailer's volume promises, and what happens to us if they reduce orders, delist the product or change terms?",
+    "How much of our current revenue comes from small shops and the online store, and what would we lose if exclusivity ended those channels?",
+    "How concentrated would our business become on a single customer, and could we survive if that retailer left?",
+    "Why have small-shop sales been flat, and could fixing that (new shops, better marketing, stronger online) get us closer to doubling?",
+    "How would a large retailer affect our brand positioning and our relationships with the small shops that have supported us?",
+    "Is there a non-exclusive or limited arrangement, such as a regional pilot, a subset of stores or a time-limited exclusivity, that captures most of the upside?",
+    "What would we need to see in the first months to know the deal is working, and what cash-flow and inventory risks do we carry while we wait for payment?"
+  ],
+  "raw": "{\"questions\": [\"What exactly would the exclusive deal commit us to in terms of volumes, pricing, duration, minimum purchases and exit conditions?\", \"What gross margin would we earn on retailer sales after their discounts, margin requirements, promotions, returns and logistics, and does it stay above 40%?\", \"Can our small production team realistically meet the promised volumes on the retailer's timeline, and what investment would that need?\", \"How reliable are the retailer's volume promises, and what happens to us if they reduce orders, delist the product or change terms?\", \"How much of our current revenue comes from small shops and the online store, and what would we lose if exclusivity ended those channels?\", \"How concentrated would our business become on a single customer, and could we survive if that retailer left?\", \"Why have small-shop sales been flat, and could fixing that (new shops, better marketing, stronger online) get us closer to doubling?\", \"How would a large retailer affect our brand positioning and our relationships with the small shops that have supported us?\", \"Is there a non-exclusive or limited arrangement, such as a regional pilot, a subset of stores or a time-limited exclusivity, that captures most of the upside?\", \"What would we need to see in the first months to know the deal is working, and what cash-flow and inventory risks do we carry while we wait for payment?\"]}"
+}

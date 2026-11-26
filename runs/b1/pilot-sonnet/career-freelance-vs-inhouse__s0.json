@@ -1,0 +1,21 @@
+{
+  "case_id": "career-freelance-vs-inhouse",
+  "arm": "b1",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-24T22:36:30.682340+00:00",
+  "questions": [
+    "How many billable days per month can you realistically book after accounting for sales, admin, gaps between projects, and unpaid time, and what annual income does that produce?",
+    "Are the two interested companies firm commitments with scoped work and dates, or friendly conversations, and how long would the work last?",
+    "What is the minimum monthly income you need, and how would 4 months of savings cover a slow start, late client payments, and your own taxes and insurance?",
+    "Where would you get health insurance, pension, paid leave, and equipment as a freelancer, and what do those cost against the in-house package?",
+    "Will freelance work actually give more control over what you work on, or will you accept whatever pays in the first year, and do the interested companies offer the kind of work you want?",
+    "What does the in-house role offer in autonomy and growth, and could you negotiate for more control over projects or part-time freelance work alongside?",
+    "How concentrated would your income be, and what happens if one of the two clients leaves or reduces scope?",
+    "How easy is it to return to an in-house job after a year of freelancing, and would the in-house offer or a similar one still be available?",
+    "Could you start freelance on the side before leaving, or ask the in-house employer for a later start date to test demand?",
+    "What are the high day rates you are counting on based on: rates you have been quoted, what peers charge, or listings, and do they apply to a new freelancer?"
+  ],
+  "raw": "{\"questions\": [\"How many billable days per month can you realistically book after accounting for sales, admin, gaps between projects, and unpaid time, and what annual income does that produce?\", \"Are the two interested companies firm commitments with scoped work and dates, or friendly conversations, and how long would the work last?\", \"What is the minimum monthly income you need, and how would 4 months of savings cover a slow start, late client payments, and your own taxes and insurance?\", \"Where would you get health insurance, pension, paid leave, and equipment as a freelancer, and what do those cost against the in-house package?\", \"Will freelance work actually give more control over what you work on, or will you accept whatever pays in the first year, and do the interested companies offer the kind of work you want?\", \"What does the in-house role offer in autonomy and growth, and could you negotiate for more control over projects or part-time freelance work alongside?\", \"How concentrated would your income be, and what happens if one of the two clients leaves or reduces scope?\", \"How easy is it to return to an in-house job after a year of freelancing, and would the in-house offer or a similar one still be available?\", \"Could you start freelance on the side before leaving, or ask the in-house employer for a later start date to test demand?\", \"What are the high day rates you are counting on based on: rates you have been quoted, what peers charge, or listings, and do they apply to a new freelancer?\"]}"
+}

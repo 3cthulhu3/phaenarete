@@ -1,0 +1,21 @@
+{
+  "case_id": "operations-offsite-format",
+  "arm": "b0",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-24T22:36:30.627449+00:00",
+  "questions": [
+    "What specifically made last year's remote offsite fail, and were those problems of format, design or technology that could be fixed?",
+    "Which cross-team collaboration outcomes do we want, and how will we measure whether either format delivers them?",
+    "What would the total in-person cost be, including travel, accommodation, food, activities and staff time, beyond the 70,000 euro venue quote, and does it fit within 80,000 euros?",
+    "Where are the 60 employees located, and how burdensome or expensive would travel to Lisbon be for them?",
+    "Are there people who cannot attend in person, for reasons such as caregiving, health, visas or leave, and how would we include them?",
+    "What programme would we run in each format, and could a well-designed agenda, with mixed teams and unstructured time, create more collaboration than the format itself?",
+    "What could we do with the money not spent on a remote offsite, and might a cheaper hybrid or smaller in-person gathering give most of the benefit?",
+    "How would a fixed date affect booking flexibility, cancellation terms and the risk of disruptions such as travel problems or illness?",
+    "How will employees feel about each choice, and what do a quick survey or conversations with team leads tell us?",
+    "What would a follow-up plan look like to keep the collaboration going after the offsite, regardless of format?"
+  ],
+  "raw": "{\"questions\": [\"What specifically made last year's remote offsite fail, and were those problems of format, design or technology that could be fixed?\", \"Which cross-team collaboration outcomes do we want, and how will we measure whether either format delivers them?\", \"What would the total in-person cost be, including travel, accommodation, food, activities and staff time, beyond the 70,000 euro venue quote, and does it fit within 80,000 euros?\", \"Where are the 60 employees located, and how burdensome or expensive would travel to Lisbon be for them?\", \"Are there people who cannot attend in person, for reasons such as caregiving, health, visas or leave, and how would we include them?\", \"What programme would we run in each format, and could a well-designed agenda, with mixed teams and unstructured time, create more collaboration than the format itself?\", \"What could we do with the money not spent on a remote offsite, and might a cheaper hybrid or smaller in-person gathering give most of the benefit?\", \"How would a fixed date affect booking flexibility, cancellation terms and the risk of disruptions such as travel problems or illness?\", \"How will employees feel about each choice, and what do a quick survey or conversations with team leads tell us?\", \"What would a follow-up plan look like to keep the collaboration going after the offsite, regardless of format?\"]}"
+}

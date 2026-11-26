@@ -1,0 +1,92 @@
+{
+  "case_id": "product-native-vs-web",
+  "arm": "phaenarete",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t2",
+    "f3": "t1",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "When customers asked for 'a mobile app' in the survey, which specific things did they say they wanted to do or have (alerts, offline access, speed, an icon on the home screen)?",
+      "reveals": [],
+      "generic": false,
+      "note": "survey details; no hidden fact"
+    },
+    {
+      "q": 2,
+      "question": "Which web commitments (promised features, contract deliverables, maintenance) fall due in the next six months, and how many developer-weeks do they take?",
+      "reveals": [],
+      "generic": false,
+      "note": "web commitments; no hidden fact"
+    },
+    {
+      "q": 3,
+      "question": "Do customers who say 'mobile app' mean a separate downloadable app, or would a much better mobile site satisfy them?",
+      "reveals": [],
+      "generic": false,
+      "note": "meaning of survey request; no hidden fact"
+    },
+    {
+      "q": 4,
+      "question": "Could your three developers build the app with a cross-platform framework that reuses what they already know from the web product?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "asking about developers building cross-platform reveals none has shipped one"
+    },
+    {
+      "q": 5,
+      "question": "What evidence do you have that the current mobile web experience is what keeps existing customers from using the product weekly?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "evidence about mobile web problems would cite the login drop-off"
+    },
+    {
+      "q": 6,
+      "question": "Where does the statement that about half of your visitors are on mobile come from, and does it count existing customers, new visitors, or both?",
+      "reveals": [],
+      "generic": false,
+      "note": "traffic source; session length not implied"
+    },
+    {
+      "q": 7,
+      "question": "Of the customers who say they want an app, how many already use your mobile site every week?",
+      "reveals": [],
+      "generic": false,
+      "note": "overlap of app requesters and mobile users; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "Among existing customers who open the product on a phone, at which screens or steps do they stall or leave?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "where users stall reveals 70% leave at login"
+    },
+    {
+      "q": 9,
+      "question": "Would an installable web app (a PWA) with push notifications cover what the survey wants, at a fraction of the effort?",
+      "reveals": [],
+      "generic": false,
+      "note": "PWA option; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "Is the six-month limit for the weekly active user goal fixed by someone outside the team, or could it move?",
+      "reveals": [],
+      "generic": false,
+      "note": "deadline flexibility; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"survey details; no hidden fact\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"web commitments; no hidden fact\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"meaning of survey request; no hidden fact\"}, {\"q\": 4, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"asking about developers building cross-platform reveals none has shipped one\"}, {\"q\": 5, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"evidence about mobile web problems would cite the login drop-off\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"traffic source; session length not implied\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"overlap of app requesters and mobile users; no hidden fact\"}, {\"q\": 8, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"where users stall reveals 70% leave at login\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"PWA option; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"deadline flexibility; no hidden fact\"}]}"
+}

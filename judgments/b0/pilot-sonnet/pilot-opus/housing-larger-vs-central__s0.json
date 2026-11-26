@@ -1,0 +1,93 @@
+{
+  "case_id": "housing-larger-vs-central",
+  "arm": "b0",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How would the 45-minute train commute feel on the three office days, and how reliable is the train in peak hours, delays and late evenings?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Train reliability reveals 14-month closure with replacement buses"
+    },
+    {
+      "q": 2,
+      "question": "How much time per week would the long commute take away from the partner who goes to the office, and how do they value that time?",
+      "reveals": [
+        "c2",
+        "c1"
+      ],
+      "generic": false,
+      "note": "Weekly commute time depends on bus replacement and 5 office days"
+    },
+    {
+      "q": 3,
+      "question": "How much would a separate home-office room improve the working day, concentration and wellbeing of the partner who works from home?",
+      "reveals": [],
+      "generic": false,
+      "note": "Home office value"
+    },
+    {
+      "q": 4,
+      "question": "How much would we actually use the balcony and the extra space, and how much would we miss them in the smaller apartment?",
+      "reveals": [],
+      "generic": false,
+      "note": "Balcony and space"
+    },
+    {
+      "q": 5,
+      "question": "What would everyday life look like around each apartment, including shops, friends, cafes, green space, sports and social life?",
+      "reveals": [],
+      "generic": false,
+      "note": "Neighbourhood amenities"
+    },
+    {
+      "q": 6,
+      "question": "How does each neighbourhood affect weekends, evenings and getting around, including how easy it is to reach the center or each other's activities?",
+      "reveals": [],
+      "generic": false,
+      "note": "Getting around; bike lanes not immediately obvious"
+    },
+    {
+      "q": 7,
+      "question": "How would each option affect the partner at home, for example in isolation during the workday or access to a break outside?",
+      "reveals": [],
+      "generic": false,
+      "note": "Home partner wellbeing"
+    },
+    {
+      "q": 8,
+      "question": "Is the office commitment likely to change, such as more office days or a new job, and how would that change the right answer?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Change in office commitment reveals return to 5 days"
+    },
+    {
+      "q": 9,
+      "question": "What are the other costs and details, such as commuting costs, utilities, noise, light, lease terms and building quality?",
+      "reveals": [],
+      "generic": false,
+      "note": "Other costs and details"
+    },
+    {
+      "q": 10,
+      "question": "How would each of us rate both options on what matters most, and where do our preferences differ?",
+      "reveals": [],
+      "generic": true,
+      "note": "Rating options and differing preferences fits any joint decision"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Train reliability reveals 14-month closure with replacement buses\"}, {\"q\": 2, \"reveals\": [\"f2\", \"f3\"], \"generic\": false, \"note\": \"Weekly commute time depends on bus replacement and 5 office days\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Home office value\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Balcony and space\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Neighbourhood amenities\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Getting around; bike lanes not immediately obvious\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Home partner wellbeing\"}, {\"q\": 8, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Change in office commitment reveals return to 5 days\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Other costs and details\"}, {\"q\": 10, \"reveals\": [], \"generic\": true, \"note\": \"Rating options and differing preferences fits any joint decision\"}]}"
+}

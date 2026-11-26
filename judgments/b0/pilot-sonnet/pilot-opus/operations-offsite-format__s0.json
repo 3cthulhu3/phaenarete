@@ -1,0 +1,90 @@
+{
+  "case_id": "operations-offsite-format",
+  "arm": "b0",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c2",
+    "f2": "t1",
+    "f3": "t2",
+    "f4": "c1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What specifically made last year's remote offsite fail, and were those problems of format, design or technology that could be fixed?",
+      "reveals": [],
+      "generic": false,
+      "note": "Last year's failure"
+    },
+    {
+      "q": 2,
+      "question": "Which cross-team collaboration outcomes do we want, and how will we measure whether either format delivers them?",
+      "reveals": [],
+      "generic": false,
+      "note": "Desired outcomes"
+    },
+    {
+      "q": 3,
+      "question": "What would the total in-person cost be, including travel, accommodation, food, activities and staff time, beyond the 70,000 euro venue quote, and does it fit within 80,000 euros?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Total cost beyond quote reveals 28,000 euro flights"
+    },
+    {
+      "q": 4,
+      "question": "Where are the 60 employees located, and how burdensome or expensive would travel to Lisbon be for them?",
+      "reveals": [],
+      "generic": false,
+      "note": "Employee locations"
+    },
+    {
+      "q": 5,
+      "question": "Are there people who cannot attend in person, for reasons such as caregiving, health, visas or leave, and how would we include them?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "People unable to attend reveals twelve staffing the launch"
+    },
+    {
+      "q": 6,
+      "question": "What programme would we run in each format, and could a well-designed agenda, with mixed teams and unstructured time, create more collaboration than the format itself?",
+      "reveals": [],
+      "generic": false,
+      "note": "Programme design"
+    },
+    {
+      "q": 7,
+      "question": "What could we do with the money not spent on a remote offsite, and might a cheaper hybrid or smaller in-person gathering give most of the benefit?",
+      "reveals": [],
+      "generic": false,
+      "note": "Alternative formats"
+    },
+    {
+      "q": 8,
+      "question": "How would a fixed date affect booking flexibility, cancellation terms and the risk of disruptions such as travel problems or illness?",
+      "reveals": [],
+      "generic": false,
+      "note": "Booking flexibility"
+    },
+    {
+      "q": 9,
+      "question": "How will employees feel about each choice, and what do a quick survey or conversations with team leads tell us?",
+      "reveals": [],
+      "generic": false,
+      "note": "Employee sentiment"
+    },
+    {
+      "q": 10,
+      "question": "What would a follow-up plan look like to keep the collaboration going after the offsite, regardless of format?",
+      "reveals": [],
+      "generic": false,
+      "note": "Follow-up plan"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Last year's failure\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Desired outcomes\"}, {\"q\": 3, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Total cost beyond quote reveals 28,000 euro flights\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Employee locations\"}, {\"q\": 5, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"People unable to attend reveals twelve staffing the launch\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Programme design\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Alternative formats\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Booking flexibility\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Employee sentiment\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Follow-up plan\"}]}"
+}

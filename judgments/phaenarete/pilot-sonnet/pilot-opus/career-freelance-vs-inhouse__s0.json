@@ -1,0 +1,96 @@
+{
+  "case_id": "career-freelance-vs-inhouse",
+  "arm": "phaenarete",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "t2",
+    "f3": "c2",
+    "f4": "c1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "In the in-house role, who decides which projects and problems you work on, and could you shape that in the contract or in conversations before signing?",
+      "reveals": [],
+      "generic": false,
+      "note": "project choice in-house; side-project clause not directly asked"
+    },
+    {
+      "q": 2,
+      "question": "What is the lowest number of billable days per year at which freelancing still matches your current salary?",
+      "reveals": [],
+      "generic": false,
+      "note": "billable-day math; no hidden fact"
+    },
+    {
+      "q": 3,
+      "question": "Once bonus, pension, paid leave, sick pay and training are counted, how much more is the in-house offer worth per year than its salary figure?",
+      "reveals": [
+        "t2"
+      ],
+      "generic": false,
+      "note": "counting training benefits would mention the conference budget"
+    },
+    {
+      "q": 4,
+      "question": "Can the two interested companies give you a written commitment (days per month, day rate, start date, length) before you have to answer the in-house offer?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "written start date reveals projects can only start in 8 months"
+    },
+    {
+      "q": 5,
+      "question": "What exactly did each company say when they told you they wanted to work with you, and how long ago?",
+      "reveals": [],
+      "generic": false,
+      "note": "what was said and when; budget-cycle timing not necessarily stated"
+    },
+    {
+      "q": 6,
+      "question": "Would the companies that expressed interest still sign when asked for a contract with a start date and a day rate?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "contract with start date would expose the 8-month delay"
+    },
+    {
+      "q": 7,
+      "question": "If you work only the number of billable days you could realistically sell, what would your yearly net income be after tax, social contributions and insurance?",
+      "reveals": [],
+      "generic": false,
+      "note": "net income estimate; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "Would the in-house employer let you take on some outside freelance work next to the job?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "outside work allowance reveals two days a week of side projects"
+    },
+    {
+      "q": 9,
+      "question": "Have either of the two companies had a freelancer budget approved, and who signs off on it?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "budget approval reveals it waits for the next budget cycle in 8 months"
+    },
+    {
+      "q": 10,
+      "question": "What is the minimum paid work you would want signed before you hand in your resignation?",
+      "reveals": [],
+      "generic": false,
+      "note": "personal threshold; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"project choice in-house; side-project clause not directly asked\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"billable-day math; no hidden fact\"}, {\"q\": 3, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"counting training benefits would mention the conference budget\"}, {\"q\": 4, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"written start date reveals projects can only start in 8 months\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"what was said and when; budget-cycle timing not necessarily stated\"}, {\"q\": 6, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"contract with start date would expose the 8-month delay\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"net income estimate; no hidden fact\"}, {\"q\": 8, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"outside work allowance reveals two days a week of side projects\"}, {\"q\": 9, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"budget approval reveals it waits for the next budget cycle in 8 months\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"personal threshold; no hidden fact\"}]}"
+}

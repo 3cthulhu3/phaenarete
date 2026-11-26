@@ -8,3 +8,7 @@ cases/private/
 
 # Local planning notes, not part of the repo
 notes/
+
+# Prompt cache and pilot exchange files (local only)
+cache/
+pilot/

@@ -1,0 +1,96 @@
+{
+  "case_id": "purchase-pm-tool-switch",
+  "arm": "phaenarete",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t1",
+    "f3": "t2",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Have you checked whether Tool A already has a dashboard, saved report, export or integration that would produce the status report with no manual work?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "answer: no export can produce the client-mandated spreadsheet"
+    },
+    {
+      "q": 2,
+      "question": "When someone in your team last spent a long time on a report, was the cause the tool's limits or something else, such as unclear task ownership?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "cause of long reporting is copying into the client spreadsheet"
+    },
+    {
+      "q": 3,
+      "question": "Could part of the reporting be removed altogether, for example by sending fewer or shorter reports, instead of making them faster?",
+      "reveals": [],
+      "generic": false,
+      "note": "reducing report count; mandated format and copying not clearly stated"
+    },
+    {
+      "q": 4,
+      "question": "Would the people who read your status reports accept a link to a live dashboard in place of the document or meeting they get now?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "readers require a client-mandated spreadsheet format"
+    },
+    {
+      "q": 5,
+      "question": "In a typical reporting week, how many of the hours go to pulling data out of Tool A versus chasing teammates to update their tasks?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "time breakdown shows most goes to copying into the client spreadsheet"
+    },
+    {
+      "q": 6,
+      "question": "Which person on the team could spend an hour or two a week keeping Tool B in order, and have they agreed to it?",
+      "reveals": [],
+      "generic": false,
+      "note": "admin volunteer; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "Does any security, privacy or data-location requirement of your company apply to a new tool, and has Tool B been approved for it?",
+      "reveals": [],
+      "generic": false,
+      "note": "security approval; no hidden fact"
+    },
+    {
+      "q": 8,
+      "question": "If three of the people who complain most about Tool A build this week's status report in Tool B using real project data, how much time does it take them compared with today?",
+      "reveals": [],
+      "generic": false,
+      "note": "trial in Tool B; no hidden fact directly stated"
+    },
+    {
+      "q": 9,
+      "question": "When does your Tool A contract renew, and how much notice must you give to leave?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "renewal date reveals the auto-renewal with no refund"
+    },
+    {
+      "q": 10,
+      "question": "Besides seat price, what other costs would differ between the tools, such as add-ons, storage, integrations or support tiers?",
+      "reveals": [],
+      "generic": false,
+      "note": "other costs; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"answer: no export can produce the client-mandated spreadsheet\"}, {\"q\": 2, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"cause of long reporting is copying into the client spreadsheet\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"reducing report count; mandated format and copying not clearly stated\"}, {\"q\": 4, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"readers require a client-mandated spreadsheet format\"}, {\"q\": 5, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"time breakdown shows most goes to copying into the client spreadsheet\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"admin volunteer; no hidden fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"security approval; no hidden fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"trial in Tool B; no hidden fact directly stated\"}, {\"q\": 9, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"renewal date reveals the auto-renewal with no refund\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"other costs; no hidden fact\"}]}"
+}

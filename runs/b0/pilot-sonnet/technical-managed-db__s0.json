@@ -1,0 +1,21 @@
+{
+  "case_id": "technical-managed-db",
+  "arm": "b0",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-24T22:36:30.626867+00:00",
+  "questions": [
+    "What are the real total costs of each option over two years, including engineer time for setup, patching, backups, monitoring and on-call work, and not only the VM price?",
+    "How much developer time per month would self-hosting take away from product work, and what is that time worth?",
+    "What availability, durability and recovery targets do we need (uptime, RPO and RTO), and what would an outage or data loss cost the business?",
+    "Can our team of four handle failure scenarios such as replication failover, disk corruption, restore tests and security patching, and who would be on call?",
+    "What does the managed service include in practice, such as automated backups, point-in-time recovery, upgrades, monitoring and high availability, and how would we replicate that ourselves?",
+    "What are the security and compliance requirements for our data, and which option makes it easier to meet them and to show evidence?",
+    "How large will the database grow and how will load change over two years, and which option scales more cheaply and with less effort?",
+    "How much would we be locked in to the managed provider, and how hard would it be to migrate away later (or to migrate later from self-hosted to managed)?",
+    "Is there a middle option, such as a cheaper managed tier, reserved pricing, or starting managed and revisiting once the team grows?",
+    "What does our past experience running small databases tell us about the surprises we hit, and would we be comfortable with the same level of responsibility at our current scale?"
+  ],
+  "raw": "{\"questions\": [\"What are the real total costs of each option over two years, including engineer time for setup, patching, backups, monitoring and on-call work, and not only the VM price?\", \"How much developer time per month would self-hosting take away from product work, and what is that time worth?\", \"What availability, durability and recovery targets do we need (uptime, RPO and RTO), and what would an outage or data loss cost the business?\", \"Can our team of four handle failure scenarios such as replication failover, disk corruption, restore tests and security patching, and who would be on call?\", \"What does the managed service include in practice, such as automated backups, point-in-time recovery, upgrades, monitoring and high availability, and how would we replicate that ourselves?\", \"What are the security and compliance requirements for our data, and which option makes it easier to meet them and to show evidence?\", \"How large will the database grow and how will load change over two years, and which option scales more cheaply and with less effort?\", \"How much would we be locked in to the managed provider, and how hard would it be to migrate away later (or to migrate later from self-hosted to managed)?\", \"Is there a middle option, such as a cheaper managed tier, reserved pricing, or starting managed and revisiting once the team grows?\", \"What does our past experience running small databases tell us about the surprises we hit, and would we be comfortable with the same level of responsibility at our current scale?\"]}"
+}

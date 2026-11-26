@@ -1,0 +1,21 @@
+{
+  "case_id": "purchase-ev-vs-hybrid",
+  "arm": "b0",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-24T22:36:30.625784+00:00",
+  "questions": [
+    "What is the used EV's battery health and remaining warranty, and what would a battery replacement cost if it fails within five years?",
+    "What is the real range of the used EV in winter and highway conditions, compared with my 120 km round-trip commute?",
+    "Where and how would I charge, given that I rent an apartment, and do I have reliable access to a home or workplace charger at a known price?",
+    "What are the total five-year costs of both cars, including energy, insurance, tax, maintenance, depreciation and financing?",
+    "How much would each car be worth after five years, given the used EV's faster-changing technology and the hybrid's newness?",
+    "How much would the hybrid actually consume on my commute in real conditions, and what is the fuel price outlook?",
+    "What incentives, taxes, or low-emission zone rules apply to each car where I live, now and in the near future?",
+    "What is the reliability record of the specific EV model and age, and how easy is it to get it serviced and repaired locally?",
+    "How would each car handle occasional longer trips, and how often do I make them?",
+    "What would a worst-case scenario look like for each option, such as a charging problem or major repair, and which one am I better able to tolerate given the \"no hassle\" goal?"
+  ],
+  "raw": "{\"questions\": [\"What is the used EV's battery health and remaining warranty, and what would a battery replacement cost if it fails within five years?\", \"What is the real range of the used EV in winter and highway conditions, compared with my 120 km round-trip commute?\", \"Where and how would I charge, given that I rent an apartment, and do I have reliable access to a home or workplace charger at a known price?\", \"What are the total five-year costs of both cars, including energy, insurance, tax, maintenance, depreciation and financing?\", \"How much would each car be worth after five years, given the used EV's faster-changing technology and the hybrid's newness?\", \"How much would the hybrid actually consume on my commute in real conditions, and what is the fuel price outlook?\", \"What incentives, taxes, or low-emission zone rules apply to each car where I live, now and in the near future?\", \"What is the reliability record of the specific EV model and age, and how easy is it to get it serviced and repaired locally?\", \"How would each car handle occasional longer trips, and how often do I make them?\", \"What would a worst-case scenario look like for each option, such as a charging problem or major repair, and which one am I better able to tolerate given the \\\"no hassle\\\" goal?\"]}"
+}

@@ -1,0 +1,90 @@
+{
+  "case_id": "housing-larger-vs-central",
+  "arm": "b1",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "On the days the office partner commutes, how do 90 minutes round trip on the train feel in practice: can that time be used for reading or work, and how reliable is the train?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Train reliability exposes 14-month closure"
+    },
+    {
+      "q": 2,
+      "question": "How much does the work-from-home partner suffer in the smaller apartment: noise, lack of a separate room, video calls, and shared space during the three office days?",
+      "reveals": [],
+      "generic": false,
+      "note": "WFH comfort; no hidden fact"
+    },
+    {
+      "q": 3,
+      "question": "How often will the couple actually use the balcony and extra space, versus how much do you imagine they would?",
+      "reveals": [],
+      "generic": false,
+      "note": "Balcony use; no hidden fact"
+    },
+    {
+      "q": 4,
+      "question": "What would each apartment's surroundings offer at the times you are home, such as shops, parks, restaurants, friends nearby, and evening and weekend life?",
+      "reveals": [],
+      "generic": false,
+      "note": "Surroundings; bike lanes not a direct answer"
+    },
+    {
+      "q": 5,
+      "question": "How does the commuting partner weigh 7.5 hours a week of travel time against the daily walk, including early meetings and late returns?",
+      "reveals": [],
+      "generic": false,
+      "note": "Weighing commute time; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "Are there hidden cost differences despite equal rent, such as a monthly train pass, utilities, heating, or internet?",
+      "reveals": [],
+      "generic": false,
+      "note": "Hidden costs; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "How likely is it that work patterns change within a year, such as more office days, a new job, or both working from home, and which apartment holds up better?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "More office days exposes 5-day return"
+    },
+    {
+      "q": 8,
+      "question": "Have you each visited at the actual commute time and rated the neighborhoods separately, or is the choice based on the listing?",
+      "reveals": [],
+      "generic": false,
+      "note": "Visits; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "Is there a third option, such as a mid-distance apartment, a coworking space for the home-working partner, or a shorter lease on one of these?",
+      "reveals": [],
+      "generic": false,
+      "note": "Third options; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "What are the lease length and exit terms: if one choice turns out wrong after six months, how costly is moving out?",
+      "reveals": [],
+      "generic": false,
+      "note": "Lease terms; no hidden fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Train reliability exposes 14-month closure\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"WFH comfort; no hidden fact\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Balcony use; no hidden fact\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Surroundings; bike lanes not a direct answer\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Weighing commute time; no hidden fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Hidden costs; no hidden fact\"}, {\"q\": 7, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"More office days exposes 5-day return\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Visits; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Third options; no hidden fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Lease terms; no hidden fact\"}]}"
+}

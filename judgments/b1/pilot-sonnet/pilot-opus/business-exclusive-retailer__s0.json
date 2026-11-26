@@ -1,0 +1,92 @@
+{
+  "case_id": "business-exclusive-retailer",
+  "arm": "b1",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What price, margin, and payment terms does the retailer require, including slotting fees, returns, promotional funding, and markdown support, and what gross margin remains per unit?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Terms and remaining margin expose 45%/90 days/22%"
+    },
+    {
+      "q": 2,
+      "question": "How firm is the volume promise: is it a contractual minimum purchase commitment or a projection, and what happens to you if volumes fall short?",
+      "reveals": [],
+      "generic": false,
+      "note": "Volume firmness; no hidden fact"
+    },
+    {
+      "q": 3,
+      "question": "Can your production scale fast enough to meet the retailer's volume without quality problems or cash strain from larger inventory and slow payment?",
+      "reveals": [],
+      "generic": false,
+      "note": "Production scale; no hidden fact"
+    },
+    {
+      "q": 4,
+      "question": "What does exclusivity actually block: your online store, your existing small shops, other retailers, and for how long?",
+      "reveals": [],
+      "generic": false,
+      "note": "Exclusivity scope; no hidden fact"
+    },
+    {
+      "q": 5,
+      "question": "If the retailer cuts orders, delists you, or demands price cuts after year one, how much of your revenue would depend on them and what would you fall back on?",
+      "reveals": [],
+      "generic": false,
+      "note": "Dependency; no hidden fact"
+    },
+    {
+      "q": 6,
+      "question": "Why have small-shop sales been flat: lack of demand, limited shop count, weak product visibility, or something you could change without the deal?",
+      "reveals": [],
+      "generic": false,
+      "note": "Small shops; no hidden fact"
+    },
+    {
+      "q": 7,
+      "question": "Could you reach doubled unit sales through a non-exclusive route, such as more shops, a better online store, or a limited pilot with the retailer in some stores?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Better online store route exposes 9% monthly growth"
+    },
+    {
+      "q": 8,
+      "question": "How would small shops that currently buy from you react to the exclusive deal, and how much of today's revenue and brand reputation would you lose with them?",
+      "reveals": [],
+      "generic": false,
+      "note": "Shop reactions; no hidden fact"
+    },
+    {
+      "q": 9,
+      "question": "What is the exit path: contract length, termination rights, and the cost of rebuilding your small-shop network if you leave the deal?",
+      "reveals": [],
+      "generic": false,
+      "note": "Exit path; no hidden fact"
+    },
+    {
+      "q": 10,
+      "question": "How was the 'double in 18 months' target set, and does the margin floor of 40% hold under the retailer's pricing at the volumes needed?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Margin floor under retailer pricing exposes 22%"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Terms and remaining margin expose 45%/90 days/22%\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Volume firmness; no hidden fact\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Production scale; no hidden fact\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Exclusivity scope; no hidden fact\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Dependency; no hidden fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Small shops; no hidden fact\"}, {\"q\": 7, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Better online store route exposes 9% monthly growth\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Shop reactions; no hidden fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Exit path; no hidden fact\"}, {\"q\": 10, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Margin floor under retailer pricing exposes 22%\"}]}"
+}

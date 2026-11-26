@@ -1,0 +1,92 @@
+{
+  "case_id": "operations-support-outsourcing",
+  "arm": "b0",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What does our fixed budget allow at 900 tickets a week, and what do the agency and the two hires each cost per ticket across the full six months, including hidden fees, onboarding and overtime?",
+      "reveals": [],
+      "generic": false,
+      "note": "Budget and cost per ticket"
+    },
+    {
+      "q": 2,
+      "question": "Can two in-house agents realistically handle 900 weekly tickets, or would we need to hire more, and how would the cost change?",
+      "reveals": [],
+      "generic": false,
+      "note": "In-house capacity"
+    },
+    {
+      "q": 3,
+      "question": "How does the agency's quality compare, including their customer satisfaction record, references from similar clients and ability to keep above 90%?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "References from similar clients reveal only consumer retail references"
+    },
+    {
+      "q": 4,
+      "question": "What do the agency's contract terms say about service levels, minimum volumes, price increases for growth, exit conditions and notice periods?",
+      "reveals": [],
+      "generic": false,
+      "note": "Contract terms"
+    },
+    {
+      "q": 5,
+      "question": "How complex and product-specific are our tickets, and how long would it take outsourced agents to learn enough to resolve them well?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Ticket complexity reveals need for accounting knowledge"
+    },
+    {
+      "q": 6,
+      "question": "How would we maintain control over tone, brand voice, escalation and knowledge sharing with an agency, and how would feedback reach our product team?",
+      "reveals": [],
+      "generic": false,
+      "note": "Brand control"
+    },
+    {
+      "q": 7,
+      "question": "How would we handle the current overload meanwhile, given the time needed to recruit and train in-house agents versus the agency's quick start?",
+      "reveals": [],
+      "generic": false,
+      "note": "Interim overload"
+    },
+    {
+      "q": 8,
+      "question": "What are the data protection, security and compliance implications of giving an external agency access to customer data and systems?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Data access implications reveal security policy forbidding third-party access"
+    },
+    {
+      "q": 9,
+      "question": "Can automation, self-service content or better tooling reduce the ticket load so that either option stays within budget?",
+      "reveals": [],
+      "generic": false,
+      "note": "Automation"
+    },
+    {
+      "q": 10,
+      "question": "What would a hybrid or phased approach look like, such as hiring one agent while using the agency for overflow, and how would we know early if customer satisfaction is slipping?",
+      "reveals": [],
+      "generic": false,
+      "note": "Hybrid approach"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Budget and cost per ticket\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"In-house capacity\"}, {\"q\": 3, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"References from similar clients reveal only consumer retail references\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Contract terms\"}, {\"q\": 5, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Ticket complexity reveals need for accounting knowledge\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Brand control\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Interim overload\"}, {\"q\": 8, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Data access implications reveal security policy forbidding third-party access\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Automation\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Hybrid approach\"}]}"
+}

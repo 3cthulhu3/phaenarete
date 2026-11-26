@@ -1,0 +1,90 @@
+{
+  "case_id": "purchase-ev-vs-hybrid",
+  "arm": "b0",
+  "gen_model": "pilot-sonnet",
+  "judge_model": "pilot-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c1",
+    "f3": "t1",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What is the used EV's battery health and remaining warranty, and what would a battery replacement cost if it fails within five years?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Battery health and warranty reveal 71% and expired warranty"
+    },
+    {
+      "q": 2,
+      "question": "What is the real range of the used EV in winter and highway conditions, compared with my 120 km round-trip commute?",
+      "reveals": [],
+      "generic": false,
+      "note": "Real range"
+    },
+    {
+      "q": 3,
+      "question": "Where and how would I charge, given that I rent an apartment, and do I have reliable access to a home or workplace charger at a known price?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Charging access reveals no charger, landlord refusal, 4 km fast charger"
+    },
+    {
+      "q": 4,
+      "question": "What are the total five-year costs of both cars, including energy, insurance, tax, maintenance, depreciation and financing?",
+      "reveals": [],
+      "generic": false,
+      "note": "Total costs"
+    },
+    {
+      "q": 5,
+      "question": "How much would each car be worth after five years, given the used EV's faster-changing technology and the hybrid's newness?",
+      "reveals": [],
+      "generic": false,
+      "note": "Resale value"
+    },
+    {
+      "q": 6,
+      "question": "How much would the hybrid actually consume on my commute in real conditions, and what is the fuel price outlook?",
+      "reveals": [],
+      "generic": false,
+      "note": "Hybrid consumption"
+    },
+    {
+      "q": 7,
+      "question": "What incentives, taxes, or low-emission zone rules apply to each car where I live, now and in the near future?",
+      "reveals": [],
+      "generic": false,
+      "note": "Incentives and rules"
+    },
+    {
+      "q": 8,
+      "question": "What is the reliability record of the specific EV model and age, and how easy is it to get it serviced and repaired locally?",
+      "reveals": [],
+      "generic": false,
+      "note": "Model reliability"
+    },
+    {
+      "q": 9,
+      "question": "How would each car handle occasional longer trips, and how often do I make them?",
+      "reveals": [],
+      "generic": false,
+      "note": "Longer trips"
+    },
+    {
+      "q": 10,
+      "question": "What would a worst-case scenario look like for each option, such as a charging problem or major repair, and which one am I better able to tolerate given the \"no hassle\" goal?",
+      "reveals": [],
+      "generic": false,
+      "note": "Worst case"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Battery health and warranty reveal 71% and expired warranty\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Real range\"}, {\"q\": 3, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Charging access reveals no charger, landlord refusal, 4 km fast charger\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Total costs\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Resale value\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Hybrid consumption\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Incentives and rules\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Model reliability\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Longer trips\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Worst case\"}]}"
+}

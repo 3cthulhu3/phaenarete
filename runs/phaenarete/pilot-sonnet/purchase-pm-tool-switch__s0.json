@@ -1,0 +1,874 @@
+{
+  "case_id": "purchase-pm-tool-switch",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.913238+00:00",
+  "questions": [
+    "Have you checked whether Tool A already has a dashboard, saved report, export or integration that would produce the status report with no manual work?",
+    "When someone in your team last spent a long time on a report, was the cause the tool's limits or something else, such as unclear task ownership?",
+    "Could part of the reporting be removed altogether, for example by sending fewer or shorter reports, instead of making them faster?",
+    "Would the people who read your status reports accept a link to a live dashboard in place of the document or meeting they get now?",
+    "In a typical reporting week, how many of the hours go to pulling data out of Tool A versus chasing teammates to update their tasks?",
+    "Which person on the team could spend an hour or two a week keeping Tool B in order, and have they agreed to it?",
+    "Does any security, privacy or data-location requirement of your company apply to a new tool, and has Tool B been approved for it?",
+    "If three of the people who complain most about Tool A build this week's status report in Tool B using real project data, how much time does it take them compared with today?",
+    "When does your Tool A contract renew, and how much notice must you give to leave?",
+    "Besides seat price, what other costs would differ between the tools, such as add-ons, storage, integrations or support tiers?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Median weekly hours per person spent compiling or chasing status reports, measured on a real project in each tool, is lower than today",
+        "A typical status report can be produced from the tool without manual copying or reformatting by someone on the team",
+        "The team can run the tool day to day without anyone needing admin expertise",
+        "Total cost including seats, migration effort and lost productivity during transition stays acceptable"
+      ],
+      "stated_facts": [
+        "Team has 25 people",
+        "Goal is to reduce time spent on status reporting",
+        "No dedicated tool administrator",
+        "Tool B has better dashboards",
+        "Tool B is 20% cheaper per seat",
+        "Several team members complain about Tool A's reporting"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "Better dashboards in Tool B will translate into less time spent on status reporting, rather than just nicer-looking output."
+        },
+        {
+          "id": "a2",
+          "text": "The complaints about Tool A reporting are representative of the whole team and point to the real cause of the time spent."
+        },
+        {
+          "id": "a3",
+          "text": "Tool B can be set up and maintained without a dedicated administrator."
+        },
+        {
+          "id": "a4",
+          "text": "Tool B can import or replicate the data and workflows currently in Tool A."
+        },
+        {
+          "id": "a5",
+          "text": "Per-seat price is the main cost difference between the options."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "Where does the status-reporting time actually go: pulling data from the tool, chasing people to update tasks, or preparing presentations for stakeholders?",
+          "if_resolved": "If most time is spent on pulling and formatting data, Tool B's dashboards could help, favoring switching; if most time is spent on people not updating tasks or on stakeholder-specific formats, a new tool changes little and staying with Tool A (perhaps with better habits or its own reporting features) is favored."
+        },
+        {
+          "id": "u2",
+          "text": "Can Tool A's reporting be improved with existing features, add-ons or integrations the team has not yet used?",
+          "if_resolved": "If yes at low effort, staying with Tool A looks better; if Tool A's limits are structural, switching to Tool B is favored."
+        },
+        {
+          "id": "u3",
+          "text": "How much configuration and ongoing upkeep does Tool B need (dashboards, permissions, integrations) with nobody owning admin work?",
+          "if_resolved": "If it works well out of the box or can be handled by an existing team member in an hour or two a week, Tool B is favored; if it needs regular admin effort that would fall on no one, Tool A (already configured) is favored."
+        },
+        {
+          "id": "u4",
+          "text": "How hard is migration: can history, tasks, and integrations be moved, and how many weeks of reduced productivity should be expected for 25 people?",
+          "if_resolved": "If migration is quick and clean, Tool B is favored; if it is slow, lossy or lands at a busy time, the transition cost may outweigh gains and favor staying."
+        },
+        {
+          "id": "u5",
+          "text": "Are there contract terms with Tool A (annual commitment, notice period, data export limits) or other tools and teams that depend on Tool A integrations?",
+          "if_resolved": "If Tool A's contract runs long or other systems depend on it, switching now is costlier and timing may favor staying or switching later; if there are no lock-ins, switching now is cheaper."
+        },
+        {
+          "id": "u6",
+          "text": "Who consumes the status reports (managers, clients, other teams), and do they accept a Tool B dashboard as the report or still require documents or meetings?",
+          "if_resolved": "If the audience is happy to read live dashboards, Tool B's strength matters and favors switching; if they need fixed formats or live meetings, the tool matters less and staying is favored."
+        },
+        {
+          "id": "u7",
+          "text": "Has Tool B been tested by the team with real project data, and do those who dislike Tool A's reporting find Tool B's better in practice?",
+          "if_resolved": "If a pilot shows clear time savings, switching is favored; if the pilot shows similar effort or new frustrations, staying is favored."
+        }
+      ]
+    },
+    "n_candidates": 30,
+    "n_passing": 28,
+    "fail_counts": {
+      "generic": 0,
+      "presupposes": 2,
+      "answered": 0,
+      "no_path": 0,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 5,
+      "surface": 1,
+      "test": 1,
+      "bound": 0,
+      "expand": 2,
+      "close": 1,
+      "calibrate": 0
+    },
+    "chosen": [
+      {
+        "question": "Have you checked whether Tool A already has a dashboard, saved report, export or integration that would produce the status report with no manual work?",
+        "operator": "discriminate",
+        "target": "u2",
+        "S": 500.0,
+        "picked_by": "coverage",
+        "why": "If Tool A can already do this cheaply, switching solves a problem that does not need a new tool.",
+        "answer_path": "Read Tool A's documentation and plan tier features, and ask the vendor's support what their other customers use for status reports."
+      },
+      {
+        "question": "When someone in your team last spent a long time on a report, was the cause the tool's limits or something else, such as unclear task ownership?",
+        "operator": "test",
+        "target": "a1",
+        "S": 400.0,
+        "picked_by": "mmr",
+        "why": "Tests whether tool quality is really what drives reporting time.",
+        "answer_path": "Interview the two people who prepared the last three reports about where the delays arose."
+      },
+      {
+        "question": "Could part of the reporting be removed altogether, for example by sending fewer or shorter reports, instead of making them faster?",
+        "operator": "expand",
+        "target": "new",
+        "S": 320.0,
+        "picked_by": "mmr",
+        "why": "The goal is less time on reporting, which can be reached by reducing the reporting rather than changing tools.",
+        "answer_path": "Ask each report recipient which parts of the report they actually read and act on."
+      },
+      {
+        "question": "Would the people who read your status reports accept a link to a live dashboard in place of the document or meeting they get now?",
+        "operator": "discriminate",
+        "target": "u6",
+        "S": 256.0,
+        "picked_by": "coverage",
+        "why": "If readers still demand a fixed format, a better dashboard saves little reporting time.",
+        "answer_path": "Ask two or three of the main report recipients directly and show them a sample Tool B dashboard."
+      },
+      {
+        "question": "In a typical reporting week, how many of the hours go to pulling data out of Tool A versus chasing teammates to update their tasks?",
+        "operator": "discriminate",
+        "target": "u1",
+        "S": 200.0,
+        "picked_by": "coverage",
+        "why": "If the hours go mostly to pulling data, Tool B's dashboards address the problem; if they go to chasing people, they do not.",
+        "answer_path": "Ask five or six team members to log their reporting time by activity for two weeks, or run a short survey."
+      },
+      {
+        "question": "Which person on the team could spend an hour or two a week keeping Tool B in order, and have they agreed to it?",
+        "operator": "discriminate",
+        "target": "u3",
+        "S": 192.0,
+        "picked_by": "mmr",
+        "why": "Without a named owner, upkeep falls on no one, which favors staying put.",
+        "answer_path": "Ask team leads who would take it on and check their current workload."
+      },
+      {
+        "question": "Does any security, privacy or data-location requirement of your company apply to a new tool, and has Tool B been approved for it?",
+        "operator": "expand",
+        "target": "new",
+        "S": 180.0,
+        "picked_by": "mmr",
+        "why": "A tool that fails an internal review cannot be adopted regardless of its dashboards.",
+        "answer_path": "Ask your IT or compliance contact whether a review is needed and what Tool B's vendor documents say."
+      },
+      {
+        "question": "If three of the people who complain most about Tool A build this week's status report in Tool B using real project data, how much time does it take them compared with today?",
+        "operator": "discriminate",
+        "target": "u7",
+        "S": 166.66666666666666,
+        "picked_by": "coverage",
+        "why": "A measured trial on real data separates a real time saving from a better-looking demo.",
+        "answer_path": "Start a Tool B trial, import one live project, and time the report with a stopwatch against the Tool A baseline."
+      },
+      {
+        "question": "When does your Tool A contract renew, and how much notice must you give to leave?",
+        "operator": "close",
+        "target": "u5",
+        "S": 135.0,
+        "picked_by": "close",
+        "why": "A contract date can set the real deadline or make waiting cheap.",
+        "answer_path": "Check the contract, the billing page, or ask finance or whoever signed up."
+      },
+      {
+        "question": "Besides seat price, what other costs would differ between the tools, such as add-ons, storage, integrations or support tiers?",
+        "operator": "surface",
+        "target": "a5",
+        "S": 120.0,
+        "picked_by": "mmr",
+        "why": "The 20% seat saving may be offset or increased by other line items.",
+        "answer_path": "Request full quotes from both vendors and compare every line, including optional features you would need."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "In a typical reporting week, how many of the hours go to pulling data out of Tool A versus chasing teammates to update their tasks?",
+        "why": "If the hours go mostly to pulling data, Tool B's dashboards address the problem; if they go to chasing people, they do not.",
+        "answer_path": "Ask five or six team members to log their reporting time by activity for two weeks, or run a short survey.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u7",
+        "question": "If three of the people who complain most about Tool A build this week's status report in Tool B using real project data, how much time does it take them compared with today?",
+        "why": "A measured trial on real data separates a real time saving from a better-looking demo.",
+        "answer_path": "Start a Tool B trial, import one live project, and time the report with a stopwatch against the Tool A baseline.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 3
+        },
+        "S": 166.66666666666666,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "Have you checked whether Tool A already has a dashboard, saved report, export or integration that would produce the status report with no manual work?",
+        "why": "If Tool A can already do this cheaply, switching solves a problem that does not need a new tool.",
+        "answer_path": "Read Tool A's documentation and plan tier features, and ask the vendor's support what their other customers use for status reports.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 500.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u6",
+        "question": "Would the people who read your status reports accept a link to a live dashboard in place of the document or meeting they get now?",
+        "why": "If readers still demand a fixed format, a better dashboard saves little reporting time.",
+        "answer_path": "Ask two or three of the main report recipients directly and show them a sample Tool B dashboard.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 256.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u3",
+        "question": "Which person on the team could spend an hour or two a week keeping Tool B in order, and have they agreed to it?",
+        "why": "Without a named owner, upkeep falls on no one, which favors staying put.",
+        "answer_path": "Ask team leads who would take it on and check their current workload.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "What specifically in Tool B's dashboards removes a step from how your team builds a report today, and what would still be done by hand?",
+        "why": "Checks whether better dashboards mean fewer steps or only nicer visuals.",
+        "answer_path": "Write out the current report-building steps and mark which ones a Tool B demo or trial eliminates.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 160.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "How many of the 25 people have actually raised a problem with Tool A reporting, and are they the ones who spend the most time producing reports?",
+        "why": "A few vocal people may not represent where the team's time goes.",
+        "answer_path": "Run a three-question anonymous poll and compare answers with who actually compiles reports.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "What did the last person who set up a tool for your team have to configure, and how long did it take them?",
+        "why": "Past setup effort is a grounded check on whether Tool B can run without an admin.",
+        "answer_path": "Ask whoever configured Tool A, then read Tool B's setup guide and community forums for typical setup effort.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 36.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a4",
+        "question": "Can Tool B import your current projects, custom fields and integrations, and which of them would you have to rebuild?",
+        "why": "Missing imports turn into manual rework that eats into any reporting gain.",
+        "answer_path": "Run a test import of one project into a Tool B trial and ask Tool B's sales engineer for a list of supported import formats.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a5",
+        "question": "Besides seat price, what other costs would differ between the tools, such as add-ons, storage, integrations or support tiers?",
+        "why": "The 20% seat saving may be offset or increased by other line items.",
+        "answer_path": "Request full quotes from both vendors and compare every line, including optional features you would need.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "a1",
+        "question": "When someone in your team last spent a long time on a report, was the cause the tool's limits or something else, such as unclear task ownership?",
+        "why": "Tests whether tool quality is really what drives reporting time.",
+        "answer_path": "Interview the two people who prepared the last three reports about where the delays arose.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 400.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "u1",
+        "question": "If tasks in Tool A were always up to date, how much shorter would the weekly report take to make?",
+        "why": "Checks whether stale task data, not the tool, is the cause of the effort.",
+        "answer_path": "Pick one week, have everyone update tasks before the report, and time the report compared with a normal week.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u6",
+        "question": "Does a dashboard on its own end the follow-up questions and extra meetings that come after a report, or do readers ask for more detail anyway?",
+        "why": "If follow-ups continue, time is saved only on data pulling, not on reporting overall.",
+        "answer_path": "Count follow-up requests after the last four reports and ask recipients what they would need to skip them.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 96.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u7",
+        "question": "Does a team that already uses Tool B report that it spends less time on status reporting, and was anything else changed at the same time?",
+        "why": "Checks that the claimed benefit comes from the tool and not from other process changes.",
+        "answer_path": "Ask Tool B's vendor for two references from teams of similar size and call them.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u3",
+        "question": "At what number of dashboards, projects or permission rules would Tool B stop being manageable without an administrator?",
+        "why": "Finds the point where lack of admin turns a cheaper tool into a burden.",
+        "answer_path": "Ask Tool B's support or community forum about the limits at which teams add an admin, and compare with your project count.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 24.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u4",
+        "question": "How many weeks of slower work can the team afford during a switch before it hurts delivery commitments?",
+        "why": "Sets a limit on acceptable migration disruption.",
+        "answer_path": "Check the project calendar for deadlines over the next two quarters and ask project leads how much slack they have.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "a5",
+        "question": "If Tool B raises its seat price after the first year, at what price would it no longer be cheaper than Tool A?",
+        "why": "Shows how much of the saving relies on a price that may not hold.",
+        "answer_path": "Read Tool B's pricing terms for renewal increases and ask the vendor for a two-year price guarantee.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 1,
+          "answerability": 2,
+          "cost": 1
+        },
+        "S": 12.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u2",
+        "question": "If the team grows beyond 25 people, which tool's reporting and pricing holds up better?",
+        "why": "Growth may change which tool is the better fit.",
+        "answer_path": "Check both tools' tier limits and pricing at 35 and 50 seats, and ask management about hiring plans.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 2,
+          "cost": 2
+        },
+        "S": 12.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could part of the reporting be removed altogether, for example by sending fewer or shorter reports, instead of making them faster?",
+        "why": "The goal is less time on reporting, which can be reached by reducing the reporting rather than changing tools.",
+        "answer_path": "Ask each report recipient which parts of the report they actually read and act on.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 320.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Is there a third tool, or an add-on to Tool A, that produces status reports automatically and that the team has not looked at?",
+        "why": "The map treats the choice as only A or B.",
+        "answer_path": "Ask peers at other companies what they use, and search comparison sites for reporting add-ons compatible with Tool A.",
+        "review": {
+          "id": 20,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "What does your team's data in Tool A look like if you ever had to leave: can you export tasks, comments and attachments in a usable form?",
+        "why": "Export quality affects how reversible the switch is and any future moves.",
+        "answer_path": "Run a full export from Tool A and check what is missing; read Tool B's export documentation as well.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 60.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Does any security, privacy or data-location requirement of your company apply to a new tool, and has Tool B been approved for it?",
+        "why": "A tool that fails an internal review cannot be adopted regardless of its dashboards.",
+        "answer_path": "Ask your IT or compliance contact whether a review is needed and what Tool B's vendor documents say.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "close",
+        "target": "u5",
+        "question": "When does your Tool A contract renew, and how much notice must you give to leave?",
+        "why": "A contract date can set the real deadline or make waiting cheap.",
+        "answer_path": "Check the contract, the billing page, or ask finance or whoever signed up.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [],
+        "picked_by": "close"
+      },
+      {
+        "operator": "close",
+        "target": "u4",
+        "question": "If you switch and it goes badly, how easily could you move back to Tool A, and what would you lose?",
+        "why": "Reversibility decides how much evidence you need before committing.",
+        "answer_path": "Check whether Tool A data stays accessible after cancellation and for how long; ask support.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 27.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u7",
+        "question": "Could you run a time-limited pilot with one project before deciding, and what would count as success?",
+        "why": "A pilot with a clear threshold turns the decision into a test rather than a leap.",
+        "answer_path": "Agree with the team on a pilot length and a target reduction in reporting hours before starting it.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 3
+        },
+        "S": 60.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "What does it cost the team each month to wait, given the reporting hours currently lost?",
+        "why": "If waiting costs little, more checking before a decision is cheap.",
+        "answer_path": "Multiply the measured weekly reporting hours by a loaded hourly rate from finance.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 90.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a2",
+        "question": "What are the complaints about Tool A's reporting based on: specific incidents, or a general feeling that the tool is clumsy?",
+        "why": "Specific incidents can be checked, while general feelings may be the result of habit.",
+        "answer_path": "Ask the complainers for one concrete example each and note which ones recur.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 2,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a1",
+        "question": "What is your belief that Tool B's dashboards are better based on: a demo, reviews, or use by someone you know?",
+        "why": "A vendor demo is weaker evidence than hands-on use with your own data.",
+        "answer_path": "List where each impression came from and note which have been tested on your own projects.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 150.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u1",
+        "question": "How did you arrive at your sense of how long reporting takes now, and has anyone measured it?",
+        "why": "Estimates of time spent are often off, and the baseline is needed to measure any gain.",
+        "answer_path": "Compare your estimate to a two-week time log from the people who prepare reports.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u3",
+        "question": "What is your expectation of Tool B needing little upkeep based on: the vendor, reviews, or experience with similar tools?",
+        "why": "Vendors tend to underplay setup and upkeep effort.",
+        "answer_path": "Look for independent reviews from teams of similar size without an admin and ask for their weekly upkeep time.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 54.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      }
+    ]
+  }
+}

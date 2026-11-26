@@ -1,0 +1,947 @@
+{
+  "case_id": "operations-offsite-format",
+  "arm": "phaenarete",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "3ec5ef64d6e4",
+  "created": "2026-11-24T22:41:01.899299+00:00",
+  "questions": [
+    "What is the all-in cost of the Lisbon offsite for 60 people once flights, local transport, insurance and a contingency are added to the 70,000 euro quote?",
+    "What items beyond the venue quote must the 10,000 euro remainder cover, and can it?",
+    "At what total cost, or number of attendees, would the Lisbon plan go over 80,000 euros?",
+    "Could the offsite be a hybrid, with a Lisbon group and others joining remotely?",
+    "Does the venue quote cover all 60 people at the expected room and meeting-space needs?",
+    "How many of the 60 people have a known reason they cannot travel on the fixed dates?",
+    "Are there other locations or formats, such as a cheaper city or a smaller in-person group, that would meet the goal?",
+    "Is the venue holding your dates now, and until when can you decide without losing them?",
+    "What do the employees themselves want from the offsite, and what would make them use the time well?",
+    "What are the deposit and cancellation terms, and at what date would you lose money by backing out?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "graph": {
+      "criteria": [
+        "Cross-team interaction among the 60 employees is measurably higher afterwards (new cross-team contacts, joint work, post-event survey)",
+        "Total cost, including travel, accommodation, and time lost, stays within 80,000 euros",
+        "All 60 employees can actually attend on the fixed dates",
+        "Participation quality: people are engaged during the event rather than distracted"
+      ],
+      "stated_facts": [
+        "60 employees",
+        "Budget is 80,000 euros",
+        "Dates are fixed by the leadership calendar",
+        "Last year's remote offsite was rated poorly",
+        "The Lisbon venue quoted 70,000 euros"
+      ],
+      "assumptions": [
+        {
+          "id": "a1",
+          "text": "The 70,000 euro venue quote leaves enough in the budget for everything else it needs to cover."
+        },
+        {
+          "id": "a2",
+          "text": "Last year's poor rating was caused by the remote format rather than by how that event was designed."
+        },
+        {
+          "id": "a3",
+          "text": "Being in the same place automatically produces cross-team collaboration."
+        },
+        {
+          "id": "a4",
+          "text": "All employees are able and willing to travel to Lisbon on the fixed dates."
+        }
+      ],
+      "uncertainties": [
+        {
+          "id": "u1",
+          "text": "What does the 70,000 euro quote include (rooms, meals, meeting spaces, activities), and what are the extra costs for flights, local transport, insurance, and contingency for 60 people?",
+          "if_resolved": "If the all-in cost stays under 80,000, Lisbon is feasible and favored; if travel and extras push it past the budget, remote or a scaled-down alternative is favored."
+        },
+        {
+          "id": "u2",
+          "text": "Can everyone attend in person on the fixed dates, given visas, caregiving, health, and other commitments, and where are people based?",
+          "if_resolved": "If nearly everyone can travel, Lisbon is favored; if a notable share cannot, in-person splits the group and remote is favored."
+        },
+        {
+          "id": "u3",
+          "text": "Why was last year's remote offsite rated poorly: format, length, time zones, content, or poor facilitation?",
+          "if_resolved": "If the problems were inherent to remote, Lisbon is favored; if they were from design flaws that can be fixed, a better remote offsite is viable and cheaper."
+        },
+        {
+          "id": "u4",
+          "text": "Is the venue's date availability and cancellation or deposit terms already firm, given the dates are fixed?",
+          "if_resolved": "If the venue is confirmed with flexible terms, Lisbon is lower risk; if the dates are not held or deposits are non-refundable, committing is riskier and remote is favored."
+        },
+        {
+          "id": "u5",
+          "text": "Which cross-team collaboration problems need solving (specific team pairs, project handovers), and would structured sessions, rather than location, address them?",
+          "if_resolved": "If targeted, well-designed sessions are what matters, either format could work and cost decides; if informal in-person time is what is lacking, Lisbon is favored."
+        },
+        {
+          "id": "u6",
+          "text": "Could the remaining budget under remote (about 80,000 euros) be spent on something that improves collaboration, such as regional meetups or team-pair visits?",
+          "if_resolved": "If the money can buy better collaboration outcomes in another way, remote plus spending is favored; if not, Lisbon's use of the budget is favored."
+        }
+      ]
+    },
+    "n_candidates": 33,
+    "n_passing": 23,
+    "fail_counts": {
+      "generic": 2,
+      "presupposes": 6,
+      "answered": 0,
+      "no_path": 3,
+      "missing": 0
+    },
+    "operator_counts_chosen": {
+      "discriminate": 2,
+      "surface": 2,
+      "test": 0,
+      "bound": 2,
+      "expand": 3,
+      "close": 1,
+      "calibrate": 0
+    },
+    "chosen": [
+      {
+        "question": "What is the all-in cost of the Lisbon offsite for 60 people once flights, local transport, insurance and a contingency are added to the 70,000 euro quote?",
+        "operator": "discriminate",
+        "target": "u1",
+        "S": 250.0,
+        "picked_by": "coverage",
+        "why": "If it exceeds the budget, Lisbon is no longer clearly better.",
+        "answer_path": "Get flight estimates from your team's home locations, ask the venue for a full breakdown, and total the lines."
+      },
+      {
+        "question": "What items beyond the venue quote must the 10,000 euro remainder cover, and can it?",
+        "operator": "surface",
+        "target": "a1",
+        "S": 250.0,
+        "picked_by": "mmr",
+        "why": "Checks whether the quote leaves enough room.",
+        "answer_path": "List flights, transport, insurance, activities and contingency and get estimates for each."
+      },
+      {
+        "question": "At what total cost, or number of attendees, would the Lisbon plan go over 80,000 euros?",
+        "operator": "bound",
+        "target": "u1",
+        "S": 200.0,
+        "picked_by": "mmr",
+        "why": "Finds the money limit for Lisbon.",
+        "answer_path": "Build a cost model by headcount and travel cost and see where it crosses the budget."
+      },
+      {
+        "question": "Could the offsite be a hybrid, with a Lisbon group and others joining remotely?",
+        "operator": "expand",
+        "target": "new",
+        "S": 192.0,
+        "picked_by": "mmr",
+        "why": "The map lists only two pure options.",
+        "answer_path": "Ask the venue about hybrid support, and ask teams who would travel."
+      },
+      {
+        "question": "Does the venue quote cover all 60 people at the expected room and meeting-space needs?",
+        "operator": "surface",
+        "target": "a1",
+        "S": 180.0,
+        "picked_by": "mmr",
+        "why": "Checks that the quote matches the actual group.",
+        "answer_path": "Ask the venue to confirm headcount, room types, and meeting spaces in writing."
+      },
+      {
+        "question": "How many of the 60 people have a known reason they cannot travel on the fixed dates?",
+        "operator": "discriminate",
+        "target": "u2",
+        "S": 128.0,
+        "picked_by": "coverage",
+        "why": "A notable share unable to attend favors remote.",
+        "answer_path": "Run a short anonymous survey or ask team leads about visa, caregiving or health constraints."
+      },
+      {
+        "question": "Are there other locations or formats, such as a cheaper city or a smaller in-person group, that would meet the goal?",
+        "operator": "expand",
+        "target": "new",
+        "S": 128.0,
+        "picked_by": "mmr",
+        "why": "Brings in alternatives beyond Lisbon and fully remote.",
+        "answer_path": "Request quotes from one or two other venues and compare."
+      },
+      {
+        "question": "Is the venue holding your dates now, and until when can you decide without losing them?",
+        "operator": "close",
+        "target": "u4",
+        "S": 120.0,
+        "picked_by": "close",
+        "why": "Shows the real decision deadline.",
+        "answer_path": "Ask the venue how long the quote and the date hold last."
+      },
+      {
+        "question": "What do the employees themselves want from the offsite, and what would make them use the time well?",
+        "operator": "expand",
+        "target": "new",
+        "S": 120.0,
+        "picked_by": "mmr",
+        "why": "Employee preferences are not on the map.",
+        "answer_path": "Send a short survey asking for preferences and goals."
+      },
+      {
+        "question": "What are the deposit and cancellation terms, and at what date would you lose money by backing out?",
+        "operator": "bound",
+        "target": "u4",
+        "S": 120.0,
+        "picked_by": "mmr",
+        "why": "Shows when the Lisbon commitment becomes costly.",
+        "answer_path": "Read the venue contract terms and note deadlines for each payment."
+      }
+    ],
+    "candidates": [
+      {
+        "operator": "discriminate",
+        "target": "u1",
+        "question": "What is the all-in cost of the Lisbon offsite for 60 people once flights, local transport, insurance and a contingency are added to the 70,000 euro quote?",
+        "why": "If it exceeds the budget, Lisbon is no longer clearly better.",
+        "answer_path": "Get flight estimates from your team's home locations, ask the venue for a full breakdown, and total the lines.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 250.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u2",
+        "question": "How many of the 60 people have a known reason they cannot travel on the fixed dates?",
+        "why": "A notable share unable to attend favors remote.",
+        "answer_path": "Run a short anonymous survey or ask team leads about visa, caregiving or health constraints.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": "coverage"
+      },
+      {
+        "operator": "discriminate",
+        "target": "u3",
+        "question": "What did last year's attendees say went wrong, and how many named the remote format itself?",
+        "why": "Separates a format problem from a design problem.",
+        "answer_path": "Read last year's survey comments and code each complaint by cause.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "discriminate",
+        "target": "u5",
+        "question": "Which team pairs most need to work better together, and what would change if they spent time together in person?",
+        "why": "Targets what collaboration problem the offsite is meant to solve.",
+        "answer_path": "Ask team leads for the three weakest handovers and what is missing.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 48.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "discriminate",
+        "target": "u6",
+        "question": "What could you do with the full 80,000 euros under remote that would improve collaboration more than Lisbon?",
+        "why": "Compares what each option's money buys.",
+        "answer_path": "Sketch two or three alternative uses, such as regional meetups, and cost them.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 48.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "What items beyond the venue quote must the 10,000 euro remainder cover, and can it?",
+        "why": "Checks whether the quote leaves enough room.",
+        "answer_path": "List flights, transport, insurance, activities and contingency and get estimates for each.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 5,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 250.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "surface",
+        "target": "a2",
+        "question": "If last year's event had been designed differently but still remote, what would have gone better?",
+        "why": "Checks whether poor ratings came from format or design.",
+        "answer_path": "Ask last year's organizers and a sample of attendees what they would change.",
+        "review": {
+          "id": 7,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": true,
+          "relevance": 3,
+          "uncertainty": 5,
+          "impact": 3,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 30.0,
+        "failed": [
+          "no_path"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a3",
+        "question": "At past in-person events, did people from different teams actually mix, or did they stay in their usual groups?",
+        "why": "Checks that being in one place produces collaboration.",
+        "answer_path": "Ask past organizers and attendees, and look at any photos or survey data.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 36.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a4",
+        "question": "Are there employees who would be unwilling, rather than unable, to travel, and why?",
+        "why": "Willingness is a separate question from ability.",
+        "answer_path": "Ask in an anonymous pulse survey, and talk with team leads.",
+        "review": {
+          "id": 9,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 48.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "surface",
+        "target": "a1",
+        "question": "Does the venue quote cover all 60 people at the expected room and meeting-space needs?",
+        "why": "Checks that the quote matches the actual group.",
+        "answer_path": "Ask the venue to confirm headcount, room types, and meeting spaces in writing.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 180.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "test",
+        "target": "a3",
+        "question": "After a past in-person event, did cross-team work increase in the following weeks, and how would you know?",
+        "why": "Tests the cause and effect between co-location and collaboration.",
+        "answer_path": "Compare cross-team messages, joint tickets or projects before and after a past event.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": true,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 2,
+          "cost": 4
+        },
+        "S": 24.0,
+        "failed": [
+          "presupposes",
+          "no_path"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u3",
+        "question": "Do the remote offsite's low scores line up with specific sessions, times or time zones rather than the format as a whole?",
+        "why": "Tests whether remote itself drove the rating.",
+        "answer_path": "Break the ratings down by session and by attendee location.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u5",
+        "question": "Would planned cross-team sessions, such as joint workshops, produce more interaction than free social time in Lisbon?",
+        "why": "Tests which part of the event causes collaboration.",
+        "answer_path": "Review research or past agendas, and ask facilitators what drove connections.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 21.333333333333332,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u2",
+        "question": "Does travel itself, such as long journeys and time away from home, reduce engagement at the event?",
+        "why": "Tests whether the in-person format has costs on participation quality.",
+        "answer_path": "Check flight times and feedback from past events with travel.",
+        "review": {
+          "id": 14,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": true,
+          "relevance": 2,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 10.666666666666666,
+        "failed": [
+          "no_path"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "test",
+        "target": "u6",
+        "question": "Would smaller regional gatherings produce the same cross-team contacts as one big event?",
+        "why": "Tests whether one large event is needed for the effect.",
+        "answer_path": "Look at where people live and ask team leads which groups would meet.",
+        "review": {
+          "id": 15,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 3
+        },
+        "S": 24.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u1",
+        "question": "At what total cost, or number of attendees, would the Lisbon plan go over 80,000 euros?",
+        "why": "Finds the money limit for Lisbon.",
+        "answer_path": "Build a cost model by headcount and travel cost and see where it crosses the budget.",
+        "review": {
+          "id": 16,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 5,
+          "uncertainty": 5,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 200.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "bound",
+        "target": "u2",
+        "question": "How many absences would make an in-person event feel like it splits the company?",
+        "why": "Sets a threshold for attendance.",
+        "answer_path": "Discuss with leadership and team leads what share absent is acceptable.",
+        "review": {
+          "id": 17,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 2,
+          "cost": 3
+        },
+        "S": 24.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "u4",
+        "question": "What are the deposit and cancellation terms, and at what date would you lose money by backing out?",
+        "why": "Shows when the Lisbon commitment becomes costly.",
+        "answer_path": "Read the venue contract terms and note deadlines for each payment.",
+        "review": {
+          "id": 18,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "bound",
+        "target": "u3",
+        "question": "How long could a remote event run before attention drops too far, and what did last year's length look like?",
+        "why": "Time limits affect whether remote can work.",
+        "answer_path": "Check last year's agenda length and attendance drop-off in the video platform logs.",
+        "review": {
+          "id": 19,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 36.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "bound",
+        "target": "new",
+        "question": "What happens to the plan if a travel disruption, such as a strike or weather event, affects Lisbon flights on the fixed dates?",
+        "why": "Dates are fixed, so disruptions cannot be absorbed by rescheduling.",
+        "answer_path": "Check insurance terms, flight options and the venue's force majeure terms.",
+        "review": {
+          "id": 20,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 2
+        },
+        "S": 27.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Could the offsite be a hybrid, with a Lisbon group and others joining remotely?",
+        "why": "The map lists only two pure options.",
+        "answer_path": "Ask the venue about hybrid support, and ask teams who would travel.",
+        "review": {
+          "id": 1,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 192.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Are there other locations or formats, such as a cheaper city or a smaller in-person group, that would meet the goal?",
+        "why": "Brings in alternatives beyond Lisbon and fully remote.",
+        "answer_path": "Request quotes from one or two other venues and compare.",
+        "review": {
+          "id": 2,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 4,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 128.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "What do the employees themselves want from the offsite, and what would make them use the time well?",
+        "why": "Employee preferences are not on the map.",
+        "answer_path": "Send a short survey asking for preferences and goals.",
+        "review": {
+          "id": 3,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 2
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": "mmr"
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "Is there time to build in follow-up after the offsite so any new connections continue?",
+        "why": "Collaboration gains may fade without follow-up.",
+        "answer_path": "Ask team leads what follow-up structures they could set up.",
+        "review": {
+          "id": 4,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "expand",
+        "target": "new",
+        "question": "What time away from regular work would in-person travel cost the company, and is this counted in the budget?",
+        "why": "The goal's budget may not include working time lost.",
+        "answer_path": "Estimate travel days per person and check with finance how time is counted.",
+        "review": {
+          "id": 5,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u4",
+        "question": "Is the venue holding your dates now, and until when can you decide without losing them?",
+        "why": "Shows the real decision deadline.",
+        "answer_path": "Ask the venue how long the quote and the date hold last.",
+        "review": {
+          "id": 6,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 4,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 120.0,
+        "failed": [],
+        "picked_by": "close"
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "Which choice can you change later if it goes wrong, and which has money or reputation you cannot get back?",
+        "why": "Identifies what is hard to undo.",
+        "answer_path": "Review deposit rules for Lisbon and what a late switch to remote would cost.",
+        "review": {
+          "id": 7,
+          "generic": true,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 2,
+          "impact": 2,
+          "answerability": 3,
+          "cost": 1
+        },
+        "S": 36.0,
+        "failed": [
+          "generic"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "u2",
+        "question": "By what date do employees need to know to arrange travel, visas and time off?",
+        "why": "Sets a practical deadline.",
+        "answer_path": "Check visa processing times and ask HR for notice needed.",
+        "review": {
+          "id": 8,
+          "generic": false,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 3,
+          "impact": 2,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 60.0,
+        "failed": [],
+        "picked_by": null
+      },
+      {
+        "operator": "close",
+        "target": "new",
+        "question": "Who must approve the final decision and what do they need to see first?",
+        "why": "Reduces delay in reaching a decision.",
+        "answer_path": "Ask the leadership team what information would settle the matter.",
+        "review": {
+          "id": 9,
+          "generic": true,
+          "presupposes": false,
+          "answered": false,
+          "no_path": false,
+          "relevance": 2,
+          "uncertainty": 2,
+          "impact": 1,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 20.0,
+        "failed": [
+          "generic"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a2",
+        "question": "What is your belief that last year's rating was due to remote based on: the survey data, comments you heard, or your own impression?",
+        "why": "Separates evidence from impression.",
+        "answer_path": "Look at the raw survey results and comments.",
+        "review": {
+          "id": 10,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 4,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 240.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a1",
+        "question": "How did you decide that the quote leaves enough budget: did you list the other costs or just assume?",
+        "why": "Checks the basis of the cost estimate.",
+        "answer_path": "Write the full list of costs with estimates and compare.",
+        "review": {
+          "id": 11,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 5,
+          "cost": 1
+        },
+        "S": 135.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "a4",
+        "question": "What is your estimate of how many people can attend based on?",
+        "why": "Shows if attendance is known or guessed.",
+        "answer_path": "Compare with attendance at previous in-person gatherings.",
+        "review": {
+          "id": 12,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 3,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 1
+        },
+        "S": 108.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      },
+      {
+        "operator": "calibrate",
+        "target": "u5",
+        "question": "How do you know that cross-team collaboration is weak now, and which measures or events led you to think so?",
+        "why": "Checks the evidence behind the goal's starting point.",
+        "answer_path": "Look at available data such as cross-team project counts or survey results.",
+        "review": {
+          "id": 13,
+          "generic": false,
+          "presupposes": true,
+          "answered": false,
+          "no_path": false,
+          "relevance": 4,
+          "uncertainty": 3,
+          "impact": 3,
+          "answerability": 4,
+          "cost": 2
+        },
+        "S": 72.0,
+        "failed": [
+          "presupposes"
+        ],
+        "picked_by": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "operations-support-outsourcing",
+  "arm": "b0",
+  "model": "pilot-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-24T22:36:30.625996+00:00",
+  "questions": [
+    "What does our fixed budget allow at 900 tickets a week, and what do the agency and the two hires each cost per ticket across the full six months, including hidden fees, onboarding and overtime?",
+    "Can two in-house agents realistically handle 900 weekly tickets, or would we need to hire more, and how would the cost change?",
+    "How does the agency's quality compare, including their customer satisfaction record, references from similar clients and ability to keep above 90%?",
+    "What do the agency's contract terms say about service levels, minimum volumes, price increases for growth, exit conditions and notice periods?",
+    "How complex and product-specific are our tickets, and how long would it take outsourced agents to learn enough to resolve them well?",
+    "How would we maintain control over tone, brand voice, escalation and knowledge sharing with an agency, and how would feedback reach our product team?",
+    "How would we handle the current overload meanwhile, given the time needed to recruit and train in-house agents versus the agency's quick start?",
+    "What are the data protection, security and compliance implications of giving an external agency access to customer data and systems?",
+    "Can automation, self-service content or better tooling reduce the ticket load so that either option stays within budget?",
+    "What would a hybrid or phased approach look like, such as hiring one agent while using the agency for overflow, and how would we know early if customer satisfaction is slipping?"
+  ],
+  "raw": "{\"questions\": [\"What does our fixed budget allow at 900 tickets a week, and what do the agency and the two hires each cost per ticket across the full six months, including hidden fees, onboarding and overtime?\", \"Can two in-house agents realistically handle 900 weekly tickets, or would we need to hire more, and how would the cost change?\", \"How does the agency's quality compare, including their customer satisfaction record, references from similar clients and ability to keep above 90%?\", \"What do the agency's contract terms say about service levels, minimum volumes, price increases for growth, exit conditions and notice periods?\", \"How complex and product-specific are our tickets, and how long would it take outsourced agents to learn enough to resolve them well?\", \"How would we maintain control over tone, brand voice, escalation and knowledge sharing with an agency, and how would feedback reach our product team?\", \"How would we handle the current overload meanwhile, given the time needed to recruit and train in-house agents versus the agency's quick start?\", \"What are the data protection, security and compliance implications of giving an external agency access to customer data and systems?\", \"Can automation, self-service content or better tooling reduce the ticket load so that either option stays within budget?\", \"What would a hybrid or phased approach look like, such as hiring one agent while using the agency for overflow, and how would we know early if customer satisfaction is slipping?\"]}"
+}
