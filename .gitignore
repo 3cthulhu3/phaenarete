@@ -5,6 +5,8 @@ judgments/*/mock/
 
 # Human-written cases from real decisions: never commit, never publish.
 cases/private/
+runs_private/
+judgments_private/
 
 # Local planning notes, not part of the repo
 notes/

@@ -1,0 +1,21 @@
+{
+  "case_id": "technical-heat-pump-firmware-rollout",
+  "arm": "b0",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-26T15:48:31.948962+00:00",
+  "questions": [
+    "What exactly changed in the compressor control logic, and which failure modes (short-cycling, lockout, over-temperature, low-temperature operation) could it introduce that the lab suite and trial would not have exercised?",
+    "Did the 200-unit field trial span the full range of conditions in the installed base, including the coldest climates, defrost cycles, different heat pump models and ages, and different hardware revisions of the compressor?",
+    "Was the energy-saving mode actually enabled and running under cold-weather load in the trial, and for how long, given that a two-week trial may not have included a cold snap?",
+    "If the update goes wrong on some units, can those units still heat in a safe fallback mode, and what is the worst realistic outcome per unit (no heat, compressor damage, a stuck device)?",
+    "Can we roll back remotely and quickly, and has the rollback been tested on real units, including units that have lost connectivity or are mid-update?",
+    "Can the rollout be staged by percentage and by region with automatic halt triggers, and what telemetry and thresholds would tell us within hours that something is wrong?",
+    "How many customers could lose heating if the failure rate is only 0.5 or 1 percent, and can the support team and field technicians handle that on a normal-week staffing plan during the launch campaign?",
+    "How much does the previous six clean updates really tell us, given that none of them touched compressor control logic, and what did the compressor supplier validate or sign off on for this change?",
+    "What is the real cost of delaying: how much value is lost by launching the energy-saving mode a few weeks later or only in warmer regions first, versus the marketing campaign timing, and could the campaign be adjusted to match a staged rollout?",
+    "What are the warranty, liability and regulatory consequences if compressors are damaged or customers lose heating in winter, and who (us or the supplier) bears the cost?"
+  ],
+  "raw": "{\"questions\": [\"What exactly changed in the compressor control logic, and which failure modes (short-cycling, lockout, over-temperature, low-temperature operation) could it introduce that the lab suite and trial would not have exercised?\", \"Did the 200-unit field trial span the full range of conditions in the installed base, including the coldest climates, defrost cycles, different heat pump models and ages, and different hardware revisions of the compressor?\", \"Was the energy-saving mode actually enabled and running under cold-weather load in the trial, and for how long, given that a two-week trial may not have included a cold snap?\", \"If the update goes wrong on some units, can those units still heat in a safe fallback mode, and what is the worst realistic outcome per unit (no heat, compressor damage, a stuck device)?\", \"Can we roll back remotely and quickly, and has the rollback been tested on real units, including units that have lost connectivity or are mid-update?\", \"Can the rollout be staged by percentage and by region with automatic halt triggers, and what telemetry and thresholds would tell us within hours that something is wrong?\", \"How many customers could lose heating if the failure rate is only 0.5 or 1 percent, and can the support team and field technicians handle that on a normal-week staffing plan during the launch campaign?\", \"How much does the previous six clean updates really tell us, given that none of them touched compressor control logic, and what did the compressor supplier validate or sign off on for this change?\", \"What is the real cost of delaying: how much value is lost by launching the energy-saving mode a few weeks later or only in warmer regions first, versus the marketing campaign timing, and could the campaign be adjusted to match a staged rollout?\", \"What are the warranty, liability and regulatory consequences if compressors are damaged or customers lose heating in winter, and who (us or the supplier) bears the cost?\"]}"
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "operations-clinic-records-migration",
+  "arm": "b1",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-26T15:48:32.014394+00:00",
+  "questions": [
+    "Has anyone checked in the cloud service's dashboard that the last several nightly backups finished successfully, and what exactly is in them: the live database files, the imaging and scans, the documents, and the configuration?",
+    "If the old PC's database was open and in use while the nightly backup ran, is the backed-up copy consistent, or could it be a half-written file that fails to open when restored?",
+    "Does anyone hold the cloud account login, the encryption key or password, and the payment details that keep the subscription active, given that the previous office manager set it up two years ago?",
+    "How long would a full restore take, and does the clinic's practice-management software need a licence reactivation, a specific version, or vendor help to run on the new server? Can that be done by Monday morning?",
+    "Does the Saturday copy leave the old PC's database untouched, so that you can fall back to it on Monday if the new server fails, or does anything about the migration change or retire the old data?",
+    "How likely is it that the old PC fails completely before next weekend, and what would a week of waiting cost compared with the risk of migrating with an unverified backup?",
+    "Could you take a second, independent copy of the old PC's disk or database today, onto an external drive, so that a bad backup can no longer cause a loss, and then decide about the timing?",
+    "After the move, how will you confirm that no records were lost, for example by comparing record counts, recent appointments, and a sample of images and chart notes against the old system?",
+    "Where on the new server will the database, the backups, and the cloud sync be configured, and is the nightly backup going to continue working from the new machine from the first night, with a test of that?",
+    "Is the part-time IT helper's prior experience from the same type of software and backup service, and is there a vendor support line or a second expert to call if the restore fails on Saturday?"
+  ],
+  "raw": "{\"questions\": [\"Has anyone checked in the cloud service's dashboard that the last several nightly backups finished successfully, and what exactly is in them: the live database files, the imaging and scans, the documents, and the configuration?\", \"If the old PC's database was open and in use while the nightly backup ran, is the backed-up copy consistent, or could it be a half-written file that fails to open when restored?\", \"Does anyone hold the cloud account login, the encryption key or password, and the payment details that keep the subscription active, given that the previous office manager set it up two years ago?\", \"How long would a full restore take, and does the clinic's practice-management software need a licence reactivation, a specific version, or vendor help to run on the new server? Can that be done by Monday morning?\", \"Does the Saturday copy leave the old PC's database untouched, so that you can fall back to it on Monday if the new server fails, or does anything about the migration change or retire the old data?\", \"How likely is it that the old PC fails completely before next weekend, and what would a week of waiting cost compared with the risk of migrating with an unverified backup?\", \"Could you take a second, independent copy of the old PC's disk or database today, onto an external drive, so that a bad backup can no longer cause a loss, and then decide about the timing?\", \"After the move, how will you confirm that no records were lost, for example by comparing record counts, recent appointments, and a sample of images and chart notes against the old system?\", \"Where on the new server will the database, the backups, and the cloud sync be configured, and is the nightly backup going to continue working from the new machine from the first night, with a test of that?\", \"Is the part-time IT helper's prior experience from the same type of software and backup service, and is there a vendor support line or a second expert to call if the restore fails on Saturday?\"]}"
+}

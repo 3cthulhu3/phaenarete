@@ -1,0 +1,71 @@
+[
+  {
+    "id": "operations-clinic-records-migration",
+    "category": "operations",
+    "source": "synthetic",
+    "benchmark": "v1",
+    "author": "claude",
+    "decision": "Should we move our dental clinic's patient records to the new storage server this weekend, as planned?",
+    "options": [
+      {"id": "A", "label": "Migrate this weekend", "description": "Copy the records database to the new server on Saturday; the nightly cloud backup covers us if anything goes wrong."},
+      {"id": "B", "label": "Verify a restore first, migrate next weekend", "description": "Restore last night's backup onto a spare machine first, then migrate a week later."}
+    ],
+    "goal": "Move to the new server with no loss of patient records and the clinic open as normal on Monday.",
+    "constraints": "Two dentists, one part-time IT helper, no in-house expert.",
+    "visible_context": "The old office PC that holds the records database is failing, and the new storage server arrived this week. A cloud service backs up the records every night; it was set up two years ago by the previous office manager and nobody has had a reason to touch it since. The IT helper has done similar moves for other small offices.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "Since the records software changed its database format three months ago, the nightly backup has been failing and uploading nothing.", "why": "There is no usable recent backup, so any mistake during the move could lose months of records.", "how_to_learn": "Open the backup service's file list and check the date and size of the latest records file, or try one test restore."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "The backup service sends its failure alerts to the previous office manager's mailbox, which nobody reads anymore.", "why": "Silence from the backup is not evidence that it works, so the plan rests on an assumption nobody has checked.", "how_to_learn": "Look up which email address the backup service sends alerts to."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "Three months ago the records software also added a new appointment-reminder feature.", "why": "A new feature in the software says nothing about whether backups work."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "The backup service's login is stored in the clinic's shared password manager.", "why": "Access to the account is fine either way; it does not show whether backups run or whether anyone sees alerts."}
+    ],
+    "notes": "Structure adapted from a well-known engineering post-mortem in which every backup was believed to work and none did; domain, people and numbers changed."
+  },
+  {
+    "id": "technical-heat-pump-firmware-rollout",
+    "category": "technical",
+    "source": "synthetic",
+    "benchmark": "v1",
+    "author": "claude",
+    "decision": "Should we push the new firmware to all 40,000 installed heat pumps on Monday, as scheduled?",
+    "options": [
+      {"id": "A", "label": "Roll out to all units on Monday"},
+      {"id": "B", "label": "Roll out to warmer regions first, colder regions after more testing"}
+    ],
+    "goal": "Launch the new energy-saving mode this quarter without any customer losing heating.",
+    "constraints": "The marketing campaign starts Monday; the support team is staffed for a normal week.",
+    "visible_context": "The new firmware adds an energy-saving mode that customers have asked for. It passed the full lab test suite and a two-week field trial on 200 units. The last six firmware updates rolled out without incidents. The compressor control logic was changed for the new mode, together with the compressor supplier.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "The compressor supplier's engineer wrote that the new control logic was only validated down to -5 °C, and the forecast for the northern regions next week is -15 °C.", "why": "Units in the coldest regions would run untested logic exactly when heating matters most.", "how_to_learn": "Ask the supplier for the validated temperature range of the new logic and compare it with the 10-day forecast for the installed regions."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "During the field trial, which happened in a mild fortnight, three units in the coldest test region logged short-cycling errors that were closed as sensor noise.", "why": "The only cold-weather evidence points to a real problem that was explained away.", "how_to_learn": "Filter the field-trial error logs by region and outside temperature."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "The compressor supplier's engineer suggested renaming the new mode in the app to make it clearer.", "why": "A naming suggestion has no bearing on safety or heating."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "During the field trial, a few units took longer than usual to download the update.", "why": "Download time is an inconvenience, not a heating risk."}
+    ],
+    "notes": "Structure adapted from a well-known launch decision in which an engineering objection about cold temperatures did not reach the decision makers; domain, people and numbers changed."
+  },
+  {
+    "id": "operations-studio-office-remote",
+    "category": "operations",
+    "source": "synthetic",
+    "benchmark": "v1",
+    "author": "claude",
+    "decision": "Should our 12-person design studio give up its office and go fully remote when the lease comes up for renewal next month?",
+    "options": [
+      {"id": "A", "label": "Give up the office and go remote"},
+      {"id": "B", "label": "Renew the office for another term"}
+    ],
+    "goal": "Keep winning new client projects at last year's pace while cutting fixed costs.",
+    "constraints": "The renewal decision is due in four weeks.",
+    "visible_context": "Going remote would cut our fixed costs by about a quarter. Everyone already works from home two days a week, and in a team survey most people asked for more remote days. Our client work is delivered digitally, and our biggest clients are happy with video calls for regular check-ins.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {"id": "c1", "type": "crux", "favors": "B", "text": "Most of last year's new projects started in in-person workshops that clients attended in the studio's own space.", "why": "The office is the studio's main way of winning work, not just a place to work.", "how_to_learn": "Go through last year's new projects and note where each one started."},
+      {"id": "c2", "type": "crux", "favors": "B", "text": "Offices of this size in the district are booked out for years, so once the space is released the studio could not get a comparable one back.", "why": "Going remote is effectively irreversible, so being wrong would be permanent.", "how_to_learn": "Ask the landlord and a local agent how long comparable spaces take to find."},
+      {"id": "t1", "type": "twin", "twin_of": "c1", "text": "Last year the two biggest clients switched to a new video-call tool.", "why": "Which call tool clients use does not change how new projects are won."},
+      {"id": "t2", "type": "twin", "twin_of": "c2", "text": "The landlord plans to repaint the building's facade next year.", "why": "Cosmetic work changes neither the cost nor the reversibility of the decision."}
+    ],
+    "notes": "Structure: a one-way-door decision where the easy option quietly closes a later option."
+  }
+]

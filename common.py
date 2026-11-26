@@ -35,12 +35,31 @@ def load_cases(path: str | Path) -> list[dict]:
         if f.name.upper().startswith("TEMPLATE"):
             continue
         data = json.loads(f.read_text(encoding="utf-8"))
-        cases.extend(data if isinstance(data, list) else [data])
+        for c in data if isinstance(data, list) else [data]:
+            c["_path"] = f.as_posix()
+            cases.append(c)
     ids = [c["id"] for c in cases]
     dupes = {i for i in ids if ids.count(i) > 1}
     if dupes:
         raise ValueError(f"duplicate case ids: {sorted(dupes)}")
     return cases
+
+
+RUN_ROOTS = ("runs", "runs_private")
+JUDGMENT_ROOTS = ("judgments", "judgments_private")
+
+
+def is_private(case: dict) -> bool:
+    """Cases loaded from cases/private/ must never leave the machine, and neither may their outputs."""
+    return "/private/" in case.get("_path", "")
+
+
+def run_root(case: dict) -> Path:
+    return ROOT / ("runs_private" if is_private(case) else "runs")
+
+
+def judgment_root(case: dict) -> Path:
+    return ROOT / ("judgments_private" if is_private(case) else "judgments")
 
 
 def case_brief(case: dict) -> str:

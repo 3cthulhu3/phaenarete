@@ -4,54 +4,153 @@
   "title": "Crux decision case",
   "description": "One decision with visible context (shown to the question generator) and hidden facts (shown only to the judge). Cruxes change the best option; twins have the same form but do not.",
   "type": "object",
-  "required": ["id", "category", "source", "decision", "options", "goal", "visible_context", "lean_without_hidden", "hidden_facts"],
+  "required": [
+    "id",
+    "category",
+    "source",
+    "decision",
+    "options",
+    "goal",
+    "visible_context",
+    "lean_without_hidden",
+    "hidden_facts"
+  ],
   "additionalProperties": false,
   "properties": {
-    "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
-    "category": {"type": "string", "enum": ["career", "product", "business", "technical", "purchase", "operations", "housing", "education", "other"]},
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "career",
+        "product",
+        "business",
+        "technical",
+        "purchase",
+        "operations",
+        "housing",
+        "education",
+        "other"
+      ]
+    },
     "source": {
       "type": "string",
-      "enum": ["synthetic", "human-real", "human-adapted"],
-      "description": "synthetic = written by a model; human-real = a real decision someone faced (anonymised); human-adapted = a real decision with details changed."
+      "enum": [
+        "synthetic",
+        "human-real",
+        "human-adapted",
+        "model-adapted"
+      ],
+      "description": "synthetic = written by a model; human-real = a real decision someone faced (anonymised); human-adapted = a real decision with details changed by a person; model-adapted = a public, real account adapted by a model (keep in cases/private/ and never publish)."
     },
-    "author": {"type": "string", "description": "Who wrote the case (initials or handle)."},
-    "decision": {"type": "string", "description": "The decision as one question, in the decider's words."},
+    "author": {
+      "type": "string",
+      "description": "Who wrote the case (initials or handle)."
+    },
+    "decision": {
+      "type": "string",
+      "description": "The decision as one question, in the decider's words."
+    },
     "options": {
       "type": "array",
       "minItems": 2,
       "maxItems": 4,
       "items": {
         "type": "object",
-        "required": ["id", "label"],
+        "required": [
+          "id",
+          "label"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": {"type": "string", "pattern": "^[A-D]$"},
-          "label": {"type": "string"},
-          "description": {"type": "string"}
+          "id": {
+            "type": "string",
+            "pattern": "^[A-D]$"
+          },
+          "label": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
         }
       }
     },
-    "goal": {"type": "string", "description": "What a good outcome means for the decider. Cruxes are judged against this goal."},
-    "constraints": {"type": "string"},
-    "visible_context": {"type": "string", "description": "Everything the generator is allowed to see."},
-    "lean_without_hidden": {"type": "string", "pattern": "^[A-D]$", "description": "The option the visible context points to."},
+    "goal": {
+      "type": "string",
+      "description": "What a good outcome means for the decider. Cruxes are judged against this goal."
+    },
+    "constraints": {
+      "type": "string"
+    },
+    "visible_context": {
+      "type": "string",
+      "description": "Everything the generator is allowed to see."
+    },
+    "lean_without_hidden": {
+      "type": "string",
+      "pattern": "^[A-D]$",
+      "description": "The option the visible context points to."
+    },
     "hidden_facts": {
       "type": "array",
       "minItems": 2,
       "items": {
         "type": "object",
-        "required": ["id", "text", "type"],
+        "required": [
+          "id",
+          "text",
+          "type"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": {"type": "string", "pattern": "^(c|t)[0-9]+$", "description": "c = crux, t = twin."},
-          "text": {"type": "string"},
-          "type": {"type": "string", "enum": ["crux", "twin"]},
-          "favors": {"type": "string", "pattern": "^[A-D]$", "description": "Crux only: the option this fact makes best."},
-          "twin_of": {"type": "string", "description": "Twin only: the crux id it mirrors in form."},
-          "why": {"type": "string", "description": "Crux: why it flips the decision. Twin: why it does not."}
+          "id": {
+            "type": "string",
+            "pattern": "^(c|t)[0-9]+$",
+            "description": "c = crux, t = twin."
+          },
+          "text": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "crux",
+              "twin"
+            ]
+          },
+          "favors": {
+            "type": "string",
+            "pattern": "^[A-D]$",
+            "description": "Crux only: the option this fact makes best."
+          },
+          "twin_of": {
+            "type": "string",
+            "description": "Twin only: the crux id it mirrors in form."
+          },
+          "why": {
+            "type": "string",
+            "description": "Crux: why it flips the decision. Twin: why it does not."
+          },
+          "how_to_learn": {
+            "type": "string",
+            "description": "Crux only, required in v1: how the decider could have learned this fact before deciding (whom to ask, what to check). Facts nobody could know in time are not cruxes."
+          }
         }
       }
     },
-    "notes": {"type": "string"}
+    "notes": {
+      "type": "string"
+    },
+    "benchmark": {
+      "type": "string",
+      "enum": [
+        "v0",
+        "v1"
+      ],
+      "description": "Benchmark version the case was written for. Missing means v0. v1 cases must follow CASES.md."
+    }
   }
 }

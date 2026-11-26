@@ -1,9 +1,9 @@
 """Score judged runs and compare arms.
 
-Metrics per run (10 questions):
-  crux_recall      share of crux facts revealed by any question
-  twin_rate        share of twin facts revealed by any question
-  discrimination   crux_recall - twin_rate   (the headline metric)
+Metrics per run (questions are ranked, best first):
+  crux@k           share of crux facts revealed by the first k questions (k = 3, 5, 10)
+  twin@k           share of twin facts revealed by the first k questions
+  disc@k           crux@k - twin@k   (disc@3 and disc@5 are the v1 headline metrics)
   rr               1 / rank of the first question that reveals a crux (0 if none)
   generic_rate     share of questions the judge marked generic
 
@@ -21,35 +21,35 @@ import random
 from collections import defaultdict
 from statistics import mean
 
-from common import ROOT, load_cases
+from common import JUDGMENT_ROOTS, ROOT, load_cases
 
-METRICS = ["discrimination", "crux_recall", "twin_rate", "rr", "generic_rate"]
+KS = (3, 5, 10)
+METRICS = ["disc@3", "disc@5", "crux@3", "crux@5", "crux@10", "twin@5", "rr", "generic_rate"]
 
 
 def score_run(judged: dict, case: dict) -> dict:
+    """Metrics for one judged run. Questions are in rank order, so @k uses the first k."""
     cruxes = {f["id"] for f in case["hidden_facts"] if f["type"] == "crux"}
     twins = {f["id"] for f in case["hidden_facts"] if f["type"] == "twin"}
-    revealed, first_crux = set(), None
-    for row in judged["rows"]:
-        hits = set(row["reveals"])
-        revealed |= hits
-        if first_crux is None and hits & cruxes:
-            first_crux = row["q"]
     rows = judged["rows"]
-    crux_recall = len(revealed & cruxes) / len(cruxes) if cruxes else 0.0
-    twin_rate = len(revealed & twins) / len(twins) if twins else 0.0
-    return {
-        "crux_recall": crux_recall, "twin_rate": twin_rate,
-        "discrimination": crux_recall - twin_rate,
-        "rr": 1 / first_crux if first_crux else 0.0,
-        "generic_rate": sum(r["generic"] for r in rows) / len(rows) if rows else 0.0,
-    }
+    out: dict = {}
+    for k in KS:
+        revealed = set().union(*(set(r["reveals"]) for r in rows[:k])) if rows[:k] else set()
+        crux = len(revealed & cruxes) / len(cruxes) if cruxes else 0.0
+        twin = len(revealed & twins) / len(twins) if twins else 0.0
+        out[f"crux@{k}"], out[f"twin@{k}"], out[f"disc@{k}"] = crux, twin, crux - twin
+    first_crux = next((r["q"] for r in rows if set(r["reveals"]) & cruxes), None)
+    out["rr"] = 1 / first_crux if first_crux else 0.0
+    out["generic_rate"] = sum(r["generic"] for r in rows) / len(rows) if rows else 0.0
+    # v0 names, kept so older notes stay readable
+    out["crux_recall"], out["twin_rate"], out["discrimination"] = out["crux@10"], out["twin@10"], out["disc@10"]
+    return out
 
 
 def collect(cases: dict) -> dict:
     """{(arm, gen_model, judge_model): {case_id: [scores per sample]}}"""
     out: dict = defaultdict(lambda: defaultdict(list))
-    for f in sorted((ROOT / "judgments").glob("*/*/*/*.json")):
+    for f in sorted(f for r in JUDGMENT_ROOTS for f in (ROOT / r).glob("*/*/*/*.json")):
         judged = json.loads(f.read_text(encoding="utf-8"))
         case = cases.get(judged["case_id"])
         if case is None:
@@ -85,18 +85,18 @@ def main() -> None:
     if not data:
         raise SystemExit("no judgments found; run judge.py first")
 
-    print(f"{'arm':6} {'generator':22} {'judge':18} {'n':>3}  " + "  ".join(f"{m[:8]:>8}" for m in METRICS))
+    print(f"{'arm':11} {'generator':22} {'judge':18} {'n':>3}  " + "  ".join(f"{m[:8]:>8}" for m in METRICS))
     for (arm, gen, judge), per_case in sorted(data.items()):
         cm = case_means(per_case)
         row = "  ".join(f"{pct(mean(v[m] for v in cm.values())):>8}" for m in METRICS)
-        print(f"{arm:6} {gen:22} {judge:18} {len(cm):>3}  {row}")
+        print(f"{arm:11} {gen:22} {judge:18} {len(cm):>3}  {row}")
         if args.by_category:
             groups = defaultdict(list)
             for cid, v in cm.items():
                 groups[cases[cid]["category"]].append(v)
             for cat, vs in sorted(groups.items()):
                 row = "  ".join(f"{pct(mean(v[m] for v in vs)):>8}" for m in METRICS)
-                print(f"{'':6} {'  ' + cat:22} {'':18} {len(vs):>3}  {row}")
+                print(f"{'':11} {'  ' + cat:22} {'':18} {len(vs):>3}  {row}")
     print("(values in percentage points; rr is mean reciprocal rank x100)")
 
     if args.compare:

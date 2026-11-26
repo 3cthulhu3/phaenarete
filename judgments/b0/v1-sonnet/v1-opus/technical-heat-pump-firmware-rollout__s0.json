@@ -1,0 +1,95 @@
+{
+  "case_id": "technical-heat-pump-firmware-rollout",
+  "arm": "b0",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What exactly changed in the compressor control logic, and which failure modes (short-cycling, lockout, over-temperature, low-temperature operation) could it introduce that the lab suite and trial would not have exercised?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Low-temperature operation failure modes: logic validated only to -5 C."
+    },
+    {
+      "q": 2,
+      "question": "Did the 200-unit field trial span the full range of conditions in the installed base, including the coldest climates, defrost cycles, different heat pump models and ages, and different hardware revisions of the compressor?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Coldest climates in trial: mild fortnight, cold-region units logged short-cycling errors."
+    },
+    {
+      "q": 3,
+      "question": "Was the energy-saving mode actually enabled and running under cold-weather load in the trial, and for how long, given that a two-week trial may not have included a cold snap?",
+      "reveals": [
+        "c2",
+        "c1"
+      ],
+      "generic": false,
+      "note": "Cold-weather operation in trial: mild period, short-cycling errors dismissed; validation only to -5 C vs -15 C forecast."
+    },
+    {
+      "q": 4,
+      "question": "If the update goes wrong on some units, can those units still heat in a safe fallback mode, and what is the worst realistic outcome per unit (no heat, compressor damage, a stuck device)?",
+      "reveals": [],
+      "generic": false,
+      "note": "Fallback modes; no fact."
+    },
+    {
+      "q": 5,
+      "question": "Can we roll back remotely and quickly, and has the rollback been tested on real units, including units that have lost connectivity or are mid-update?",
+      "reveals": [],
+      "generic": false,
+      "note": "Rollback; slow downloads not directly asked."
+    },
+    {
+      "q": 6,
+      "question": "Can the rollout be staged by percentage and by region with automatic halt triggers, and what telemetry and thresholds would tell us within hours that something is wrong?",
+      "reveals": [],
+      "generic": false,
+      "note": "Staging and telemetry; no fact."
+    },
+    {
+      "q": 7,
+      "question": "How many customers could lose heating if the failure rate is only 0.5 or 1 percent, and can the support team and field technicians handle that on a normal-week staffing plan during the launch campaign?",
+      "reveals": [],
+      "generic": false,
+      "note": "Support capacity; no fact."
+    },
+    {
+      "q": 8,
+      "question": "How much does the previous six clean updates really tell us, given that none of them touched compressor control logic, and what did the compressor supplier validate or sign off on for this change?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "What supplier validated: only down to -5 C."
+    },
+    {
+      "q": 9,
+      "question": "What is the real cost of delaying: how much value is lost by launching the energy-saving mode a few weeks later or only in warmer regions first, versus the marketing campaign timing, and could the campaign be adjusted to match a staged rollout?",
+      "reveals": [],
+      "generic": false,
+      "note": "Cost of delay; no fact."
+    },
+    {
+      "q": 10,
+      "question": "What are the warranty, liability and regulatory consequences if compressors are damaged or customers lose heating in winter, and who (us or the supplier) bears the cost?",
+      "reveals": [],
+      "generic": false,
+      "note": "Liability; no fact."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Low-temperature operation failure modes: logic validated only to -5 C.\"}, {\"q\": 2, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Coldest climates in trial: mild fortnight, cold-region units logged short-cycling errors.\"}, {\"q\": 3, \"reveals\": [\"f2\", \"f3\"], \"generic\": false, \"note\": \"Cold-weather operation in trial: mild period, short-cycling errors dismissed; validation only to -5 C vs -15 C forecast.\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Fallback modes; no fact.\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Rollback; slow downloads not directly asked.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Staging and telemetry; no fact.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Support capacity; no fact.\"}, {\"q\": 8, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"What supplier validated: only down to -5 C.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Cost of delay; no fact.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Liability; no fact.\"}]}"
+}

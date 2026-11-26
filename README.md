@@ -23,7 +23,20 @@ What it shows:
 - **Why v0 lost.** Of 5 missed cruxes, 2 were never generated; 3 were generated and then dropped by selection. Coverage slots tied to the parse step's uncertainty map and a score that rewards cheap, easy questions push decisive questions out of the top 3. The critic passed 87% of candidates.
 - **Reading.** This falsifies the v0 design, not the idea. A single well-built prompt (B1) is the bar any multi-stage system has to clear.
 
-Next: a harder benchmark (headline metric at 3 and 5 questions, cruxes outside standard checklists, twins a careful advisor would plausibly ask about, human-written cases), then a pipeline v1 measured against it.
+### v1 difficulty check (first 6 cases)
+
+v1 moves the headline to `disc@3` and `disc@5` and adds writing rules in [CASES.md](CASES.md). The first six v1 cases (3 synthetic in `cases/v1/`, 3 adapted from public post-mortems and kept private) were run against B0 and B1, same setup as the pilot.
+
+| Arm | Crux @3 | @5 | @10 | Twin rate @5 | disc@3 | disc@5 |
+| --- | --- | --- | --- | --- | --- | --- |
+| B0 | 56 | 78 | 100 | 17 | 56 | 61 |
+| B1 | 53 | 78 | 78 | 17 | 36 | 61 |
+
+- **Twins now work.** Both arms asked about a twin in some cases (who holds the backup login, whether historical data exists): plausible advisor questions that do not move the decision. In v0 no arm ever did, so discrimination could not move.
+- **Cruxes are still findable.** Every one of the 13 cruxes was found by at least one arm within 10 questions; 2 of 6 cases are too easy at 5 questions. Even a crux outside the usual checklist (users rewarded for speed while the product slows them down) was found by both arms. Cruxes a model writes are cruxes a model can think of.
+- **Consequence.** The hard part of the test set has to come from people's own decisions, where the crux was idiosyncratic enough that they missed it themselves. Model-written cases are useful for development and for twins.
+
+Next: human-written cases, then a pipeline v1 measured against B1 at 3 and 5 questions.
 
 ## Layout
 

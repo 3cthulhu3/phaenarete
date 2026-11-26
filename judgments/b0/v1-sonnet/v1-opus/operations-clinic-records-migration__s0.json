@@ -1,0 +1,95 @@
+{
+  "case_id": "operations-clinic-records-migration",
+  "arm": "b0",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t1",
+    "f3": "t2",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Has anyone ever restored a nightly cloud backup into a working copy of the records database, and do we know the restored data is complete, readable by the records software and recent, rather than assuming it works?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Whether restored data is complete and recent: backup has uploaded nothing for three months."
+    },
+    {
+      "q": 2,
+      "question": "Is the nightly backup really running and succeeding: what do the logs, last successful run date, backup size and retention show, and does anyone still receive failure alerts after the previous office manager left?",
+      "reveals": [
+        "c1",
+        "c2"
+      ],
+      "generic": false,
+      "note": "Directly asks if backup succeeds and who receives failure alerts."
+    },
+    {
+      "q": 3,
+      "question": "What exactly does the backup contain (the database, attachments such as X-rays and scans, configuration, and the software licences or settings needed to reopen the records), and are any of those missing?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "What the backup contains: nothing since the format change."
+    },
+    {
+      "q": 4,
+      "question": "Who owns the cloud backup account today (credentials, billing, recovery email), and is the subscription paid and active, or could it have lapsed without anyone noticing?",
+      "reveals": [
+        "t2"
+      ],
+      "generic": false,
+      "note": "Credentials: login is in the shared password manager."
+    },
+    {
+      "q": 5,
+      "question": "How is the old office PC's state: if it fails further during the migration, will the backup be our only copy, and would making an additional copy now (to an external drive) protect us immediately regardless of which option we choose?",
+      "reveals": [],
+      "generic": false,
+      "note": "About old PC state and extra copy; does not directly surface facts."
+    },
+    {
+      "q": 6,
+      "question": "How long can the old PC be expected to keep working, and can we afford one more week; what is the actual risk of waiting versus the risk of migrating with an unverified backup?",
+      "reveals": [],
+      "generic": false,
+      "note": "About PC lifespan and waiting risk."
+    },
+    {
+      "q": 7,
+      "question": "What is the migration plan in detail: what is copied how, how will the copied data be checked against the original (record counts, checksums, opening sample patient files), and what is the plan if the new server does not work on Sunday night?",
+      "reveals": [],
+      "generic": false,
+      "note": "Migration plan details."
+    },
+    {
+      "q": 8,
+      "question": "Will the clinic be able to open on Monday in both cases, including software installation, user accounts, network access for the dental chairs and imaging equipment, and printers; has the new server been tested with the real software?",
+      "reveals": [],
+      "generic": false,
+      "note": "Monday readiness."
+    },
+    {
+      "q": 9,
+      "question": "Does the new server have its own backup and security setup (encryption, access control, off-site copy), and do the legal requirements for patient data (retention, privacy, breach notification) affect how we migrate and where backups are kept?",
+      "reveals": [],
+      "generic": false,
+      "note": "New server security and legal requirements."
+    },
+    {
+      "q": 10,
+      "question": "Do we need an outside expert or the software vendor's support during the move, given no in-house expertise, and is it available this weekend or on Monday morning if something fails?",
+      "reveals": [],
+      "generic": false,
+      "note": "Outside expert availability."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Whether restored data is complete and recent: backup has uploaded nothing for three months.\"}, {\"q\": 2, \"reveals\": [\"f1\", \"f4\"], \"generic\": false, \"note\": \"Directly asks if backup succeeds and who receives failure alerts.\"}, {\"q\": 3, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"What the backup contains: nothing since the format change.\"}, {\"q\": 4, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Credentials: login is in the shared password manager.\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"About old PC state and extra copy; does not directly surface facts.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"About PC lifespan and waiting risk.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Migration plan details.\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Monday readiness.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"New server security and legal requirements.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Outside expert availability.\"}]}"
+}

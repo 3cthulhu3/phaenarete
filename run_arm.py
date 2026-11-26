@@ -19,7 +19,7 @@ import datetime as dt
 import hashlib
 
 import pipeline
-from common import (DEFAULT_GENERATOR, ROOT, Pending, cached_call, call_claude, case_brief, extract_json, fill,
+from common import (DEFAULT_GENERATOR, ROOT, run_root, Pending, cached_call, call_claude, case_brief, extract_json, fill,
                     load_cases, load_prompt, slug, write_json)
 
 PIPELINE_ARM = "phaenarete"
@@ -58,11 +58,13 @@ def main() -> None:
         cases = [c for c in cases if c["id"] in set(args.only)]
 
     model_dir = "mock" if args.dry_run else slug(args.model)
-    out_dir = ROOT / "runs" / args.arm / model_dir
+    out_dirs = set()
     done = skipped = failed = pending = 0
     for case in cases:
         prompt = fill(template, case_brief=case_brief(case))
         for k in range(args.samples):
+            out_dir = run_root(case) / args.arm / model_dir
+            out_dirs.add(str(out_dir.relative_to(ROOT)))
             out = out_dir / f"{case['id']}__s{k}.json"
             if out.exists() and not args.overwrite:
                 skipped += 1
@@ -99,7 +101,7 @@ def main() -> None:
             done += 1
             print(f"ok   {case['id']} s{k}")
     print(f"\n{done} written, {skipped} skipped (exist), {failed} failed, {pending} waiting for replies"
-          f" -> {out_dir.relative_to(ROOT)}")
+          f" -> {', '.join(sorted(out_dirs)) or '(nothing)'}")
 
 
 if __name__ == "__main__":

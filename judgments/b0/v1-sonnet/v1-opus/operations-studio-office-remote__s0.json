@@ -1,0 +1,90 @@
+{
+  "case_id": "operations-studio-office-remote",
+  "arm": "b0",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t2",
+    "f3": "t1",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How exactly do we win new projects today: how many came through in-person meetings, referrals, local network or office visibility, and how many through online channels, and what would change without an office?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "How projects are won: mostly in-person workshops in studio."
+    },
+    {
+      "q": 2,
+      "question": "What is the true net saving once we add remote costs (home-office stipends, software, coworking or meeting-room rentals for client workshops, equipment, possibly higher insurance), compared with the one-quarter fixed cost reduction?",
+      "reveals": [],
+      "generic": false,
+      "note": "Net savings; no fact."
+    },
+    {
+      "q": 3,
+      "question": "What do our largest and most valuable clients, and prospective clients in the pitch stage, think about working with a fully remote studio, and have we asked them directly rather than assuming?",
+      "reveals": [],
+      "generic": false,
+      "note": "Client opinions; no fact directly."
+    },
+    {
+      "q": 4,
+      "question": "How does the quality of creative work, such as spontaneous collaboration, critique, mentoring of juniors and onboarding of new hires, hold up when the team is never together, and what evidence do we have from the two remote days we already do?",
+      "reveals": [],
+      "generic": false,
+      "note": "Creative quality; no fact."
+    },
+    {
+      "q": 5,
+      "question": "What does the survey actually show: how strong is the preference for more remote days versus fully remote, who prefers the office (for example people with small flats or junior staff), and could we lose people either way?",
+      "reveals": [],
+      "generic": false,
+      "note": "Survey details; no fact."
+    },
+    {
+      "q": 6,
+      "question": "Is there a middle path we have not considered, such as a smaller office, a flexible or coworking space, a shorter lease or a break clause, and what are the landlord's terms and flexibility on renewal?",
+      "reveals": [],
+      "generic": false,
+      "note": "Middle path and landlord terms; facade repaint not relevant to answer."
+    },
+    {
+      "q": 7,
+      "question": "How reversible is each option: if remote does not work, how hard and costly would it be to find an office again in 6 to 12 months, compared with the cost of being locked into another term we may not need?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Reversibility: comparable offices booked out for years."
+    },
+    {
+      "q": 8,
+      "question": "What are the legal, tax and practical implications of going fully remote (employment contracts, data security for client work, where employees live, equipment ownership, insurance)?",
+      "reveals": [],
+      "generic": false,
+      "note": "Legal/tax; no fact."
+    },
+    {
+      "q": 9,
+      "question": "How do we maintain culture, communication and accountability remotely, and which concrete practices (rituals, tools, in-person meetups) would we put in place and budget for?",
+      "reveals": [],
+      "generic": false,
+      "note": "Culture practices; no fact."
+    },
+    {
+      "q": 10,
+      "question": "Can we test it before committing, for example a trial period remote while keeping a short extension on the lease, and what indicators (win rate, project margins, client satisfaction, team morale) would tell us in four weeks or in six months that we chose correctly?",
+      "reveals": [],
+      "generic": false,
+      "note": "Trial and indicators; no fact."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"How projects are won: mostly in-person workshops in studio.\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Net savings; no fact.\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Client opinions; no fact directly.\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Creative quality; no fact.\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Survey details; no fact.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Middle path and landlord terms; facade repaint not relevant to answer.\"}, {\"q\": 7, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Reversibility: comparable offices booked out for years.\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Legal/tax; no fact.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Culture practices; no fact.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Trial and indicators; no fact.\"}]}"
+}

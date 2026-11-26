@@ -16,7 +16,7 @@ import argparse
 import json
 import random
 
-from common import (DEFAULT_JUDGE, ROOT, Pending, cached_call, call_claude, case_brief, extract_json, fill, load_cases,
+from common import (DEFAULT_JUDGE, ROOT, RUN_ROOTS, judgment_root, Pending, cached_call, call_claude, case_brief, extract_json, fill, load_cases,
                            load_prompt, neutral_facts, slug, write_json)
 
 
@@ -43,12 +43,11 @@ def main() -> None:
 
     cases = {c["id"]: c for c in load_cases(ROOT / args.cases)}
     template = load_prompt("judge")
-    run_dir = ROOT / "runs" / args.arm / args.gen_model
     judge_dir = "mock" if args.dry_run else slug(args.judge_model)
-    out_dir = ROOT / "judgments" / args.arm / args.gen_model / judge_dir
-    runs = sorted(run_dir.glob("*.json"))
+    runs = sorted(f for r in RUN_ROOTS for f in (ROOT / r / args.arm / args.gen_model).glob("*.json"))
     if not runs:
-        raise SystemExit(f"no runs in {run_dir.relative_to(ROOT)}; run run_arm.py first")
+        raise SystemExit(f"no runs for arm {args.arm} / {args.gen_model}; run run_arm.py first")
+    out_dirs = set()
 
     done = skipped = failed = pending = 0
     for run_file in runs:
@@ -57,6 +56,8 @@ def main() -> None:
         if case is None:
             print(f"skip {run_file.name}: case not in {args.cases}")
             continue
+        out_dir = judgment_root(case) / args.arm / args.gen_model / judge_dir
+        out_dirs.add(str(out_dir.relative_to(ROOT)))
         out = out_dir / run_file.name
         if out.exists() and not args.overwrite:
             skipped += 1
@@ -98,7 +99,7 @@ def main() -> None:
         done += 1
         print(f"ok   {run_file.name}")
     print(f"\n{done} judged, {skipped} skipped (exist), {failed} failed, {pending} waiting for replies"
-          f" -> {out_dir.relative_to(ROOT)}")
+          f" -> {', '.join(sorted(out_dirs)) or '(nothing)'}")
 
 
 if __name__ == "__main__":

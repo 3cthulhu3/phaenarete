@@ -11,7 +11,7 @@ import argparse
 import json
 from pathlib import Path
 
-from common import ROOT, load_cases
+from common import JUDGMENT_ROOTS, ROOT, load_cases
 
 
 def main() -> None:
@@ -27,7 +27,7 @@ def main() -> None:
     facts = {f["id"]: f for f in case["hidden_facts"]}
 
     judged = {}
-    for j in (ROOT / "judgments" / run["arm"] / run["model"]).glob(f"*/{run_path.name}"):
+    for j in (f for r in JUDGMENT_ROOTS for f in (ROOT / r / run["arm"] / run["model"]).glob(f"*/{run_path.name}")):
         judged = {r["q"]: r for r in json.loads(j.read_text(encoding="utf-8"))["rows"]}
         break
 

@@ -10,7 +10,10 @@ import sys
 from common import ROOT, load_cases
 
 CATEGORIES = {"career", "product", "business", "technical", "purchase", "operations", "housing", "education", "other"}
-SOURCES = {"synthetic", "human-real", "human-adapted"}
+SOURCES = {"synthetic", "human-real", "human-adapted", "model-adapted"}
+
+# Words that mark the stock risk checklist the pilot showed a plain prompt always covers.
+CHECKLIST_WORDS = {"runway", "funding round", "contract", "clause", "leaving", "warranty", "budget"}
 
 
 def check(case: dict) -> list[str]:
@@ -57,6 +60,26 @@ def check(case: dict) -> list[str]:
             errs.append(f"{f['id']}: empty text")
         if f["text"].strip().lower() in case["visible_context"].lower():
             errs.append(f"{f['id']}: hidden fact appears in visible context")
+    if case.get("benchmark") == "v1":
+        errs += check_v1(case, cruxes, twins)
+    return errs
+
+
+def check_v1(case: dict, cruxes: list[dict], twins: list[dict]) -> list[str]:
+    """Rules from CASES.md that a script can check. Errors start with 'v1:'; hints with 'hint:'."""
+    errs = []
+    for f in cruxes:
+        if not f.get("how_to_learn", "").strip():
+            errs.append(f"v1: {f['id']}: crux needs how_to_learn (a crux must be learnable before deciding)")
+        if any(w in f["text"].lower() for w in CHECKLIST_WORDS):
+            errs.append(f"hint: {f['id']}: crux uses a stock checklist word; the pilot found these too easy")
+    for f in twins:
+        if not f.get("why", "").strip():
+            errs.append(f"v1: {f['id']}: twin needs why (why it does not change the decision)")
+    if len(twins) < len(cruxes):
+        errs.append("v1: at least one twin per crux")
+    if case["source"] == "model-adapted" and "private" not in case.get("_path", ""):
+        errs.append("v1: model-adapted cases belong in cases/private/ (never published)")
     return errs
 
 
@@ -66,8 +89,9 @@ def main() -> None:
     bad = 0
     for case in cases:
         errs = check(case)
-        if errs:
+        if any(not e.startswith("hint:") for e in errs):
             bad += 1
+        if errs:
             print(f"{case.get('id', '?')}:")
             for e in errs:
                 print(f"  - {e}")

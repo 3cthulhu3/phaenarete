@@ -1,0 +1,90 @@
+{
+  "case_id": "technical-heat-pump-firmware-rollout",
+  "arm": "b1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Did the 200-unit field trial include units running in the coldest conditions and at the heaviest heating load, where the changed compressor control logic is under the most stress, or were the trial units mostly in mild conditions?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Asks about cold conditions in the trial; the answer is a mild fortnight with cold-region short-cycling errors."
+    },
+    {
+      "q": 2,
+      "question": "If a unit misbehaves after the update, can you roll it back remotely and quickly, or could a unit that loses heating stay down until a technician visits? How many technician visits could you actually staff in one week?",
+      "reveals": [],
+      "generic": false,
+      "note": "Rollback and technician capacity."
+    },
+    {
+      "q": 3,
+      "question": "What exactly did the last six updates change? If none of them touched compressor control, how much does their clean record tell you about this one?",
+      "reveals": [],
+      "generic": false,
+      "note": "Content of past updates."
+    },
+    {
+      "q": 4,
+      "question": "Has the compressor supplier independently validated the new control logic across the full range of operating conditions and hardware revisions in the installed base, and have they put that sign-off in writing?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Asks about supplier validation across conditions; it was only validated down to -5 C."
+    },
+    {
+      "q": 5,
+      "question": "How closely does the 200-unit trial group match the 40,000 installed units in hardware revision, age, installer, refrigerant charge, and local climate? Which sub-populations are not represented at all?",
+      "reveals": [],
+      "generic": false,
+      "note": "Representativeness in general; it does not directly elicit the error logs or validation limit."
+    },
+    {
+      "q": 6,
+      "question": "Can the energy-saving mode be shipped switched off, or enabled by remote flag, so the firmware reaches everyone Monday while the compressor behaviour change reaches only a small group at first?",
+      "reveals": [],
+      "generic": false,
+      "note": "Feature flag option."
+    },
+    {
+      "q": 7,
+      "question": "What does a staged rollout actually cost you: how many days of delay, and does the campaign have to start with the feature available everywhere, or can it launch with 'rolling out over the next weeks'?",
+      "reveals": [],
+      "generic": false,
+      "note": "Cost of staging."
+    },
+    {
+      "q": 8,
+      "question": "What telemetry will tell you within hours that heating is failing, such as compressor short-cycling, lockouts, or failed defrost cycles, and who is watching it, with what threshold for pausing the rollout, over the weekend and during the first week?",
+      "reveals": [],
+      "generic": false,
+      "note": "Future telemetry plan, not past trial errors."
+    },
+    {
+      "q": 9,
+      "question": "How many customers would lose heating in a plausible failure at this scale, how many of them are vulnerable households, and what is the weather forecast for the regions in the first wave?",
+      "reveals": [],
+      "generic": false,
+      "note": "The forecast alone gives only part of f3, without the validation limit."
+    },
+    {
+      "q": 10,
+      "question": "What would have to be true for you to prefer the staged option? Is the Monday date fixed by something other than the campaign, or is it a default nobody has questioned?",
+      "reveals": [],
+      "generic": false,
+      "note": "Decision criteria and date origin."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Asks about cold conditions in the trial; the answer is a mild fortnight with cold-region short-cycling errors.\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Rollback and technician capacity.\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Content of past updates.\"}, {\"q\": 4, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Asks about supplier validation across conditions; it was only validated down to -5 C.\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Representativeness in general; it does not directly elicit the error logs or validation limit.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Feature flag option.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Cost of staging.\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Future telemetry plan, not past trial errors.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"The forecast alone gives only part of f3, without the validation limit.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Decision criteria and date origin.\"}]}"
+}
