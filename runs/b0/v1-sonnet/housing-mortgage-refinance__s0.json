@@ -1,0 +1,21 @@
+{
+  "case_id": "housing-mortgage-refinance",
+  "arm": "b0",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-27T08:02:04.230095+00:00",
+  "questions": [
+    "What is the full cost of switching, including the early-termination fee, new lender's arrangement and valuation fees, legal and notary costs, and any other charges, and how does the total compare with the projected interest savings over five years?",
+    "Is the new rate fixed or variable, for how long is it fixed, and what happens to the rate and payments after the fixed period ends, especially if it ends before or during our five-year horizon?",
+    "Are the loan terms otherwise equivalent, such as remaining term, amortization schedule, repayment flexibility, allowed overpayments, and fees for early repayment on the new loan, if we later sell or refinance?",
+    "Does the lower rate come with conditions that offset the savings, such as mandatory insurance, packaged products, account or salary-deposit requirements, or a rate that rises if conditions are not met?",
+    "Will the new lender approve us at the quoted rate given current income, credit, and the flat's valuation, and what is the risk that the final approved rate or loan amount differs from the offer?",
+    "Can the refinancing be completed within the three-week validity window, and what happens to the payment schedule and any rate lock if processing or the valuation takes longer?",
+    "What is the break-even point after all costs, and how sensitive is it to changes such as selling earlier than planned, rate moves, or the fee estimate being wrong?",
+    "Is the broker's one-month-of-payments estimate for the early-termination fee confirmed in writing by the current lender, and has the current lender been asked whether it will match or improve its rate to keep us?",
+    "Are there any tax, subsidy, or insurance implications of changing lenders, and does the change affect anything tied to the current loan, such as guarantees, linked savings, or existing protections?",
+    "How does our overall risk change, including the lenders' stability and servicing quality, our ability to handle payment increases, and our flexibility if our income or plans change within five years?"
+  ],
+  "raw": "{\"questions\": [\"What is the full cost of switching, including the early-termination fee, new lender's arrangement and valuation fees, legal and notary costs, and any other charges, and how does the total compare with the projected interest savings over five years?\", \"Is the new rate fixed or variable, for how long is it fixed, and what happens to the rate and payments after the fixed period ends, especially if it ends before or during our five-year horizon?\", \"Are the loan terms otherwise equivalent, such as remaining term, amortization schedule, repayment flexibility, allowed overpayments, and fees for early repayment on the new loan, if we later sell or refinance?\", \"Does the lower rate come with conditions that offset the savings, such as mandatory insurance, packaged products, account or salary-deposit requirements, or a rate that rises if conditions are not met?\", \"Will the new lender approve us at the quoted rate given current income, credit, and the flat's valuation, and what is the risk that the final approved rate or loan amount differs from the offer?\", \"Can the refinancing be completed within the three-week validity window, and what happens to the payment schedule and any rate lock if processing or the valuation takes longer?\", \"What is the break-even point after all costs, and how sensitive is it to changes such as selling earlier than planned, rate moves, or the fee estimate being wrong?\", \"Is the broker's one-month-of-payments estimate for the early-termination fee confirmed in writing by the current lender, and has the current lender been asked whether it will match or improve its rate to keep us?\", \"Are there any tax, subsidy, or insurance implications of changing lenders, and does the change affect anything tied to the current loan, such as guarantees, linked savings, or existing protections?\", \"How does our overall risk change, including the lenders' stability and servicing quality, our ability to handle payment increases, and our flexibility if our income or plans change within five years?\"]}"
+}

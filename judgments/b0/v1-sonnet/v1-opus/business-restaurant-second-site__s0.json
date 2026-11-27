@@ -1,0 +1,91 @@
+{
+  "case_id": "business-restaurant-second-site",
+  "arm": "b0",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "c1",
+    "f3": "c2",
+    "f4": "t2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How reliable is the pedestrian count: who produced it, when and over what days and hours was it measured, and does it reflect the people who actually eat at restaurants like ours rather than commuters or shoppers passing by?",
+      "reveals": [
+        "t1",
+        "c1"
+      ],
+      "generic": false,
+      "note": "Reliability, who made it and when reveals phone app and festival week"
+    },
+    {
+      "q": 2,
+      "question": "What conversion rate from foot traffic to diners is realistic for our concept, and what would the revenue and break-even look like at half or a quarter of the projected traffic?",
+      "reveals": [],
+      "generic": false,
+      "note": "Conversion modelling; no fact"
+    },
+    {
+      "q": 3,
+      "question": "What is the total occupancy cost, including base rent, rent escalations, service charges, taxes, insurance, and deposits, as a percentage of projected sales, and does the plan still work if traffic falls short?",
+      "reveals": [],
+      "generic": false,
+      "note": "Occupancy cost; no fact"
+    },
+    {
+      "q": 4,
+      "question": "What is the full cost and timeline of the kitchen fit-out (ventilation, grease traps, gas, electrics, permits, construction), who pays for it, and how long will the space be paid for but not trading?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Ventilation in fit-out reveals the duct ban"
+    },
+    {
+      "q": 5,
+      "question": "Does the lease include protections such as a rent-free fit-out period, a break clause, an assignment or sublet right, a personal guarantee limit, or an exit option if the business underperforms over ten years?",
+      "reveals": [],
+      "generic": false,
+      "note": "Lease protections; no fact"
+    },
+    {
+      "q": 6,
+      "question": "Does the space legally permit restaurant use, and have we confirmed zoning, licensing, alcohol, signage, outdoor seating, opening hours, and noise restrictions before signing?",
+      "reveals": [],
+      "generic": false,
+      "note": "Zoning and licensing; owners' association duct rule not directly asked"
+    },
+    {
+      "q": 7,
+      "question": "Why did the previous tenant leave, and what happened to other food businesses on this street; is the high foot traffic actually translating into success for neighbors and not just high turnover?",
+      "reveals": [],
+      "generic": false,
+      "note": "Previous tenant and neighbours; no fact"
+    },
+    {
+      "q": 8,
+      "question": "How will opening a second site affect the first restaurant: management attention, key staff, supplier capacity, cash reserves, and the risk that quality or consistency slips at either location?",
+      "reveals": [],
+      "generic": false,
+      "note": "Impact on first site; no fact"
+    },
+    {
+      "q": 9,
+      "question": "Can we staff the new location, including a strong chef and manager, and does our financing leave enough working capital to survive 18 months of ramp-up if sales are slower than planned?",
+      "reveals": [],
+      "generic": false,
+      "note": "Staffing and capital; no fact"
+    },
+    {
+      "q": 10,
+      "question": "How real is the competing tenant, and can we negotiate more time, better terms, or a conditional agreement (subject to due diligence, permits, and financing) rather than accepting or rejecting under the two-week deadline?",
+      "reveals": [],
+      "generic": false,
+      "note": "Competing tenant and negotiation; no fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\", \"f2\"], \"generic\": false, \"note\": \"Reliability, who made it and when reveals phone app and festival week\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Conversion modelling; no fact\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Occupancy cost; no fact\"}, {\"q\": 4, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Ventilation in fit-out reveals the duct ban\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Lease protections; no fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Zoning and licensing; owners' association duct rule not directly asked\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Previous tenant and neighbours; no fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Impact on first site; no fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Staffing and capital; no fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Competing tenant and negotiation; no fact\"}]}"
+}

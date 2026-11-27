@@ -1,0 +1,96 @@
+{
+  "case_id": "career-relocation-offer",
+  "arm": "phaenarete1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c2",
+    "f2": "c1",
+    "f3": "t2",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Ask your partner to send the exact remote-work policy to their HR and ask in writing: may they work from Switzerland, and who handles Swiss tax, social insurance and registration for them?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Asking HR whether partner may work from Switzerland reveals the Germany-only rule"
+    },
+    {
+      "q": 2,
+      "question": "Can you get the subteam lead role, its scope and a rough timeline written into the offer letter or a signed side letter, and what does the hiring manager say when you ask?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Asking hiring manager to commit the subteam reveals the resignation and the plan"
+    },
+    {
+      "q": 3,
+      "question": "Ask the hiring manager directly (not the recruiter) about the planned headcount, the funding situation and whether any reorganization or hiring freeze is under discussion; what do they say, and does it match what you find on LinkedIn about recent departures and layoffs?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Headcount plans and departures reveal the manager leaving and no subteam"
+    },
+    {
+      "q": 4,
+      "question": "Read the contract's probation clause: how long is the probation, what notice period applies to each side, and what severance, if any, applies if you are let go in the first six months?",
+      "reveals": [],
+      "generic": false,
+      "note": "Probation terms; no fact"
+    },
+    {
+      "q": 5,
+      "question": "Take three real flat listings in the Zurich areas you could accept and add up actual rent, deposit and commute; how long are viewings taking according to agents or local housing groups, and what would temporary housing cost for three months?",
+      "reveals": [],
+      "generic": false,
+      "note": "Housing costs; no fact"
+    },
+    {
+      "q": 6,
+      "question": "Recalculate the 40% figure from your salary slip basis: subtract Swiss income tax, mandatory health insurance, and social contributions, and compare with your current net in Munich. What is the net difference per month?",
+      "reveals": [],
+      "generic": false,
+      "note": "Net salary; no fact"
+    },
+    {
+      "q": 7,
+      "question": "Is the bonus or equity part of the offer contractually guaranteed, and how much of the 40% depends on it?",
+      "reveals": [],
+      "generic": false,
+      "note": "Bonus and equity; no fact"
+    },
+    {
+      "q": 8,
+      "question": "Talk to two or three people who currently work on the Zurich team, or recently left it: what do they say about workload, the promised growth, and how the manager handled earlier promises?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Team members asked about promised growth and the manager would mention the resignation"
+    },
+    {
+      "q": 9,
+      "question": "Ask your current employer, with the offer in hand or as a hypothetical, whether a senior or lead path exists within two years; what is the answer and in what form (written, from whom)?",
+      "reveals": [],
+      "generic": false,
+      "note": "Current employer path; no fact"
+    },
+    {
+      "q": 10,
+      "question": "Ask your partner separately what they need to be happy in Zurich (social contacts, language, office or co-working access), and have them spend a week there working remotely before you sign.",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Proposing a week of remote work from Zurich would prompt the Germany-only restriction"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Asking HR whether partner may work from Switzerland reveals the Germany-only rule\"}, {\"q\": 2, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Asking hiring manager to commit the subteam reveals the resignation and the plan\"}, {\"q\": 3, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Headcount plans and departures reveal the manager leaving and no subteam\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Probation terms; no fact\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Housing costs; no fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Net salary; no fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Bonus and equity; no fact\"}, {\"q\": 8, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Team members asked about promised growth and the manager would mention the resignation\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Current employer path; no fact\"}, {\"q\": 10, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Proposing a week of remote work from Zurich would prompt the Germany-only restriction\"}]}"
+}

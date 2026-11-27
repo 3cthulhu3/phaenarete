@@ -1,0 +1,156 @@
+{
+  "case_id": "technical-heat-pump-firmware-rollout",
+  "arm": "phaenarete1",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "96309723c544",
+  "created": "2026-11-27T08:04:21.692449+00:00",
+  "questions": [
+    "Test the remote rollback on a batch of real field units (or at least ones in the test lab with the same hardware): does a downgrade to the previous firmware complete, and what share fails or stays offline?",
+    "Pull the 200 field-trial units' list: what were their locations, outdoor temperatures during the two weeks (minimum and longest stretch below 0 C), and compressor hardware revisions, compared with the same breakdown of the 40,000 installed base?",
+    "Ask the compressor supplier for the written basis of their sign-off: was it a model calculation or a physical endurance test, how many start/stop cycles and defrost cycles were run, and at what temperatures?",
+    "Does the lab suite include sustained sub-zero operation, restart after defrost and short-cycling checks for the new compressor logic? Read the test list for those cases and run them in a climate chamber if they are missing.",
+    "Which telemetry signals show a lockout, a protection trip or a failed restart within an hour of it happening, and how long is the delay between a unit's event and it reaching the dashboard? Check with a deliberately triggered test fault.",
+    "Did any of the last six updates change compressor control or defrost logic? Open their release notes and compare the changed modules with this release.",
+    "How many units sit on weak connectivity or old bootloaders, and has the update process been tested with interrupted flashes (power or connection loss mid-update) to confirm units recover and do not stay in a boot loop?",
+    "Ask a sample of installers which custom settings they use (weather-compensation curves, buffer tank setups) and run the new firmware against the three or four most common ones on a test rig.",
+    "Check the support team's forecast: how many calls per hour does the campaign launch alone typically generate, and what is the number of extra calls per hour if even 1% of the units have a problem? Can staffing be extended on Monday and Tuesday?",
+    "Can the rollout be staged in waves (for example 1%, then 10%, then the rest) with a defined stop rule, and does the update server support pausing mid-wave?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "map": {
+      "lean": {
+        "option": "Roll out to all units on Monday",
+        "reasons": "The firmware passed the lab suite and a two-week field trial, the last six updates went smoothly, customers want the energy-saving mode, and the Monday marketing launch is already set."
+      },
+      "premortem": [
+        "The 200-unit field trial ran in mild weather; at sustained sub-zero temperatures, the new compressor control logic short-cycles or fails to restart after defrost, and units lock out in the first cold snap.",
+        "The trial units were mostly one or two hardware revisions; older units with a different compressor batch or sensor calibration respond differently to the new control logic, and a fraction trip protection and stop heating.",
+        "The update process itself fails on units with weak connectivity; a partial flash leaves some units stuck in a boot loop, and the support team, staffed for a normal week, is flooded with calls on Monday.",
+        "The energy-saving mode interacts with installers' custom settings (for example, weather-compensation curves or buffer tank configurations) that were not represented in the trial, so homes cool down overnight.",
+        "There is no remote way to roll units back to the prior firmware, so when the compressor supplier finds a wear problem from the new control pattern after a few weeks, the fix requires a technician visit to many thousands of homes."
+      ],
+      "beliefs": [
+        {
+          "id": "b1",
+          "belief": "The firmware is safe because it passed the full lab test suite.",
+          "rests_on": "The test suite results and sign-off.",
+          "how_wrong": "The lab suite tests cases someone anticipated; the changed compressor logic may fail in conditions the suite does not include, such as long cold spells or unusual installation setups.",
+          "impact": 5,
+          "checked": 3
+        },
+        {
+          "id": "b2",
+          "belief": "The 200-unit field trial represents the 40,000 installed units.",
+          "rests_on": "The trial report and summary.",
+          "how_wrong": "The trial covered a small, possibly volunteer or friendly sample, ran two weeks, and may not include cold regions, older hardware revisions or varied installers.",
+          "impact": 5,
+          "checked": 2
+        },
+        {
+          "id": "b3",
+          "belief": "The compressor logic change is safe for the compressor over its lifetime.",
+          "rests_on": "The compressor supplier's involvement and agreement.",
+          "how_wrong": "Supplier sign-off may be based on a model rather than long-run testing; wear effects appear over months, not within a two-week trial.",
+          "impact": 5,
+          "checked": 2
+        },
+        {
+          "id": "b4",
+          "belief": "Past smooth updates predict a smooth rollout this time.",
+          "rests_on": "The record of six incident-free firmware updates.",
+          "how_wrong": "Those updates probably did not touch compressor control; a track record from lower-risk changes does not carry over to this one.",
+          "impact": 4,
+          "checked": 3
+        },
+        {
+          "id": "b5",
+          "belief": "If problems appear, the team will see them quickly and can stop the rollout.",
+          "rests_on": "Telemetry dashboards and customer support reports.",
+          "how_wrong": "Telemetry may not capture lockouts or comfort complaints in real time, and an all-at-once push leaves no time to stop before every unit is updated.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b6",
+          "belief": "Units can be rolled back remotely if something goes wrong.",
+          "rests_on": "A general assumption about the update system's capabilities.",
+          "how_wrong": "Rollback may never have been tested on field units, and some may not support downgrade or may be offline.",
+          "impact": 5,
+          "checked": 1
+        },
+        {
+          "id": "b7",
+          "belief": "Support is adequately staffed for the launch week.",
+          "rests_on": "The standard staffing plan for a normal week.",
+          "how_wrong": "The marketing campaign and any firmware-related issues will push contact volume far above a normal week.",
+          "impact": 3,
+          "checked": 2
+        }
+      ]
+    },
+    "questions": [
+      {
+        "question": "Test the remote rollback on a batch of real field units (or at least ones in the test lab with the same hardware): does a downgrade to the previous firmware complete, and what share fails or stays offline?",
+        "targets": "b6",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Pull the 200 field-trial units' list: what were their locations, outdoor temperatures during the two weeks (minimum and longest stretch below 0 C), and compressor hardware revisions, compared with the same breakdown of the 40,000 installed base?",
+        "targets": "b2",
+        "impact": 5,
+        "checked": 2
+      },
+      {
+        "question": "Ask the compressor supplier for the written basis of their sign-off: was it a model calculation or a physical endurance test, how many start/stop cycles and defrost cycles were run, and at what temperatures?",
+        "targets": "b3",
+        "impact": 5,
+        "checked": 2
+      },
+      {
+        "question": "Does the lab suite include sustained sub-zero operation, restart after defrost and short-cycling checks for the new compressor logic? Read the test list for those cases and run them in a climate chamber if they are missing.",
+        "targets": "1",
+        "impact": 5,
+        "checked": 3
+      },
+      {
+        "question": "Which telemetry signals show a lockout, a protection trip or a failed restart within an hour of it happening, and how long is the delay between a unit's event and it reaching the dashboard? Check with a deliberately triggered test fault.",
+        "targets": "b5",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Did any of the last six updates change compressor control or defrost logic? Open their release notes and compare the changed modules with this release.",
+        "targets": "b4",
+        "impact": 4,
+        "checked": 3
+      },
+      {
+        "question": "How many units sit on weak connectivity or old bootloaders, and has the update process been tested with interrupted flashes (power or connection loss mid-update) to confirm units recover and do not stay in a boot loop?",
+        "targets": "3",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Ask a sample of installers which custom settings they use (weather-compensation curves, buffer tank setups) and run the new firmware against the three or four most common ones on a test rig.",
+        "targets": "4",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Check the support team's forecast: how many calls per hour does the campaign launch alone typically generate, and what is the number of extra calls per hour if even 1% of the units have a problem? Can staffing be extended on Monday and Tuesday?",
+        "targets": "b7",
+        "impact": 3,
+        "checked": 2
+      },
+      {
+        "question": "Can the rollout be staged in waves (for example 1%, then 10%, then the rest) with a defined stop rule, and does the update server support pausing mid-wave?",
+        "targets": "b5",
+        "impact": 4,
+        "checked": 2
+      }
+    ]
+  }
+}

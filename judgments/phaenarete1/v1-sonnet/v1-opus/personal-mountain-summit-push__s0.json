@@ -1,0 +1,92 @@
+{
+  "case_id": "personal-mountain-summit-push",
+  "arm": "phaenarete1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "c1",
+    "f3": "t2",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "When was the forecast on the hut's weather screen last updated and which model produced it? Compare with an independent current mountain forecast (national weather service, a mountain-specific bulletin) and ask for the expected front arrival time and its uncertainty range.",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Asks when the screen was last updated and for a current forecast, which reveals the stale cache and the earlier front."
+    },
+    {
+      "q": 2,
+      "question": "What is the latest time the front could arrive according to the most pessimistic available forecast, and does the group's planned summit and descent time leave a margin of at least two to three hours before that?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "The most pessimistic current forecast would show the front arriving in late morning."
+    },
+    {
+      "q": 3,
+      "question": "Has the guide agreed with the group a fixed turnaround time (clock time, not summit) and a fixed point on the route where the group turns back no matter what, and has the group agreed to it out loud tonight?",
+      "reveals": [],
+      "generic": false,
+      "note": "Turnaround time; no hidden fact."
+    },
+    {
+      "q": 4,
+      "question": "Ask each of the six, one by one, how they slept, how they feel and whether they have any headache, nausea or stomach trouble; check pulse and oxygen saturation at rest in the morning if the guide has a pulse oximeter.",
+      "reveals": [],
+      "generic": false,
+      "note": "Health checks; no hidden fact."
+    },
+    {
+      "q": 5,
+      "question": "Ask parties who came down from the route in the last 24 to 48 hours what the snow, ice, glacier crossing and rockfall situation was, and ask the warden for the most recent reports of route conditions.",
+      "reveals": [],
+      "generic": false,
+      "note": "Route conditions; no hidden fact."
+    },
+    {
+      "q": 6,
+      "question": "Check the overnight temperature at the hut and the freezing level in the forecast: did the snow slope freeze hard last night, and when will it soften in the sun?",
+      "reveals": [],
+      "generic": false,
+      "note": "The answer would give a temperature reading, not where the thermometer is mounted."
+    },
+    {
+      "q": 7,
+      "question": "Find out how many other parties plan to start tomorrow and whether there is a fixed-rope or narrow section where queues form; what time would the group reach it, and how long can a queue last?",
+      "reveals": [],
+      "generic": false,
+      "note": "Queues; no hidden fact."
+    },
+    {
+      "q": 8,
+      "question": "Which sections of the route allow a quick retreat with six people, and where is the point after which turning back takes longer than continuing? Mark both on the route map with times.",
+      "reveals": [],
+      "generic": false,
+      "note": "Retreat points; no hidden fact."
+    },
+    {
+      "q": 9,
+      "question": "What does the forecast say for the day after tomorrow, from the same source and from an independent one: is the window better, worse or the same, and how much of the spare day would remain as a buffer if the group waited?",
+      "reveals": [],
+      "generic": false,
+      "note": "Asks about the next day's forecast; the stale cache would not clearly come up."
+    },
+    {
+      "q": 10,
+      "question": "Which communication and warning channels will the guide carry on the route (radio, phone coverage, satellite messenger), and has the group tested them? Who at the hut will receive an updated forecast and relay it during the day?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Asks who at the hut receives updated forecasts; the failed satellite link and the stale screen would come out."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Asks when the screen was last updated and for a current forecast, which reveals the stale cache and the earlier front.\"}, {\"q\": 2, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"The most pessimistic current forecast would show the front arriving in late morning.\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Turnaround time; no hidden fact.\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Health checks; no hidden fact.\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Route conditions; no hidden fact.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"The answer would give a temperature reading, not where the thermometer is mounted.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Queues; no hidden fact.\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Retreat points; no hidden fact.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Asks about the next day's forecast; the stale cache would not clearly come up.\"}, {\"q\": 10, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Asks who at the hut receives updated forecasts; the failed satellite link and the stale screen would come out.\"}]}"
+}

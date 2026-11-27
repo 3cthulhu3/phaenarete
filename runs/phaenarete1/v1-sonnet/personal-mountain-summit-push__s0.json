@@ -1,0 +1,156 @@
+{
+  "case_id": "personal-mountain-summit-push",
+  "arm": "phaenarete1",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "96309723c544",
+  "created": "2026-11-27T08:04:21.694440+00:00",
+  "questions": [
+    "When was the forecast on the hut's weather screen last updated and which model produced it? Compare with an independent current mountain forecast (national weather service, a mountain-specific bulletin) and ask for the expected front arrival time and its uncertainty range.",
+    "What is the latest time the front could arrive according to the most pessimistic available forecast, and does the group's planned summit and descent time leave a margin of at least two to three hours before that?",
+    "Has the guide agreed with the group a fixed turnaround time (clock time, not summit) and a fixed point on the route where the group turns back no matter what, and has the group agreed to it out loud tonight?",
+    "Ask each of the six, one by one, how they slept, how they feel and whether they have any headache, nausea or stomach trouble; check pulse and oxygen saturation at rest in the morning if the guide has a pulse oximeter.",
+    "Ask parties who came down from the route in the last 24 to 48 hours what the snow, ice, glacier crossing and rockfall situation was, and ask the warden for the most recent reports of route conditions.",
+    "Check the overnight temperature at the hut and the freezing level in the forecast: did the snow slope freeze hard last night, and when will it soften in the sun?",
+    "Find out how many other parties plan to start tomorrow and whether there is a fixed-rope or narrow section where queues form; what time would the group reach it, and how long can a queue last?",
+    "Which sections of the route allow a quick retreat with six people, and where is the point after which turning back takes longer than continuing? Mark both on the route map with times.",
+    "What does the forecast say for the day after tomorrow, from the same source and from an independent one: is the window better, worse or the same, and how much of the spare day would remain as a buffer if the group waited?",
+    "Which communication and warning channels will the guide carry on the route (radio, phone coverage, satellite messenger), and has the group tested them? Who at the hut will receive an updated forecast and relay it during the day?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "map": {
+      "lean": {
+        "option": "Start the summit push at 5 a.m. as planned",
+        "reasons": "The weather screen shows a calm window through mid-afternoon, the group is fit and acclimatized, the guide knows the route well, and the warden says the season has been stable; waiting would use the only spare day."
+      },
+      "premortem": [
+        "The hut's weather screen shows a forecast that was downloaded the previous evening; the front actually arrives hours earlier than shown, and the group is caught on the exposed upper ridge in the early afternoon with falling visibility.",
+        "One of the six is slower than the group's overall fitness suggests, perhaps from poor sleep or a stomach problem, so the group passes the turnaround time well above the point where retreat is easy.",
+        "Overnight freezing was weaker than usual in the unusually stable season, and the upper snow slope is soft and unconsolidated by mid-morning, raising avalanche risk on the descent in warm afternoon sun.",
+        "The guide's familiarity is with the route in typical conditions; recent rockfall or a changed glacier crossing makes the normal path impassable or slower, and the party has no agreed alternative or turnaround time.",
+        "The group's schedule assumes a fast descent, but a cluster of other parties on the same route causes queues at a fixed-rope section, delaying the group so the front arrives while they are still high."
+      ],
+      "beliefs": [
+        {
+          "id": "b1",
+          "belief": "The calm window lasts from early morning until mid-afternoon.",
+          "rests_on": "The forecast on the hut's weather screen.",
+          "how_wrong": "The data may be out of date, from a coarse model that does not resolve mountain terrain, and fronts often arrive earlier than forecast.",
+          "impact": 5,
+          "checked": 2
+        },
+        {
+          "id": "b2",
+          "belief": "The front will not arrive before the group is safely back down.",
+          "rests_on": "The forecast timing of the evening arrival.",
+          "how_wrong": "Timing errors of a few hours are common, and the estimated return time assumes the group moves at planned speed.",
+          "impact": 5,
+          "checked": 2
+        },
+        {
+          "id": "b3",
+          "belief": "All six members are fit and acclimatized enough to keep the planned pace.",
+          "rests_on": "The guide's and group's general impression from the approach days.",
+          "how_wrong": "It is an impression rather than a measurement; individual condition can change overnight with illness, altitude effects, or poor sleep, and the group moves at the slowest person's speed.",
+          "impact": 4,
+          "checked": 3
+        },
+        {
+          "id": "b4",
+          "belief": "The route is in normal condition and passable as in previous seasons.",
+          "rests_on": "The guide's experience on this route and the warden's remarks.",
+          "how_wrong": "The guide's experience is from other years; this year's snow, ice and rockfall state may differ and has not been seen first-hand by the guide recently.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b5",
+          "belief": "The stable season means conditions will stay stable tomorrow.",
+          "rests_on": "The hut warden's statement.",
+          "how_wrong": "A seasonal pattern does not predict a single day; stability can precede a change, and the warden's view is a summary, not data.",
+          "impact": 3,
+          "checked": 1
+        },
+        {
+          "id": "b6",
+          "belief": "The party can turn back safely at any point if conditions worsen.",
+          "rests_on": "The general assumption that retreat is always an option on the route.",
+          "how_wrong": "Some sections, such as exposed ridge or fixed ropes, may not allow quick retreat, especially with six people and other parties on the route.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b7",
+          "belief": "Waiting one more day would not improve the odds.",
+          "rests_on": "The wish to use the one spare day as a buffer and the current good window.",
+          "how_wrong": "The next day's forecast has not been seen, so it may be better or worse; the idea of a better window later is untested.",
+          "impact": 3,
+          "checked": 1
+        }
+      ]
+    },
+    "questions": [
+      {
+        "question": "When was the forecast on the hut's weather screen last updated and which model produced it? Compare with an independent current mountain forecast (national weather service, a mountain-specific bulletin) and ask for the expected front arrival time and its uncertainty range.",
+        "targets": "b1",
+        "impact": 5,
+        "checked": 2
+      },
+      {
+        "question": "What is the latest time the front could arrive according to the most pessimistic available forecast, and does the group's planned summit and descent time leave a margin of at least two to three hours before that?",
+        "targets": "b2",
+        "impact": 5,
+        "checked": 2
+      },
+      {
+        "question": "Has the guide agreed with the group a fixed turnaround time (clock time, not summit) and a fixed point on the route where the group turns back no matter what, and has the group agreed to it out loud tonight?",
+        "targets": "4",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Ask each of the six, one by one, how they slept, how they feel and whether they have any headache, nausea or stomach trouble; check pulse and oxygen saturation at rest in the morning if the guide has a pulse oximeter.",
+        "targets": "2",
+        "impact": 4,
+        "checked": 3
+      },
+      {
+        "question": "Ask parties who came down from the route in the last 24 to 48 hours what the snow, ice, glacier crossing and rockfall situation was, and ask the warden for the most recent reports of route conditions.",
+        "targets": "b4",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Check the overnight temperature at the hut and the freezing level in the forecast: did the snow slope freeze hard last night, and when will it soften in the sun?",
+        "targets": "3",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Find out how many other parties plan to start tomorrow and whether there is a fixed-rope or narrow section where queues form; what time would the group reach it, and how long can a queue last?",
+        "targets": "5",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Which sections of the route allow a quick retreat with six people, and where is the point after which turning back takes longer than continuing? Mark both on the route map with times.",
+        "targets": "b6",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "What does the forecast say for the day after tomorrow, from the same source and from an independent one: is the window better, worse or the same, and how much of the spare day would remain as a buffer if the group waited?",
+        "targets": "b7",
+        "impact": 3,
+        "checked": 1
+      },
+      {
+        "question": "Which communication and warning channels will the guide carry on the route (radio, phone coverage, satellite messenger), and has the group tested them? Who at the hut will receive an updated forecast and relay it during the day?",
+        "targets": "1",
+        "impact": 4,
+        "checked": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "case_id": "product-app-release-before-sale",
+  "arm": "b0",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c2",
+    "f2": "t2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What is the exact timeline: how many days does app store review typically take for each platform, and what is the realistic latest submission date that still guarantees approval and availability before the sale starts?",
+      "reveals": [],
+      "generic": false,
+      "note": "App store review timeline; none of the facts."
+    },
+    {
+      "q": 2,
+      "question": "What share of the 2 million users will actually have the updated app installed by the time the push notification goes out, and how many will still be on the old checkout during the sale?",
+      "reveals": [],
+      "generic": false,
+      "note": "Adoption share; none of the facts."
+    },
+    {
+      "q": 3,
+      "question": "How well does the beta population represent the full user base (device types, OS versions, regions, payment methods, new vs. returning customers), and is an 8% conversion lift likely to hold at sale-week traffic?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Asks how representative the beta population was incl. new vs returning and payment methods; answer states mostly staff and loyal customers with saved payment details."
+    },
+    {
+      "q": 4,
+      "question": "Has the new checkout been load-tested at the peak concurrency expected when 2 million users are notified at once, including payment provider, inventory, and backend rate limits?",
+      "reveals": [],
+      "generic": false,
+      "note": "Load testing; none of the facts."
+    },
+    {
+      "q": 5,
+      "question": "Beyond crash rates, what other failure modes could the beta have missed, such as payment failures, abandoned carts due to bugs, promo-code or discount handling, tax calculation, or accessibility issues?",
+      "reveals": [],
+      "generic": false,
+      "note": "Non-crash failure modes; does not ask about dashboard coverage gaps."
+    },
+    {
+      "q": 6,
+      "question": "If a serious checkout problem appears during the sale, what is the fastest way to mitigate it (server-side feature flag, kill switch, staged rollout, halting the release), and how long would a full rollback via a new app update actually take?",
+      "reveals": [],
+      "generic": false,
+      "note": "Mitigation options; none of the facts."
+    },
+    {
+      "q": 7,
+      "question": "Can the new checkout be released behind a remotely controlled flag or phased rollout so that exposure is limited and can be turned off without a new app update?",
+      "reveals": [],
+      "generic": false,
+      "note": "Feature flag/phased rollout; none of the facts."
+    },
+    {
+      "q": 8,
+      "question": "What is the expected revenue upside of the 8% lift during the sale week compared with the potential loss from an outage or degraded checkout, and how likely is each scenario?",
+      "reveals": [],
+      "generic": false,
+      "note": "Upside vs outage loss; none of the facts."
+    },
+    {
+      "q": 9,
+      "question": "Does the new checkout work correctly with sale-specific mechanics (discount codes, bundles, flash pricing, gift cards, stock limits), and have those flows been tested end to end?",
+      "reveals": [],
+      "generic": false,
+      "note": "Sale-specific mechanics; none of the facts."
+    },
+    {
+      "q": 10,
+      "question": "Do customer support, engineering on-call, and monitoring and alerting have the capacity and readiness to detect and respond to checkout issues in real time during the first hours of the sale, and is there a code freeze or buffer period after shipping?",
+      "reveals": [],
+      "generic": false,
+      "note": "Support and monitoring readiness; none of the facts."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"App store review timeline; none of the facts.\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Adoption share; none of the facts.\"}, {\"q\": 3, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Asks how representative the beta population was incl. new vs returning and payment methods; answer states mostly staff and loyal customers with saved payment details.\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Load testing; none of the facts.\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Non-crash failure modes; does not ask about dashboard coverage gaps.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Mitigation options; none of the facts.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Feature flag/phased rollout; none of the facts.\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Upside vs outage loss; none of the facts.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Sale-specific mechanics; none of the facts.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Support and monitoring readiness; none of the facts.\"}]}"
+}

@@ -1,0 +1,90 @@
+{
+  "case_id": "product-app-release-before-sale",
+  "arm": "b1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c2",
+    "f2": "t2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "How representative was the beta: how many users, what share of them were on the checkout path under real sale-level traffic, and did the 8% conversion lift come from an A/B comparison or from a before-and-after comparison that other factors could explain?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Asks how representative the beta was; answer states testers were mostly staff and loyal customers with saved payment details."
+    },
+    {
+      "q": 2,
+      "question": "What is your actual timeline: if app store review takes a day or several and you ship now, would approval, release and adoption by users all land before the sale starts, and how many of the 2 million users will be on the new version when the push notification goes out?",
+      "reveals": [],
+      "generic": false,
+      "note": "Review and adoption timeline; none of the facts."
+    },
+    {
+      "q": 3,
+      "question": "If the new checkout fails during the sale, how fast could you stop the damage: do you have a server-side feature flag or remote kill switch to return to the old checkout without shipping an app update?",
+      "reveals": [],
+      "generic": false,
+      "note": "Kill switch availability; none of the facts."
+    },
+    {
+      "q": 4,
+      "question": "Can you roll out the new checkout gradually, for example to 5 to 10 percent of users via a flag or staged release, so you capture much of the gain while limiting exposure?",
+      "reveals": [],
+      "generic": false,
+      "note": "Gradual rollout; none of the facts."
+    },
+    {
+      "q": 5,
+      "question": "How well has the backend been tested for sale-level load, including the payment provider, inventory and order systems, which the beta likely never stressed, and what has changed on the server side for this checkout?",
+      "reveals": [],
+      "generic": false,
+      "note": "Backend load testing; none of the facts."
+    },
+    {
+      "q": 6,
+      "question": "How does the crash dashboard's 'as stable as the current build' cover non-crash failures such as payment errors, stuck screens, wrong totals, failed promo codes or issues on older devices and OS versions?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Asks how the dashboard covers older OS versions; answer states it excludes the oldest OS used by a quarter of customers."
+    },
+    {
+      "q": 7,
+      "question": "What would a failure cost compared with the gain: roughly how much is sale-week revenue times an 8% lift versus the revenue lost per hour of a checkout outage during the push-driven peak?",
+      "reveals": [],
+      "generic": false,
+      "note": "Cost-benefit estimate; none of the facts."
+    },
+    {
+      "q": 8,
+      "question": "What would waiting cost in practice: does a launch after the sale lose only the sale-week lift, or are there other reasons (competitors, marketing commitments, features tied to the new checkout) to ship before it?",
+      "reveals": [],
+      "generic": false,
+      "note": "Cost of waiting; none of the facts."
+    },
+    {
+      "q": 9,
+      "question": "Is there a third option, such as shipping now to a small cohort or after a freeze of two to three days before the sale, or shipping the new checkout but keeping the old one as the default for the first sale hours?",
+      "reveals": [],
+      "generic": false,
+      "note": "Third options; none of the facts."
+    },
+    {
+      "q": 10,
+      "question": "Who is on call and ready during the sale window, and are monitoring and alerts for checkout success rate, payment errors and latency in place so a problem would be seen within minutes rather than hours?",
+      "reveals": [],
+      "generic": false,
+      "note": "On-call and monitoring; none of the facts."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Asks how representative the beta was; answer states testers were mostly staff and loyal customers with saved payment details.\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Review and adoption timeline; none of the facts.\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Kill switch availability; none of the facts.\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Gradual rollout; none of the facts.\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Backend load testing; none of the facts.\"}, {\"q\": 6, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Asks how the dashboard covers older OS versions; answer states it excludes the oldest OS used by a quarter of customers.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Cost-benefit estimate; none of the facts.\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Cost of waiting; none of the facts.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Third options; none of the facts.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"On-call and monitoring; none of the facts.\"}]}"
+}

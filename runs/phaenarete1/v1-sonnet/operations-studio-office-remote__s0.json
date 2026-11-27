@@ -1,0 +1,156 @@
+{
+  "case_id": "operations-studio-office-remote",
+  "arm": "phaenarete1",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "96309723c544",
+  "created": "2026-11-27T08:04:21.693453+00:00",
+  "questions": [
+    "Go through every project won in the last 12 to 24 months in your CRM or invoices and note for each how the client first found you (referral, walk-in, in-person pitch, event, website, repeat client); what share depended on meeting in person or on the office location?",
+    "Ask your two or three largest clients directly, with a concrete question: would you still run workshops and sign-offs with us by video only, and would you consider moving work to an agency with its own premises?",
+    "Ask each team member privately (not in a group survey): would you want to work fully remote five days a week, and what does your home workspace look like? Include juniors and quieter members.",
+    "Run a trial of one to two months with no one in the office on the usual shared days: what happens to review turnaround, the number of rework rounds and client feedback compared with the two previous months?",
+    "How do your junior designers currently get feedback and learn: write down how many hours per week they spend sitting with seniors, and decide what concrete replacement (scheduled pairing, review sessions) would cover it remotely.",
+    "Have an accountant or payroll advisor check where each employee lives and works and which payroll, insurance, equipment and tax obligations fully remote work would trigger; what is the yearly cost?",
+    "Add up the costs the quarter-saving figure leaves out: home-office stipends, co-working or meeting room bookings for client workshops, software, equipment shipping and insurance; what is the net saving after them?",
+    "Ask the landlord whether a shorter lease, a smaller space, or a break clause is available, and check what comparable offices in the area would cost and how fast they are available if you needed to return.",
+    "Look at your last three hires or candidate pipelines: how many asked about the office, and how would you onboard a junior remotely? Ask two recruiters or peer studios what remote candidates in your field expect.",
+    "Can you test a cheaper middle option, such as a smaller office or a co-working desk package with a meeting room for four weeks, to see how client meetings and walk-in leads change?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "map": {
+      "lean": {
+        "option": "Give up the office and go remote",
+        "reasons": "Fixed costs would fall by about a quarter, the team already works from home two days a week and mostly asked for more, the work is delivered digitally, and the biggest clients are comfortable with video check-ins."
+      },
+      "premortem": [
+        "Most new client projects over the last year came through walk-in meetings, referrals from the building's neighbours or in-person pitches at the studio, and without a place to meet, the pipeline slowly dries up without anyone noticing at first.",
+        "Junior designers, who were learning by sitting near seniors, lose mentoring and feedback; quality of work drops, two juniors leave within a year, and the senior staff become overloaded with review.",
+        "The survey showed a preference for remote days, but a few key people have home setups unsuitable for focused work or live in small flats, and their output falls; they quietly look for jobs with offices.",
+        "The home-working arrangement works legally and tax-wise only in the current setup; fully remote staff in other regions or countries trigger payroll, equipment and insurance obligations that erase much of the cost savings.",
+        "Two large clients that were fine with video check-ins actually value the studio visits for workshops and sign-offs; when the studio has no space they shift part of their work to an agency with premises."
+      ],
+      "beliefs": [
+        {
+          "id": "b1",
+          "belief": "Going remote cuts fixed costs by about a quarter.",
+          "rests_on": "The studio's own calculation of lease and office costs.",
+          "how_wrong": "It may leave out costs that appear after the move, such as co-working or meeting rooms, home-office stipends, software, equipment and insurance.",
+          "impact": 3,
+          "checked": 3
+        },
+        {
+          "id": "b2",
+          "belief": "Staff want and can do effective work fully remote.",
+          "rests_on": "A team survey where most asked for more remote days.",
+          "how_wrong": "Asking for more remote days is not the same as wanting to be fully remote; the survey may not reflect quieter members or home conditions.",
+          "impact": 4,
+          "checked": 3
+        },
+        {
+          "id": "b3",
+          "belief": "Team quality and collaboration will hold up without a shared office.",
+          "rests_on": "The experience of two remote days a week.",
+          "how_wrong": "Two days at home with three days together is a different situation from no shared days; the hybrid pattern was never tested as fully remote.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b4",
+          "belief": "Biggest clients are fine with video calls for regular check-ins.",
+          "rests_on": "The team's impression from client conversations.",
+          "how_wrong": "It is an impression of the people managing accounts, and clients may not say they would prefer meeting in person; key kick-offs and sign-offs may differ from regular check-ins.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b5",
+          "belief": "New client wins come from sources that do not depend on the office.",
+          "rests_on": "Assumption that the work is delivered digitally and the pitch can be remote.",
+          "how_wrong": "The studio's history of how recent projects were won has not been analyzed; some may have come through in-person events or local relationships.",
+          "impact": 5,
+          "checked": 1
+        },
+        {
+          "id": "b6",
+          "belief": "The team can hire and train new people effectively remotely.",
+          "rests_on": "General experience and an assumption that talent is available.",
+          "how_wrong": "Past hiring happened with an office; onboarding juniors remotely was never tested, and candidates may prefer studios with offices.",
+          "impact": 3,
+          "checked": 1
+        },
+        {
+          "id": "b7",
+          "belief": "The decision can be reversed if remote does not work.",
+          "rests_on": "The assumption that a space can be rented later.",
+          "how_wrong": "Finding a comparable space later may be costlier or slower, and key staff who leave in the meantime are not easily replaced.",
+          "impact": 3,
+          "checked": 1
+        }
+      ]
+    },
+    "questions": [
+      {
+        "question": "Go through every project won in the last 12 to 24 months in your CRM or invoices and note for each how the client first found you (referral, walk-in, in-person pitch, event, website, repeat client); what share depended on meeting in person or on the office location?",
+        "targets": "b5",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Ask your two or three largest clients directly, with a concrete question: would you still run workshops and sign-offs with us by video only, and would you consider moving work to an agency with its own premises?",
+        "targets": "5",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Ask each team member privately (not in a group survey): would you want to work fully remote five days a week, and what does your home workspace look like? Include juniors and quieter members.",
+        "targets": "b2",
+        "impact": 4,
+        "checked": 3
+      },
+      {
+        "question": "Run a trial of one to two months with no one in the office on the usual shared days: what happens to review turnaround, the number of rework rounds and client feedback compared with the two previous months?",
+        "targets": "b3",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "How do your junior designers currently get feedback and learn: write down how many hours per week they spend sitting with seniors, and decide what concrete replacement (scheduled pairing, review sessions) would cover it remotely.",
+        "targets": "2",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Have an accountant or payroll advisor check where each employee lives and works and which payroll, insurance, equipment and tax obligations fully remote work would trigger; what is the yearly cost?",
+        "targets": "4",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Add up the costs the quarter-saving figure leaves out: home-office stipends, co-working or meeting room bookings for client workshops, software, equipment shipping and insurance; what is the net saving after them?",
+        "targets": "b1",
+        "impact": 3,
+        "checked": 3
+      },
+      {
+        "question": "Ask the landlord whether a shorter lease, a smaller space, or a break clause is available, and check what comparable offices in the area would cost and how fast they are available if you needed to return.",
+        "targets": "b7",
+        "impact": 3,
+        "checked": 1
+      },
+      {
+        "question": "Look at your last three hires or candidate pipelines: how many asked about the office, and how would you onboard a junior remotely? Ask two recruiters or peer studios what remote candidates in your field expect.",
+        "targets": "b6",
+        "impact": 3,
+        "checked": 1
+      },
+      {
+        "question": "Can you test a cheaper middle option, such as a smaller office or a co-working desk package with a meeting room for four weeks, to see how client meetings and walk-in leads change?",
+        "targets": "1",
+        "impact": 4,
+        "checked": 1
+      }
+    ]
+  }
+}

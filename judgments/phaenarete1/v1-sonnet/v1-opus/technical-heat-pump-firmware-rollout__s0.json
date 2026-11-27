@@ -1,0 +1,88 @@
+{
+  "case_id": "technical-heat-pump-firmware-rollout",
+  "arm": "phaenarete1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Test the remote rollback on a batch of real field units (or at least ones in the test lab with the same hardware): does a downgrade to the previous firmware complete, and what share fails or stays offline?",
+      "reveals": [],
+      "generic": false,
+      "note": "Rollback test; no hidden fact."
+    },
+    {
+      "q": 2,
+      "question": "Pull the 200 field-trial units' list: what were their locations, outdoor temperatures during the two weeks (minimum and longest stretch below 0 C), and compressor hardware revisions, compared with the same breakdown of the 40,000 installed base?",
+      "reveals": [],
+      "generic": false,
+      "note": "Would show the mild trial weather but not the short-cycling errors closed as sensor noise."
+    },
+    {
+      "q": 3,
+      "question": "Ask the compressor supplier for the written basis of their sign-off: was it a model calculation or a physical endurance test, how many start/stop cycles and defrost cycles were run, and at what temperatures?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Asks at what temperatures the supplier validated the logic, which reveals the -5 C limit."
+    },
+    {
+      "q": 4,
+      "question": "Does the lab suite include sustained sub-zero operation, restart after defrost and short-cycling checks for the new compressor logic? Read the test list for those cases and run them in a climate chamber if they are missing.",
+      "reveals": [],
+      "generic": false,
+      "note": "Lab suite coverage, not the field-trial error logs."
+    },
+    {
+      "q": 5,
+      "question": "Which telemetry signals show a lockout, a protection trip or a failed restart within an hour of it happening, and how long is the delay between a unit's event and it reaching the dashboard? Check with a deliberately triggered test fault.",
+      "reveals": [],
+      "generic": false,
+      "note": "Telemetry latency; no hidden fact."
+    },
+    {
+      "q": 6,
+      "question": "Did any of the last six updates change compressor control or defrost logic? Open their release notes and compare the changed modules with this release.",
+      "reveals": [],
+      "generic": false,
+      "note": "Past releases; no hidden fact."
+    },
+    {
+      "q": 7,
+      "question": "How many units sit on weak connectivity or old bootloaders, and has the update process been tested with interrupted flashes (power or connection loss mid-update) to confirm units recover and do not stay in a boot loop?",
+      "reveals": [],
+      "generic": false,
+      "note": "Connectivity and interrupted flashes; slow trial downloads would not clearly be stated."
+    },
+    {
+      "q": 8,
+      "question": "Ask a sample of installers which custom settings they use (weather-compensation curves, buffer tank setups) and run the new firmware against the three or four most common ones on a test rig.",
+      "reveals": [],
+      "generic": false,
+      "note": "Installer settings; no hidden fact."
+    },
+    {
+      "q": 9,
+      "question": "Check the support team's forecast: how many calls per hour does the campaign launch alone typically generate, and what is the number of extra calls per hour if even 1% of the units have a problem? Can staffing be extended on Monday and Tuesday?",
+      "reveals": [],
+      "generic": false,
+      "note": "Support staffing; no hidden fact."
+    },
+    {
+      "q": 10,
+      "question": "Can the rollout be staged in waves (for example 1%, then 10%, then the rest) with a defined stop rule, and does the update server support pausing mid-wave?",
+      "reveals": [],
+      "generic": false,
+      "note": "Staged rollout; no hidden fact."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Rollback test; no hidden fact.\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Would show the mild trial weather but not the short-cycling errors closed as sensor noise.\"}, {\"q\": 3, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Asks at what temperatures the supplier validated the logic, which reveals the -5 C limit.\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Lab suite coverage, not the field-trial error logs.\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Telemetry latency; no hidden fact.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Past releases; no hidden fact.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Connectivity and interrupted flashes; slow trial downloads would not clearly be stated.\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Installer settings; no hidden fact.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Support staffing; no hidden fact.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Staged rollout; no hidden fact.\"}]}"
+}

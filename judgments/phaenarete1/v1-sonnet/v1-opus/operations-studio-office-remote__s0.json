@@ -1,0 +1,90 @@
+{
+  "case_id": "operations-studio-office-remote",
+  "arm": "phaenarete1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t2",
+    "f3": "t1",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Go through every project won in the last 12 to 24 months in your CRM or invoices and note for each how the client first found you (referral, walk-in, in-person pitch, event, website, repeat client); what share depended on meeting in person or on the office location?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Asks what share of won projects depended on in-person meetings at the office; answer states most began in studio workshops."
+    },
+    {
+      "q": 2,
+      "question": "Ask your two or three largest clients directly, with a concrete question: would you still run workshops and sign-offs with us by video only, and would you consider moving work to an agency with its own premises?",
+      "reveals": [],
+      "generic": false,
+      "note": "Asks clients about future video-only workshops; does not state where past projects started."
+    },
+    {
+      "q": 3,
+      "question": "Ask each team member privately (not in a group survey): would you want to work fully remote five days a week, and what does your home workspace look like? Include juniors and quieter members.",
+      "reveals": [],
+      "generic": false,
+      "note": "Team preferences; none of the facts."
+    },
+    {
+      "q": 4,
+      "question": "Run a trial of one to two months with no one in the office on the usual shared days: what happens to review turnaround, the number of rework rounds and client feedback compared with the two previous months?",
+      "reveals": [],
+      "generic": false,
+      "note": "Trial outcomes on turnaround and feedback; none of the facts."
+    },
+    {
+      "q": 5,
+      "question": "How do your junior designers currently get feedback and learn: write down how many hours per week they spend sitting with seniors, and decide what concrete replacement (scheduled pairing, review sessions) would cover it remotely.",
+      "reveals": [],
+      "generic": false,
+      "note": "Junior mentoring; none of the facts."
+    },
+    {
+      "q": 6,
+      "question": "Have an accountant or payroll advisor check where each employee lives and works and which payroll, insurance, equipment and tax obligations fully remote work would trigger; what is the yearly cost?",
+      "reveals": [],
+      "generic": false,
+      "note": "Payroll and tax obligations; none of the facts."
+    },
+    {
+      "q": 7,
+      "question": "Add up the costs the quarter-saving figure leaves out: home-office stipends, co-working or meeting room bookings for client workshops, software, equipment shipping and insurance; what is the net saving after them?",
+      "reveals": [],
+      "generic": false,
+      "note": "Hidden remote costs; workshop room bookings do not state past workshop share."
+    },
+    {
+      "q": 8,
+      "question": "Ask the landlord whether a shorter lease, a smaller space, or a break clause is available, and check what comparable offices in the area would cost and how fast they are available if you needed to return.",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Asks how fast comparable offices are available to return; answer states they are booked out for years."
+    },
+    {
+      "q": 9,
+      "question": "Look at your last three hires or candidate pipelines: how many asked about the office, and how would you onboard a junior remotely? Ask two recruiters or peer studios what remote candidates in your field expect.",
+      "reveals": [],
+      "generic": false,
+      "note": "Hiring and onboarding; none of the facts."
+    },
+    {
+      "q": 10,
+      "question": "Can you test a cheaper middle option, such as a smaller office or a co-working desk package with a meeting room for four weeks, to see how client meetings and walk-in leads change?",
+      "reveals": [],
+      "generic": false,
+      "note": "Middle-option test; none of the facts."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Asks what share of won projects depended on in-person meetings at the office; answer states most began in studio workshops.\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Asks clients about future video-only workshops; does not state where past projects started.\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Team preferences; none of the facts.\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Trial outcomes on turnaround and feedback; none of the facts.\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Junior mentoring; none of the facts.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Payroll and tax obligations; none of the facts.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Hidden remote costs; workshop room bookings do not state past workshop share.\"}, {\"q\": 8, \"reveals\": [\"f4\"], \"generic\": false, \"note\": \"Asks how fast comparable offices are available to return; answer states they are booked out for years.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Hiring and onboarding; none of the facts.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Middle-option test; none of the facts.\"}]}"
+}

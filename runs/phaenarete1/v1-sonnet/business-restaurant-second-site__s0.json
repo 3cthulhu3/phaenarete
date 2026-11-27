@@ -1,0 +1,156 @@
+{
+  "case_id": "business-restaurant-second-site",
+  "arm": "phaenarete1",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "96309723c544",
+  "created": "2026-11-27T08:04:21.689190+00:00",
+  "questions": [
+    "Ask the landlord's agent for the pedestrian count's raw data: which days, which hours, which weeks, which counting method, and whether an event or market took place. Then do your own count at the door during lunch, dinner and weekend times on at least three different days.",
+    "Stand at the site in the hours you need diners and count how many passers-by are walking through to a station or shop versus lingering or looking at restaurants; compare with the same count outside your first restaurant to get a rough conversion ratio.",
+    "Ask the council planning office and a kitchen contractor in writing whether the former shop can get a change of use, extraction ventilation, a grease trap and gas supply, what the lease says on landlord approval for those works, and what the realistic cost and timeline are.",
+    "Read the lease: is there a personal guarantee, a break clause, a rent-free period during fit-out, a rent review schedule and a clause for a sale or assignment of the lease? Ask a lawyer to mark which terms could trap you for ten years.",
+    "Check footfall risks on the street: look up planned construction works, the council's plans, retail vacancy on the street and any known closures of anchor tenants nearby.",
+    "Rebuild your financial plan with realistic cases: traffic at half of the claimed level, fit-out overruns of 30 percent and a slow ramp-up of 12 months; does the second site still reach profit within 18 months and how much cash does it need?",
+    "Ask the landlord's agent how many viewings the other interested tenant has had and whether an offer has been received, and ask whether the deadline can be extended by a week or two for a conditional agreement subject to permits.",
+    "Compare the demographics, price level and competition on this street with the first site: who are the customers by time of day, and which restaurants nearby are full or empty at dinner?",
+    "Which of your first restaurant's sales come from neighbourhood regulars and word of mouth that would not transfer, and what share could be reached by a new street's passers-by? Check the loyalty data or reservation records.",
+    "Write down who runs the first restaurant during the fit-out and opening months, how many hours the head chef and you each would spend away, and which second-in-command could cover without quality dropping; test it for two weeks beforehand."
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "map": {
+      "lean": {
+        "option": "Sign the lease for this location",
+        "reasons": "The first restaurant is profitable with a proven menu, the landlord's pedestrian count shows much more foot traffic than the first site, the rent fits the plan if traffic holds, and another tenant creates pressure to decide within two weeks."
+      },
+      "premortem": [
+        "The pedestrian count was taken on a day or week with an event, a market or a holiday, and typical weekday foot traffic is much lower, so the revenue per day stays below what is needed to cover the high rent.",
+        "The foot traffic is mostly commuters and shoppers walking past to a nearby transit station or retail, who do not stop to eat; the clothing shop's customers were buying, but passers-by do not turn into diners, so the conversion is far lower than at the first location.",
+        "Kitchen fit-out needs ventilation, grease trap and gas upgrades that the building and landlord do not permit or that the planning authority requires to be changed; costs and delays push opening back many months with rent already running.",
+        "The ten-year lease has a personal guarantee and no break clause; when the street's footfall drops because of nearby construction works or a big retailer leaving, the owners cannot exit, and losses at the second site drain the first restaurant.",
+        "The owners' attention and key staff, particularly the head chef, move to the new site during the fit-out and opening, and the quality and service at the first location decline, reducing its profits when the second one needs support."
+      ],
+      "beliefs": [
+        {
+          "id": "b1",
+          "belief": "The foot traffic at this location is much higher than at the first location.",
+          "rests_on": "A pedestrian count shared by the landlord's agent.",
+          "how_wrong": "The source has an interest in a high number; the timing, days, hours and counting method are unknown, and it may include passers-by who never stop.",
+          "impact": 5,
+          "checked": 1
+        },
+        {
+          "id": "b2",
+          "belief": "More foot traffic will turn into more diners.",
+          "rests_on": "An assumption that traffic drives sales as at the first restaurant.",
+          "how_wrong": "The two streets may have different people and purposes; the conversion rate at the first site may not apply to a busier, more transient street.",
+          "impact": 5,
+          "checked": 2
+        },
+        {
+          "id": "b3",
+          "belief": "The menu and concept that work at the first site will work at the second.",
+          "rests_on": "The first restaurant's profits and customer response.",
+          "how_wrong": "The customer base, prices and competition differ at the new site, and the first location's success may depend on its neighbourhood regulars.",
+          "impact": 4,
+          "checked": 3
+        },
+        {
+          "id": "b4",
+          "belief": "The rent fits the plan and the restaurant can be profitable within 18 months.",
+          "rests_on": "The owners' financial plan.",
+          "how_wrong": "The plan depends on the traffic estimate and may leave out fit-out overruns, ramp-up time, service charges, and the cost of hiring and training staff.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b5",
+          "belief": "The space can be converted into a working kitchen at the expected cost and time.",
+          "rests_on": "The owners' impression and the agent's description of the former clothing shop.",
+          "how_wrong": "Ventilation, drainage, gas, planning permission and landlord approval have not been confirmed, and former retail space often lacks them.",
+          "impact": 4,
+          "checked": 1
+        },
+        {
+          "id": "b6",
+          "belief": "The landlord's deadline and the interested tenant are real pressures that mean they must decide now.",
+          "rests_on": "The landlord's agent's statement.",
+          "how_wrong": "It may be a negotiating tactic; the other tenant may not exist or may not meet the landlord's terms, and there may be room to negotiate time or terms.",
+          "impact": 3,
+          "checked": 1
+        },
+        {
+          "id": "b7",
+          "belief": "The first restaurant will not suffer from the expansion.",
+          "rests_on": "The owners' confidence in their team and processes.",
+          "how_wrong": "Owner time, cash and key staff will be stretched; the effect on the first restaurant was never tested.",
+          "impact": 4,
+          "checked": 2
+        }
+      ]
+    },
+    "questions": [
+      {
+        "question": "Ask the landlord's agent for the pedestrian count's raw data: which days, which hours, which weeks, which counting method, and whether an event or market took place. Then do your own count at the door during lunch, dinner and weekend times on at least three different days.",
+        "targets": "b1",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Stand at the site in the hours you need diners and count how many passers-by are walking through to a station or shop versus lingering or looking at restaurants; compare with the same count outside your first restaurant to get a rough conversion ratio.",
+        "targets": "2",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Ask the council planning office and a kitchen contractor in writing whether the former shop can get a change of use, extraction ventilation, a grease trap and gas supply, what the lease says on landlord approval for those works, and what the realistic cost and timeline are.",
+        "targets": "b5",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Read the lease: is there a personal guarantee, a break clause, a rent-free period during fit-out, a rent review schedule and a clause for a sale or assignment of the lease? Ask a lawyer to mark which terms could trap you for ten years.",
+        "targets": "4",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Check footfall risks on the street: look up planned construction works, the council's plans, retail vacancy on the street and any known closures of anchor tenants nearby.",
+        "targets": "4",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Rebuild your financial plan with realistic cases: traffic at half of the claimed level, fit-out overruns of 30 percent and a slow ramp-up of 12 months; does the second site still reach profit within 18 months and how much cash does it need?",
+        "targets": "b4",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Ask the landlord's agent how many viewings the other interested tenant has had and whether an offer has been received, and ask whether the deadline can be extended by a week or two for a conditional agreement subject to permits.",
+        "targets": "b6",
+        "impact": 3,
+        "checked": 1
+      },
+      {
+        "question": "Compare the demographics, price level and competition on this street with the first site: who are the customers by time of day, and which restaurants nearby are full or empty at dinner?",
+        "targets": "b3",
+        "impact": 4,
+        "checked": 3
+      },
+      {
+        "question": "Which of your first restaurant's sales come from neighbourhood regulars and word of mouth that would not transfer, and what share could be reached by a new street's passers-by? Check the loyalty data or reservation records.",
+        "targets": "b3",
+        "impact": 4,
+        "checked": 3
+      },
+      {
+        "question": "Write down who runs the first restaurant during the fit-out and opening months, how many hours the head chef and you each would spend away, and which second-in-command could cover without quality dropping; test it for two weeks beforehand.",
+        "targets": "5",
+        "impact": 4,
+        "checked": 2
+      }
+    ]
+  }
+}

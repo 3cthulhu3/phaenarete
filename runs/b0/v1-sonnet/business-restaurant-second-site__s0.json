@@ -1,0 +1,21 @@
+{
+  "case_id": "business-restaurant-second-site",
+  "arm": "b0",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "31d5c342f3b9",
+  "created": "2026-11-27T08:02:04.231058+00:00",
+  "questions": [
+    "How reliable is the pedestrian count: who produced it, when and over what days and hours was it measured, and does it reflect the people who actually eat at restaurants like ours rather than commuters or shoppers passing by?",
+    "What conversion rate from foot traffic to diners is realistic for our concept, and what would the revenue and break-even look like at half or a quarter of the projected traffic?",
+    "What is the total occupancy cost, including base rent, rent escalations, service charges, taxes, insurance, and deposits, as a percentage of projected sales, and does the plan still work if traffic falls short?",
+    "What is the full cost and timeline of the kitchen fit-out (ventilation, grease traps, gas, electrics, permits, construction), who pays for it, and how long will the space be paid for but not trading?",
+    "Does the lease include protections such as a rent-free fit-out period, a break clause, an assignment or sublet right, a personal guarantee limit, or an exit option if the business underperforms over ten years?",
+    "Does the space legally permit restaurant use, and have we confirmed zoning, licensing, alcohol, signage, outdoor seating, opening hours, and noise restrictions before signing?",
+    "Why did the previous tenant leave, and what happened to other food businesses on this street; is the high foot traffic actually translating into success for neighbors and not just high turnover?",
+    "How will opening a second site affect the first restaurant: management attention, key staff, supplier capacity, cash reserves, and the risk that quality or consistency slips at either location?",
+    "Can we staff the new location, including a strong chef and manager, and does our financing leave enough working capital to survive 18 months of ramp-up if sales are slower than planned?",
+    "How real is the competing tenant, and can we negotiate more time, better terms, or a conditional agreement (subject to due diligence, permits, and financing) rather than accepting or rejecting under the two-week deadline?"
+  ],
+  "raw": "{\"questions\": [\"How reliable is the pedestrian count: who produced it, when and over what days and hours was it measured, and does it reflect the people who actually eat at restaurants like ours rather than commuters or shoppers passing by?\", \"What conversion rate from foot traffic to diners is realistic for our concept, and what would the revenue and break-even look like at half or a quarter of the projected traffic?\", \"What is the total occupancy cost, including base rent, rent escalations, service charges, taxes, insurance, and deposits, as a percentage of projected sales, and does the plan still work if traffic falls short?\", \"What is the full cost and timeline of the kitchen fit-out (ventilation, grease traps, gas, electrics, permits, construction), who pays for it, and how long will the space be paid for but not trading?\", \"Does the lease include protections such as a rent-free fit-out period, a break clause, an assignment or sublet right, a personal guarantee limit, or an exit option if the business underperforms over ten years?\", \"Does the space legally permit restaurant use, and have we confirmed zoning, licensing, alcohol, signage, outdoor seating, opening hours, and noise restrictions before signing?\", \"Why did the previous tenant leave, and what happened to other food businesses on this street; is the high foot traffic actually translating into success for neighbors and not just high turnover?\", \"How will opening a second site affect the first restaurant: management attention, key staff, supplier capacity, cash reserves, and the risk that quality or consistency slips at either location?\", \"Can we staff the new location, including a strong chef and manager, and does our financing leave enough working capital to survive 18 months of ramp-up if sales are slower than planned?\", \"How real is the competing tenant, and can we negotiate more time, better terms, or a conditional agreement (subject to due diligence, permits, and financing) rather than accepting or rejecting under the two-week deadline?\"]}"
+}

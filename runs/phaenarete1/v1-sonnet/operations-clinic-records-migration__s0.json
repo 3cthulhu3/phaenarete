@@ -1,0 +1,156 @@
+{
+  "case_id": "operations-clinic-records-migration",
+  "arm": "phaenarete1",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "96309723c544",
+  "created": "2026-11-27T08:04:21.691379+00:00",
+  "questions": [
+    "Log in to the cloud backup service's console: what is the date and time of the most recent successful backup, and does the job history show a successful run for every night over the last 90 days?",
+    "Open the backup's configuration and list exactly which folders and drives it includes: does it cover the records database, the images and X-rays folder (including any second drive), and the practice software's settings?",
+    "Can the IT helper restore last night's backup onto a spare machine this week and open it in the practice software, with a few known patients' records and X-rays checked against the live system?",
+    "Is the key or password needed to decrypt the backup written down somewhere you can actually find it today, and has anyone confirmed it works by decrypting a file?",
+    "Ask the practice software vendor in writing whether the license is tied to the old PC's hardware ID or computer name, and what steps (and what weekend support contact) exist for moving it to the new server.",
+    "Does the vendor's documentation or support say how to copy this database safely (stop the service, built-in export or backup tool), and does the plan include comparing record counts and file checksums between old and new copies before Monday?",
+    "Run the old PC's disk health check (SMART status, error logs, reallocated sectors) and note the result: is the disk healthy enough to survive a full-day copy, and has a second full copy been made to an external drive before starting?",
+    "Has the IT helper worked with this specific practice software and its vendor before, or only with other systems? Ask for the names of the previous offices and whether they used the same product.",
+    "Which computers and devices in the clinic (reception, treatment rooms, X-ray sensors) connect to the database, and what settings on each must change to point at the new server before Monday?",
+    "Is the old PC's cloud backup account still paid and active: check the payment method, expiry date and storage quota in the account's billing page."
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "map": {
+      "lean": {
+        "option": "Migrate this weekend",
+        "reasons": "The old PC is failing, the new server has arrived, the IT helper has done similar moves for other offices, and the nightly cloud backup is expected to protect the records if something goes wrong."
+      },
+      "premortem": [
+        "The cloud backup has been silently failing for months because the stored credentials or payment lapsed, so the latest good copy is far older than assumed, and a corrupted copy on Saturday leaves months of patient records unrecoverable.",
+        "The backup covers the files but not the database in a consistent way, or it excludes the images and X-rays folder that sits on a different drive, so a restore produces a database without attached X-rays and the practice software will not open.",
+        "The copy of the live database on Saturday is made while the software or a background service is still writing to it, producing a subtly corrupted file that is not noticed until Monday when patients' histories show errors.",
+        "The practice management software license is tied to the old machine's hardware ID or the old computer name, so after the move the software refuses to start on Monday morning and the vendor's support is closed over the weekend.",
+        "The old PC fails completely during the weekend copy, so the only complete source is gone, and the IT helper discovers the backup restores need an encryption key that was kept by the previous office manager and nobody can find."
+      ],
+      "beliefs": [
+        {
+          "id": "b1",
+          "belief": "The nightly cloud backup is running successfully every night.",
+          "rests_on": "The setup done two years ago by the previous office manager and the absence of any error messages.",
+          "how_wrong": "No news is not evidence; failures may go unreported to anyone, and the account, credentials or storage quota may have changed since setup.",
+          "impact": 5,
+          "checked": 1
+        },
+        {
+          "id": "b2",
+          "belief": "The backup contains everything needed, including the database, images and settings.",
+          "rests_on": "An assumption about the backup's scope from the setup two years ago.",
+          "how_wrong": "Folders and data added since then, such as imaging software and a second drive, may not be included; the scope was never reviewed.",
+          "impact": 5,
+          "checked": 1
+        },
+        {
+          "id": "b3",
+          "belief": "The backup can actually be restored into a working system.",
+          "rests_on": "The general reputation of the cloud service.",
+          "how_wrong": "No restore has ever been tried; a backup that was never restored is untested, and restores can fail because of missing keys, version differences or corrupt files.",
+          "impact": 5,
+          "checked": 1
+        },
+        {
+          "id": "b4",
+          "belief": "The IT helper's experience from other offices applies to this clinic's setup.",
+          "rests_on": "The helper's past similar migrations.",
+          "how_wrong": "Each practice's software, licensing and data layout differ, and the helper has not seen this particular database and its vendor requirements.",
+          "impact": 3,
+          "checked": 3
+        },
+        {
+          "id": "b5",
+          "belief": "A weekend copy of the database will be complete and consistent.",
+          "rests_on": "The usual method of copying files on Saturday.",
+          "how_wrong": "Copying a live database file can produce an inconsistent copy unless services are stopped or a proper export is used, and verification of the copy is not planned.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b6",
+          "belief": "The practice software will work on the new server on Monday without vendor involvement.",
+          "rests_on": "The assumption that moving files is enough.",
+          "how_wrong": "Licensing, connection settings, client machines and database versions may need vendor steps that were not confirmed.",
+          "impact": 4,
+          "checked": 1
+        },
+        {
+          "id": "b7",
+          "belief": "The old PC will last through the weekend.",
+          "rests_on": "Its current state as seen by the staff.",
+          "how_wrong": "A failing machine can fail at any time, and heavy copying can push a failing disk over the edge; its condition was not diagnosed.",
+          "impact": 4,
+          "checked": 2
+        }
+      ]
+    },
+    "questions": [
+      {
+        "question": "Log in to the cloud backup service's console: what is the date and time of the most recent successful backup, and does the job history show a successful run for every night over the last 90 days?",
+        "targets": "b1",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Open the backup's configuration and list exactly which folders and drives it includes: does it cover the records database, the images and X-rays folder (including any second drive), and the practice software's settings?",
+        "targets": "b2",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Can the IT helper restore last night's backup onto a spare machine this week and open it in the practice software, with a few known patients' records and X-rays checked against the live system?",
+        "targets": "b3",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Is the key or password needed to decrypt the backup written down somewhere you can actually find it today, and has anyone confirmed it works by decrypting a file?",
+        "targets": "5",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Ask the practice software vendor in writing whether the license is tied to the old PC's hardware ID or computer name, and what steps (and what weekend support contact) exist for moving it to the new server.",
+        "targets": "b6",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Does the vendor's documentation or support say how to copy this database safely (stop the service, built-in export or backup tool), and does the plan include comparing record counts and file checksums between old and new copies before Monday?",
+        "targets": "b5",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Run the old PC's disk health check (SMART status, error logs, reallocated sectors) and note the result: is the disk healthy enough to survive a full-day copy, and has a second full copy been made to an external drive before starting?",
+        "targets": "b7",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Has the IT helper worked with this specific practice software and its vendor before, or only with other systems? Ask for the names of the previous offices and whether they used the same product.",
+        "targets": "b4",
+        "impact": 3,
+        "checked": 3
+      },
+      {
+        "question": "Which computers and devices in the clinic (reception, treatment rooms, X-ray sensors) connect to the database, and what settings on each must change to point at the new server before Monday?",
+        "targets": "b6",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Is the old PC's cloud backup account still paid and active: check the payment method, expiry date and storage quota in the account's billing page.",
+        "targets": "1",
+        "impact": 5,
+        "checked": 1
+      }
+    ]
+  }
+}

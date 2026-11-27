@@ -1,0 +1,156 @@
+{
+  "case_id": "product-app-release-before-sale",
+  "arm": "phaenarete1",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "96309723c544",
+  "created": "2026-11-27T08:04:21.690306+00:00",
+  "questions": [
+    "Run a load test of the new checkout against the payment provider's test environment at the expected sale-day order rate and its calls per order, and ask the provider in writing what rate limits and fraud rules apply to your account on sale day.",
+    "Is there a server-side feature flag that can switch the new checkout off for all app versions within minutes without a store release, and has the team tested switching it on and off in production?",
+    "Check the beta build on a set of older and low-end Android and iOS devices (the ones in your sale-week analytics top 20) and confirm the payment sheet renders and completes an order on each.",
+    "Beyond crashes, what do the beta's order logs show for checkout step drop-off, payment errors, timeouts and frozen screens compared with the current checkout? Query these directly and compare the rates.",
+    "Who was in the beta (how they joined, device types, sample size, how long it ran) and does the 8% lift hold when you compare only against a matched group of non-beta users with similar past spending?",
+    "Has the new checkout been tested with sale discount codes, bundles and promotional pricing, including the specific code path that applies stacked discounts, in a staging environment?",
+    "Ask the app store review contacts or look at your own last ten submissions: what were the actual review times (median and worst case), and does the payment-flow change trigger a special policy review? What is the latest submission date that still leaves a buffer of several days?",
+    "What share of your 2 million users are on the current app version and how fast did the last update spread, in days to reach 50 and 80 percent? Check the version-adoption chart from the previous release.",
+    "Do the deep links in the push notification work correctly in both the old and new app versions against the new backend? Tap the link on a phone with the old version installed and on one with the new version.",
+    "Put numbers on both sides: what is the expected sale-week revenue gain from the 8% lift at your normal conversion, and what is the revenue lost per hour of a checkout outage in sale week; at what outage length does shipping lose?"
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "map": {
+      "lean": {
+        "option": "Ship the new checkout before the sale",
+        "reasons": "The beta showed about an 8% conversion lift and the crash dashboard shows stability equal to the current build, so shipping early captures the gain for the biggest revenue week of the year."
+      },
+      "premortem": [
+        "The beta audience was mostly power users on recent phones; on older Android devices common among sale shoppers the new payment sheet fails to render, and checkout silently breaks for a large slice of users once the push notification brings in the crowd.",
+        "The payment provider's rate limits or fraud rules were never tested at sale-day volume; the new checkout makes more calls per order, and the provider throttles or flags transactions in the first hour.",
+        "App store review takes longer than expected or rejects the build for a payments-policy reason, so the update lands in the middle of the sale and users get a staged rollout where half see the old flow and support cannot reproduce complaints.",
+        "Many users do not update their app before the sale; the push notification sends them to a deep link that the old version handles differently from the new backend, producing dead links or cart errors.",
+        "The conversion lift in the beta came from an unusual segment (for example users who opted into the beta and were already high-intent), so the gain does not appear at full scale, while a rare crash tied to a specific discount-code path appears only under sale promotions."
+      ],
+      "beliefs": [
+        {
+          "id": "b1",
+          "belief": "The new checkout raises conversion by about 8% for the general user base.",
+          "rests_on": "The beta test results.",
+          "how_wrong": "Beta users self-select and are not representative; the beta ran under normal trading conditions, not sale pricing and discount codes, and it may have run on a small sample.",
+          "impact": 4,
+          "checked": 3
+        },
+        {
+          "id": "b2",
+          "belief": "The new build is as stable as the current one.",
+          "rests_on": "The crash dashboard comparing beta and current builds.",
+          "how_wrong": "Crash dashboards miss non-crash failures like frozen payment screens or silent order errors, and the beta had far fewer users and no sale-level load.",
+          "impact": 5,
+          "checked": 3
+        },
+        {
+          "id": "b3",
+          "belief": "The app stores will approve and release the update before the sale starts.",
+          "rests_on": "Past review times and the nine-day window.",
+          "how_wrong": "Review times vary and a rejection resets the clock; a past pattern of fast approvals says little about a payment-flow change right before a holiday period.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b4",
+          "belief": "Backend and payment systems will cope with sale-day traffic through the new checkout.",
+          "rests_on": "The team's assumption that infrastructure that handled last year's sale will handle this one.",
+          "how_wrong": "The new checkout changes call patterns and was never load-tested at sale volume, and the payment provider's limits may be different from last year.",
+          "impact": 5,
+          "checked": 1
+        },
+        {
+          "id": "b5",
+          "belief": "Most of the 2 million users will be on the new version when the sale starts.",
+          "rests_on": "A general expectation that users auto-update quickly.",
+          "how_wrong": "Update adoption is gradual, and many users have auto-update off; the notification will reach people on the old version.",
+          "impact": 3,
+          "checked": 1
+        },
+        {
+          "id": "b6",
+          "belief": "If something goes wrong, the team can recover quickly.",
+          "rests_on": "The team's experience handling past issues and the ability to ship a fix.",
+          "how_wrong": "Rollback needs another store release, which takes days and cannot reach users who do not update; a server-side switch may not exist for this change.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b7",
+          "belief": "Waiting until after the sale would forfeit the lift and be the costlier option.",
+          "rests_on": "The 8% figure applied to expected sale revenue.",
+          "how_wrong": "The benefit is estimated from beta data, while the downside of an outage in the peak week was not priced in the same way.",
+          "impact": 3,
+          "checked": 2
+        }
+      ]
+    },
+    "questions": [
+      {
+        "question": "Run a load test of the new checkout against the payment provider's test environment at the expected sale-day order rate and its calls per order, and ask the provider in writing what rate limits and fraud rules apply to your account on sale day.",
+        "targets": "b4",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Is there a server-side feature flag that can switch the new checkout off for all app versions within minutes without a store release, and has the team tested switching it on and off in production?",
+        "targets": "b6",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Check the beta build on a set of older and low-end Android and iOS devices (the ones in your sale-week analytics top 20) and confirm the payment sheet renders and completes an order on each.",
+        "targets": "1",
+        "impact": 5,
+        "checked": 1
+      },
+      {
+        "question": "Beyond crashes, what do the beta's order logs show for checkout step drop-off, payment errors, timeouts and frozen screens compared with the current checkout? Query these directly and compare the rates.",
+        "targets": "b2",
+        "impact": 5,
+        "checked": 3
+      },
+      {
+        "question": "Who was in the beta (how they joined, device types, sample size, how long it ran) and does the 8% lift hold when you compare only against a matched group of non-beta users with similar past spending?",
+        "targets": "b1",
+        "impact": 4,
+        "checked": 3
+      },
+      {
+        "question": "Has the new checkout been tested with sale discount codes, bundles and promotional pricing, including the specific code path that applies stacked discounts, in a staging environment?",
+        "targets": "5",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Ask the app store review contacts or look at your own last ten submissions: what were the actual review times (median and worst case), and does the payment-flow change trigger a special policy review? What is the latest submission date that still leaves a buffer of several days?",
+        "targets": "b3",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "What share of your 2 million users are on the current app version and how fast did the last update spread, in days to reach 50 and 80 percent? Check the version-adoption chart from the previous release.",
+        "targets": "b5",
+        "impact": 3,
+        "checked": 1
+      },
+      {
+        "question": "Do the deep links in the push notification work correctly in both the old and new app versions against the new backend? Tap the link on a phone with the old version installed and on one with the new version.",
+        "targets": "4",
+        "impact": 3,
+        "checked": 1
+      },
+      {
+        "question": "Put numbers on both sides: what is the expected sale-week revenue gain from the 8% lift at your normal conversion, and what is the revenue lost per hour of a checkout outage in sale week; at what outage length does shipping lose?",
+        "targets": "b7",
+        "impact": 3,
+        "checked": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "case_id": "product-app-release-before-sale",
+  "arm": "phaenarete1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c2",
+    "f2": "t2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Run a load test of the new checkout against the payment provider's test environment at the expected sale-day order rate and its calls per order, and ask the provider in writing what rate limits and fraud rules apply to your account on sale day.",
+      "reveals": [],
+      "generic": false,
+      "note": "Payment provider load and limits; no fact concerns this"
+    },
+    {
+      "q": 2,
+      "question": "Is there a server-side feature flag that can switch the new checkout off for all app versions within minutes without a store release, and has the team tested switching it on and off in production?",
+      "reveals": [],
+      "generic": false,
+      "note": "Feature flag rollback; unrelated to the facts"
+    },
+    {
+      "q": 3,
+      "question": "Check the beta build on a set of older and low-end Android and iOS devices (the ones in your sale-week analytics top 20) and confirm the payment sheet renders and completes an order on each.",
+      "reveals": [],
+      "generic": false,
+      "note": "Asks for a device test, not about dashboard coverage; f3 not directly stated"
+    },
+    {
+      "q": 4,
+      "question": "Beyond crashes, what do the beta's order logs show for checkout step drop-off, payment errors, timeouts and frozen screens compared with the current checkout? Query these directly and compare the rates.",
+      "reveals": [],
+      "generic": false,
+      "note": "Order-log failure rates; no fact addressed"
+    },
+    {
+      "q": 5,
+      "question": "Who was in the beta (how they joined, device types, sample size, how long it ran) and does the 8% lift hold when you compare only against a matched group of non-beta users with similar past spending?",
+      "reveals": [
+        "c2",
+        "t2"
+      ],
+      "generic": false,
+      "note": "Who was in the beta and how long it ran directly elicits f1 and f2"
+    },
+    {
+      "q": 6,
+      "question": "Has the new checkout been tested with sale discount codes, bundles and promotional pricing, including the specific code path that applies stacked discounts, in a staging environment?",
+      "reveals": [],
+      "generic": false,
+      "note": "Discount code testing; unrelated"
+    },
+    {
+      "q": 7,
+      "question": "Ask the app store review contacts or look at your own last ten submissions: what were the actual review times (median and worst case), and does the payment-flow change trigger a special policy review? What is the latest submission date that still leaves a buffer of several days?",
+      "reveals": [],
+      "generic": false,
+      "note": "Store review times; unrelated"
+    },
+    {
+      "q": 8,
+      "question": "What share of your 2 million users are on the current app version and how fast did the last update spread, in days to reach 50 and 80 percent? Check the version-adoption chart from the previous release.",
+      "reveals": [],
+      "generic": false,
+      "note": "Version adoption; unrelated"
+    },
+    {
+      "q": 9,
+      "question": "Do the deep links in the push notification work correctly in both the old and new app versions against the new backend? Tap the link on a phone with the old version installed and on one with the new version.",
+      "reveals": [],
+      "generic": false,
+      "note": "Deep links; unrelated"
+    },
+    {
+      "q": 10,
+      "question": "Put numbers on both sides: what is the expected sale-week revenue gain from the 8% lift at your normal conversion, and what is the revenue lost per hour of a checkout outage in sale week; at what outage length does shipping lose?",
+      "reveals": [],
+      "generic": false,
+      "note": "Revenue math; no fact revealed"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Payment provider load and limits; no fact concerns this\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Feature flag rollback; unrelated to the facts\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Asks for a device test, not about dashboard coverage; f3 not directly stated\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Order-log failure rates; no fact addressed\"}, {\"q\": 5, \"reveals\": [\"f1\", \"f2\"], \"generic\": false, \"note\": \"Who was in the beta and how long it ran directly elicits f1 and f2\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Discount code testing; unrelated\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Store review times; unrelated\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Version adoption; unrelated\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Deep links; unrelated\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Revenue math; no fact revealed\"}]}"
+}

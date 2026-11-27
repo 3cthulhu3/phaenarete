@@ -1,0 +1,94 @@
+{
+  "case_id": "housing-mortgage-refinance",
+  "arm": "phaenarete1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Ask your current bank for a written early-termination quote with the exact figure and the date it applies, and read the clause in your loan contract on the early-repayment penalty (is it a fixed month, or a lost-interest calculation over the remaining fixed term)?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "A written exit quote with the exact figure reveals the five-month fee."
+    },
+    {
+      "q": 2,
+      "question": "Request the new lender's binding written offer including the full fee schedule (origination, valuation, notary, land registry, account package) and the total cost over five years; add it all up.",
+      "reveals": [],
+      "generic": false,
+      "note": "New lender fees; no hidden fact."
+    },
+    {
+      "q": 3,
+      "question": "Put the two contracts side by side and compare clause by clause: fixed-rate period, what happens when it ends, rate reset rules, annual special repayment allowance, exit penalties, and conditions on the account package.",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Asks about the fixed-rate period and what happens when it ends."
+    },
+    {
+      "q": 4,
+      "question": "What exactly is the new rate fixed for, and until when? Check the offer document for the end date of the fixed period and what rate model applies afterward, then compare with the current loan's remaining period.",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Asks directly how long the rate is fixed and what applies afterward."
+    },
+    {
+      "q": 5,
+      "question": "Rebuild the payback calculation yourself with a spreadsheet using the actual balance, remaining term, both rates, the written exit fee and all new costs; after how many months does the refinancing break even?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Rebuilding the calculation with the written exit fee would state the real fee."
+    },
+    {
+      "q": 6,
+      "question": "Which conditions in the offer are still open at final approval (valuation, income proof, credit check, loan-to-value tier)? Ask the lender in writing which rate tier you are in and whether a lower valuation would change the rate.",
+      "reveals": [],
+      "generic": false,
+      "note": "Approval conditions; no hidden fact."
+    },
+    {
+      "q": 7,
+      "question": "Ask the lender how long the process from acceptance to payout normally takes and whether the quoted terms stay valid if payout falls after the three-week deadline; what do they commit to in writing?",
+      "reveals": [],
+      "generic": false,
+      "note": "Processing time; no hidden fact."
+    },
+    {
+      "q": 8,
+      "question": "Check what each loan charges if you sell the flat before five years (exit penalty, portability), and what you would owe in a realistic early-sale scenario in year three.",
+      "reveals": [],
+      "generic": false,
+      "note": "Early-sale terms; no hidden fact."
+    },
+    {
+      "q": 9,
+      "question": "Does the new loan allow overpayments of the size you might make in year three (a bonus or inheritance)? Compare the annual overpayment cap and any fee with the current loan.",
+      "reveals": [],
+      "generic": false,
+      "note": "Overpayment caps; no hidden fact."
+    },
+    {
+      "q": 10,
+      "question": "Check whether either lender sells loans on to third-party servicers and read their loan contract's terms about this, and what the complaints record or servicing reviews say about how they handle borrowers with payment trouble.",
+      "reveals": [],
+      "generic": false,
+      "note": "Loan servicing; no hidden fact."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"A written exit quote with the exact figure reveals the five-month fee.\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"New lender fees; no hidden fact.\"}, {\"q\": 3, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Asks about the fixed-rate period and what happens when it ends.\"}, {\"q\": 4, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Asks directly how long the rate is fixed and what applies afterward.\"}, {\"q\": 5, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Rebuilding the calculation with the written exit fee would state the real fee.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Approval conditions; no hidden fact.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Processing time; no hidden fact.\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Early-sale terms; no hidden fact.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Overpayment caps; no hidden fact.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Loan servicing; no hidden fact.\"}]}"
+}

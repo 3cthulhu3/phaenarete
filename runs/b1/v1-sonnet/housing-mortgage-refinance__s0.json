@@ -1,0 +1,21 @@
+{
+  "case_id": "housing-mortgage-refinance",
+  "arm": "b1",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "9125d1fbbd7b",
+  "created": "2026-11-27T08:02:04.296031+00:00",
+  "questions": [
+    "What is the full cost of switching beyond the one-month early-termination fee: arrangement, valuation, legal, notary or land-registry fees, and any fee the new lender charges, and does the 'recovered within a year' estimate include all of them?",
+    "Is the rate truly comparable: is the new offer fixed or variable, for how long is it fixed, and what does the rate become after the fixed period compared with your current loan's terms?",
+    "Does the new loan differ in anything else that affects your five-year cost, such as the remaining term, the amortization schedule, whether the loan amount increases, the rules on overpayments, or conditions that bundle insurance or an account with the lender?",
+    "What happens to your total five-year cost if rates fall further, and what would it cost to refinance again or leave the new lender early if that happens or if your plans change?",
+    "Does the new lender's offer depend on a fresh credit check and property valuation, and what happens if the valuation comes in lower or your income situation looks different now than it did originally?",
+    "Is the broker's estimate of the early-exit fee confirmed in writing by your current bank, and is the broker paid more if you switch, so that their advice might lean toward refinancing?",
+    "Have you asked your current lender to match or come close to the new rate, and what would they offer to keep you without any early termination fee?",
+    "What is your 'at least five years' plan based on, and at what point (a move, a change in household, a sale) would the savings and fee calculation stop working in favor of refinancing?",
+    "How do the tax treatment, any subsidies or special repayment rights attached to your current loan change if you refinance, and do you lose any of them?",
+    "Would a partial option, such as renegotiating the current loan, switching only part of the balance, or waiting to see whether the offer can be extended past three weeks, give you most of the savings with less risk?"
+  ],
+  "raw": "{\"questions\": [\"What is the full cost of switching beyond the one-month early-termination fee: arrangement, valuation, legal, notary or land-registry fees, and any fee the new lender charges, and does the 'recovered within a year' estimate include all of them?\", \"Is the rate truly comparable: is the new offer fixed or variable, for how long is it fixed, and what does the rate become after the fixed period compared with your current loan's terms?\", \"Does the new loan differ in anything else that affects your five-year cost, such as the remaining term, the amortization schedule, whether the loan amount increases, the rules on overpayments, or conditions that bundle insurance or an account with the lender?\", \"What happens to your total five-year cost if rates fall further, and what would it cost to refinance again or leave the new lender early if that happens or if your plans change?\", \"Does the new lender's offer depend on a fresh credit check and property valuation, and what happens if the valuation comes in lower or your income situation looks different now than it did originally?\", \"Is the broker's estimate of the early-exit fee confirmed in writing by your current bank, and is the broker paid more if you switch, so that their advice might lean toward refinancing?\", \"Have you asked your current lender to match or come close to the new rate, and what would they offer to keep you without any early termination fee?\", \"What is your 'at least five years' plan based on, and at what point (a move, a change in household, a sale) would the savings and fee calculation stop working in favor of refinancing?\", \"How do the tax treatment, any subsidies or special repayment rights attached to your current loan change if you refinance, and do you lose any of them?\", \"Would a partial option, such as renegotiating the current loan, switching only part of the balance, or waiting to see whether the offer can be extended past three weeks, give you most of the savings with less risk?\"]}"
+}

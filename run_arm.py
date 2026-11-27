@@ -1,7 +1,7 @@
 """Generate questions for every case with one arm.
 
-Arms: b0, b1 (single prompt from prompts/<arm>.txt) and phaenarete (the multi-stage
-pipeline in pipeline.py).
+Arms: b0, b1 (single prompt from prompts/<arm>.txt), phaenarete (pipeline v0 in
+pipeline.py) and phaenarete1 (pipeline v1 in pipeline1.py).
 
 Usage:
   python3 run_arm.py --arm b0 --cases cases/seed.json
@@ -19,10 +19,11 @@ import datetime as dt
 import hashlib
 
 import pipeline
+import pipeline1
 from common import (DEFAULT_GENERATOR, ROOT, run_root, Pending, cached_call, call_claude, case_brief, extract_json, fill,
                     load_cases, load_prompt, slug, write_json)
 
-PIPELINE_ARM = "phaenarete"
+PIPELINES = {"phaenarete": pipeline, "phaenarete1": pipeline1}
 
 N_QUESTIONS = 10
 
@@ -35,7 +36,7 @@ def mock_questions(case: dict, k: int) -> list[str]:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--arm", required=True, help="b0, b1, ... (a prompt in prompts/) or phaenarete")
+    ap.add_argument("--arm", required=True, help="b0, b1, ... (a prompt in prompts/), phaenarete or phaenarete1")
     ap.add_argument("--cases", default="cases/seed.json")
     ap.add_argument("--model", default=DEFAULT_GENERATOR)
     ap.add_argument("--samples", type=int, default=1, help="runs per case (to measure variance)")
@@ -47,9 +48,10 @@ def main() -> None:
     args = ap.parse_args()
     llm = cached_call if args.backend == "cache" else call_claude
 
-    is_pipeline = args.arm == PIPELINE_ARM
+    pipe = PIPELINES.get(args.arm)
+    is_pipeline = pipe is not None
     if is_pipeline:
-        template, prompt_hash = "", pipeline.prompt_fingerprint()
+        template, prompt_hash = "", pipe.prompt_fingerprint()
     else:
         template = load_prompt(args.arm)
         prompt_hash = hashlib.sha256(template.encode()).hexdigest()[:12]
@@ -72,9 +74,9 @@ def main() -> None:
             trace = None
             try:
                 if is_pipeline:
-                    call = (pipeline.mock_call(case) if args.dry_run
+                    call = (pipe.mock_call(case) if args.dry_run
                             else lambda p, mt: llm(p, args.model, max_tokens=mt))
-                    questions, trace = pipeline.run(case, call)
+                    questions, trace = pipe.run(case, call)
                     raw = "(pipeline: see trace)"
                 elif args.dry_run:
                     raw, questions = "(dry run)", mock_questions(case, k)

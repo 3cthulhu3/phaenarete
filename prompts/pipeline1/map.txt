@@ -1,0 +1,19 @@
+Here is a decision someone is facing. Do not write questions yet. First map what their leaning choice rests on.
+
+{case_brief}
+
+1. Lean. Which option do they seem inclined to pick, and for what reasons?
+
+2. Premortem. Imagine they picked that option and, within the time frame of their goal, it went badly. Write 5 different, specific stories of how it went wrong. Each story must be caused by something that could already be true today but is not stated above. Avoid stories that would fit any decision.
+
+3. Load-bearing beliefs. List 6 to 8 beliefs the leaning choice depends on, stated or implicit. For each one:
+   - belief: the belief, in one sentence.
+   - rests_on: what it rests on. Be concrete: a document, a figure, an instrument or dashboard, a person's impression or summary, a past pattern, or a channel they expect to deliver news.
+   - how_wrong: how that source could be wrong right now even if it was right before: out of date, broken, measured under unusual conditions, summarized by someone else, covering only part of the population, or never tested in this situation.
+   - impact: 1 to 5, how much the decision changes if the belief is false.
+   - checked: 1 to 5, how directly the belief has been checked (1 = taken on trust, 5 = verified first-hand).
+
+Return only JSON in this form:
+{"lean": {"option": "...", "reasons": "..."},
+ "premortem": ["...", "...", "...", "...", "..."],
+ "beliefs": [{"id": "b1", "belief": "...", "rests_on": "...", "how_wrong": "...", "impact": 1, "checked": 1}]}

@@ -1,0 +1,17 @@
+Here is a decision someone is facing, followed by a map of what their leaning choice rests on.
+
+{case_brief}
+
+Map:
+{map}
+
+Write the 10 questions they should answer before deciding.
+
+- Each question checks one thing directly: the source behind a load-bearing belief, or the hidden condition behind one of the premortem stories.
+- Ask for a concrete check where you can: what to read, look at, measure, compare, or whom to ask.
+- Put first the questions whose answer is most likely to change the choice: high impact if the belief is false, and little checked so far.
+- If an impression or reassurance rests on something else (an instrument, a sample, a summary, a channel), ask about that underlying thing, not only about the impression.
+- One thing per question, in plain words. Do not ask about things already answered above. Avoid generic questions that would fit any decision.
+
+Return only JSON in this form:
+{"questions": [{"question": "...", "targets": "b1 or premortem story number", "impact": 1, "checked": 1}]}

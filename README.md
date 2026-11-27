@@ -49,22 +49,40 @@ Four more cases, sourced from public investigation and audit reports (NTSB, CSB,
 - **First crux that no arm found.** In the mountain case, both arms found the stale forecast with their first question but neither found that the wind gauge was broken. B1 came close: it questioned the "stable season" impression but not the instrument behind it. A crux hidden behind someone's reassurance is the pattern worth writing more of.
 - **B1 is not ahead of B0** on these 10 cases (paired difference in disc@3 −12, 95% CI [−40, 17]). The pilot's B1 lead does not carry over to v1.
 
-Next: more cases with the "reassurance resting on a broken source" pattern, then a pipeline v1 measured against B0 and B1 at 3 and 5 questions.
+### Pipeline v1 (14 cases)
+
+Pipeline v1 ([pipeline1.py](pipeline1.py), arm `phaenarete1`) makes two calls. The first maps the decision: the leaning option, a premortem (five ways it fails) and the load-bearing beliefs, each with what it rests on and how that source could be wrong now. The second writes ten questions that check those sources, most decision-changing first. There is no operator quota and no coverage rule. Four held-out cases (`cases/v1/v1-heldout.json`) were written before pipeline v1 was run on anything; B0 and B1 were run on them too.
+
+| Arm | Crux @3 | @5 | @10 | Twin rate @5 | disc@3 | disc@5 |
+| --- | --- | --- | --- | --- | --- | --- |
+| B0 | 52 | 80 | 93 | 11 | 49 | 69 |
+| B1 | 55 | 76 | 87 | 11 | 44 | 65 |
+| Phaenarete v1 | 42 | 56 | 68 | 7 | 38 | 49 |
+
+- **Pipeline v1 loses to both baselines.** B0 minus v1: disc@5 +20 (95% CI [2, 39]), crux@10 +25 (95% CI [7, 46]). This is the second pipeline design to lose to a single prompt.
+- **Why it loses: the premortem turns questions into mitigation.** Once the map takes the leaning option as given, the questions go into how to make that option safe (containment checks, load tests, rollback switches, lead times for parts) instead of what would change the choice. In the tank case, B0 asks what the inspection report itself concludes; v1 asks an engineer to compute the remaining life again and never finds either crux.
+- **It did not fix what it was built for.** The broken wind gauge in the mountain case was still missed, and so was the crash dashboard that leaves out the oldest OS version (held out).
+- **What holds.** B0 and B1 are close to each other: B0 minus B1, disc@3 +5 (95% CI [−17, 29]). On these cases a plain prompt finds 93% of cruxes within ten questions, so the remaining headroom is at 3 and 5 questions and in a small set of cruxes no arm finds.
+
+Next: stop adding stages in front of the question writer. Two options to test against B0 at 3 and 5 questions: re-rank B0's own questions by how directly an answer would change the choice, and add a second pass that asks only about the source behind each reassurance in the context.
 
 ## Layout
 
 ```
 case.schema.json     case format (cruxes, twins, visible context)
 cases/seed.json      12 synthetic seed cases (English)
+cases/v1/            v1 synthetic cases, including 4 held out from pipeline design
 cases/TEMPLATE.json  copy this to write a case from a real decision
 cases/private/       your human-written cases (git-ignored)
 prompts/b0.txt       plain baseline: "10 most important questions"
 prompts/b1.txt       same model, operator taxonomy in one prompt
 prompts/judge.txt    judge prompt (sees hidden facts under neutral ids)
 prompts/pipeline/    parse, generate and critic prompts of the Phaenarete pipeline
+prompts/pipeline1/   map and ask prompts of pipeline v1
 pipeline.py          the Phaenarete pipeline (three model stages + deterministic selection)
+pipeline1.py         pipeline v1 (map -> ask, two model stages)
 validate_cases.py    checks cases (no external packages)
-run_arm.py           generates questions for one arm (b0, b1, phaenarete)
+run_arm.py           generates questions for one arm (b0, b1, phaenarete, phaenarete1)
 pilot.py             export prompts / ingest replies for the prompt-cache backend
 inspect_run.py       readable view of one run with its judge results (for error analysis)
 tests/               unit tests for scoring and selection

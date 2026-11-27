@@ -1,0 +1,90 @@
+{
+  "case_id": "operations-clinic-records-migration",
+  "arm": "phaenarete1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c1",
+    "f2": "t1",
+    "f3": "t2",
+    "f4": "c2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Log in to the cloud backup service's console: what is the date and time of the most recent successful backup, and does the job history show a successful run for every night over the last 90 days?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Last successful backup and 90-day history would show the backup has failed for three months."
+    },
+    {
+      "q": 2,
+      "question": "Open the backup's configuration and list exactly which folders and drives it includes: does it cover the records database, the images and X-rays folder (including any second drive), and the practice software's settings?",
+      "reveals": [],
+      "generic": false,
+      "note": "Backup scope/configuration; does not reveal failures, login location or alert routing."
+    },
+    {
+      "q": 3,
+      "question": "Can the IT helper restore last night's backup onto a spare machine this week and open it in the practice software, with a few known patients' records and X-rays checked against the live system?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "A truthful answer about restoring last night's backup would say there is nothing to restore since it has been failing."
+    },
+    {
+      "q": 4,
+      "question": "Is the key or password needed to decrypt the backup written down somewhere you can actually find it today, and has anyone confirmed it works by decrypting a file?",
+      "reveals": [],
+      "generic": false,
+      "note": "Asks about decryption key, not the service login location."
+    },
+    {
+      "q": 5,
+      "question": "Ask the practice software vendor in writing whether the license is tied to the old PC's hardware ID or computer name, and what steps (and what weekend support contact) exist for moving it to the new server.",
+      "reveals": [],
+      "generic": false,
+      "note": "Licensing with vendor; none of the facts."
+    },
+    {
+      "q": 6,
+      "question": "Does the vendor's documentation or support say how to copy this database safely (stop the service, built-in export or backup tool), and does the plan include comparing record counts and file checksums between old and new copies before Monday?",
+      "reveals": [],
+      "generic": false,
+      "note": "Safe copy procedure; none of the facts."
+    },
+    {
+      "q": 7,
+      "question": "Run the old PC's disk health check (SMART status, error logs, reallocated sectors) and note the result: is the disk healthy enough to survive a full-day copy, and has a second full copy been made to an external drive before starting?",
+      "reveals": [],
+      "generic": false,
+      "note": "Disk health of old PC; none of the facts."
+    },
+    {
+      "q": 8,
+      "question": "Has the IT helper worked with this specific practice software and its vendor before, or only with other systems? Ask for the names of the previous offices and whether they used the same product.",
+      "reveals": [],
+      "generic": false,
+      "note": "IT helper's experience; none of the facts."
+    },
+    {
+      "q": 9,
+      "question": "Which computers and devices in the clinic (reception, treatment rooms, X-ray sensors) connect to the database, and what settings on each must change to point at the new server before Monday?",
+      "reveals": [],
+      "generic": false,
+      "note": "Connected devices; none of the facts."
+    },
+    {
+      "q": 10,
+      "question": "Is the old PC's cloud backup account still paid and active: check the payment method, expiry date and storage quota in the account's billing page.",
+      "reveals": [],
+      "generic": false,
+      "note": "Billing status; does not reveal upload failures or alert routing."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Last successful backup and 90-day history would show the backup has failed for three months.\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Backup scope/configuration; does not reveal failures, login location or alert routing.\"}, {\"q\": 3, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"A truthful answer about restoring last night's backup would say there is nothing to restore since it has been failing.\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Asks about decryption key, not the service login location.\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Licensing with vendor; none of the facts.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Safe copy procedure; none of the facts.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Disk health of old PC; none of the facts.\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"IT helper's experience; none of the facts.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Connected devices; none of the facts.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Billing status; does not reveal upload failures or alert routing.\"}]}"
+}

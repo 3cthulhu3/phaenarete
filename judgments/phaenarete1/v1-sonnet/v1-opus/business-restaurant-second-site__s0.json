@@ -1,0 +1,91 @@
+{
+  "case_id": "business-restaurant-second-site",
+  "arm": "phaenarete1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t1",
+    "f2": "c1",
+    "f3": "c2",
+    "f4": "t2"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "Ask the landlord's agent for the pedestrian count's raw data: which days, which hours, which weeks, which counting method, and whether an event or market took place. Then do your own count at the door during lunch, dinner and weekend times on at least three different days.",
+      "reveals": [
+        "t1",
+        "c1"
+      ],
+      "generic": false,
+      "note": "Asks counting method, dates and events directly"
+    },
+    {
+      "q": 2,
+      "question": "Stand at the site in the hours you need diners and count how many passers-by are walking through to a station or shop versus lingering or looking at restaurants; compare with the same count outside your first restaurant to get a rough conversion ratio.",
+      "reveals": [],
+      "generic": false,
+      "note": "Own count; no fact"
+    },
+    {
+      "q": 3,
+      "question": "Ask the council planning office and a kitchen contractor in writing whether the former shop can get a change of use, extraction ventilation, a grease trap and gas supply, what the lease says on landlord approval for those works, and what the realistic cost and timeline are.",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Extraction ventilation and approval for works reveals the duct ban"
+    },
+    {
+      "q": 4,
+      "question": "Read the lease: is there a personal guarantee, a break clause, a rent-free period during fit-out, a rent review schedule and a clause for a sale or assignment of the lease? Ask a lawyer to mark which terms could trap you for ten years.",
+      "reveals": [],
+      "generic": false,
+      "note": "Lease clauses; no fact"
+    },
+    {
+      "q": 5,
+      "question": "Check footfall risks on the street: look up planned construction works, the council's plans, retail vacancy on the street and any known closures of anchor tenants nearby.",
+      "reveals": [],
+      "generic": false,
+      "note": "Street footfall risks; no fact"
+    },
+    {
+      "q": 6,
+      "question": "Rebuild your financial plan with realistic cases: traffic at half of the claimed level, fit-out overruns of 30 percent and a slow ramp-up of 12 months; does the second site still reach profit within 18 months and how much cash does it need?",
+      "reveals": [],
+      "generic": false,
+      "note": "Financial scenarios; no fact"
+    },
+    {
+      "q": 7,
+      "question": "Ask the landlord's agent how many viewings the other interested tenant has had and whether an offer has been received, and ask whether the deadline can be extended by a week or two for a conditional agreement subject to permits.",
+      "reveals": [],
+      "generic": false,
+      "note": "Competing tenant; no fact"
+    },
+    {
+      "q": 8,
+      "question": "Compare the demographics, price level and competition on this street with the first site: who are the customers by time of day, and which restaurants nearby are full or empty at dinner?",
+      "reveals": [],
+      "generic": false,
+      "note": "Demographics; no fact"
+    },
+    {
+      "q": 9,
+      "question": "Which of your first restaurant's sales come from neighbourhood regulars and word of mouth that would not transfer, and what share could be reached by a new street's passers-by? Check the loyalty data or reservation records.",
+      "reveals": [],
+      "generic": false,
+      "note": "First restaurant customer base; no fact"
+    },
+    {
+      "q": 10,
+      "question": "Write down who runs the first restaurant during the fit-out and opening months, how many hours the head chef and you each would spend away, and which second-in-command could cover without quality dropping; test it for two weeks beforehand.",
+      "reveals": [],
+      "generic": false,
+      "note": "Management coverage; no fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f1\", \"f2\"], \"generic\": false, \"note\": \"Asks counting method, dates and events directly\"}, {\"q\": 2, \"reveals\": [], \"generic\": false, \"note\": \"Own count; no fact\"}, {\"q\": 3, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Extraction ventilation and approval for works reveals the duct ban\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Lease clauses; no fact\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Street footfall risks; no fact\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Financial scenarios; no fact\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Competing tenant; no fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Demographics; no fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"First restaurant customer base; no fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Management coverage; no fact\"}]}"
+}

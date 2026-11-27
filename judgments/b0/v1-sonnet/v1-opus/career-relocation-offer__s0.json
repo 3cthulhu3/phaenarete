@@ -1,0 +1,94 @@
+{
+  "case_id": "career-relocation-offer",
+  "arm": "b0",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "c2",
+    "f2": "c1",
+    "f3": "t2",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What are the verified details of the offer in writing: base salary, bonus, equity, pension, tax, social security and health insurance, relocation support, and how does the 40% net gain hold up after a careful local cost-of-living and tax comparison, including rent in Zurich?",
+      "reveals": [],
+      "generic": false,
+      "note": "Offer financials; no hidden fact."
+    },
+    {
+      "q": 2,
+      "question": "How firm is the promise of leading a new subteam within a year: is it written into the offer or role description, who decides, what are the criteria, and what happens if the team does not grow as planned?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "How firm the subteam promise is would bring out the manager's resignation and that the subteam is not in the plan."
+    },
+    {
+      "q": 3,
+      "question": "What do I know about the hiring manager, the team, the company's financial stability, and its culture, and what would current and former employees say about turnover, workload, and growth opportunities?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "What I know about the hiring manager: the resignation would be the first thing mentioned. The manager's background is not clearly stated."
+    },
+    {
+      "q": 4,
+      "question": "What are the visa, work-permit, and residence implications for me and my partner, and does my partner's remote arrangement remain legal and tax-compliant when working from Switzerland for a German employer?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Asks whether remote work from Switzerland stays legal and tax-compliant."
+    },
+    {
+      "q": 5,
+      "question": "How secure is my partner's job arrangement over time: is the remote permission formal and long-term, and what is the plan if the employer changes the policy or my partner wants to change jobs while living in Zurich?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Asks whether the remote permission is formal, which reveals the Germany-only limit."
+    },
+    {
+      "q": 6,
+      "question": "How does my partner feel about the move beyond the job, and what would they be giving up or gaining, such as friends, family, social life, language, community, and their own career development?",
+      "reveals": [],
+      "generic": false,
+      "note": "Partner's feelings; no hidden fact."
+    },
+    {
+      "q": 7,
+      "question": "Can I realistically achieve the same step up in responsibility in Munich, for example by talking to my current employer about a promotion, a lead role, or a timeline, or by looking at other employers, and what would that cost me in time?",
+      "reveals": [],
+      "generic": false,
+      "note": "Munich alternatives; no hidden fact."
+    },
+    {
+      "q": 8,
+      "question": "What are the practical risks of the move, including probation period and notice terms in Switzerland, the three-month timeline for housing and relocation, and the financial cushion if the job does not work out and we need to return?",
+      "reveals": [],
+      "generic": false,
+      "note": "Probation and logistics; no hidden fact."
+    },
+    {
+      "q": 9,
+      "question": "How would the move affect our broader life priorities, such as distance from family and friends, long-term plans (children, buying property, retirement), healthcare, and the lifestyle we want in each city?",
+      "reveals": [],
+      "generic": false,
+      "note": "Life priorities; no hidden fact."
+    },
+    {
+      "q": 10,
+      "question": "What would I regret more in five years, and are there ways to reduce the risk of either choice, such as negotiating a later start, a trial period, a title and scope in writing, or a relocation package, before the ten-day deadline?",
+      "reveals": [],
+      "generic": false,
+      "note": "Regret and risk reduction; no hidden fact."
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [], \"generic\": false, \"note\": \"Offer financials; no hidden fact.\"}, {\"q\": 2, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"How firm the subteam promise is would bring out the manager's resignation and that the subteam is not in the plan.\"}, {\"q\": 3, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"What I know about the hiring manager: the resignation would be the first thing mentioned. The manager's background is not clearly stated.\"}, {\"q\": 4, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Asks whether remote work from Switzerland stays legal and tax-compliant.\"}, {\"q\": 5, \"reveals\": [\"f1\"], \"generic\": false, \"note\": \"Asks whether the remote permission is formal, which reveals the Germany-only limit.\"}, {\"q\": 6, \"reveals\": [], \"generic\": false, \"note\": \"Partner's feelings; no hidden fact.\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Munich alternatives; no hidden fact.\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Probation and logistics; no hidden fact.\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Life priorities; no hidden fact.\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Regret and risk reduction; no hidden fact.\"}]}"
+}

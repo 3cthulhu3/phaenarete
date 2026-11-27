@@ -1,0 +1,156 @@
+{
+  "case_id": "career-relocation-offer",
+  "arm": "phaenarete1",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "96309723c544",
+  "created": "2026-11-27T08:04:21.688069+00:00",
+  "questions": [
+    "Ask your partner to send the exact remote-work policy to their HR and ask in writing: may they work from Switzerland, and who handles Swiss tax, social insurance and registration for them?",
+    "Can you get the subteam lead role, its scope and a rough timeline written into the offer letter or a signed side letter, and what does the hiring manager say when you ask?",
+    "Ask the hiring manager directly (not the recruiter) about the planned headcount, the funding situation and whether any reorganization or hiring freeze is under discussion; what do they say, and does it match what you find on LinkedIn about recent departures and layoffs?",
+    "Read the contract's probation clause: how long is the probation, what notice period applies to each side, and what severance, if any, applies if you are let go in the first six months?",
+    "Take three real flat listings in the Zurich areas you could accept and add up actual rent, deposit and commute; how long are viewings taking according to agents or local housing groups, and what would temporary housing cost for three months?",
+    "Recalculate the 40% figure from your salary slip basis: subtract Swiss income tax, mandatory health insurance, and social contributions, and compare with your current net in Munich. What is the net difference per month?",
+    "Is the bonus or equity part of the offer contractually guaranteed, and how much of the 40% depends on it?",
+    "Talk to two or three people who currently work on the Zurich team, or recently left it: what do they say about workload, the promised growth, and how the manager handled earlier promises?",
+    "Ask your current employer, with the offer in hand or as a hypothetical, whether a senior or lead path exists within two years; what is the answer and in what form (written, from whom)?",
+    "Ask your partner separately what they need to be happy in Zurich (social contacts, language, office or co-working access), and have them spend a week there working remotely before you sign."
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "map": {
+      "lean": {
+        "option": "Accept the Zurich offer and move",
+        "reasons": "The offer pays about 40% more after cost of living, promises a step up with a subteam lead role within a year, the partner can work remotely from Zurich, and the Munich job has no senior opening in sight."
+      },
+      "premortem": [
+        "The reorganization at the Zurich company, already in discussion, cancels the new subteam; the hiring manager leaves within six months and the promised lead role disappears, leaving a senior title with no added responsibility.",
+        "The probation period and Swiss contract terms are shorter on notice than expected, and the company lets the person go during a hiring freeze after three months, when they have already signed a lease and moved.",
+        "The partner's employer allows remote work only in Germany for tax or legal reasons; working from Switzerland triggers social security and permit issues, so the employer withdraws permission and the partner must quit or return.",
+        "The cost-of-living adjustment underestimated housing: finding a flat takes months in a tight market, temporary housing eats savings, and the real net advantage is half what was estimated.",
+        "The partner is isolated working from home in a new country with no network and little German-speaking social life, and the relationship strain from the move, not the job, becomes the main reason they return to Munich after a year."
+      ],
+      "beliefs": [
+        {
+          "id": "b1",
+          "belief": "The Zurich offer is worth about 40% more after living costs.",
+          "rests_on": "A personal comparison using general cost-of-living figures and the offered salary.",
+          "how_wrong": "It may omit Swiss taxes, health insurance, deposits, childcare or commuting, and housing costs may differ from averages; the bonus or equity may not be guaranteed.",
+          "impact": 4,
+          "checked": 3
+        },
+        {
+          "id": "b2",
+          "belief": "The hiring manager will really give them a subteam lead role within a year.",
+          "rests_on": "What the recruiter said and the hiring manager's verbal wish.",
+          "how_wrong": "It is a spoken statement, partly relayed by a recruiter, not written in the contract, and depends on growth, budget and the manager staying.",
+          "impact": 5,
+          "checked": 2
+        },
+        {
+          "id": "b3",
+          "belief": "The team is growing and the company is stable.",
+          "rests_on": "The recruiter's statement.",
+          "how_wrong": "Recruiters have an interest in presenting the company positively; actual headcount plans, funding and recent layoffs have not been verified.",
+          "impact": 4,
+          "checked": 1
+        },
+        {
+          "id": "b4",
+          "belief": "The partner can keep their job from Zurich.",
+          "rests_on": "The partner's employer's general remote work policy.",
+          "how_wrong": "Policy may cover only certain countries, and working from Switzerland may raise tax, social insurance and employer registration issues that were not checked with HR.",
+          "impact": 5,
+          "checked": 2
+        },
+        {
+          "id": "b5",
+          "belief": "Staying in Munich offers no path to a senior role.",
+          "rests_on": "The absence of an opening and the person's impression of the company.",
+          "how_wrong": "Openings can appear unexpectedly, and the employer may react to a competing offer with a promotion; this was not tested by asking.",
+          "impact": 3,
+          "checked": 2
+        },
+        {
+          "id": "b6",
+          "belief": "The partner and they will be happy living in Zurich.",
+          "rests_on": "A general expectation based on visits or reputation.",
+          "how_wrong": "Short visits differ from daily life, and the partner's social needs and the language and housing situation have not been tried.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b7",
+          "belief": "Ten days and three months are enough to decide and to relocate properly.",
+          "rests_on": "The offer's stated timeline.",
+          "how_wrong": "Housing search, permits, registration and notice in the current job may take longer than assumed, and the timeline has not been checked with the employer.",
+          "impact": 3,
+          "checked": 2
+        }
+      ]
+    },
+    "questions": [
+      {
+        "question": "Ask your partner to send the exact remote-work policy to their HR and ask in writing: may they work from Switzerland, and who handles Swiss tax, social insurance and registration for them?",
+        "targets": "b4",
+        "impact": 5,
+        "checked": 2
+      },
+      {
+        "question": "Can you get the subteam lead role, its scope and a rough timeline written into the offer letter or a signed side letter, and what does the hiring manager say when you ask?",
+        "targets": "b2",
+        "impact": 5,
+        "checked": 2
+      },
+      {
+        "question": "Ask the hiring manager directly (not the recruiter) about the planned headcount, the funding situation and whether any reorganization or hiring freeze is under discussion; what do they say, and does it match what you find on LinkedIn about recent departures and layoffs?",
+        "targets": "b3",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Read the contract's probation clause: how long is the probation, what notice period applies to each side, and what severance, if any, applies if you are let go in the first six months?",
+        "targets": "2",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Take three real flat listings in the Zurich areas you could accept and add up actual rent, deposit and commute; how long are viewings taking according to agents or local housing groups, and what would temporary housing cost for three months?",
+        "targets": "4",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Recalculate the 40% figure from your salary slip basis: subtract Swiss income tax, mandatory health insurance, and social contributions, and compare with your current net in Munich. What is the net difference per month?",
+        "targets": "b1",
+        "impact": 4,
+        "checked": 3
+      },
+      {
+        "question": "Is the bonus or equity part of the offer contractually guaranteed, and how much of the 40% depends on it?",
+        "targets": "b1",
+        "impact": 4,
+        "checked": 3
+      },
+      {
+        "question": "Talk to two or three people who currently work on the Zurich team, or recently left it: what do they say about workload, the promised growth, and how the manager handled earlier promises?",
+        "targets": "1",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "Ask your current employer, with the offer in hand or as a hypothetical, whether a senior or lead path exists within two years; what is the answer and in what form (written, from whom)?",
+        "targets": "b5",
+        "impact": 3,
+        "checked": 2
+      },
+      {
+        "question": "Ask your partner separately what they need to be happy in Zurich (social contacts, language, office or co-working access), and have them spend a week there working remotely before you sign.",
+        "targets": "5",
+        "impact": 4,
+        "checked": 2
+      }
+    ]
+  }
+}

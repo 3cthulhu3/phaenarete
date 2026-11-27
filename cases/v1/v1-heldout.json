@@ -1,0 +1,222 @@
+[
+  {
+    "id": "housing-mortgage-refinance",
+    "category": "housing",
+    "source": "synthetic",
+    "benchmark": "v1",
+    "author": "claude",
+    "decision": "Should we refinance our flat's mortgage with the new lender's lower-rate offer now, or keep the current loan?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Refinance with the new lender now"
+      },
+      {
+        "id": "B",
+        "label": "Keep the current loan"
+      }
+    ],
+    "goal": "Pay less in total over the next five years without taking on more risk.",
+    "constraints": "The offer is valid for three weeks.",
+    "visible_context": "The new lender offers a rate 1.1 points below our current one. Our broker estimated the fee for ending the current loan early at about one month of payments, which the savings recover within a year. We plan to stay in the flat for at least five years. Both loans are with well-known banks.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {
+        "id": "c1",
+        "type": "crux",
+        "favors": "B",
+        "text": "The offered rate is fixed only for the first two years; after that it follows a variable index that is currently above our existing rate.",
+        "why": "Over five years the new loan is likely to cost more, and it adds rate risk the current loan does not have.",
+        "how_to_learn": "Read the rate section of the offer document, not the headline rate, and ask how the rate is set after the fixed period."
+      },
+      {
+        "id": "c2",
+        "type": "crux",
+        "favors": "B",
+        "text": "The broker's estimate of the early-exit fee was based on the original loan amount; with the extra amount we borrowed last year, the actual fee is about five months of payments.",
+        "why": "The savings would take several years to recover the fee, which removes most of the gain.",
+        "how_to_learn": "Ask the current bank for a written early-repayment quote for the actual balance."
+      },
+      {
+        "id": "t1",
+        "type": "twin",
+        "twin_of": "c1",
+        "text": "The new lender's offer document is twelve pages long and also available in English.",
+        "why": "The length and language of the document do not change its terms."
+      },
+      {
+        "id": "t2",
+        "type": "twin",
+        "twin_of": "c2",
+        "text": "The broker has worked with our current bank for many years.",
+        "why": "The broker's relationship with the bank does not change the fee."
+      }
+    ],
+    "notes": "Held out: written before pipeline v1 was run on any case."
+  },
+  {
+    "id": "career-relocation-offer",
+    "category": "career",
+    "source": "synthetic",
+    "benchmark": "v1",
+    "author": "claude",
+    "decision": "Should I accept a senior engineering offer in Zurich and move there with my partner, or stay in my current job in Munich?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Accept the Zurich offer and move"
+      },
+      {
+        "id": "B",
+        "label": "Stay in my current job in Munich"
+      }
+    ],
+    "goal": "Take a real step up in responsibility within two years while my partner keeps their job.",
+    "constraints": "I have to answer within ten days; the start date would be in three months.",
+    "visible_context": "The offer pays about 40% more after accounting for the higher cost of living. The recruiter says the team is growing and the hiring manager wants me to lead a new subteam within a year. My partner's employer allows full remote work, so they can keep their job from Zurich. My current job is stable but there is no senior opening in sight.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {
+        "id": "c1",
+        "type": "crux",
+        "favors": "B",
+        "text": "The hiring manager who promised the subteam has already resigned and leaves before my start date; the new subteam is not in next year's plan.",
+        "why": "The step up in responsibility, the main reason for moving, is unlikely to happen.",
+        "how_to_learn": "Ask to speak with someone on the team, or ask the hiring manager directly whether they will still be there and whether the subteam is in the budget."
+      },
+      {
+        "id": "c2",
+        "type": "crux",
+        "favors": "B",
+        "text": "My partner's employer allows remote work only from within Germany, for tax and employment-law reasons.",
+        "why": "My partner would have to give up their job to move, which breaks the goal.",
+        "how_to_learn": "My partner asks their HR department in writing whether remote work from Switzerland is allowed."
+      },
+      {
+        "id": "t1",
+        "type": "twin",
+        "twin_of": "c1",
+        "text": "The hiring manager joined the company two years ago from a competitor.",
+        "why": "Where the manager came from says nothing about whether the promise will be kept."
+      },
+      {
+        "id": "t2",
+        "type": "twin",
+        "twin_of": "c2",
+        "text": "My partner's employer uses a different video-call tool than my future team.",
+        "why": "The tool does not affect whether my partner can work from Switzerland."
+      }
+    ],
+    "notes": "Held out: written before pipeline v1 was run on any case."
+  },
+  {
+    "id": "business-restaurant-second-site",
+    "category": "business",
+    "source": "synthetic",
+    "benchmark": "v1",
+    "author": "claude",
+    "decision": "Should we sign a ten-year lease for a second restaurant location on a busy street, or keep looking?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Sign the lease for this location"
+      },
+      {
+        "id": "B",
+        "label": "Keep looking for another site"
+      }
+    ],
+    "goal": "Open a second location that is profitable within 18 months without putting the first one at risk.",
+    "constraints": "The landlord wants an answer within two weeks; another tenant is interested.",
+    "visible_context": "Our first restaurant is profitable and the menu works. The landlord's agent shared a pedestrian count showing much more foot traffic than at our first location. The rent is high but fits our plan if the traffic holds. The space was previously a clothing shop, so it needs a kitchen fit-out.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {
+        "id": "c1",
+        "type": "crux",
+        "favors": "B",
+        "text": "The agent's pedestrian count was taken during the week of the street's annual festival.",
+        "why": "Normal traffic is likely far lower, so the high rent may not be covered.",
+        "how_to_learn": "Ask when the count was taken, or count yourself on ordinary weekdays and evenings."
+      },
+      {
+        "id": "c2",
+        "type": "crux",
+        "favors": "B",
+        "text": "The building's owners' association does not permit an extraction duct through the roof or facade, which a cooking kitchen needs.",
+        "why": "We may not be able to run a full kitchen in the space at all, or only at a large extra cost.",
+        "how_to_learn": "Ask the landlord for the building rules and check with the city or a kitchen fitter whether ventilation can be approved."
+      },
+      {
+        "id": "t1",
+        "type": "twin",
+        "twin_of": "c1",
+        "text": "The agent's pedestrian count was made with a counting app on a phone.",
+        "why": "The counting method is fine for this purpose; when the count was made matters, not how."
+      },
+      {
+        "id": "t2",
+        "type": "twin",
+        "twin_of": "c2",
+        "text": "The building's facade was renovated three years ago.",
+        "why": "The renovation says nothing about whether a duct is allowed."
+      }
+    ],
+    "notes": "Held out: written before pipeline v1 was run on any case."
+  },
+  {
+    "id": "product-app-release-before-sale",
+    "category": "product",
+    "source": "synthetic",
+    "benchmark": "v1",
+    "author": "claude",
+    "decision": "Should we ship the new checkout in our shopping app two days before the holiday sale, or wait until after the sale?",
+    "options": [
+      {
+        "id": "A",
+        "label": "Ship the new checkout before the sale"
+      },
+      {
+        "id": "B",
+        "label": "Ship after the sale"
+      }
+    ],
+    "goal": "Maximize sale-week revenue without a checkout outage.",
+    "constraints": "The sale starts in nine days; the app stores need time to review the update.",
+    "visible_context": "In the beta, the new checkout raised conversion by about 8%. The crash dashboard shows the beta build is as stable as the current one. The team plans to announce the sale with a push notification to all 2 million users at the start of the sale. Rolling back means shipping another app update.",
+    "lean_without_hidden": "A",
+    "hidden_facts": [
+      {
+        "id": "c1",
+        "type": "crux",
+        "favors": "B",
+        "text": "The crash dashboard does not include devices on the oldest supported OS version, which about a quarter of our customers use, because the crash reporting library does not support it.",
+        "why": "The new checkout's stability on a quarter of the user base is unknown, and a rollback during sale week is slow.",
+        "how_to_learn": "Check which OS versions the crash dashboard covers and test the new checkout on the oldest supported version."
+      },
+      {
+        "id": "c2",
+        "type": "crux",
+        "favors": "B",
+        "text": "The beta testers were mostly staff and loyal customers who already had saved payment details.",
+        "why": "The 8% gain may not hold for the many first-time sale shoppers, so the upside of shipping early is smaller than it looks.",
+        "how_to_learn": "Look at who was in the beta and how the new checkout performed for users without saved payment details."
+      },
+      {
+        "id": "t1",
+        "type": "twin",
+        "twin_of": "c1",
+        "text": "The crash dashboard was redesigned last quarter with new charts.",
+        "why": "The new charts do not change which devices the data covers."
+      },
+      {
+        "id": "t2",
+        "type": "twin",
+        "twin_of": "c2",
+        "text": "The beta ran for three weeks.",
+        "why": "Three weeks is enough time; who was in the beta matters, not how long it ran."
+      }
+    ],
+    "notes": "Held out: written before pipeline v1 was run on any case."
+  }
+]

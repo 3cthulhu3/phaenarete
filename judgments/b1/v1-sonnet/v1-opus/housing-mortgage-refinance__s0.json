@@ -1,0 +1,92 @@
+{
+  "case_id": "housing-mortgage-refinance",
+  "arm": "b1",
+  "gen_model": "v1-sonnet",
+  "judge_model": "v1-opus",
+  "sample": 0,
+  "mapping": {
+    "f1": "t2",
+    "f2": "c2",
+    "f3": "c1",
+    "f4": "t1"
+  },
+  "rows": [
+    {
+      "q": 1,
+      "question": "What is the full cost of switching beyond the one-month early-termination fee: arrangement, valuation, legal, notary or land-registry fees, and any fee the new lender charges, and does the 'recovered within a year' estimate include all of them?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "A truthful full-cost answer would correct the fee to about five months"
+    },
+    {
+      "q": 2,
+      "question": "Is the rate truly comparable: is the new offer fixed or variable, for how long is it fixed, and what does the rate become after the fixed period compared with your current loan's terms?",
+      "reveals": [
+        "c1"
+      ],
+      "generic": false,
+      "note": "Directly asks fixed period and rate afterwards"
+    },
+    {
+      "q": 3,
+      "question": "Does the new loan differ in anything else that affects your five-year cost, such as the remaining term, the amortization schedule, whether the loan amount increases, the rules on overpayments, or conditions that bundle insurance or an account with the lender?",
+      "reveals": [],
+      "generic": false,
+      "note": "Other loan terms; none of the facts"
+    },
+    {
+      "q": 4,
+      "question": "What happens to your total five-year cost if rates fall further, and what would it cost to refinance again or leave the new lender early if that happens or if your plans change?",
+      "reveals": [],
+      "generic": false,
+      "note": "Falling rates and exit costs; no fact"
+    },
+    {
+      "q": 5,
+      "question": "Does the new lender's offer depend on a fresh credit check and property valuation, and what happens if the valuation comes in lower or your income situation looks different now than it did originally?",
+      "reveals": [],
+      "generic": false,
+      "note": "Credit check and valuation; no fact"
+    },
+    {
+      "q": 6,
+      "question": "Is the broker's estimate of the early-exit fee confirmed in writing by your current bank, and is the broker paid more if you switch, so that their advice might lean toward refinancing?",
+      "reveals": [
+        "c2"
+      ],
+      "generic": false,
+      "note": "Checking the fee estimate with the bank reveals the real five-month fee; broker pay question does not directly elicit f1"
+    },
+    {
+      "q": 7,
+      "question": "Have you asked your current lender to match or come close to the new rate, and what would they offer to keep you without any early termination fee?",
+      "reveals": [],
+      "generic": false,
+      "note": "Retention offer; no fact"
+    },
+    {
+      "q": 8,
+      "question": "What is your 'at least five years' plan based on, and at what point (a move, a change in household, a sale) would the savings and fee calculation stop working in favor of refinancing?",
+      "reveals": [],
+      "generic": false,
+      "note": "Five-year plan; no fact"
+    },
+    {
+      "q": 9,
+      "question": "How do the tax treatment, any subsidies or special repayment rights attached to your current loan change if you refinance, and do you lose any of them?",
+      "reveals": [],
+      "generic": false,
+      "note": "Tax and subsidies; no fact"
+    },
+    {
+      "q": 10,
+      "question": "Would a partial option, such as renegotiating the current loan, switching only part of the balance, or waiting to see whether the offer can be extended past three weeks, give you most of the savings with less risk?",
+      "reveals": [],
+      "generic": false,
+      "note": "Partial options; no fact"
+    }
+  ],
+  "raw": "{\"judgments\": [{\"q\": 1, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"A truthful full-cost answer would correct the fee to about five months\"}, {\"q\": 2, \"reveals\": [\"f3\"], \"generic\": false, \"note\": \"Directly asks fixed period and rate afterwards\"}, {\"q\": 3, \"reveals\": [], \"generic\": false, \"note\": \"Other loan terms; none of the facts\"}, {\"q\": 4, \"reveals\": [], \"generic\": false, \"note\": \"Falling rates and exit costs; no fact\"}, {\"q\": 5, \"reveals\": [], \"generic\": false, \"note\": \"Credit check and valuation; no fact\"}, {\"q\": 6, \"reveals\": [\"f2\"], \"generic\": false, \"note\": \"Checking the fee estimate with the bank reveals the real five-month fee; broker pay question does not directly elicit f1\"}, {\"q\": 7, \"reveals\": [], \"generic\": false, \"note\": \"Retention offer; no fact\"}, {\"q\": 8, \"reveals\": [], \"generic\": false, \"note\": \"Five-year plan; no fact\"}, {\"q\": 9, \"reveals\": [], \"generic\": false, \"note\": \"Tax and subsidies; no fact\"}, {\"q\": 10, \"reveals\": [], \"generic\": false, \"note\": \"Partial options; no fact\"}]}"
+}

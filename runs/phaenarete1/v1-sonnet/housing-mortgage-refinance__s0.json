@@ -1,0 +1,156 @@
+{
+  "case_id": "housing-mortgage-refinance",
+  "arm": "phaenarete1",
+  "model": "v1-sonnet",
+  "sample": 0,
+  "prompt_sha": "96309723c544",
+  "created": "2026-11-27T08:04:21.686262+00:00",
+  "questions": [
+    "Ask your current bank for a written early-termination quote with the exact figure and the date it applies, and read the clause in your loan contract on the early-repayment penalty (is it a fixed month, or a lost-interest calculation over the remaining fixed term)?",
+    "Request the new lender's binding written offer including the full fee schedule (origination, valuation, notary, land registry, account package) and the total cost over five years; add it all up.",
+    "Put the two contracts side by side and compare clause by clause: fixed-rate period, what happens when it ends, rate reset rules, annual special repayment allowance, exit penalties, and conditions on the account package.",
+    "What exactly is the new rate fixed for, and until when? Check the offer document for the end date of the fixed period and what rate model applies afterward, then compare with the current loan's remaining period.",
+    "Rebuild the payback calculation yourself with a spreadsheet using the actual balance, remaining term, both rates, the written exit fee and all new costs; after how many months does the refinancing break even?",
+    "Which conditions in the offer are still open at final approval (valuation, income proof, credit check, loan-to-value tier)? Ask the lender in writing which rate tier you are in and whether a lower valuation would change the rate.",
+    "Ask the lender how long the process from acceptance to payout normally takes and whether the quoted terms stay valid if payout falls after the three-week deadline; what do they commit to in writing?",
+    "Check what each loan charges if you sell the flat before five years (exit penalty, portability), and what you would owe in a realistic early-sale scenario in year three.",
+    "Does the new loan allow overpayments of the size you might make in year three (a bonus or inheritance)? Compare the annual overpayment cap and any fee with the current loan.",
+    "Check whether either lender sells loans on to third-party servicers and read their loan contract's terms about this, and what the complaints record or servicing reviews say about how they handle borrowers with payment trouble."
+  ],
+  "raw": "(pipeline: see trace)",
+  "trace": {
+    "map": {
+      "lean": {
+        "option": "Refinance with the new lender now",
+        "reasons": "The rate is 1.1 points lower, the broker says the early-exit fee is recovered within a year, they plan to stay at least five years, and both lenders are well-known banks, so it looks like clear savings with little added risk."
+      },
+      "premortem": [
+        "The new lender's offer quotes only the headline rate; origination, valuation, notary and land-registry costs plus a mandatory account package add several thousand euros, so the first-year payback never happens.",
+        "The new loan has a short fixed-rate period or a variable component that resets after two years, and rates have risen by then, so total cost over five years ends up above the current loan.",
+        "The current loan has a clause that makes the early-exit fee far larger than one month of payments (for example a lost-interest penalty tied to the remaining fixed term), and the broker's estimate was a rough guess never confirmed in writing by the current bank.",
+        "The new lender's final approval comes with a lower property valuation or a requirement for a higher down payment than the current loan, forcing a top-up from savings or a worse rate tier just before the three-week deadline.",
+        "The new loan restricts special repayments or has a lower annual overpayment allowance than the current one, and when the owners receive a bonus or inheritance in year three they cannot pay down the loan without a penalty."
+      ],
+      "beliefs": [
+        {
+          "id": "b1",
+          "belief": "The new rate really is 1.1 points lower and stays that way for the period that matters.",
+          "rests_on": "The new lender's offer sheet or the broker's summary of it.",
+          "how_wrong": "The quoted rate may depend on conditions (bundled products, a particular loan-to-value) that change at final approval, or may only be fixed for a shorter period than the current loan.",
+          "impact": 5,
+          "checked": 3
+        },
+        {
+          "id": "b2",
+          "belief": "Ending the current loan early costs only about one month of payments.",
+          "rests_on": "The broker's verbal estimate.",
+          "how_wrong": "It is second-hand and not a written figure from the current bank; the real penalty depends on contract terms, remaining fixed period and date of termination.",
+          "impact": 5,
+          "checked": 2
+        },
+        {
+          "id": "b3",
+          "belief": "The savings recover the fee within a year.",
+          "rests_on": "The broker's arithmetic comparing the rate gap with the fee.",
+          "how_wrong": "It may ignore closing costs, valuation and registry fees, or assume the loan balance and term are the same, so payback could be far longer.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b4",
+          "belief": "They will stay in the flat for at least five years.",
+          "rests_on": "Their own current plans and expectations.",
+          "how_wrong": "Plans were made under current circumstances; a job move, a growing family or separation could force a sale earlier, and the new loan may carry exit penalties of its own.",
+          "impact": 3,
+          "checked": 3
+        },
+        {
+          "id": "b5",
+          "belief": "The new loan's non-rate terms (repayment flexibility, fixed period, penalties) are at least as good as the current loan's.",
+          "rests_on": "A general impression that both are standard loans from well-known banks.",
+          "how_wrong": "Nobody has compared the contract documents clause by clause; the impression is based on reputation, not the actual terms.",
+          "impact": 4,
+          "checked": 1
+        },
+        {
+          "id": "b6",
+          "belief": "The new lender will approve and pay out on the offered terms within the three-week validity.",
+          "rests_on": "The offer letter and the broker's assurance that the process is routine.",
+          "how_wrong": "Offers are often conditional on valuation, updated income proof and credit checks that happen later and could change the terms or delay beyond the deadline.",
+          "impact": 4,
+          "checked": 2
+        },
+        {
+          "id": "b7",
+          "belief": "Both lenders are safe, well-known banks, so the lender choice adds no real risk.",
+          "rests_on": "General brand recognition.",
+          "how_wrong": "Reputation says little about how the bank handles servicing, loan sales to third parties, or behaviour when a borrower has a problem; this has never been tested for them.",
+          "impact": 2,
+          "checked": 2
+        }
+      ]
+    },
+    "questions": [
+      {
+        "question": "Ask your current bank for a written early-termination quote with the exact figure and the date it applies, and read the clause in your loan contract on the early-repayment penalty (is it a fixed month, or a lost-interest calculation over the remaining fixed term)?",
+        "targets": "b2",
+        "impact": 5,
+        "checked": 2
+      },
+      {
+        "question": "Request the new lender's binding written offer including the full fee schedule (origination, valuation, notary, land registry, account package) and the total cost over five years; add it all up.",
+        "targets": "1",
+        "impact": 5,
+        "checked": 2
+      },
+      {
+        "question": "Put the two contracts side by side and compare clause by clause: fixed-rate period, what happens when it ends, rate reset rules, annual special repayment allowance, exit penalties, and conditions on the account package.",
+        "targets": "b5",
+        "impact": 4,
+        "checked": 1
+      },
+      {
+        "question": "What exactly is the new rate fixed for, and until when? Check the offer document for the end date of the fixed period and what rate model applies afterward, then compare with the current loan's remaining period.",
+        "targets": "2",
+        "impact": 5,
+        "checked": 3
+      },
+      {
+        "question": "Rebuild the payback calculation yourself with a spreadsheet using the actual balance, remaining term, both rates, the written exit fee and all new costs; after how many months does the refinancing break even?",
+        "targets": "b3",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Which conditions in the offer are still open at final approval (valuation, income proof, credit check, loan-to-value tier)? Ask the lender in writing which rate tier you are in and whether a lower valuation would change the rate.",
+        "targets": "4",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Ask the lender how long the process from acceptance to payout normally takes and whether the quoted terms stay valid if payout falls after the three-week deadline; what do they commit to in writing?",
+        "targets": "b6",
+        "impact": 4,
+        "checked": 2
+      },
+      {
+        "question": "Check what each loan charges if you sell the flat before five years (exit penalty, portability), and what you would owe in a realistic early-sale scenario in year three.",
+        "targets": "b4",
+        "impact": 3,
+        "checked": 3
+      },
+      {
+        "question": "Does the new loan allow overpayments of the size you might make in year three (a bonus or inheritance)? Compare the annual overpayment cap and any fee with the current loan.",
+        "targets": "5",
+        "impact": 3,
+        "checked": 1
+      },
+      {
+        "question": "Check whether either lender sells loans on to third-party servicers and read their loan contract's terms about this, and what the complaints record or servicing reviews say about how they handle borrowers with payment trouble.",
+        "targets": "b7",
+        "impact": 2,
+        "checked": 2
+      }
+    ]
+  }
+}
