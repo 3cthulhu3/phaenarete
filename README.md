@@ -97,7 +97,7 @@ Python 3.10+, standard library only.
 ```bash
 export ANTHROPIC_API_KEY=...
 python3 validate_cases.py cases/
-python3 run_arm.py --arm b0 --cases cases/            # generator: claude-sonnet-5-5 by default
+python3 run_arm.py --arm b0 --cases cases/            
 python3 run_arm.py --arm b1 --cases cases/
 python3 run_arm.py --arm phaenarete --cases cases/
 python3 judge.py --arm b0 --gen-model claude-sonnet-5-5 --cases cases/   # judge: claude-opus-5-5
